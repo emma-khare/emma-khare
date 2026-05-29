@@ -26,7 +26,7 @@ export function Footer() {
           <p className="label-mono mb-3">Elsewhere</p>
           <ul className="space-y-2 text-sm">
             <li>
-              <a href="mailto:emma.khare@gmail.com" className="link-underline">emma.khare@gmail.com</a>
+              <a href="mailto:emmakhare24@gmail.com" className="link-underline">emmakhare24@gmail.com</a>
             </li>
             <li>
               <a href="https://www.linkedin.com/in/emmakhare/" target="_blank" rel="noreferrer" className="link-underline">LinkedIn ↗</a>

@@ -14,7 +14,7 @@ export const Route = createFileRoute("/contact")({
 });
 
 const LINKS = [
-  { label: "Email", value: "emma.khare@gmail.com", href: "mailto:emma.khare@gmail.com" },
+  { label: "Email", value: "emmakhare24@gmail.com", href: "mailto:emmakhare24@gmail.com" },
   { label: "LinkedIn", value: "linkedin.com/in/emmakhare", href: "https://www.linkedin.com/in/emmakhare/" },
   { label: "Résumé", value: "Download PDF", href: "/emma-khare-resume.pdf" },
 ];
