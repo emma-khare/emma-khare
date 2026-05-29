@@ -1,9 +1,9 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { MagneticLink } from "./Motion";
+import { useRef, useState } from "react";
+import { useReducedMotion } from "framer-motion";
 
 const NAV = [
-  { to: "/", label: "Index" },
   { to: "/projects", label: "Projects" },
   { to: "/about", label: "About" },
   { to: "/resume", label: "Résumé" },
@@ -30,38 +30,50 @@ export function Header() {
         </Link>
 
         <nav className="flex items-center gap-1 sm:gap-2">
-          {NAV.slice(1).map((item) => {
-            const active =
-              item.to === "/"
-                ? location.pathname === "/"
-                : location.pathname.startsWith(item.to);
-            return (
-              <MagneticLink
-                key={item.to}
-                href={item.to}
-                onClick={(e) => {
-                  // let TanStack Link handle it
-                  e.preventDefault();
-                  window.history.pushState({}, "", item.to);
-                  window.dispatchEvent(new PopStateEvent("popstate"));
-                }}
-                className="relative px-3 py-2 text-sm tracking-tight text-foreground/80 hover:text-foreground"
-              >
-                <Link to={item.to} className="relative">
-                  {item.label}
-                  {active ? (
-                    <motion.span
-                      layoutId="nav-active"
-                      className="absolute -bottom-1 left-0 right-0 h-px bg-foreground"
-                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                    />
-                  ) : null}
-                </Link>
-              </MagneticLink>
-            );
+          {NAV.map((item) => {
+            const active = location.pathname.startsWith(item.to);
+            return <MagneticNavLink key={item.to} to={item.to} label={item.label} active={active} />;
           })}
         </nav>
       </div>
     </motion.header>
+  );
+}
+
+function MagneticNavLink({ to, label, active }: { to: string; label: string; active: boolean }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [pos, setPos] = useState({ x: 0, y: 0 });
+  const reduce = useReducedMotion();
+
+  return (
+    <motion.div
+      ref={ref}
+      animate={{ x: reduce ? 0 : pos.x, y: reduce ? 0 : pos.y }}
+      transition={{ type: "spring", stiffness: 220, damping: 18, mass: 0.4 }}
+      onMouseMove={(e) => {
+        if (reduce || !ref.current) return;
+        const r = ref.current.getBoundingClientRect();
+        setPos({
+          x: (e.clientX - (r.left + r.width / 2)) * 0.25,
+          y: (e.clientY - (r.top + r.height / 2)) * 0.25,
+        });
+      }}
+      onMouseLeave={() => setPos({ x: 0, y: 0 })}
+      className="relative"
+    >
+      <Link
+        to={to}
+        className="relative inline-block px-3 py-2 text-sm tracking-tight text-foreground/80 hover:text-foreground"
+      >
+        {label}
+        {active ? (
+          <motion.span
+            layoutId="nav-active"
+            className="absolute -bottom-0.5 left-3 right-3 h-px bg-foreground"
+            transition={{ type: "spring", stiffness: 380, damping: 30 }}
+          />
+        ) : null}
+      </Link>
+    </motion.div>
   );
 }
