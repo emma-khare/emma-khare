@@ -133,7 +133,7 @@ function ProjectPage() {
             <p className="label-mono">What I did</p>
           </FadeIn>
           <StaggerList className="md:col-span-8 divide-y divide-hairline">
-            {p.methods.map((m, i) => (
+            {p.methods.map((m: string, i: number) => (
               <StaggerItem key={i} variants={staggerItemVariants} className="flex gap-6 py-6 items-start">
                 <span className="font-mono text-sm text-pink-ink pt-1">0{i + 1}</span>
                 <p className="text-lg text-foreground/90 text-pretty">{m}</p>
