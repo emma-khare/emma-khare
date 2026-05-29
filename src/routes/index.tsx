@@ -1,195 +1,228 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import { projects } from "@/data/projects";
-import { Blob, Window, SearchPill } from "@/components/Decor";
+import { FadeIn, WordReveal, StaggerList, StaggerItem, staggerItemVariants, PageWrap } from "@/components/Motion";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Emma Khare — UX Researcher" },
-      { name: "description", content: "Mixed-methods UX researcher working across conversational AI, consumer hardware, and cross-cultural research. Currently at Apple via INSPYR Solutions." },
+      {
+        name: "description",
+        content:
+          "Selected research from Emma Khare — UX research across conversational AI, consumer hardware, education, and language preservation.",
+      },
       { property: "og:title", content: "Emma Khare — UX Researcher" },
-      { property: "og:description", content: "Mixed-methods UX researcher working across conversational AI, consumer hardware, and cross-cultural research." },
+      { property: "og:description", content: "Selected UX research across conversational AI, wearables, and community programs." },
     ],
   }),
-  component: Index,
+  component: Home,
 });
 
-function CursorIcon() {
+function Home() {
   return (
-    <svg viewBox="0 0 32 40" className="h-16 w-12 text-foreground drop-shadow-sm" aria-hidden>
-      <path
-        d="M4 3 L4 30 L11 23 L15 33 L20 31 L16 21 L26 21 Z"
-        fill="currentColor"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinejoin="round"
-      />
-    </svg>
+    <PageWrap>
+      <Hero />
+      <FeaturedWork />
+      <Capabilities />
+      <Closing />
+    </PageWrap>
   );
 }
 
-function Index() {
-  const featured = projects.slice(0, 4);
+function Hero() {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+  const yPink = useTransform(scrollYProgress, [0, 1], [0, -80]);
+  const yBlue = useTransform(scrollYProgress, [0, 1], [0, 120]);
+  const yPurple = useTransform(scrollYProgress, [0, 1], [0, -40]);
 
   return (
-    <div>
-      {/* HERO */}
-      <section className="relative overflow-hidden">
-        <Blob color="coral" className="left-[35%] top-[10%] h-[520px] w-[520px]" />
-        <Blob color="peach" className="left-[55%] top-[40%] h-[300px] w-[300px]" />
+    <section ref={ref} className="relative overflow-hidden">
+      {/* ambient blobs */}
+      <motion.div style={{ y: yPink }} className="blob blob-pink h-[420px] w-[420px] -top-20 -left-20" />
+      <motion.div style={{ y: yBlue }} className="blob blob-blue h-[520px] w-[520px] top-40 -right-32" />
+      <motion.div style={{ y: yPurple }} className="blob blob-purple h-[340px] w-[340px] top-[60vh] left-1/3" />
 
-        <div className="relative mx-auto max-w-6xl px-6 pt-10 pb-24 sm:pt-16 sm:pb-32">
-          <div className="flex items-start gap-6">
-            <div className="hidden flex-col gap-3 pt-2 sm:flex">
-              <a
-                href="https://www.linkedin.com/in/emmakhare/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                className="flex h-11 w-11 items-center justify-center border-[1.5px] border-foreground bg-card text-foreground transition-transform hover:-translate-y-0.5"
-              >
-                <span className="font-display text-lg leading-none">in</span>
-              </a>
-              <a
-                href="mailto:emmakhare24@gmail.com"
-                aria-label="Email"
-                className="flex h-11 w-11 items-center justify-center rounded-sm border-[1.5px] border-foreground bg-card text-foreground transition-transform hover:-translate-y-0.5"
-              >
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5" aria-hidden>
-                  <rect x="3" y="5" width="18" height="14" rx="1" />
-                  <path d="M3 7l9 7 9-7" />
-                </svg>
-              </a>
-            </div>
-
-            <div className="relative flex-1">
-              <div className="hidden sm:block">
-                <SearchPill label="Designing Human-Centered Research" />
-              </div>
-
-              <div className="relative mt-16 sm:mt-28">
-                <div className="absolute -left-2 -top-12 hidden sm:block">
-                  <CursorIcon />
-                </div>
-                <h1 className="text-balance font-display text-[clamp(3.5rem,11vw,9rem)] leading-[0.92]">
-                  emma khare
-                  <br />
-                  <span className="text-[color:var(--coral-ink)]">ux researcher</span>
-                </h1>
-                <p className="mt-8 max-w-2xl text-lg leading-relaxed text-foreground/85">
-                  Mixed-methods researcher with an anthropology background.
-                  Currently moderating UX research at Apple across iPhone, iPad,
-                  Mac, Vision Pro, and AirPods — with conversational-AI protocols
-                  woven through the studies.
-                </p>
-              </div>
-
-              <div className="mt-12 flex items-end justify-between gap-6">
-                <div className="flex flex-wrap items-center gap-3">
-                  <Link
-                    to="/projects"
-                    className="inline-flex items-center justify-center rounded-full border-[1.5px] border-foreground bg-foreground px-6 py-3 text-sm font-semibold text-background shadow-[4px_4px_0_0_var(--foreground)] transition-transform hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[2px_2px_0_0_var(--foreground)]"
-                  >
-                    See case studies →
-                  </Link>
-                  <Link
-                    to="/contact"
-                    className="inline-flex items-center justify-center rounded-full border-[1.5px] border-foreground bg-card px-6 py-3 text-sm font-semibold text-foreground transition-transform hover:-translate-y-0.5"
-                  >
-                    Get in touch
-                  </Link>
-                </div>
-                <p className="hidden font-display text-xl text-foreground/70 sm:block">
-                  +1 402.889.7712
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CONTENTS */}
-      <section className="relative overflow-hidden border-t-[1.5px] border-foreground py-20 sm:py-28">
-        <Blob color="blue" className="left-[10%] top-[20%] h-[420px] w-[520px]" />
-        <Blob color="peach" className="right-[5%] top-[5%] h-[260px] w-[260px]" />
-
-        <div className="relative mx-auto max-w-6xl px-6">
-          <div className="flex flex-wrap items-end justify-between gap-6">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-foreground/70">
-              [ contents ]
-            </p>
-            <h2 className="font-display text-6xl sm:text-8xl">contents</h2>
-          </div>
-
-          <div className="mt-16 grid gap-6 sm:grid-cols-3">
-            {[
-              { num: "01", label: "Experience", to: "/about" as const },
-              { num: "02", label: "Case Studies", to: "/projects" as const },
-              { num: "03", label: "Credentials + Skills", to: "/resume" as const },
-            ].map((c) => (
-              <Link key={c.num} to={c.to}>
-                <Window className="transition-transform hover:-translate-y-1 hover:translate-x-0.5">
-                  <div className="flex flex-col items-center gap-6 py-8 text-center">
-                    <p className="font-display text-6xl tracking-tight text-foreground">
-                      {c.num}
-                    </p>
-                    <p className="font-display text-2xl text-foreground underline underline-offset-4 decoration-2">
-                      {c.label.toLowerCase()}
-                    </p>
-                  </div>
-                </Window>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SELECTED WORK */}
-      <section className="relative mx-auto max-w-6xl px-6 py-20 sm:py-28">
-        <div className="mb-12 flex items-end justify-between gap-6">
-          <h2 className="font-display text-5xl sm:text-7xl">selected work</h2>
-          <Link
-            to="/projects"
-            className="text-sm font-semibold text-foreground underline underline-offset-4 decoration-[color:var(--coral-ink)] decoration-2"
-          >
-            view all →
-          </Link>
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-12 pt-24 pb-32 lg:pt-40 lg:pb-48">
+        <div className="flex items-center gap-3 mb-10">
+          <span className="h-px w-10 bg-foreground" />
+          <span className="label-mono">Portfolio — vol. 01 · 2026</span>
         </div>
 
-        <div className="grid gap-8 sm:grid-cols-2">
-          {featured.map((p, i) => (
+        <h1 className="font-display text-[clamp(2.75rem,8.5vw,7rem)] leading-[0.95] tracking-[-0.035em] text-balance max-w-[18ch]">
+          <WordReveal
+            text="I design the space between insight and action."
+            highlight="insight"
+          />
+        </h1>
+
+        <FadeIn delay={0.5} className="mt-12 grid gap-10 md:grid-cols-12">
+          <p className="md:col-span-7 text-lg md:text-xl text-foreground/80 leading-relaxed text-pretty max-w-[58ch]">
+            I'm <span className="text-foreground font-medium">Emma Khare</span>, a UX researcher
+            working across conversational AI, consumer hardware, and community programs. I write
+            study protocols, moderate sessions, and turn what people actually do into things teams
+            can act on.
+          </p>
+          <div className="md:col-span-5 md:col-start-9 flex flex-col items-start gap-4 self-end">
             <Link
-              key={p.slug}
-              to="/projects/$slug"
-              params={{ slug: p.slug }}
-              className={`group block ${i === 0 ? "sm:col-span-2" : ""}`}
+              to="/projects"
+              className="group inline-flex items-center gap-3 rounded-full bg-foreground text-background px-6 py-3 text-sm font-medium transition-transform hover:scale-[1.02]"
             >
-              <Window className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-0.5">
-                <div className="relative overflow-hidden">
-                  <div className={`relative h-56 w-full overflow-hidden rounded-md sm:h-72 ${i === 0 ? "sm:h-80" : ""}`}>
-                    <div className="absolute inset-0 bg-secondary" aria-hidden />
-                    <Blob color={p.accent as "coral" | "blue" | "pink" | "peach"} className="left-1/2 top-1/2 h-[140%] w-[80%] -translate-x-1/2 -translate-y-1/2" />
-                  </div>
-                  <div className="mt-6 flex items-start justify-between gap-4">
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-foreground/70">
-                        {p.tags[0]} · {p.year.split(" ")[0]}
-                      </p>
-                      <h3 className="mt-3 font-display text-3xl text-foreground sm:text-4xl">
-                        {p.title.toLowerCase()}
-                      </h3>
-                      <p className="mt-2 max-w-xl text-sm text-foreground/75">
-                        {p.tagline}
-                      </p>
-                    </div>
-                    <span className="mt-1 shrink-0 font-display text-2xl text-foreground">→</span>
-                  </div>
-                </div>
-              </Window>
+              See selected work
+              <span className="transition-transform group-hover:translate-x-1">→</span>
             </Link>
-          ))}
+            <Link to="/contact" className="text-sm link-underline text-foreground/70 hover:text-foreground ml-6">
+              Or get in touch
+            </Link>
+          </div>
+        </FadeIn>
+      </div>
+    </section>
+  );
+}
+
+function FeaturedWork() {
+  const featured = projects.slice(0, 4);
+  return (
+    <section className="relative mx-auto max-w-7xl px-6 lg:px-12 py-24">
+      <div className="flex items-end justify-between mb-12 gap-6">
+        <FadeIn>
+          <p className="label-mono mb-4">Selected work · 2021 — 2026</p>
+          <h2 className="font-display text-4xl md:text-5xl tracking-tight">
+            Research, end to end.
+          </h2>
+        </FadeIn>
+        <Link to="/projects" className="hidden sm:inline-flex shrink-0 label-mono link-underline">
+          View all →
+        </Link>
+      </div>
+
+      <StaggerList className="grid gap-x-8 gap-y-16 md:grid-cols-2">
+        {featured.map((p, i) => (
+          <StaggerItem key={p.slug} variants={staggerItemVariants}>
+            <ProjectCard project={p} index={i} />
+          </StaggerItem>
+        ))}
+      </StaggerList>
+    </section>
+  );
+}
+
+const ACCENT_TINT: Record<string, string> = {
+  pink: "from-[oklch(0.78_0.16_355)] via-[oklch(0.7_0.18_320)] to-[oklch(0.62_0.22_293)]",
+  blue: "from-[oklch(0.78_0.13_220)] via-[oklch(0.68_0.18_258)] to-[oklch(0.55_0.22_280)]",
+  coral: "from-[oklch(0.78_0.17_355)] via-[oklch(0.65_0.22_320)] to-[oklch(0.58_0.22_293)]",
+  peach: "from-[oklch(0.85_0.14_60)] via-[oklch(0.75_0.18_30)] to-[oklch(0.62_0.22_355)]",
+};
+
+function ProjectCard({ project: p, index }: { project: typeof projects[number]; index: number }) {
+  const tint = ACCENT_TINT[p.accent] ?? ACCENT_TINT.pink;
+  return (
+    <Link
+      to="/projects/$slug"
+      params={{ slug: p.slug }}
+      className="group block"
+    >
+      <motion.div
+        layoutId={`cover-${p.slug}`}
+        className={`relative aspect-[16/11] w-full overflow-hidden rounded-2xl bg-gradient-to-br ${tint} grain-overlay`}
+      >
+        <div className="absolute inset-0 flex items-end p-7">
+          <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/90">
+            0{index + 1} / {p.year.split(" ")[0]}
+          </span>
         </div>
-      </section>
-    </div>
+        <motion.div
+          aria-hidden
+          className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/5 transition-colors duration-500"
+        />
+      </motion.div>
+
+      <div className="mt-5 flex items-start justify-between gap-6">
+        <div>
+          <motion.h3
+            layoutId={`title-${p.slug}`}
+            className="font-display text-2xl md:text-[1.75rem] tracking-tight text-balance"
+          >
+            {p.title}
+          </motion.h3>
+          <p className="mt-2 text-foreground/70 text-sm md:text-base max-w-[42ch] text-pretty">
+            {p.tagline}
+          </p>
+        </div>
+        <span className="mt-1 text-foreground/60 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">
+          ↗
+        </span>
+      </div>
+
+      <div className="mt-4 flex flex-wrap gap-2">
+        {p.tags.map((t) => (
+          <span key={t} className="label-mono px-2 py-1 rounded-full border border-hairline">
+            {t}
+          </span>
+        ))}
+      </div>
+    </Link>
+  );
+}
+
+function Capabilities() {
+  const items = [
+    { k: "Methods", v: "Generative & evaluative research, ethnography, diary studies, usability testing, interviews, surveys, IRB compliance." },
+    { k: "Synthesis", v: "Personas, journey maps, opportunity matrices, mixed-methods evaluation frameworks, stakeholder readouts." },
+    { k: "Domains", v: "Conversational AI, consumer hardware, wearables & health, K-12 education, language preservation." },
+    { k: "Stack", v: "Figma, UserTesting, Dovetail, Notion, Python (NLTK, NRCLex, WordNet), R, SPSS." },
+  ];
+  return (
+    <section className="relative mx-auto max-w-7xl px-6 lg:px-12 py-24">
+      <div className="grid gap-12 md:grid-cols-12">
+        <FadeIn className="md:col-span-4">
+          <p className="label-mono mb-3">What I bring</p>
+          <h2 className="font-display text-4xl md:text-5xl">
+            A research <span className="gradient-ink">practice</span>, not a deliverable.
+          </h2>
+        </FadeIn>
+        <StaggerList className="md:col-span-8 divide-y divide-hairline">
+          {items.map((it) => (
+            <StaggerItem key={it.k} variants={staggerItemVariants} className="grid md:grid-cols-12 gap-4 py-6">
+              <p className="md:col-span-3 label-mono pt-1">{it.k}</p>
+              <p className="md:col-span-9 text-lg text-foreground/85 text-pretty">{it.v}</p>
+            </StaggerItem>
+          ))}
+        </StaggerList>
+      </div>
+    </section>
+  );
+}
+
+function Closing() {
+  return (
+    <section className="relative mx-auto max-w-7xl px-6 lg:px-12 py-28 border-t border-hairline">
+      <FadeIn>
+        <p className="label-mono mb-6">Let's talk</p>
+        <h2 className="font-display text-5xl md:text-7xl tracking-tight text-balance max-w-[16ch]">
+          The next study is <span className="gradient-ink">probably yours.</span>
+        </h2>
+        <div className="mt-10 flex flex-wrap gap-4">
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-2 rounded-full bg-foreground text-background px-6 py-3 text-sm font-medium"
+          >
+            Start a conversation →
+          </Link>
+          <a
+            href="/emma-khare-resume.pdf"
+            className="inline-flex items-center gap-2 rounded-full border border-foreground/80 text-foreground px-6 py-3 text-sm font-medium hover:bg-foreground hover:text-background transition-colors"
+          >
+            Download résumé
+          </a>
+        </div>
+      </FadeIn>
+    </section>
   );
 }

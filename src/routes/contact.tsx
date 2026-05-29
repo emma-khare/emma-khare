@@ -1,10 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { FadeIn, PageWrap, WordReveal } from "@/components/Motion";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact — Emma Khare" },
-      { name: "description", content: "Get in touch with Emma Khare — email, phone, LinkedIn, and full portfolio." },
+      { name: "description", content: "Get in touch with Emma Khare — UX researcher." },
       { property: "og:title", content: "Contact — Emma Khare" },
       { property: "og:description", content: "Get in touch with Emma Khare." },
     ],
@@ -12,85 +13,53 @@ export const Route = createFileRoute("/contact")({
   component: Contact,
 });
 
-const channels = [
-  {
-    label: "Email",
-    handle: "emmakhare24@gmail.com",
-    href: "mailto:emmakhare24@gmail.com",
-    accent: "pink",
-  },
-  {
-    label: "Phone",
-    handle: "(402) 889-7712",
-    href: "tel:+14028897712",
-    accent: "coral",
-  },
-  {
-    label: "LinkedIn",
-    handle: "Connect on LinkedIn",
-    href: "https://www.linkedin.com/in/emmakhare/",
-    accent: "blue",
-  },
-  {
-    label: "Portfolio",
-    handle: "Full portfolio on Canva",
-    href: "https://www.canva.com/design/DAG0xJz09Fg/X9QebExuSJAM_l8JjgXhpg/view",
-    accent: "coral",
-  },
-] as const;
-
-const accentBar = {
-  pink: "bg-[color:var(--pink)]",
-  blue: "bg-[color:var(--blue)]",
-  purple: "bg-[color:var(--coral)]",
-} as const;
+const LINKS = [
+  { label: "Email", value: "emma.khare@gmail.com", href: "mailto:emma.khare@gmail.com" },
+  { label: "LinkedIn", value: "linkedin.com/in/emmakhare", href: "https://www.linkedin.com/in/emmakhare/" },
+  { label: "Résumé", value: "Download PDF", href: "/emma-khare-resume.pdf" },
+];
 
 function Contact() {
   return (
-    <div className="mx-auto max-w-5xl px-6 pt-20 pb-12 sm:pt-28">
-      <header className="max-w-3xl">
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--coral-ink)]">
-          Contact
-        </p>
-        <h1 className="mt-4 text-balance text-5xl sm:text-7xl">
-          Say
-          <span className="text-[color:var(--pink-ink)]"> hello</span>.
-        </h1>
-        <p className="mt-6 text-lg text-foreground/80">
-          Based in San Jose, CA. Email is the fastest way to reach me — I
-          usually respond within two business days. LinkedIn works well for
-          quick intros, and the full visual portfolio lives on Canva.
-        </p>
-      </header>
+    <PageWrap>
+      <section className="relative overflow-hidden">
+        <div className="blob blob-pink h-[420px] w-[420px] -top-20 right-10" />
+        <div className="blob blob-blue h-[340px] w-[340px] top-72 -left-10" />
 
-      <ul className="mt-16 grid gap-4 sm:grid-cols-2">
-        {channels.map((c) => (
-          <li key={c.label}>
-            <a
-              href={c.href}
-              target={c.href.startsWith("http") ? "_blank" : undefined}
-              rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined}
-              className="group relative flex items-center justify-between overflow-hidden rounded-2xl border border-border bg-card p-6 transition-transform hover:-translate-y-1"
-            >
-              <span
-                aria-hidden
-                className={`absolute left-0 top-0 h-full w-1 ${accentBar[c.accent]}`}
-              />
-              <div className="pl-3">
-                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-                  {c.label}
-                </p>
-                <p className="mt-2 font-display text-2xl text-foreground">
-                  {c.handle}
-                </p>
-              </div>
-              <span className="rounded-full border border-border p-2 text-foreground transition-transform group-hover:translate-x-1">
-                →
-              </span>
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
+        <div className="relative mx-auto max-w-7xl px-6 lg:px-12 pt-24 pb-20 lg:pt-32">
+          <p className="label-mono mb-6">Contact</p>
+          <h1 className="font-display text-5xl md:text-7xl lg:text-8xl tracking-tight max-w-[16ch] text-balance">
+            <WordReveal text="Say hello. I read everything." highlight="hello" />
+          </h1>
+          <FadeIn delay={0.4} className="mt-8 max-w-xl">
+            <p className="text-lg text-foreground/80 leading-relaxed text-pretty">
+              Best for project inquiries, research collaborations, and roles in
+              conversational AI, consumer hardware, or community-centered programs.
+            </p>
+          </FadeIn>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 lg:px-12 py-12 border-t border-hairline">
+        <ul className="divide-y divide-hairline">
+          {LINKS.map((l) => (
+            <li key={l.label}>
+              <a
+                href={l.href}
+                target={l.href.startsWith("http") ? "_blank" : undefined}
+                rel="noreferrer"
+                className="group flex items-baseline justify-between gap-8 py-8 md:py-10"
+              >
+                <span className="label-mono shrink-0 w-28">{l.label}</span>
+                <span className="flex-1 font-display text-3xl md:text-5xl tracking-tight group-hover:gradient-ink transition-all text-balance">
+                  {l.value}
+                </span>
+                <span className="text-foreground/60 transition-transform group-hover:translate-x-2">→</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </PageWrap>
   );
 }
