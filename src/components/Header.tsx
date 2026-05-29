@@ -6,6 +6,7 @@ import { useReducedMotion } from "framer-motion";
 const NAV = [
   { to: "/projects", label: "Projects" },
   { to: "/about", label: "About" },
+  { to: "/now", label: "Now" },
   { to: "/resume", label: "Résumé" },
   { to: "/contact", label: "Contact" },
 ] as const;
