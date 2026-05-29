@@ -12,7 +12,7 @@ export const Route = createFileRoute("/resume")({
   component: Resume,
 });
 
-const RESUME_PATH = "/emma-resume.pdf";
+const RESUME_PATH = "/emma-khare-resume.pdf";
 
 function Resume() {
   return (
@@ -24,7 +24,7 @@ function Resume() {
           </p>
           <h1 className="mt-3 text-5xl sm:text-6xl">The long version.</h1>
           <p className="mt-4 max-w-xl text-foreground/80">
-            A full record of experience, education, and selected clients.
+            Mixed-methods UX research, conversational AI, and cross-cultural fieldwork — the full record.
           </p>
         </div>
         <a
@@ -55,10 +55,6 @@ function Resume() {
           </div>
         </object>
       </div>
-
-      <p className="mt-4 text-xs text-muted-foreground">
-        Note: place the PDF at <code className="rounded bg-secondary px-1.5 py-0.5">public/emma-resume.pdf</code> for the preview to load.
-      </p>
     </div>
   );
 }
