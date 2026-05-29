@@ -11,15 +11,15 @@ export function Footer() {
               <span className="text-[color:var(--pink-ink)]">.</span>
             </p>
             <p className="mt-2 max-w-md text-sm text-muted-foreground">
-              Open to brand, product, and editorial projects through the rest of the year.
+              Open to mixed-methods UX research collaborations and consulting.
             </p>
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
             <a
-              href="mailto:emma@example.com"
+              href="mailto:emmakhare24@gmail.com"
               className="font-medium text-foreground underline-accent"
             >
-              emma@example.com
+              emmakhare24@gmail.com
             </a>
             <Link to="/contact" className="text-foreground underline-accent">
               All channels
@@ -27,8 +27,8 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-10 flex flex-col gap-2 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} Emma. All rights reserved.</p>
-          <p>Designed and built with care.</p>
+          <p>© {new Date().getFullYear()} Emma Khare. All rights reserved.</p>
+          <p>San Jose, CA</p>
         </div>
       </div>
     </footer>

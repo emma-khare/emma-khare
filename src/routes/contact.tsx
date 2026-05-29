@@ -3,10 +3,10 @@ import { createFileRoute } from "@tanstack/react-router";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Emma" },
-      { name: "description", content: "Get in touch with Emma — email and social channels." },
-      { property: "og:title", content: "Contact — Emma" },
-      { property: "og:description", content: "Get in touch with Emma." },
+      { title: "Contact — Emma Khare" },
+      { name: "description", content: "Get in touch with Emma Khare — email, phone, LinkedIn, and full portfolio." },
+      { property: "og:title", content: "Contact — Emma Khare" },
+      { property: "og:description", content: "Get in touch with Emma Khare." },
     ],
   }),
   component: Contact,
@@ -15,26 +15,26 @@ export const Route = createFileRoute("/contact")({
 const channels = [
   {
     label: "Email",
-    handle: "emma@example.com",
-    href: "mailto:emma@example.com",
+    handle: "emmakhare24@gmail.com",
+    href: "mailto:emmakhare24@gmail.com",
     accent: "pink",
   },
   {
-    label: "Instagram",
-    handle: "@emma.designs",
-    href: "https://instagram.com",
+    label: "Phone",
+    handle: "(402) 889-7712",
+    href: "tel:+14028897712",
     accent: "purple",
   },
   {
     label: "LinkedIn",
-    handle: "in/emma",
-    href: "https://linkedin.com",
+    handle: "Connect on LinkedIn",
+    href: "https://www.linkedin.com/in/emmakhare/",
     accent: "blue",
   },
   {
-    label: "Are.na",
-    handle: "are.na/emma",
-    href: "https://are.na",
+    label: "Portfolio",
+    handle: "Full portfolio on Canva",
+    href: "https://www.canva.com/design/DAG0xJz09Fg/X9QebExuSJAM_l8JjgXhpg/view",
     accent: "purple",
   },
 ] as const;
@@ -57,9 +57,9 @@ function Contact() {
           <span className="text-[color:var(--pink-ink)]"> hello</span>.
         </h1>
         <p className="mt-6 text-lg text-foreground/80">
-          Best reached by email — I usually respond within two business days.
-          For quicker things or to follow along with what I'm making, the other
-          channels work too.
+          Based in San Jose, CA. Email is the fastest way to reach me — I
+          usually respond within two business days. LinkedIn works well for
+          quick intros, and the full visual portfolio lives on Canva.
         </p>
       </header>
 
