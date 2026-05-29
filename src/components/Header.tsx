@@ -14,9 +14,9 @@ export function Header() {
         <Link
           to="/"
           className="font-display text-2xl tracking-tight text-foreground"
-          aria-label="Emma — home"
+          aria-label="Emma Khare — home"
         >
-          Emma
+          Emma Khare
           <span className="text-[color:var(--pink-ink)]">.</span>
         </Link>
         <nav aria-label="Primary">
