@@ -38,7 +38,7 @@ const skillGroups = [
       "Cross-functional stakeholder management",
       "Moderator training",
     ],
-    accent: "purple",
+    accent: "coral",
   },
   {
     label: "AI & Conversational Research",
@@ -53,20 +53,20 @@ const skillGroups = [
   {
     label: "Technical Tools",
     items: ["Python (NLTK, NRCLex, WordNet)", "Figma", "Jupyter", "Qualitative coding", "Excel & Sheets", "Canva"],
-    accent: "purple",
+    accent: "coral",
   },
 ] as const;
 
 const accentBorder = {
   pink: "border-l-[color:var(--pink)]",
   blue: "border-l-[color:var(--blue)]",
-  purple: "border-l-[color:var(--purple)]",
+  purple: "border-l-[color:var(--coral)]",
 } as const;
 
 const accentText = {
   pink: "text-[color:var(--pink-ink)]",
   blue: "text-[color:var(--blue-ink)]",
-  purple: "text-[color:var(--purple-ink)]",
+  purple: "text-[color:var(--coral-ink)]",
 } as const;
 
 const timeline = [
@@ -94,7 +94,7 @@ function About() {
           </p>
           <h1 className="mt-4 text-balance text-5xl sm:text-6xl">
             Hi, I'm Emma — a
-            <span className="text-[color:var(--purple-ink)]"> mixed-methods</span> researcher who likes
+            <span className="text-[color:var(--coral-ink)]"> mixed-methods</span> researcher who likes
             <span className="text-[color:var(--pink-ink)]"> hard questions</span> across
             <span className="text-[color:var(--blue-ink)]"> many cultures</span>.
           </h1>
@@ -167,7 +167,7 @@ function About() {
               </p>
               <div className="col-span-12 sm:col-span-9">
                 <p className="font-display text-xl text-foreground">{t.role}</p>
-                <p className="mt-1 text-sm font-medium text-[color:var(--purple-ink)]">{t.org}</p>
+                <p className="mt-1 text-sm font-medium text-[color:var(--coral-ink)]">{t.org}</p>
                 <p className="mt-1 text-foreground/75">{t.detail}</p>
               </div>
             </li>

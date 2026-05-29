@@ -6,7 +6,7 @@ export type Project = {
   role: string;
   client: string;
   tags: string[];
-  accent: "pink" | "blue" | "purple";
+  accent: "coral" | "blue" | "pink" | "peach";
   cover: string;
   overview: string;
   context: string;
@@ -24,7 +24,7 @@ export const projects: Project[] = [
     role: "Data Moderator, User Research",
     client: "Apple (via INSPYR Solutions)",
     tags: ["Conversational AI", "Consumer Hardware", "Moderation"],
-    accent: "purple",
+    accent: "coral",
     cover:
       "from-[oklch(0.78_0.17_300)] via-[oklch(0.72_0.18_320)] to-[oklch(0.72_0.16_358)]",
     overview:
@@ -98,7 +98,7 @@ export const projects: Project[] = [
     role: "Project Coordinator",
     client: "Miami University × Foras na Gaeilge × Údarás na Gaeltachta",
     tags: ["Ethnographic Research", "Multilingual Fieldwork"],
-    accent: "purple",
+    accent: "coral",
     cover:
       "from-[oklch(0.78_0.16_290)] via-[oklch(0.7_0.19_310)] to-[oklch(0.66_0.2_330)]",
     overview:

@@ -1,7 +1,7 @@
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
-@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cabin:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Cabin:wght@400;500;600;700&display=swap");
 
 @custom-variant dark (&:is(.dark *));
 
@@ -30,71 +30,70 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  --color-pink: var(--pink);
-  --color-pink-ink: var(--pink-ink);
+  --color-coral: var(--coral);
+  --color-coral-ink: var(--coral-ink);
   --color-blue: var(--blue);
   --color-blue-ink: var(--blue-ink);
-  --color-purple: var(--purple);
-  --color-purple-ink: var(--purple-ink);
+  --color-pink: var(--pink);
+  --color-pink-ink: var(--pink-ink);
+  --color-peach: var(--peach);
 
-  --font-display: "Abril Fatface", Georgia, serif;
+  --font-display: "DM Serif Display", "Playfair Display", Georgia, serif;
   --font-sans: "Cabin", system-ui, -apple-system, sans-serif;
 }
 
 :root {
   --radius: 0.5rem;
 
-  /* Neutrals — high contrast, near-black on white */
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.18 0.01 270);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.18 0.01 270);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.18 0.01 270);
-  --primary: oklch(0.18 0.01 270);
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.97 0.005 270);
-  --secondary-foreground: oklch(0.18 0.01 270);
-  --muted: oklch(0.97 0.005 270);
-  --muted-foreground: oklch(0.42 0.015 270);
-  --accent: oklch(0.97 0.005 270);
-  --accent-foreground: oklch(0.18 0.01 270);
+  /* Warm light-gray paper background, near-black ink */
+  --background: oklch(0.94 0.005 80);
+  --foreground: oklch(0.16 0.01 60);
+  --card: oklch(0.96 0.004 80);
+  --card-foreground: oklch(0.16 0.01 60);
+  --popover: oklch(0.96 0.004 80);
+  --popover-foreground: oklch(0.16 0.01 60);
+  --primary: oklch(0.16 0.01 60);
+  --primary-foreground: oklch(0.96 0.004 80);
+  --secondary: oklch(0.91 0.006 70);
+  --secondary-foreground: oklch(0.16 0.01 60);
+  --muted: oklch(0.91 0.006 70);
+  --muted-foreground: oklch(0.40 0.012 60);
+  --accent: oklch(0.91 0.006 70);
+  --accent-foreground: oklch(0.16 0.01 60);
   --destructive: oklch(0.55 0.22 27);
-  --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.91 0.008 270);
-  --input: oklch(0.91 0.008 270);
-  --ring: oklch(0.55 0.18 295);
+  --destructive-foreground: oklch(0.96 0.004 80);
+  --border: oklch(0.18 0.01 60);
+  --input: oklch(0.18 0.01 60);
+  --ring: oklch(0.55 0.18 30);
 
-  /* Accents — bright for shapes/backgrounds, "ink" variants for AA text on white */
-  --pink: oklch(0.74 0.19 358);
-  --pink-ink: oklch(0.52 0.22 358);
-  --blue: oklch(0.68 0.17 245);
-  --blue-ink: oklch(0.46 0.20 250);
-  --purple: oklch(0.66 0.21 300);
-  --purple-ink: oklch(0.45 0.22 300);
+  /* Blob accents — bright, grainy use. Ink variants for AA text on the paper background. */
+  --coral: oklch(0.72 0.20 30);
+  --coral-ink: oklch(0.48 0.20 30);
+  --blue: oklch(0.70 0.15 245);
+  --blue-ink: oklch(0.42 0.18 250);
+  --pink: oklch(0.78 0.16 358);
+  --pink-ink: oklch(0.50 0.20 358);
+  --peach: oklch(0.82 0.14 60);
 
-  --gradient-trio: linear-gradient(120deg, var(--pink), var(--purple) 55%, var(--blue));
-  --gradient-soft: linear-gradient(120deg, oklch(0.96 0.05 358), oklch(0.95 0.06 300) 50%, oklch(0.95 0.05 245));
-
-  --chart-1: var(--pink);
+  --chart-1: var(--coral);
   --chart-2: var(--blue);
-  --chart-3: var(--purple);
-  --chart-4: oklch(0.65 0.15 200);
+  --chart-3: var(--pink);
+  --chart-4: var(--peach);
   --chart-5: oklch(0.65 0.15 330);
 
-  --sidebar: oklch(0.99 0 0);
-  --sidebar-foreground: oklch(0.18 0.01 270);
-  --sidebar-primary: oklch(0.18 0.01 270);
-  --sidebar-primary-foreground: oklch(1 0 0);
-  --sidebar-accent: oklch(0.97 0.005 270);
-  --sidebar-accent-foreground: oklch(0.18 0.01 270);
-  --sidebar-border: oklch(0.91 0.008 270);
-  --sidebar-ring: oklch(0.55 0.18 295);
+  --sidebar: oklch(0.96 0.004 80);
+  --sidebar-foreground: oklch(0.16 0.01 60);
+  --sidebar-primary: oklch(0.16 0.01 60);
+  --sidebar-primary-foreground: oklch(0.96 0.004 80);
+  --sidebar-accent: oklch(0.91 0.006 70);
+  --sidebar-accent-foreground: oklch(0.16 0.01 60);
+  --sidebar-border: oklch(0.18 0.01 60);
+  --sidebar-ring: oklch(0.55 0.18 30);
 }
 
 @layer base {
   * {
-    border-color: var(--color-border);
+    border-color: color-mix(in oklab, var(--color-foreground) 18%, transparent);
   }
 
   html {
@@ -105,7 +104,6 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
-    font-feature-settings: "ss01", "cv01";
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
@@ -113,12 +111,13 @@
   h1, h2, h3 {
     font-family: var(--font-display);
     font-weight: 400;
-    letter-spacing: -0.01em;
-    line-height: 1.05;
+    letter-spacing: -0.02em;
+    line-height: 0.95;
+    text-transform: lowercase;
   }
 
   ::selection {
-    background: var(--purple);
+    background: var(--coral);
     color: white;
   }
 }
@@ -126,24 +125,50 @@
 @layer utilities {
   .font-display {
     font-family: var(--font-display);
+    text-transform: lowercase;
+    letter-spacing: -0.02em;
   }
   .text-balance {
     text-wrap: balance;
   }
-  .bg-gradient-trio {
-    background-image: var(--gradient-trio);
+
+  /* Grainy radial gradient blobs — the signature of Emma's portfolio */
+  .blob {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(28px) contrast(1.05);
+    opacity: 0.85;
+    pointer-events: none;
+    mix-blend-mode: multiply;
   }
-  .bg-gradient-soft {
-    background-image: var(--gradient-soft);
+  .blob-coral {
+    background: radial-gradient(closest-side, oklch(0.72 0.22 30) 0%, oklch(0.78 0.18 25 / 0.5) 55%, transparent 75%);
   }
-  .underline-accent {
-    background-image: linear-gradient(var(--purple), var(--purple));
-    background-repeat: no-repeat;
-    background-position: 0 100%;
-    background-size: 100% 2px;
-    transition: background-size 0.3s ease;
+  .blob-blue {
+    background: radial-gradient(closest-side, oklch(0.7 0.18 245) 0%, oklch(0.76 0.14 240 / 0.5) 55%, transparent 75%);
   }
-  .underline-accent:hover {
-    background-size: 100% 6px;
+  .blob-pink {
+    background: radial-gradient(closest-side, oklch(0.78 0.18 358) 0%, oklch(0.82 0.14 355 / 0.5) 55%, transparent 75%);
+  }
+  .blob-peach {
+    background: radial-gradient(closest-side, oklch(0.82 0.16 60) 0%, oklch(0.85 0.12 55 / 0.5) 55%, transparent 75%);
+  }
+
+  /* Grain overlay on blobs for noisy, printed feel */
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    mix-blend-mode: overlay;
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  .window-chrome {
+    border: 1.5px solid var(--foreground);
+    background: var(--card);
+    border-radius: 0.5rem;
   }
 }

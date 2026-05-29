@@ -16,14 +16,14 @@ export const Route = createFileRoute("/projects")({
 const accentInk = {
   pink: "text-[color:var(--pink-ink)]",
   blue: "text-[color:var(--blue-ink)]",
-  purple: "text-[color:var(--purple-ink)]",
+  purple: "text-[color:var(--coral-ink)]",
 } as const;
 
 function ProjectsIndex() {
   return (
     <div className="mx-auto max-w-6xl px-6 pt-20 pb-12 sm:pt-28">
       <header className="max-w-3xl">
-        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--purple-ink)]">
+        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--coral-ink)]">
           The Archive
         </p>
         <h1 className="text-5xl sm:text-6xl">All projects</h1>

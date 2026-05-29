@@ -37,7 +37,7 @@ export const Route = createFileRoute("/projects/$slug")({
 const accentInk = {
   pink: "text-[color:var(--pink-ink)]",
   blue: "text-[color:var(--blue-ink)]",
-  purple: "text-[color:var(--purple-ink)]",
+  purple: "text-[color:var(--coral-ink)]",
 } as const;
 
 function ProjectDetail() {

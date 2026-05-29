@@ -23,7 +23,7 @@ const channels = [
     label: "Phone",
     handle: "(402) 889-7712",
     href: "tel:+14028897712",
-    accent: "purple",
+    accent: "coral",
   },
   {
     label: "LinkedIn",
@@ -35,21 +35,21 @@ const channels = [
     label: "Portfolio",
     handle: "Full portfolio on Canva",
     href: "https://www.canva.com/design/DAG0xJz09Fg/X9QebExuSJAM_l8JjgXhpg/view",
-    accent: "purple",
+    accent: "coral",
   },
 ] as const;
 
 const accentBar = {
   pink: "bg-[color:var(--pink)]",
   blue: "bg-[color:var(--blue)]",
-  purple: "bg-[color:var(--purple)]",
+  purple: "bg-[color:var(--coral)]",
 } as const;
 
 function Contact() {
   return (
     <div className="mx-auto max-w-5xl px-6 pt-20 pb-12 sm:pt-28">
       <header className="max-w-3xl">
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--purple-ink)]">
+        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--coral-ink)]">
           Contact
         </p>
         <h1 className="mt-4 text-balance text-5xl sm:text-7xl">
