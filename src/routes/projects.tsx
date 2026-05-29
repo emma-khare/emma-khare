@@ -1,71 +1,88 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { motion } from "framer-motion";
 import { projects } from "@/data/projects";
+import {
+  FadeIn,
+  PageWrap,
+  StaggerList,
+  StaggerItem,
+  staggerItemVariants,
+} from "@/components/Motion";
 
 export const Route = createFileRoute("/projects")({
   head: () => ({
     meta: [
-      { title: "Projects — Emma" },
-      { name: "description", content: "A complete archive of Emma's design work across brand, product, and editorial." },
-      { property: "og:title", content: "Projects — Emma" },
-      { property: "og:description", content: "A complete archive of Emma's design work." },
+      { title: "Projects — Emma Khare" },
+      { name: "description", content: "An index of selected UX research projects by Emma Khare." },
+      { property: "og:title", content: "Projects — Emma Khare" },
+      { property: "og:description", content: "Selected UX research projects." },
     ],
   }),
   component: ProjectsIndex,
 });
 
-const accentInk = {
-  pink: "text-[color:var(--pink-ink)]",
-  blue: "text-[color:var(--blue-ink)]",
-  purple: "text-[color:var(--coral-ink)]",
-} as const;
+const ACCENT_TINT: Record<string, string> = {
+  pink: "from-[oklch(0.78_0.16_355)] via-[oklch(0.7_0.18_320)] to-[oklch(0.62_0.22_293)]",
+  blue: "from-[oklch(0.78_0.13_220)] via-[oklch(0.68_0.18_258)] to-[oklch(0.55_0.22_280)]",
+  coral: "from-[oklch(0.78_0.17_355)] via-[oklch(0.65_0.22_320)] to-[oklch(0.58_0.22_293)]",
+  peach: "from-[oklch(0.85_0.14_60)] via-[oklch(0.75_0.18_30)] to-[oklch(0.62_0.22_355)]",
+};
 
 function ProjectsIndex() {
   return (
-    <div className="mx-auto max-w-6xl px-6 pt-20 pb-12 sm:pt-28">
-      <header className="max-w-3xl">
-        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--coral-ink)]">
-          The Archive
-        </p>
-        <h1 className="text-5xl sm:text-6xl">All projects</h1>
-        <p className="mt-6 text-lg text-foreground/80">
-          Six years of selected work. Brand systems, product surfaces, editorial,
-          and the occasional packaging detour.
-        </p>
-      </header>
+    <PageWrap>
+      <section className="mx-auto max-w-7xl px-6 lg:px-12 pt-24 pb-12 lg:pt-32">
+        <FadeIn>
+          <p className="label-mono mb-6">Index · {projects.length} projects</p>
+          <h1 className="font-display text-5xl md:text-7xl tracking-tight max-w-[18ch] text-balance">
+            Six years of research, <span className="gradient-ink">in their own words.</span>
+          </h1>
+        </FadeIn>
+      </section>
 
-      <ul className="mt-16 divide-y divide-border border-y border-border">
-        {projects.map((p) => (
-          <li key={p.slug}>
-            <Link
-              to="/projects/$slug"
-              params={{ slug: p.slug }}
-              className="group grid grid-cols-12 items-center gap-6 py-6 transition-colors hover:bg-secondary/60"
-            >
-              <div className="col-span-12 sm:col-span-2">
-                <div
-                  aria-hidden
-                  className={`h-16 w-full rounded-lg bg-gradient-to-br ${p.cover}`}
-                />
-              </div>
-              <div className="col-span-12 sm:col-span-7">
-                <h2 className="font-display text-2xl sm:text-3xl">{p.title}</h2>
-                <p className="mt-1 text-sm text-muted-foreground">{p.tagline}</p>
-              </div>
-              <div className="col-span-6 sm:col-span-2">
-                <p className={`text-xs font-semibold uppercase tracking-[0.16em] ${accentInk[p.accent]}`}>
-                  {p.tags[0]}
-                </p>
-                <p className="mt-1 text-sm text-foreground/80">{p.year}</p>
-              </div>
-              <div className="col-span-6 flex justify-end sm:col-span-1">
-                <span className="rounded-full border border-border p-2 transition-transform group-hover:translate-x-1">
-                  →
-                </span>
-              </div>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
+      <section className="mx-auto max-w-7xl px-6 lg:px-12 pb-24">
+        <StaggerList className="grid gap-x-8 gap-y-16 md:grid-cols-2">
+          {projects.map((p, i) => (
+            <StaggerItem key={p.slug} variants={staggerItemVariants}>
+              <Link to="/projects/$slug" params={{ slug: p.slug }} className="group block">
+                <motion.div
+                  layoutId={`cover-${p.slug}`}
+                  className={`relative aspect-[16/11] w-full overflow-hidden rounded-2xl bg-gradient-to-br ${ACCENT_TINT[p.accent] ?? ACCENT_TINT.pink} grain-overlay`}
+                >
+                  <div className="absolute inset-0 flex items-end p-7">
+                    <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/90">
+                      {String(i + 1).padStart(2, "0")} · {p.year}
+                    </span>
+                  </div>
+                </motion.div>
+                <div className="mt-5 flex items-start justify-between gap-6">
+                  <div>
+                    <motion.h3
+                      layoutId={`title-${p.slug}`}
+                      className="font-display text-2xl md:text-[1.75rem] tracking-tight text-balance"
+                    >
+                      {p.title}
+                    </motion.h3>
+                    <p className="mt-2 text-foreground/70 text-sm md:text-base max-w-[42ch] text-pretty">
+                      {p.tagline}
+                    </p>
+                  </div>
+                  <span className="mt-1 text-foreground/60 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">
+                    ↗
+                  </span>
+                </div>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {p.tags.map((t) => (
+                    <span key={t} className="label-mono px-2 py-1 rounded-full border border-hairline">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </Link>
+            </StaggerItem>
+          ))}
+        </StaggerList>
+      </section>
+    </PageWrap>
   );
 }
