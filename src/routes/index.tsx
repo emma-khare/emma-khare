@@ -4,10 +4,10 @@ import { projects } from "@/data/projects";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Emma — Designer Portfolio" },
-      { name: "description", content: "Selected work in brand, product, and editorial design by Emma." },
-      { property: "og:title", content: "Emma — Designer Portfolio" },
-      { property: "og:description", content: "Selected work in brand, product, and editorial design by Emma." },
+      { title: "Emma Khare — UX Researcher" },
+      { name: "description", content: "Mixed-methods UX researcher working across conversational AI, consumer hardware, and cross-cultural research. Currently at Apple via INSPYR Solutions." },
+      { property: "og:title", content: "Emma Khare — UX Researcher" },
+      { property: "og:description", content: "Mixed-methods UX researcher working across conversational AI, consumer hardware, and cross-cultural research." },
     ],
   }),
   component: Index,
@@ -24,7 +24,6 @@ function Index() {
 
   return (
     <div>
-      {/* Hero */}
       <section className="relative overflow-hidden">
         <div
           aria-hidden
@@ -37,37 +36,36 @@ function Index() {
         <div className="mx-auto max-w-6xl px-6 pt-24 pb-20 sm:pt-32 sm:pb-28">
           <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-background/80 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
             <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--pink)]" />
-            Available for projects — 2026
+            San Jose, CA · Currently at Apple
           </p>
           <h1 className="text-balance text-5xl leading-[0.95] sm:text-7xl md:text-8xl">
-            Designer making the
-            <span className="text-[color:var(--purple-ink)]"> internet </span>
-            feel a little more
-            <span className="text-[color:var(--pink-ink)]"> human</span>.
+            UX research for
+            <span className="text-[color:var(--purple-ink)]"> conversational AI</span>,
+            <span className="text-[color:var(--pink-ink)]"> consumer hardware</span>, and
+            <span className="text-[color:var(--blue-ink)]"> the cultures</span> they live inside.
           </h1>
           <p className="mt-8 max-w-2xl text-lg leading-relaxed text-foreground/80">
-            Emma is an independent designer working across brand, product, and
-            editorial. Six years of practice, one stubborn belief: good design
-            is mostly about paying attention.
+            I'm Emma Khare — a mixed-methods researcher with an anthropology
+            background, working on study design, moderation, and synthesis for
+            teams shipping into many markets and many languages.
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-3">
             <Link
-              to="/about"
+              to="/projects"
               className="inline-flex items-center justify-center rounded-full bg-foreground px-6 py-3 text-sm font-semibold text-background transition-transform hover:-translate-y-0.5"
             >
-              About Emma
+              See research projects
             </Link>
-            <a
-              href="#work"
+            <Link
+              to="/contact"
               className="inline-flex items-center justify-center rounded-full border border-border px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-secondary"
             >
-              See the work ↓
-            </a>
+              Get in touch
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Featured work */}
       <section id="work" className="mx-auto max-w-6xl px-6 pb-8">
         <div className="mb-10 flex items-end justify-between gap-6">
           <h2 className="text-3xl sm:text-4xl">Selected work</h2>
