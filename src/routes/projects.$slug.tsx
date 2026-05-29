@@ -95,15 +95,15 @@ function ProjectDetail() {
           <p className="text-lg leading-relaxed text-foreground/85">{project.overview}</p>
         </div>
 
-        <h2 className="font-display text-2xl text-foreground md:text-3xl">The challenge</h2>
+        <h2 className="font-display text-2xl text-foreground md:text-3xl">Context</h2>
         <div className="md:col-span-2">
-          <p className="text-lg leading-relaxed text-foreground/85">{project.challenge}</p>
+          <p className="text-lg leading-relaxed text-foreground/85">{project.context}</p>
         </div>
 
-        <h2 className="font-display text-2xl text-foreground md:text-3xl">Approach</h2>
+        <h2 className="font-display text-2xl text-foreground md:text-3xl">What I did</h2>
         <div className="md:col-span-2">
           <ol className="space-y-4">
-            {project.approach.map((step, i) => (
+            {project.methods.map((step: string, i: number) => (
               <li key={i} className="flex gap-4">
                 <span className={`font-display text-2xl ${accentInk[project.accent]}`}>
                   {String(i + 1).padStart(2, "0")}
