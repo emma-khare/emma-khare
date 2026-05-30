@@ -1,3 +1,6 @@
+import irelandImg from "@/assets/project-ireland.jpg";
+import reuImg from "@/assets/project-reu.jpg";
+
 export type Project = {
   slug: string;
   title: string;
@@ -8,6 +11,7 @@ export type Project = {
   tags: string[];
   accent: "coral" | "blue" | "pink" | "peach";
   cover: string;
+  image?: string;
   overview: string;
   context: string;
   methods: string[];
@@ -91,6 +95,7 @@ export const projects: Project[] = [
   },
   {
     slug: "indigeneity-identity-ireland",
+    image: irelandImg,
     title: "Indigeneity, Identity & Ireland",
     tagline:
       "Multilingual fieldwork across Irish (Gaeilge) and Indigenous North American research communities.",
@@ -115,6 +120,7 @@ export const projects: Project[] = [
   },
   {
     slug: "nsf-reu-linguistics",
+    image: reuImg,
     title: "Indigenous Language Preservation",
     tagline:
       "Transcribing 100+ pages of 1800s-era Hanis, Coos, and Miluk manuscripts into IPA.",

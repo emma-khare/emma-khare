@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { FadeIn, PageWrap, StaggerList, StaggerItem, staggerItemVariants, WordReveal } from "@/components/Motion";
+import portrait from "@/assets/emma-headshot.jpg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -54,9 +55,16 @@ function About() {
       </section>
 
       <section className="mx-auto max-w-7xl px-6 lg:px-12 py-16">
-        <div className="grid gap-12 md:grid-cols-12">
+        <div className="grid gap-12 md:grid-cols-12 items-start">
           <FadeIn className="md:col-span-4">
-            <p className="label-mono">Bio</p>
+            <div className="relative overflow-hidden rounded-2xl aspect-[4/5] grain-overlay">
+              <img
+                src={portrait}
+                alt="Portrait of Emma Khare"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+            </div>
+            <p className="label-mono mt-6">Bio</p>
           </FadeIn>
           <FadeIn delay={0.1} className="md:col-span-8 space-y-6">
             <p className="text-xl md:text-2xl leading-relaxed text-foreground/90 text-pretty">

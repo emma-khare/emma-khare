@@ -132,6 +132,15 @@ function ProjectCard({ project: p, index }: { project: typeof projects[number]; 
         layoutId={`cover-${p.slug}`}
         className={`relative aspect-[16/11] w-full overflow-hidden rounded-2xl bg-gradient-to-br ${tint} grain-overlay`}
       >
+        {p.image && (
+          <img
+            src={p.image}
+            alt={p.title}
+            loading="lazy"
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+          />
+        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
         <div className="absolute inset-0 flex items-end p-7">
           <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/90">
             0{index + 1} / {p.year.split(" ")[0]}
