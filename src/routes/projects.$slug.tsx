@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { getProject, projects } from "@/data/projects";
+import { getProject, projects, type CaseStudy } from "@/data/projects";
 import { FadeIn, PageWrap, StaggerList, StaggerItem, staggerItemVariants } from "@/components/Motion";
 
 export const Route = createFileRoute("/projects/$slug")({
