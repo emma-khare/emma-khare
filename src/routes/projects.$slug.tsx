@@ -188,3 +188,138 @@ function Meta({ label, value }: { label: string; value: string }) {
     </div>
   );
 }
+
+function CaseStudySections({ cs }: { cs: CaseStudy }) {
+  return (
+    <>
+      {cs.badges && cs.badges.length > 0 && (
+        <section className="mx-auto max-w-7xl px-6 lg:px-12 pt-4">
+          <FadeIn>
+            <div className="flex flex-wrap gap-2">
+              {cs.badges.map((b) => (
+                <span
+                  key={b}
+                  className="label-mono px-3 py-1 rounded-full border border-hairline"
+                >
+                  {b}
+                </span>
+              ))}
+            </div>
+          </FadeIn>
+        </section>
+      )}
+
+      {cs.stats && cs.stats.length > 0 && (
+        <section className="mx-auto max-w-7xl px-6 lg:px-12 py-12">
+          <div className="grid gap-8 md:grid-cols-3 border-y border-hairline py-10">
+            {cs.stats.map((s) => (
+              <FadeIn key={s.label}>
+                <p className="font-display text-5xl md:text-6xl gradient-ink leading-none">
+                  {s.value}
+                </p>
+                <p className="label-mono mt-3">{s.label}</p>
+              </FadeIn>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {cs.goals && cs.goals.length > 0 && (
+        <section className="mx-auto max-w-7xl px-6 lg:px-12 py-12">
+          <div className="grid gap-12 md:grid-cols-12">
+            <FadeIn className="md:col-span-4">
+              <p className="label-mono">Research goals</p>
+            </FadeIn>
+            <StaggerList className="md:col-span-8 divide-y divide-hairline">
+              {cs.goals.map((g, i) => (
+                <StaggerItem
+                  key={i}
+                  variants={staggerItemVariants}
+                  className="py-5 text-lg text-foreground/90 text-pretty"
+                >
+                  {g}
+                </StaggerItem>
+              ))}
+            </StaggerList>
+          </div>
+        </section>
+      )}
+
+      {cs.process && cs.process.length > 0 && (
+        <section className="mx-auto max-w-7xl px-6 lg:px-12 py-12">
+          <div className="grid gap-12 md:grid-cols-12">
+            <FadeIn className="md:col-span-4">
+              <p className="label-mono">Research process</p>
+            </FadeIn>
+            <StaggerList className="md:col-span-8 space-y-10">
+              {cs.process.map((step, i) => (
+                <StaggerItem
+                  key={i}
+                  variants={staggerItemVariants}
+                  className="flex gap-6 items-start"
+                >
+                  <span className="font-mono text-sm text-pink-ink pt-2 shrink-0">
+                    0{i + 1}
+                  </span>
+                  <div>
+                    <h3 className="font-display text-2xl md:text-3xl tracking-tight mb-3 text-balance">
+                      {step.title}
+                    </h3>
+                    <p className="text-base md:text-lg text-foreground/80 leading-relaxed text-pretty max-w-[62ch]">
+                      {step.body}
+                    </p>
+                  </div>
+                </StaggerItem>
+              ))}
+            </StaggerList>
+          </div>
+        </section>
+      )}
+
+      {cs.decisions && cs.decisions.length > 0 && (
+        <section className="mx-auto max-w-7xl px-6 lg:px-12 py-12">
+          <div className="grid gap-12 md:grid-cols-12">
+            <FadeIn className="md:col-span-4">
+              <p className="label-mono">Key research decisions</p>
+            </FadeIn>
+            <StaggerList className="md:col-span-8 divide-y divide-hairline">
+              {cs.decisions.map((d, i) => (
+                <StaggerItem
+                  key={i}
+                  variants={staggerItemVariants}
+                  className="py-5 text-base md:text-lg text-foreground/85 text-pretty"
+                >
+                  {d}
+                </StaggerItem>
+              ))}
+            </StaggerList>
+          </div>
+        </section>
+      )}
+
+      {cs.engagement && cs.engagement.length > 0 && (
+        <section className="mx-auto max-w-7xl px-6 lg:px-12 py-12">
+          <div className="grid gap-12 md:grid-cols-12">
+            <FadeIn className="md:col-span-4">
+              <p className="label-mono">Broader engagement at Apple</p>
+            </FadeIn>
+            <StaggerList className="md:col-span-8 space-y-6">
+              {cs.engagement.map((e, i) => (
+                <StaggerItem
+                  key={i}
+                  variants={staggerItemVariants}
+                  className="border border-hairline rounded-2xl p-6"
+                >
+                  <h4 className="font-display text-xl md:text-2xl mb-2">
+                    {e.title}
+                  </h4>
+                  <p className="text-foreground/80 text-pretty">{e.body}</p>
+                </StaggerItem>
+              ))}
+            </StaggerList>
+          </div>
+        </section>
+      )}
+    </>
+  );
+}
