@@ -134,24 +134,26 @@ function ProjectPage() {
         </div>
       </section>
 
-      {/* METHODS */}
-      <section className="mx-auto max-w-7xl px-6 lg:px-12 py-12">
-        <div className="grid gap-12 md:grid-cols-12">
-          <FadeIn className="md:col-span-4">
-            <p className="label-mono">What I did</p>
-          </FadeIn>
-          <StaggerList className="md:col-span-8 divide-y divide-hairline">
-            {p.methods.map((m: string, i: number) => (
-              <StaggerItem key={i} variants={staggerItemVariants} className="flex gap-6 py-6 items-start">
-                <span className="font-mono text-sm text-pink-ink pt-1">0{i + 1}</span>
-                <p className="text-lg text-foreground/90 text-pretty">{m}</p>
-              </StaggerItem>
-            ))}
-          </StaggerList>
-        </div>
-      </section>
+      {/* METHODS — hidden when a rich case study is present (rendered side-by-side with Goals below) */}
+      {!p.caseStudy && (
+        <section className="mx-auto max-w-7xl px-6 lg:px-12 py-12">
+          <div className="grid gap-12 md:grid-cols-12">
+            <FadeIn className="md:col-span-4">
+              <p className="label-mono">What I did</p>
+            </FadeIn>
+            <StaggerList className="md:col-span-8 divide-y divide-hairline">
+              {p.methods.map((m: string, i: number) => (
+                <StaggerItem key={i} variants={staggerItemVariants} className="flex gap-6 py-6 items-start">
+                  <span className="font-mono text-sm text-pink-ink pt-1">0{i + 1}</span>
+                  <p className="text-lg text-foreground/90 text-pretty">{m}</p>
+                </StaggerItem>
+              ))}
+            </StaggerList>
+          </div>
+        </section>
+      )}
 
-      {p.caseStudy && <CaseStudySections cs={p.caseStudy} />}
+      {p.caseStudy && <CaseStudySections cs={p.caseStudy} methods={p.methods} />}
 
       {/* OUTCOME */}
       <section className="mx-auto max-w-7xl px-6 lg:px-12 py-12">
@@ -189,7 +191,7 @@ function Meta({ label, value }: { label: string; value: string }) {
   );
 }
 
-function CaseStudySections({ cs }: { cs: CaseStudy }) {
+function CaseStudySections({ cs, methods }: { cs: CaseStudy; methods: string[] }) {
   return (
     <>
       {cs.badges && cs.badges.length > 0 && (
@@ -224,26 +226,42 @@ function CaseStudySections({ cs }: { cs: CaseStudy }) {
         </section>
       )}
 
-      {cs.goals && cs.goals.length > 0 && (
+      {(cs.goals?.length || methods.length) ? (
         <section className="mx-auto max-w-7xl px-6 lg:px-12 py-12">
-          <div className="grid gap-12 md:grid-cols-12">
-            <FadeIn className="md:col-span-4">
-              <p className="label-mono">Research goals</p>
-            </FadeIn>
-            <StaggerList className="md:col-span-8 divide-y divide-hairline">
-              {cs.goals.map((g, i) => (
-                <StaggerItem
-                  key={i}
-                  variants={staggerItemVariants}
-                  className="py-5 text-lg text-foreground/90 text-pretty"
-                >
-                  {g}
-                </StaggerItem>
-              ))}
-            </StaggerList>
+          <div className="grid gap-12 md:grid-cols-2">
+            {cs.goals && cs.goals.length > 0 && (
+              <FadeIn>
+                <p className="label-mono mb-6">Research goals</p>
+                <ul className="divide-y divide-hairline border-y border-hairline">
+                  {cs.goals.map((g, i) => (
+                    <li
+                      key={i}
+                      className="py-4 text-base md:text-lg text-foreground/90 text-pretty"
+                    >
+                      {g}
+                    </li>
+                  ))}
+                </ul>
+              </FadeIn>
+            )}
+            {methods.length > 0 && (
+              <FadeIn delay={0.1}>
+                <p className="label-mono mb-6">Methods</p>
+                <ul className="divide-y divide-hairline border-y border-hairline">
+                  {methods.map((m, i) => (
+                    <li
+                      key={i}
+                      className="py-4 text-base md:text-lg text-foreground/90 text-pretty"
+                    >
+                      {m}
+                    </li>
+                  ))}
+                </ul>
+              </FadeIn>
+            )}
           </div>
         </section>
-      )}
+      ) : null}
 
       {cs.process && cs.process.length > 0 && (
         <section className="mx-auto max-w-7xl px-6 lg:px-12 py-12">
