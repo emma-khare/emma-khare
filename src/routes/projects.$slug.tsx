@@ -151,6 +151,8 @@ function ProjectPage() {
         </div>
       </section>
 
+      {p.caseStudy && <CaseStudySections cs={p.caseStudy} />}
+
       {/* OUTCOME */}
       <section className="mx-auto max-w-7xl px-6 lg:px-12 py-12">
         <div className="grid gap-12 md:grid-cols-12">
