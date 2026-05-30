@@ -74,13 +74,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Emma — Designer Portfolio" },
-      { name: "description", content: "Selected work, writing, and résumé from Emma — a designer working across brand, product, and editorial." },
+      { title: "Emma —Research Portfolio" },
+      { name: "description", content: "Selected work, writing, and résumé from Emma — a cross-functional and multimedia researcher working across brand, product, and editorial." },
       { name: "author", content: "Emma" },
-      { property: "og:title", content: "Emma — Designer Portfolio" },
-      { property: "og:description", content: "Selected work, writing, and résumé from Emma." },
+      { property: "og:title", content: "Emma —Research Portfolio" },
+      { property: "og:description", content: "Selected work, writing, and résumé from Emma — a cross-functional and multimedia researcher working across brand, product, and editorial." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: "Emma —Research Portfolio" },
+      { name: "twitter:description", content: "Selected work, writing, and résumé from Emma — a cross-functional and multimedia researcher working across brand, product, and editorial." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/ad7fe8c6-80c9-49f6-a1b7-e6e85e1d977f" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/ad7fe8c6-80c9-49f6-a1b7-e6e85e1d977f" },
     ],
     links: [
       {
