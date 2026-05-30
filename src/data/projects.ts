@@ -4,6 +4,16 @@ import reuAllophonesImg from "@/assets/project-reu-allophones.jpg";
 import omahaImg from "@/assets/project-omaha.jpg";
 import woafmeowImg from "@/assets/project-woafmeow.jpg";
 
+export type CaseStudy = {
+  badges?: string[];
+  stats?: { label: string; value: string }[];
+  goals?: string[];
+  methodList?: string[];
+  process?: { title: string; body: string }[];
+  decisions?: string[];
+  engagement?: { title: string; body: string }[];
+};
+
 export type Project = {
   slug: string;
   title: string;
@@ -19,33 +29,88 @@ export type Project = {
   context: string;
   methods: string[];
   outcome: string;
+  caseStudy?: CaseStudy;
 };
 
 export const projects: Project[] = [
   {
     slug: "apple-conversational-ai",
-    title: "Conversational AI Studies at Apple",
+    title: "Multi-Device AI Audio Capture Study",
     tagline:
-      "End-to-end UX research across iPhone, iPad, Mac, Vision Pro, and AirPods.",
-    year: "2026 — Present",
-    role: "Data Moderator, User Research",
+      "Lead moderator on a large-scale, multi-team AI data collection study across Apple consumer hardware platforms.",
+    year: "2026",
+    role: "Lead Moderator",
     client: "Apple (via INSPYR Solutions)",
     tags: ["Conversational AI", "Consumer Hardware", "Moderation"],
     accent: "coral",
     cover:
       "from-[oklch(0.78_0.17_300)] via-[oklch(0.72_0.18_320)] to-[oklch(0.72_0.16_358)]",
     overview:
-      "Designing and moderating UX research studies that fold AI prompt creation and conversation design into protocols for Apple's consumer hardware lineup.",
+      "End-to-end research operations for a large-scale, multi-team AI data collection study across consumer hardware platforms. Promoted to lead moderator over the course of this engagement, going on to lead or contribute to two additional studies.",
     context:
-      "Apple's research teams needed consistent moderation practices across concurrent studies spanning five hardware lines. The work also pushed into newer territory — testing how participants form, repair, and refine prompts in conversation with AI features.",
+      "Apple's research teams needed a unified protocol that could serve engineering, design, and research simultaneously across concurrent studies — without letting any one team's requirements compromise data integrity. The work pushed into newer territory: testing how participants produce naturalistic audio across multiple simultaneous device configurations.",
     methods: [
-      "Authored 4+ end-to-end study protocols incorporating AI prompt creation and conversation design tasks.",
-      "Moderated hundreds of participant sessions with strict SOP adherence and data integrity across study streams.",
-      "Wrote standardized moderation SOPs from scratch and trained 2 new moderators on procedures and escalation paths.",
-      "Led a cross-departmental moderation initiative with 5+ stakeholder teams across engineering, design, and research.",
+      "Structured prompt-based audio elicitation (60 min sessions).",
+      "Multi-device simultaneous capture with parallel moderator setups.",
+      "Diverse prompt domains to capture natural language variation.",
+      "QA review and post-session data upload protocols.",
     ],
     outcome:
-      "Synthesized session findings into stakeholder-facing reports informing product and design decisions across multiple Apple research teams.",
+      "Data delivered to engineering teams to inform AI model decisions. Protocol built to serve as the foundational template for future study phases and potential expansion to international markets and additional languages.",
+    caseStudy: {
+      badges: ["NDA-safe", "Apple via INSPYR Solutions", "2026", "Lead moderator"],
+      stats: [
+        { label: "Participants tracked", value: "100+" },
+        { label: "Sessions moderated", value: "50+" },
+        { label: "Teams aligned", value: "5+" },
+      ],
+      goals: [
+        "Capture naturalistic user audio across multiple simultaneous device configurations.",
+        "Compare model and software performance against real user behavior.",
+        "Evaluate AI audio recognition accuracy across diverse user populations.",
+      ],
+      process: [
+        {
+          title: "Scoping & stakeholder alignment",
+          body: "Engaged with multiple managers across teams with different priorities and technical requirements. Translated competing needs into a unified study design that could serve engineering, design, and research simultaneously — without letting any one team's requirements compromise data integrity.",
+        },
+        {
+          title: "Protocol design",
+          body: "Authored the end-to-end study protocol from scratch: physical device setup with diagrams and specifications, in-house software recording configuration, parallel app workflows, step-by-step session instructions, troubleshooting guides, and QA/post-session upload procedures. Designed for replication — documented with enough precision that international teams could run the same protocol in future phases or additional locales.",
+        },
+        {
+          title: "Prompt design & participant management",
+          body: "Wrote diverse prompt sets spanning numerous domains to elicit natural language variation across participants. Built a tracking system for 100+ participants and their session outcomes. Managed outreach, scheduling coordination, and participant rapport — establishing trust to reduce performance bias during sessions.",
+        },
+        {
+          title: "Moderation & execution",
+          body: "Served as lead moderator, personally running 50+ one-hour sessions while maintaining study consistency and data integrity across a high-volume collection period — including through two weeks of illness. Trained and oversaw a second moderator running a parallel setup simultaneously, doubling throughput without sacrificing protocol fidelity.",
+        },
+        {
+          title: "Handoff & impact",
+          body: "Data delivered to engineering teams to inform AI model decisions. Protocol built to serve as the foundational template for future study phases and potential expansion to international markets and additional languages. Trust established in this study directly led to being tapped as lead moderator on a subsequent study, and as a contributing researcher on a third.",
+        },
+      ],
+      decisions: [
+        "Chose structured prompt elicitation over free-form interaction to control for variability while still capturing natural speech patterns — critical for meaningful AI model comparison.",
+        "Built participant rapport intentionally before and after sessions to reduce performance anxiety — improving data naturalness at scale.",
+        "Designed the protocol for international replication from day one, rather than treating localization as a later problem — reducing rework for future study phases.",
+      ],
+      engagement: [
+        {
+          title: "Study 1 — Lead moderator",
+          body: "This case study. Protocol author, lead moderator, moderator trainer.",
+        },
+        {
+          title: "Study 2 — Lead moderator",
+          body: "Selected again as lead moderator on a subsequent study — reflecting trust built through prior execution.",
+        },
+        {
+          title: "Study 3 — Contributing researcher",
+          body: "Contributed to a third study in a supporting research role across a concurrent research stream.",
+        },
+      ],
+    },
   },
   {
     slug: "woaf-meow-smart-ring",
