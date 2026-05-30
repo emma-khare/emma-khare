@@ -1,5 +1,6 @@
 import irelandImg from "@/assets/project-ireland.jpg";
 import reuImg from "@/assets/project-reu.jpg";
+import reuAllophonesImg from "@/assets/project-reu-allophones.jpg";
 import omahaImg from "@/assets/project-omaha.jpg";
 import woafmeowImg from "@/assets/project-woafmeow.jpg";
 
@@ -146,6 +147,31 @@ export const projects: Project[] = [
     ],
     outcome:
       "Database engagement up 40% across academic users. Trust maintained with Indigenous community partners through strict ethical compliance.",
+  },
+  {
+    slug: "myaamia-allophones",
+    image: reuAllophonesImg,
+    title: "Myaamia Allophones Acoustic Study",
+    tagline:
+      "An acoustic-phonetic analysis of allophonic variation in Myaamia, completed within the NSF REU fellowship.",
+    year: "2022",
+    role: "NSF REU Fellow — Linguistics",
+    client: "University of Oregon × Myaamia Center",
+    tags: ["Acoustic Phonetics", "Praat", "Language Revitalization"],
+    accent: "blue",
+    cover:
+      "from-[oklch(0.82_0.12_210)] via-[oklch(0.72_0.16_245)] to-[oklch(0.64_0.19_275)]",
+    overview:
+      "A sub-project of my NSF REU fellowship: an acoustic study of allophonic variation in Myaamia, presented as a research poster to faculty, tribal members, and federal grant administrators.",
+    context:
+      "Myaamia is a reawakening language with a small but growing body of acoustic documentation. Acoustic evidence of allophonic patterning supports both pedagogy and ongoing revitalization work led by the Myaamia Center.",
+    methods: [
+      "Segmented and measured target tokens in Praat from existing Myaamia recordings.",
+      "Analyzed formant and duration data to identify conditioning environments for allophonic variation.",
+      "Designed and presented a research poster summarizing findings for academic and community audiences.",
+    ],
+    outcome:
+      "Contributed acoustic evidence supporting Myaamia phonological description, and shared findings with community partners and the broader REU cohort.",
   },
   {
     slug: "ai-gender-romantic-fiction",
