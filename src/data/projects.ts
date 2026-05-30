@@ -4,6 +4,16 @@ import reuAllophonesImg from "@/assets/project-reu-allophones.jpg";
 import omahaImg from "@/assets/project-omaha.jpg";
 import woafmeowImg from "@/assets/project-woafmeow.jpg";
 
+export type CaseStudy = {
+  badges?: string[];
+  stats?: { label: string; value: string }[];
+  goals?: string[];
+  methodList?: string[];
+  process?: { title: string; body: string }[];
+  decisions?: string[];
+  engagement?: { title: string; body: string }[];
+};
+
 export type Project = {
   slug: string;
   title: string;
@@ -19,6 +29,7 @@ export type Project = {
   context: string;
   methods: string[];
   outcome: string;
+  caseStudy?: CaseStudy;
 };
 
 export const projects: Project[] = [
