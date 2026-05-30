@@ -1,5 +1,7 @@
 import irelandImg from "@/assets/project-ireland.jpg";
 import reuImg from "@/assets/project-reu.jpg";
+import omahaImg from "@/assets/project-omaha.jpg";
+import woafmeowImg from "@/assets/project-woafmeow.jpg";
 
 export type Project = {
   slug: string;
@@ -46,6 +48,7 @@ export const projects: Project[] = [
   },
   {
     slug: "woaf-meow-smart-ring",
+    image: woafmeowImg,
     title: "Cross-Cultural Smart Ring Research",
     tagline:
       "Surfacing UX divergences between US and China cohorts for a consumer health wearable.",
@@ -71,6 +74,7 @@ export const projects: Project[] = [
   },
   {
     slug: "indigenous-education-omaha",
+    image: omahaImg,
     title: "Native & Indigenous-Centered Education",
     tagline:
       "Research-driven, culturally responsive programming for 90+ Native students and families.",
