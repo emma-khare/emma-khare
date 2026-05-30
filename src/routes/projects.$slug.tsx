@@ -85,7 +85,15 @@ function ProjectPage() {
             layoutId={`cover-${p.slug}`}
             className={`relative aspect-[16/8] w-full overflow-hidden rounded-3xl bg-gradient-to-br ${ACCENT_TINT[p.accent] ?? ACCENT_TINT.pink} grain-overlay`}
           >
-            <motion.div style={{ y, opacity }} className="absolute inset-0" />
+            {p.image && (
+              <motion.img
+                src={p.image}
+                alt={p.title}
+                style={{ y }}
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+            )}
+            <motion.div style={{ opacity }} className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
           </motion.div>
         </div>
       </section>
