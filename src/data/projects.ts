@@ -1,3 +1,6 @@
+import irelandImg from "@/assets/project-ireland.jpg";
+import reuImg from "@/assets/project-reu.jpg";
+
 export type Project = {
   slug: string;
   title: string;
@@ -8,6 +11,7 @@ export type Project = {
   tags: string[];
   accent: "coral" | "blue" | "pink" | "peach";
   cover: string;
+  image?: string;
   overview: string;
   context: string;
   methods: string[];
