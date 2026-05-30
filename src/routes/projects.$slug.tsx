@@ -134,24 +134,26 @@ function ProjectPage() {
         </div>
       </section>
 
-      {/* METHODS */}
-      <section className="mx-auto max-w-7xl px-6 lg:px-12 py-12">
-        <div className="grid gap-12 md:grid-cols-12">
-          <FadeIn className="md:col-span-4">
-            <p className="label-mono">What I did</p>
-          </FadeIn>
-          <StaggerList className="md:col-span-8 divide-y divide-hairline">
-            {p.methods.map((m: string, i: number) => (
-              <StaggerItem key={i} variants={staggerItemVariants} className="flex gap-6 py-6 items-start">
-                <span className="font-mono text-sm text-pink-ink pt-1">0{i + 1}</span>
-                <p className="text-lg text-foreground/90 text-pretty">{m}</p>
-              </StaggerItem>
-            ))}
-          </StaggerList>
-        </div>
-      </section>
+      {/* METHODS — hidden when a rich case study is present (rendered side-by-side with Goals below) */}
+      {!p.caseStudy && (
+        <section className="mx-auto max-w-7xl px-6 lg:px-12 py-12">
+          <div className="grid gap-12 md:grid-cols-12">
+            <FadeIn className="md:col-span-4">
+              <p className="label-mono">What I did</p>
+            </FadeIn>
+            <StaggerList className="md:col-span-8 divide-y divide-hairline">
+              {p.methods.map((m: string, i: number) => (
+                <StaggerItem key={i} variants={staggerItemVariants} className="flex gap-6 py-6 items-start">
+                  <span className="font-mono text-sm text-pink-ink pt-1">0{i + 1}</span>
+                  <p className="text-lg text-foreground/90 text-pretty">{m}</p>
+                </StaggerItem>
+              ))}
+            </StaggerList>
+          </div>
+        </section>
+      )}
 
-      {p.caseStudy && <CaseStudySections cs={p.caseStudy} />}
+      {p.caseStudy && <CaseStudySections cs={p.caseStudy} methods={p.methods} />}
 
       {/* OUTCOME */}
       <section className="mx-auto max-w-7xl px-6 lg:px-12 py-12">
