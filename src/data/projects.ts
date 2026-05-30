@@ -1,5 +1,6 @@
 import irelandImg from "@/assets/project-ireland.jpg";
 import reuImg from "@/assets/project-reu.jpg";
+import reuAllophonesImg from "@/assets/project-reu-allophones.jpg";
 import omahaImg from "@/assets/project-omaha.jpg";
 import woafmeowImg from "@/assets/project-woafmeow.jpg";
 
