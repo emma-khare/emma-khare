@@ -3,6 +3,8 @@ import reuImg from "@/assets/project-reu.jpg";
 import reuAllophonesImg from "@/assets/project-reu-allophones.jpg";
 import omahaImg from "@/assets/project-omaha.jpg";
 import woafmeowImg from "@/assets/project-woafmeow.jpg";
+import appleAudioImg from "@/assets/project-apple-audio.png";
+import romanceNlpImg from "@/assets/project-romance-nlp.png";
 
 export type CaseStudy = {
   badges?: string[];
@@ -35,6 +37,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     slug: "apple-conversational-ai",
+    image: appleAudioImg,
     title: "Multi-Device AI Audio Capture Study",
     tagline:
       "Lead moderator on a large-scale, multi-team AI data collection study across Apple consumer hardware platforms.",
@@ -240,6 +243,7 @@ export const projects: Project[] = [
   },
   {
     slug: "ai-gender-romantic-fiction",
+    image: romanceNlpImg,
     title: "AI & Gender in Romantic Fiction",
     tagline:
       "A Python sentiment-analysis study of emotion and gender representation in romance text data.",
