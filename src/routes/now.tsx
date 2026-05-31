@@ -19,6 +19,7 @@ const READING = [
   { title: "Conversational Design", author: "Erika Hall", note: "Re-reading for how language shapes interface trust." },
   { title: "The Design of Everyday Things", author: "Don Norman", note: "Always on my desk. A reminder that affordances are ethical." },
   { title: "Raciolinguistics", author: "H. Samy Alim et al.", note: "Connecting language, identity, and power — directly relevant to how I think about inclusive AI." },
+  { title: "A Woman Makes a Plan", author: "Maye Musk", note: "On building a career across decades and disciplines — a reminder that reinvention is a method." },
 ];
 
 const LEARNING = [
@@ -45,11 +46,7 @@ const FOCUS = [
   },
   {
     label: "Side project",
-    text: "Building a small annotated bibliography of how gender is constructed in LLM training data. Thinking about what 'neutral' language actually encodes.",
-  },
-  {
-    label: "Personal",
-    text: "Running a lot. Trying to be outside more than inside. Learning that rest is part of rigor.",
+    text: "Researching AI governance and the Indigenous Data Sovereignty movement — the frameworks that assert community ownership, consent, and control over how data is used. Thinking about what these models offer everyone navigating digital rights today.",
   },
 ];
 
