@@ -3,6 +3,8 @@ import reuImg from "@/assets/project-reu.jpg";
 import reuAllophonesImg from "@/assets/project-reu-allophones.jpg";
 import omahaImg from "@/assets/project-omaha.jpg";
 import woafmeowImg from "@/assets/project-woafmeow.jpg";
+import appleAudioImg from "@/assets/project-apple-audio.png";
+import romanceNlpImg from "@/assets/project-romance-nlp.png";
 
 export type CaseStudy = {
   badges?: string[];
