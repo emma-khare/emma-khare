@@ -161,6 +161,85 @@ function Now() {
         </div>
       </section>
 
+      {/* Current Research */}
+      <section className="mx-auto max-w-7xl px-6 lg:px-12 py-16 border-t border-hairline">
+        <div className="grid gap-12 md:grid-cols-12">
+          <FadeIn className="md:col-span-4">
+            <p className="label-mono">Current research</p>
+            <h2 className="mt-4 font-display text-3xl md:text-4xl">
+              AI governance & <span className="gradient-ink">Indigenous data sovereignty.</span>
+            </h2>
+          </FadeIn>
+          <div className="md:col-span-8 space-y-6">
+            <FadeIn>
+              <p className="text-lg text-foreground/85 leading-relaxed text-pretty">
+                As AI becomes the fastest-growing open-source technology, questions of who owns data — and who gets to decide how it is used — have never been more urgent. I am currently exploring the Indigenous Data Sovereignty movement and the frameworks that have emerged from it: principles that assert community ownership, consent, and control over both material and digital data.
+              </p>
+            </FadeIn>
+            <FadeIn delay={0.1}>
+              <p className="text-lg text-foreground/85 leading-relaxed text-pretty">
+                Researchers like Shoshana Zuboff have described the broader systemic problem as "surveillance capitalism" — the extraction of human experience as raw material for predictive products. Indigenous communities have been fighting versions of this problem for decades, and have developed sophisticated frameworks that acknowledge data sources as human, deserving not only co-ownership but the power to govern how their data is used.
+              </p>
+            </FadeIn>
+            <FadeIn delay={0.2}>
+              <p className="text-lg text-foreground/85 leading-relaxed text-pretty">
+                These frameworks are not only relevant to Indigenous peoples. They are case studies for everyone whose family photos, genetic data, and personal identity are now entering the discourse of digital rights and personal security.
+              </p>
+            </FadeIn>
+
+            <FadeIn delay={0.3}>
+              <div className="mt-4 rounded-2xl border border-hairline bg-foreground/[0.03] p-7">
+                <p className="label-mono mb-3">Why this matters to UX research</p>
+                <p className="text-foreground/85 leading-relaxed text-pretty">
+                  Researchers who understand data governance frameworks bring something most UX practitioners don't: a structural lens on who research serves, who it extracts from, and how consent is designed. This shapes how I think about participant ethics, study design, and the communities I research with.
+                </p>
+              </div>
+            </FadeIn>
+
+            <FadeIn delay={0.4}>
+              <div className="mt-6">
+                <p className="label-mono mb-3">References</p>
+                <p className="text-sm text-foreground/70 leading-relaxed text-pretty">
+                  Adams, M.M. (2024). Indigenous Fire Data Sovereignty: Applying Indigenous Data Sovereignty Principles to Fire Research. <em>Fire</em>, 7, 222.
+                </p>
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* Previous Research */}
+      <section className="mx-auto max-w-7xl px-6 lg:px-12 py-16 border-t border-hairline">
+        <FadeIn>
+          <p className="label-mono mb-4">Previous research</p>
+          <h2 className="font-display text-3xl md:text-4xl max-w-[20ch]">
+            Case studies <span className="gradient-ink">and prior work.</span>
+          </h2>
+        </FadeIn>
+        <StaggerList className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {projects.map((p) => (
+            <StaggerItem key={p.slug} variants={staggerItemVariants}>
+              <Link
+                to="/projects/$slug"
+                params={{ slug: p.slug }}
+                className="group block h-full rounded-2xl border border-hairline p-6 transition-colors hover:bg-foreground/[0.03]"
+              >
+                <p className="label-mono mb-3">{p.year} · {p.role}</p>
+                <h3 className="font-display text-xl tracking-tight text-balance">
+                  {p.title}
+                </h3>
+                <p className="mt-3 text-sm text-foreground/70 text-pretty">
+                  {p.tagline}
+                </p>
+                <span className="mt-5 inline-block text-foreground/60 transition-transform group-hover:translate-x-1">
+                  Read case study ↗
+                </span>
+              </Link>
+            </StaggerItem>
+          ))}
+        </StaggerList>
+      </section>
+
       {/* Personal note */}
       <section className="mx-auto max-w-7xl px-6 lg:px-12 py-20 border-t border-hairline">
         <FadeIn>
