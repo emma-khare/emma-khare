@@ -33,3 +33,4 @@ dist-ssr
 
 # npm lockfile (project uses bun.lock)
 package-lock.json
+.gstack/

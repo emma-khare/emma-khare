@@ -38,45 +38,45 @@
   --color-purple: var(--purple);
   --color-purple-ink: var(--purple-ink);
 
-  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
-  --font-sans: "DM Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: "Fraunces", "Playfair Display", Georgia, serif;
+  --font-sans: "Spectral", Georgia, "Times New Roman", serif;
   --font-mono: "DM Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 :root {
   --radius: 0.5rem;
 
-  /* Warm off-white canvas, deep cool ink */
-  --background: oklch(0.985 0.003 90);
-  --foreground: oklch(0.16 0.01 285);
-  --surface: oklch(0.96 0.005 85);
-  --hairline: oklch(0.90 0.008 90);
+  /* Warm cream canvas, deep garnet ink */
+  --background: oklch(0.962 0.014 72);
+  --foreground: oklch(0.27 0.07 8);
+  --surface: oklch(0.935 0.018 64);
+  --hairline: oklch(0.89 0.02 18);
 
-  --card: oklch(0.985 0.003 90);
-  --card-foreground: oklch(0.16 0.01 285);
-  --popover: oklch(0.985 0.003 90);
-  --popover-foreground: oklch(0.16 0.01 285);
-  --primary: oklch(0.16 0.01 285);
-  --primary-foreground: oklch(0.985 0.003 90);
-  --secondary: oklch(0.96 0.005 85);
-  --secondary-foreground: oklch(0.16 0.01 285);
-  --muted: oklch(0.96 0.005 85);
-  --muted-foreground: oklch(0.52 0.015 295);
-  --accent: oklch(0.96 0.005 85);
-  --accent-foreground: oklch(0.16 0.01 285);
+  --card: oklch(0.97 0.012 74);
+  --card-foreground: oklch(0.27 0.07 8);
+  --popover: oklch(0.97 0.012 74);
+  --popover-foreground: oklch(0.27 0.07 8);
+  --primary: oklch(0.27 0.07 8);
+  --primary-foreground: oklch(0.97 0.012 80);
+  --secondary: oklch(0.935 0.018 64);
+  --secondary-foreground: oklch(0.27 0.07 8);
+  --muted: oklch(0.935 0.018 64);
+  --muted-foreground: oklch(0.52 0.035 6);
+  --accent: oklch(0.93 0.02 60);
+  --accent-foreground: oklch(0.27 0.07 8);
   --destructive: oklch(0.55 0.22 27);
   --destructive-foreground: oklch(0.985 0.003 90);
-  --border: oklch(0.90 0.008 90);
-  --input: oklch(0.90 0.008 90);
-  --ring: oklch(0.60 0.18 355);
+  --border: oklch(0.89 0.02 18);
+  --input: oklch(0.89 0.02 18);
+  --ring: oklch(0.45 0.17 14);
 
-  /* Pink / Blue / Purple — all WCAG AA on the warm off-white. */
-  --pink: oklch(0.60 0.18 355);
-  --pink-ink: oklch(0.50 0.20 358);
-  --blue: oklch(0.62 0.18 258);
-  --blue-ink: oklch(0.48 0.20 258);
-  --purple: oklch(0.58 0.22 293);
-  --purple-ink: oklch(0.45 0.22 293);
+  /* Garnet + gold accent system (replaces pink/blue/purple). */
+  --pink: oklch(0.45 0.17 14);
+  --pink-ink: oklch(0.41 0.16 14);
+  --blue: oklch(0.47 0.16 16);
+  --blue-ink: oklch(0.41 0.16 14);
+  --purple: oklch(0.70 0.11 85);
+  --purple-ink: oklch(0.61 0.11 80);
 
   --chart-1: var(--pink);
   --chart-2: var(--blue);
@@ -114,13 +114,13 @@
 
   h1, h2, h3, h4 {
     font-family: var(--font-display);
-    font-weight: 700;
-    letter-spacing: -0.025em;
-    line-height: 1.02;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.04;
   }
 
   ::selection {
-    background: var(--purple);
+    background: var(--pink);
     color: white;
   }
 
@@ -152,7 +152,7 @@
     font-weight: 500;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--muted-foreground);
+    color: var(--pink-ink);
   }
 
   /* The signature: pink → purple gradient text highlight */
