@@ -140,6 +140,42 @@ export const projects: Project[] = [
     ],
     outcome:
       "Surfaced team-communication gaps that were blocking iteration speed, and turned cross-cultural findings into prioritized roadmap inputs for global expansion.",
+    caseStudy: {
+      badges: ["Consumer wearable", "US ↔ China", "2024 — 2025"],
+      stats: [
+        { label: "Markets studied", value: "2" },
+        { label: "Cohorts compared", value: "US + CN" },
+        { label: "Cross-functional partners", value: "PM · Eng · Design" },
+      ],
+      goals: [
+        "Identify where onboarding and app navigation diverged between US and China cohorts.",
+        "Translate cross-cultural participant feedback into prioritized roadmap inputs.",
+        "Close communication gaps between US and China product teams slowing iteration.",
+      ],
+      process: [
+        {
+          title: "Aligning a single protocol across two markets",
+          body: "Co-designed a testing protocol that held methodologically consistent across US and China cohorts, so divergences in the data reflected real user behavior — not differences in how sessions were run.",
+        },
+        {
+          title: "Moderation & mid-session troubleshooting",
+          body: "Ran structured usability sessions across both markets, troubleshooting device and connectivity issues mid-session and escalating per research SOPs without breaking participant flow.",
+        },
+        {
+          title: "Synthesis into roadmap-tied artifacts",
+          body: "Built personas, journey maps, and usability reports explicitly tied to roadmap priorities — not generic deliverables, but inputs PMs and designers could act on in the next sprint.",
+        },
+        {
+          title: "Bridging US and China product teams",
+          body: "Translated participant feedback into iterative app updates alongside designers, engineers, and PMs across both regions — surfacing the team-communication gaps that were the real bottleneck.",
+        },
+      ],
+      decisions: [
+        "Held the protocol constant across markets so cohort differences were attributable to users, not to research design.",
+        "Tied every deliverable to a roadmap priority — refusing to ship insights without a clear next action for the product team.",
+        "Treated cross-team communication as a research finding in its own right, not a side observation.",
+      ],
+    },
   },
   {
     slug: "indigenous-education-omaha",
