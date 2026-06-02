@@ -172,6 +172,11 @@
     font-style: italic;
   }
 
+  /* Gold accent text (deeper gold for legibility on cream) */
+  .gold-ink {
+    color: var(--purple-ink);
+  }
+
   .hairline {
     border-color: var(--hairline);
   }
