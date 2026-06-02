@@ -241,7 +241,7 @@ function Now() {
           <p className="label-mono mb-6">Why research</p>
           <blockquote className="font-display text-3xl md:text-5xl tracking-tight text-balance max-w-[24ch] leading-[1.15]">
             Real innovation whispers from the margins.{" "}
-            <span className="gold-ink">Building systems human-minded enough to listen.</span>
+            <span className="font-sans font-light text-pink">Building systems human-minded enough to listen.</span>
           </blockquote>
         </FadeIn>
       </section>
