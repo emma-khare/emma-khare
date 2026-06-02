@@ -441,6 +441,42 @@ export const projects: Project[] = [
     ],
     outcome:
       "Demonstrated an adaptable UX research methodology in an NLP context — a throughline that still shapes how I design conversational-AI studies today.",
+    caseStudy: {
+      badges: ["NLP", "Python", "Mixed methods"],
+      stats: [
+        { label: "Stack", value: "NRCLex · NLTK · WordNet" },
+        { label: "Method", value: "Sentiment + cultural reading" },
+        { label: "Output", value: "Personas + analysis" },
+      ],
+      goals: [
+        "Surface emotional patterns and gender representation in romantic fiction text data.",
+        "Pair computational analysis with the kind of cultural reading anthropology trains for.",
+        "Connect computational insights to plausible stakeholder use cases via personas.",
+      ],
+      process: [
+        {
+          title: "Corpus cleaning & preparation",
+          body: "Cleaned and structured large text datasets so sentiment and lexical analyses would run against consistent inputs rather than noisy raw text.",
+        },
+        {
+          title: "Sentiment & lexical analysis",
+          body: "Used NRCLex, NLTK, and WordNet to surface emotional trends and gendered patterns in the corpus — running computational analysis as the first pass, not the final word.",
+        },
+        {
+          title: "Cultural reading & framing",
+          body: "Framed computational findings through cultural context, storytelling, and computational linguistics — letting each lens catch what the other missed.",
+        },
+        {
+          title: "Persona translation",
+          body: "Built research personas linking the computational insights to real stakeholder use cases, demonstrating how an NLP study could feed a product or design conversation.",
+        },
+      ],
+      decisions: [
+        "Treated sentiment scores as a starting point for interpretation, not as conclusions on their own.",
+        "Used personas to bridge an academic NLP study into a UX-research-shaped deliverable.",
+        "Held cultural and computational readings in tension on purpose, so neither would overwrite the other.",
+      ],
+    },
   },
 ];
 
