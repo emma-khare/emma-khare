@@ -9,7 +9,7 @@ import {
   staggerItemVariants,
 } from "@/components/Motion";
 
-export const Route = createFileRoute("/projects")({
+export const Route = createFileRoute("/projects/")({
   head: () => ({
     meta: [
       { title: "Projects — Emma Khare" },

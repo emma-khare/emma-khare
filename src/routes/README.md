@@ -10,7 +10,7 @@ is `src/routes/__root.tsx`.
 | File | URL |
 | --- | --- |
 | `index.tsx` | `/` |
-| `about.tsx` | `/about` |
+| `now.tsx` | `/now` |
 | `users/index.tsx` | `/users` |
 | `users/$id.tsx` | `/users/:id` (dynamic — bare `$`, no curly braces) |
 | `posts/{-$category}.tsx` | `/posts/:category?` (optional segment) |

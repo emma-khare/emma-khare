@@ -16,7 +16,6 @@ export function Footer() {
           <p className="label-mono mb-3">Navigate</p>
           <ul className="space-y-2 text-sm">
             <li><Link to="/projects" className="link-underline">Projects</Link></li>
-            <li><Link to="/about" className="link-underline">About</Link></li>
             <li><Link to="/now" className="link-underline">Now</Link></li>
             <li><Link to="/resume" className="link-underline">Résumé</Link></li>
             <li><Link to="/contact" className="link-underline">Contact</Link></li>

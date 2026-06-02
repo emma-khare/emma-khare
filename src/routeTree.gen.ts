@@ -10,22 +10,16 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ResumeRouteImport } from './routes/resume'
-import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as NowRouteImport } from './routes/now'
 import { Route as ContactRouteImport } from './routes/contact'
-import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProjectsIndexRouteImport } from './routes/projects.index'
 import { Route as ProjectsAppleConversationalAiRouteImport } from './routes/projects.apple-conversational-ai'
 import { Route as ProjectsSlugRouteImport } from './routes/projects.$slug'
 
 const ResumeRoute = ResumeRouteImport.update({
   id: '/resume',
   path: '/resume',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProjectsRoute = ProjectsRouteImport.update({
-  id: '/projects',
-  path: '/projects',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NowRoute = NowRouteImport.update({
@@ -38,99 +32,94 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AboutRoute = AboutRouteImport.update({
-  id: '/about',
-  path: '/about',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProjectsIndexRoute = ProjectsIndexRouteImport.update({
+  id: '/projects/',
+  path: '/projects/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProjectsAppleConversationalAiRoute =
   ProjectsAppleConversationalAiRouteImport.update({
-    id: '/apple-conversational-ai',
-    path: '/apple-conversational-ai',
-    getParentRoute: () => ProjectsRoute,
+    id: '/projects/apple-conversational-ai',
+    path: '/projects/apple-conversational-ai',
+    getParentRoute: () => rootRouteImport,
   } as any)
 const ProjectsSlugRoute = ProjectsSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => ProjectsRoute,
+  id: '/projects/$slug',
+  path: '/projects/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/now': typeof NowRoute
-  '/projects': typeof ProjectsRouteWithChildren
   '/resume': typeof ResumeRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/projects/apple-conversational-ai': typeof ProjectsAppleConversationalAiRoute
+  '/projects/': typeof ProjectsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/now': typeof NowRoute
-  '/projects': typeof ProjectsRouteWithChildren
   '/resume': typeof ResumeRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/projects/apple-conversational-ai': typeof ProjectsAppleConversationalAiRoute
+  '/projects': typeof ProjectsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/now': typeof NowRoute
-  '/projects': typeof ProjectsRouteWithChildren
   '/resume': typeof ResumeRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/projects/apple-conversational-ai': typeof ProjectsAppleConversationalAiRoute
+  '/projects/': typeof ProjectsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/about'
     | '/contact'
     | '/now'
-    | '/projects'
     | '/resume'
     | '/projects/$slug'
     | '/projects/apple-conversational-ai'
+    | '/projects/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/about'
     | '/contact'
     | '/now'
-    | '/projects'
     | '/resume'
     | '/projects/$slug'
     | '/projects/apple-conversational-ai'
+    | '/projects'
   id:
     | '__root__'
     | '/'
-    | '/about'
     | '/contact'
     | '/now'
-    | '/projects'
     | '/resume'
     | '/projects/$slug'
     | '/projects/apple-conversational-ai'
+    | '/projects/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
   NowRoute: typeof NowRoute
-  ProjectsRoute: typeof ProjectsRouteWithChildren
   ResumeRoute: typeof ResumeRoute
+  ProjectsSlugRoute: typeof ProjectsSlugRoute
+  ProjectsAppleConversationalAiRoute: typeof ProjectsAppleConversationalAiRoute
+  ProjectsIndexRoute: typeof ProjectsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -140,13 +129,6 @@ declare module '@tanstack/react-router' {
       path: '/resume'
       fullPath: '/resume'
       preLoaderRoute: typeof ResumeRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/projects': {
-      id: '/projects'
-      path: '/projects'
-      fullPath: '/projects'
-      preLoaderRoute: typeof ProjectsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/now': {
@@ -163,13 +145,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/': {
       id: '/'
       path: '/'
@@ -177,45 +152,49 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/projects/': {
+      id: '/projects/'
+      path: '/projects'
+      fullPath: '/projects/'
+      preLoaderRoute: typeof ProjectsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/projects/apple-conversational-ai': {
       id: '/projects/apple-conversational-ai'
-      path: '/apple-conversational-ai'
+      path: '/projects/apple-conversational-ai'
       fullPath: '/projects/apple-conversational-ai'
       preLoaderRoute: typeof ProjectsAppleConversationalAiRouteImport
-      parentRoute: typeof ProjectsRoute
+      parentRoute: typeof rootRouteImport
     }
     '/projects/$slug': {
       id: '/projects/$slug'
-      path: '/$slug'
+      path: '/projects/$slug'
       fullPath: '/projects/$slug'
       preLoaderRoute: typeof ProjectsSlugRouteImport
-      parentRoute: typeof ProjectsRoute
+      parentRoute: typeof rootRouteImport
     }
   }
 }
 
-interface ProjectsRouteChildren {
-  ProjectsSlugRoute: typeof ProjectsSlugRoute
-  ProjectsAppleConversationalAiRoute: typeof ProjectsAppleConversationalAiRoute
-}
-
-const ProjectsRouteChildren: ProjectsRouteChildren = {
-  ProjectsSlugRoute: ProjectsSlugRoute,
-  ProjectsAppleConversationalAiRoute: ProjectsAppleConversationalAiRoute,
-}
-
-const ProjectsRouteWithChildren = ProjectsRoute._addFileChildren(
-  ProjectsRouteChildren,
-)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
   NowRoute: NowRoute,
-  ProjectsRoute: ProjectsRouteWithChildren,
   ResumeRoute: ResumeRoute,
+  ProjectsSlugRoute: ProjectsSlugRoute,
+  ProjectsAppleConversationalAiRoute: ProjectsAppleConversationalAiRoute,
+  ProjectsIndexRoute: ProjectsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
