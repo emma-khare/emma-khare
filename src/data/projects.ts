@@ -262,6 +262,42 @@ export const projects: Project[] = [
     ],
     outcome:
       "Findings presented to academic and community audiences, supporting cultural and linguistic revitalization initiatives on both sides of the partnership.",
+    caseStudy: {
+      badges: ["Ethnographic", "Multilingual", "Two-continent fieldwork"],
+      stats: [
+        { label: "Continents coordinated", value: "2" },
+        { label: "Institutional partners", value: "3" },
+        { label: "Languages in scope", value: "Gaeilge + Indigenous NA" },
+      ],
+      goals: [
+        "Connect Irish (Gaeilge) and Indigenous North American language-revitalization communities through shared research questions.",
+        "Hold logistics and IRB compliance to a standard that protects, rather than burdens, community partners.",
+        "Translate fieldwork into insights usable by both academic and community audiences.",
+      ],
+      process: [
+        {
+          title: "Partnership cultivation",
+          body: "Built research partnerships with Foras na Gaeilge and Údarás na Gaeltachta, treating relationship-building as the substrate that everything else depends on.",
+        },
+        {
+          title: "Logistics & IRB across two continents",
+          body: "Managed interview schedules, participant logistics, and IRB documentation across two continents — keeping the paperwork in service of trust rather than the other way around.",
+        },
+        {
+          title: "Fieldwork & interviewing",
+          body: "Conducted and coordinated multilingual interviews, holding methodological consistency across very different linguistic and cultural contexts.",
+        },
+        {
+          title: "Synthesis & dual-audience reporting",
+          body: "Synthesized qualitative interview and archival data into actionable insights, presented in formats appropriate for both academic and community audiences.",
+        },
+      ],
+      decisions: [
+        "Designed IRB and translation logistics around what supported community trust, not what was administratively convenient.",
+        "Held interview methodology consistent across both communities so findings could be compared honestly without flattening cultural difference.",
+        "Reported back to community audiences first, not as an afterthought to the academic write-up.",
+      ],
+    },
   },
   {
     slug: "nsf-reu-linguistics",
