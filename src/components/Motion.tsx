@@ -46,7 +46,7 @@ export function WordReveal({
   highlight?: string;
 }) {
   const reduce = useReducedMotion();
-  const words = text.split(" ");
+  const lines = text.split("\n");
   const container: Variants = {
     hidden: {},
     show: { transition: { staggerChildren: 0.05, delayChildren: delay } },
@@ -62,19 +62,23 @@ export function WordReveal({
   };
   return (
     <motion.span variants={container} initial="hidden" animate="show" className={className}>
-      {words.map((w, i) => {
-        const clean = w.replace(/[.,!?]/g, "").toLowerCase();
-        const isHl = highlight && highlight.toLowerCase().split(" ").includes(clean);
-        return (
-          <motion.span
-            key={i}
-            variants={word}
-            className={isHl ? "gradient-ink" : undefined}
-            style={{ display: "inline-block", marginRight: "0.28em" }}
-          >
-            {w}
-          </motion.span>
-        );
+      {lines.flatMap((line, li) => {
+        const out: ReactNode[] = li > 0 ? [<br key={`br-${li}`} />] : [];
+        line.split(" ").forEach((w, i) => {
+          const clean = w.replace(/[.,!?]/g, "").toLowerCase();
+          const isHl = highlight && highlight.toLowerCase().split(" ").includes(clean);
+          out.push(
+            <motion.span
+              key={`${li}-${i}`}
+              variants={word}
+              className={isHl ? "gradient-ink" : undefined}
+              style={{ display: "inline-block", marginRight: "0.28em" }}
+            >
+              {w}
+            </motion.span>
+          );
+        });
+        return out;
       })}
     </motion.span>
   );

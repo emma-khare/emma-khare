@@ -29,7 +29,7 @@ function Contact() {
         <div className="relative mx-auto max-w-7xl px-6 lg:px-12 pt-24 pb-20 lg:pt-32">
           <p className="label-mono mb-6">Contact</p>
           <h1 className="font-display text-5xl md:text-7xl lg:text-8xl tracking-tight max-w-[16ch] text-balance">
-            <WordReveal text="Say hello. I read everything." highlight="hello" />
+            <WordReveal text={"Say hello.\nI read everything."} highlight="hello" />
           </h1>
           <FadeIn delay={0.4} className="mt-8 max-w-xl">
             <p className="text-lg text-foreground/80 leading-relaxed text-pretty">
