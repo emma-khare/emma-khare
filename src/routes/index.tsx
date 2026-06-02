@@ -38,8 +38,10 @@ function Hero() {
         <div className="text-center">
           <p className="ha-label mb-7">Emma Khare — UX Researcher · 2026</p>
           <FadeIn>
-            <h1 className="mx-auto max-w-[17ch] text-5xl md:text-7xl lg:text-[5.25rem] leading-[1.0] text-balance">
-              A researcher who treats every study like a <em>trust</em> exercise.
+            <h1 className="mx-auto max-w-5xl text-4xl md:text-5xl lg:text-[3.25rem] leading-[1.12] text-balance">
+              A researcher bridging the <em>divide</em>
+              <br />
+              between Tech CEO and Dan down the street
             </h1>
           </FadeIn>
           <div className="ha-orn flex items-center justify-center gap-4 my-12 text-[oklch(0.7_0.1_75)]">
