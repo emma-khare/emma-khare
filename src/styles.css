@@ -155,13 +155,14 @@
     color: var(--pink-ink);
   }
 
-  /* The signature: pink → purple gradient text highlight */
+  /* The signature: solid garnet highlight with a gold underline accent */
   .gradient-ink {
-    background: linear-gradient(110deg, var(--pink) 0%, var(--purple) 55%, var(--blue) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
+    color: var(--pink-ink);
+    text-decoration-line: underline;
+    text-decoration-color: var(--purple);
+    text-decoration-thickness: 0.055em;
+    text-underline-offset: 0.12em;
+    text-decoration-skip-ink: none;
   }
 
   .hairline {
@@ -238,10 +239,12 @@
 .hero-archival h1 em {
   font-style: italic;
   font-weight: 600;
-  background: linear-gradient(120deg, var(--gx-accent) 0%, #b83a55 45%, var(--gx-gold) 120%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--gx-accent);
+  text-decoration-line: underline;
+  text-decoration-color: var(--gx-gold);
+  text-decoration-thickness: 0.05em;
+  text-underline-offset: 0.12em;
+  text-decoration-skip-ink: none;
 }
 .hero-archival .ha-orn span {
   display: block;
