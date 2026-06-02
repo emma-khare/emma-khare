@@ -1,7 +1,6 @@
 @import "tailwindcss" source(none);
-@source "../src";
 @import "tw-animate-css";
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&family=DM+Mono:wght@400;500&display=swap");
+@source "../src";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -208,4 +207,110 @@
     mix-blend-mode: multiply;
     opacity: 0.5;
   }
+}
+
+/* Homepage hero — Warm Archival (Garnet & Gold) */
+.hero-archival {
+  --gx-ink: #3a1c25;
+  --gx-muted: #8a6a72;
+  --gx-accent: #98203f;
+  --gx-gold: #c39a3c;
+  color: var(--gx-ink);
+  font-family: "Spectral", Georgia, serif;
+  background:
+    radial-gradient(110% 70% at 80% -10%, #f3dee2 0%, rgba(243, 222, 226, 0) 58%),
+    radial-gradient(80% 55% at 4% 2%, #f6ecd3 0%, rgba(246, 236, 211, 0) 55%),
+    linear-gradient(180deg, #fbf5ef 0%, #f4e9e1 100%);
+}
+.hero-archival .ha-label {
+  font-family: "Spectral", serif;
+  font-size: 12px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--gx-accent);
+  font-weight: 500;
+}
+.hero-archival h1 {
+  font-family: "Fraunces", serif;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+.hero-archival h1 em {
+  font-style: italic;
+  font-weight: 600;
+  background: linear-gradient(120deg, var(--gx-accent) 0%, #b83a55 45%, var(--gx-gold) 120%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.hero-archival .ha-orn span {
+  display: block;
+  height: 1px;
+  width: 90px;
+}
+.hero-archival .ha-orn span:first-child {
+  background: linear-gradient(90deg, transparent, var(--gx-gold));
+}
+.hero-archival .ha-orn span:last-child {
+  background: linear-gradient(90deg, var(--gx-gold), transparent);
+}
+.hero-archival .ha-lead {
+  font-family: "Fraunces", serif;
+}
+.hero-archival .ha-muted {
+  color: var(--gx-muted);
+}
+.hero-archival .ha-say {
+  color: var(--gx-accent);
+  font-weight: 600;
+}
+.hero-archival .ha-portrait::before {
+  content: "";
+  position: absolute;
+  inset: -110px -80px -60px -80px;
+  background: radial-gradient(
+    circle at 42% 26%,
+    rgba(152, 32, 63, 0.28) 0%,
+    rgba(152, 32, 63, 0.15) 30%,
+    rgba(152, 32, 63, 0.05) 50%,
+    rgba(152, 32, 63, 0) 66%
+  );
+  filter: blur(28px);
+  z-index: 0;
+}
+.hero-archival .ha-frame {
+  border: 6px solid #fff;
+  outline: 1px solid var(--gx-gold);
+  outline-offset: -7px;
+  box-shadow: 0 30px 60px -28px rgba(90, 20, 40, 0.5);
+  transform: rotate(-1.4deg);
+}
+.hero-archival .ha-btn {
+  font-family: "Fraunces", serif;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: -0.005em;
+  border-radius: 44px;
+  padding: 11px 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+.hero-archival .ha-btn-primary {
+  color: var(--gx-accent);
+  border: 1px solid var(--gx-accent);
+  background: transparent;
+}
+.hero-archival .ha-btn-primary:hover {
+  background: var(--gx-accent);
+  color: #fff;
+}
+.hero-archival .ha-btn-ghost {
+  color: var(--gx-ink);
+  border: 1px solid var(--gx-gold);
+}
+.hero-archival .ha-btn-ghost:hover {
+  background: var(--gx-gold);
+  color: #fff;
 }

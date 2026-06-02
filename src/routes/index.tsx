@@ -1,8 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import { projects } from "@/data/projects";
-import { FadeIn, WordReveal, StaggerList, StaggerItem, staggerItemVariants, PageWrap } from "@/components/Motion";
+import { FadeIn, StaggerList, StaggerItem, staggerItemVariants, PageWrap } from "@/components/Motion";
+import portrait from "@/assets/emma-headshot.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -32,55 +32,61 @@ function Home() {
 }
 
 function Hero() {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
-  const yPink = useTransform(scrollYProgress, [0, 1], [0, -80]);
-  const yBlue = useTransform(scrollYProgress, [0, 1], [0, 120]);
-  const yPurple = useTransform(scrollYProgress, [0, 1], [0, -40]);
-
   return (
-    <section ref={ref} className="relative overflow-hidden">
-      {/* ambient blobs */}
-      <motion.div style={{ y: yPink }} className="blob blob-pink h-[420px] w-[420px] -top-20 -left-20" />
-      <motion.div style={{ y: yBlue }} className="blob blob-blue h-[520px] w-[520px] top-40 -right-32" />
-      <motion.div style={{ y: yPurple }} className="blob blob-purple h-[340px] w-[340px] top-[60vh] left-1/3" />
-
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-12 pt-24 pb-32 lg:pt-40 lg:pb-48">
-        <div className="flex items-center gap-3 mb-10">
-          <span className="h-px w-10 bg-foreground" />
-          <span className="label-mono">Portfolio — vol. 01 · 2026</span>
+    <section className="hero-archival relative overflow-hidden">
+      <div className="relative mx-auto max-w-6xl px-6 lg:px-12 pt-20 pb-24 lg:pt-28">
+        <div className="text-center">
+          <p className="ha-label mb-7">Emma Khare — UX Researcher · 2026</p>
+          <FadeIn>
+            <h1 className="mx-auto max-w-[17ch] text-5xl md:text-7xl lg:text-[5.25rem] leading-[1.0] text-balance">
+              A researcher who treats every study like a <em>trust</em> exercise.
+            </h1>
+          </FadeIn>
+          <div className="ha-orn flex items-center justify-center gap-4 my-12 text-[oklch(0.7_0.1_75)]">
+            <span />
+            <span aria-hidden>✦</span>
+            <span />
+          </div>
         </div>
 
-        <h1 className="font-display text-[clamp(2.75rem,8.5vw,7rem)] leading-[0.95] tracking-[-0.035em] text-balance max-w-[18ch]">
-          <WordReveal
-            text="I design the space between insight and action."
-            highlight="insight"
-          />
-        </h1>
-
-        <FadeIn delay={0.5} className="mt-12 grid gap-10 md:grid-cols-12">
-          <p className="md:col-span-7 text-lg md:text-xl text-foreground/80 leading-relaxed text-pretty max-w-[58ch]">
-            I'm <span className="text-foreground font-medium">Emma Khare</span>, a UX researcher
-            working across conversational AI, consumer hardware, and community programs. I write
-            study protocols, moderate sessions, and turn what people actually do into things teams
-            can act on.
-          </p>
-          <div className="md:col-span-5 md:col-start-9 flex flex-col items-start gap-4 self-end">
-            <Link
-              to="/projects"
-              className="group inline-flex items-center gap-3 rounded-full bg-foreground text-background px-6 py-3 text-sm font-medium transition-transform hover:scale-[1.02]"
-            >
-              See selected work
-              <span className="transition-transform group-hover:translate-x-1">→</span>
-            </Link>
-            <Link to="/contact" className="text-sm link-underline text-foreground/70 hover:text-foreground ml-6">
-              Or get in touch
-            </Link>
-          </div>
-        </FadeIn>
+        <div className="grid gap-12 md:grid-cols-12 items-center text-left">
+          <FadeIn className="md:col-span-5">
+            <div className="ha-portrait relative">
+              <div className="ha-frame relative z-[1] aspect-[4/5] overflow-hidden rounded-[2px]">
+                <img
+                  src={portrait}
+                  alt="Portrait of Emma Khare"
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+              </div>
+            </div>
+          </FadeIn>
+          <FadeIn delay={0.1} className="md:col-span-7 space-y-5">
+            <p className="ha-lead text-2xl md:text-[1.6rem] leading-snug text-balance">
+              I'm Emma — a UX researcher trained in anthropology and linguistics.
+            </p>
+            <p className="text-lg md:text-xl leading-relaxed text-pretty">
+              I moderate conversational AI studies at Apple, run cross-cultural usability sessions
+              for wearables, design culturally responsive education programs, and{" "}
+              <span className="ha-say">
+                help teams hear what their participants are actually saying.
+              </span>
+            </p>
+            <p className="ha-muted text-base md:text-lg leading-relaxed text-pretty">
+              My background blends ethnography, NLP, and IRB-compliant fieldwork. I care about the
+              small details that make research trustworthy: protocol design, moderation hygiene,
+              consent, and the quiet work of synthesis.
+            </p>
+            <div className="flex flex-wrap items-center gap-3.5 pt-3">
+              <Link to="/projects" className="ha-btn ha-btn-primary">
+                See selected work →
+              </Link>
+              <Link to="/contact" className="ha-btn ha-btn-ghost">
+                Get in touch
+              </Link>
+            </div>
+          </FadeIn>
+        </div>
       </div>
     </section>
   );
