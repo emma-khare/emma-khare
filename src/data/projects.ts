@@ -384,6 +384,38 @@ export const projects: Project[] = [
     ],
     outcome:
       "Contributed acoustic evidence supporting Myaamia phonological description, and shared findings with community partners and the broader REU cohort.",
+    caseStudy: {
+      badges: ["Acoustic phonetics", "Praat", "Language revitalization"],
+      stats: [
+        { label: "Tool", value: "Praat" },
+        { label: "Audience", value: "Community + academic" },
+        { label: "Format", value: "Research poster" },
+      ],
+      goals: [
+        "Document allophonic variation in Myaamia with acoustic evidence.",
+        "Produce findings usable by both phonologists and the Myaamia Center's revitalization work.",
+        "Present results in a format accessible to non-specialist community audiences.",
+      ],
+      process: [
+        {
+          title: "Token selection from existing recordings",
+          body: "Segmented and measured target tokens in Praat from existing Myaamia recordings, choosing items that could reveal conditioning environments for allophonic variation.",
+        },
+        {
+          title: "Acoustic analysis",
+          body: "Analyzed formant and duration data to identify the phonological environments in which allophones surfaced, building a defensible quantitative picture from a modest dataset.",
+        },
+        {
+          title: "Translation into a community-readable artifact",
+          body: "Designed and presented a research poster summarizing findings — calibrated to be readable by academic and community audiences without diluting the technical content.",
+        },
+      ],
+      decisions: [
+        "Worked from existing recordings rather than requesting new ones — respecting community resources and timelines.",
+        "Held the analysis to a standard usable for phonological description, not just illustrative.",
+        "Designed the poster as a community deliverable, not only a conference artifact.",
+      ],
+    },
   },
   {
     slug: "ai-gender-romantic-fiction",
