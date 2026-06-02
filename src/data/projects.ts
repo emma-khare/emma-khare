@@ -323,6 +323,42 @@ export const projects: Project[] = [
     ],
     outcome:
       "Database engagement up 40% across academic users. Trust maintained with Indigenous community partners through strict ethical compliance.",
+    caseStudy: {
+      badges: ["NSF-funded", "Archival", "IRB-compliant"],
+      stats: [
+        { label: "Pages transcribed (IPA + English)", value: "100+" },
+        { label: "Stakeholders presented to", value: "200+" },
+        { label: "Database engagement lift", value: "+40%" },
+      ],
+      goals: [
+        "Transcribe and digitize fragile 1800s-era Hanis, Coos, and Miluk manuscripts into a usable scholarly resource.",
+        "Build an interactive database that academic users would actually return to.",
+        "Maintain strict IRB and ethical compliance with Indigenous community partners throughout.",
+      ],
+      process: [
+        {
+          title: "Archival transcription into IPA",
+          body: "Transcribed 100+ pages of pre-1900 source material into IPA and English, working carefully through idiosyncratic and inconsistent original transcriptions.",
+        },
+        {
+          title: "Database design",
+          body: "Designed and maintained an interactive research database for academic users — structuring the data so future researchers could query, compare, and cite it.",
+        },
+        {
+          title: "Ongoing community accountability",
+          body: "Held strict IRB and ethical-compliance standards with Indigenous community partners at every step, treating compliance as relational rather than purely procedural.",
+        },
+        {
+          title: "Dissemination",
+          body: "Presented findings to 200+ stakeholders including tribal members, university faculty, and federal grant administrators — adjusting framing for each audience without losing fidelity.",
+        },
+      ],
+      decisions: [
+        "Standardized transcription into IPA so the digitized corpus could serve linguistic research, not just preservation.",
+        "Built the database for researcher workflows, not as a static archive — driving the 40% engagement lift.",
+        "Treated community trust as the project's success condition, not a compliance checkbox.",
+      ],
+    },
   },
   {
     slug: "myaamia-allophones",
