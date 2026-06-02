@@ -201,6 +201,42 @@ export const projects: Project[] = [
     ],
     outcome:
       "Program engagement up 30% and student retention up 20%. Funding secured to expand Indigenous education programming the following year.",
+    caseStudy: {
+      badges: ["K-12", "Community-centered", "Mixed methods"],
+      stats: [
+        { label: "Native students & families served", value: "90+" },
+        { label: "Program funding secured", value: "$35K+" },
+        { label: "Engagement lift", value: "+30%" },
+      ],
+      goals: [
+        "Build programming that genuinely serves Native and Indigenous community members — not just symbolically.",
+        "Center community voice in both curriculum and evaluation.",
+        "Generate evidence strong enough to secure ongoing funding.",
+      ],
+      process: [
+        {
+          title: "Community-rooted curriculum design",
+          body: "Designed weekly workshops and inclusive curriculum materials addressing the educational and cultural needs surfaced directly by Native students and families — not assumed from outside the community.",
+        },
+        {
+          title: "Mixed-methods evaluation framework",
+          body: "Built an evaluation framework combining surveys, interviews, and program evaluations so qualitative voice and quantitative outcomes could be read together when reporting back to the district and to funders.",
+        },
+        {
+          title: "Stakeholder partnerships & grant writing",
+          body: "Wrote grants and built partnerships with district stakeholders and community organizations to secure $35K+ in program funding — translating evaluation findings into a funding case.",
+        },
+        {
+          title: "Iterating on what worked",
+          body: "Used evaluation data to refine workshop design across the year, lifting program engagement 30% and student retention 20%.",
+        },
+      ],
+      decisions: [
+        "Treated community voice as the source of curriculum, not a layer on top of pre-made content.",
+        "Designed the evaluation alongside the program so 'what's working' could be answered, not just claimed.",
+        "Wrote grants from evaluation data rather than aspiration — strengthening both the funding case and the program itself.",
+      ],
+    },
   },
   {
     slug: "indigeneity-identity-ireland",
