@@ -140,6 +140,42 @@ export const projects: Project[] = [
     ],
     outcome:
       "Surfaced team-communication gaps that were blocking iteration speed, and turned cross-cultural findings into prioritized roadmap inputs for global expansion.",
+    caseStudy: {
+      badges: ["Consumer wearable", "US ↔ China", "2024 — 2025"],
+      stats: [
+        { label: "Markets studied", value: "2" },
+        { label: "Cohorts compared", value: "US + CN" },
+        { label: "Cross-functional partners", value: "PM · Eng · Design" },
+      ],
+      goals: [
+        "Identify where onboarding and app navigation diverged between US and China cohorts.",
+        "Translate cross-cultural participant feedback into prioritized roadmap inputs.",
+        "Close communication gaps between US and China product teams slowing iteration.",
+      ],
+      process: [
+        {
+          title: "Aligning a single protocol across two markets",
+          body: "Co-designed a testing protocol that held methodologically consistent across US and China cohorts, so divergences in the data reflected real user behavior — not differences in how sessions were run.",
+        },
+        {
+          title: "Moderation & mid-session troubleshooting",
+          body: "Ran structured usability sessions across both markets, troubleshooting device and connectivity issues mid-session and escalating per research SOPs without breaking participant flow.",
+        },
+        {
+          title: "Synthesis into roadmap-tied artifacts",
+          body: "Built personas, journey maps, and usability reports explicitly tied to roadmap priorities — not generic deliverables, but inputs PMs and designers could act on in the next sprint.",
+        },
+        {
+          title: "Bridging US and China product teams",
+          body: "Translated participant feedback into iterative app updates alongside designers, engineers, and PMs across both regions — surfacing the team-communication gaps that were the real bottleneck.",
+        },
+      ],
+      decisions: [
+        "Held the protocol constant across markets so cohort differences were attributable to users, not to research design.",
+        "Tied every deliverable to a roadmap priority — refusing to ship insights without a clear next action for the product team.",
+        "Treated cross-team communication as a research finding in its own right, not a side observation.",
+      ],
+    },
   },
   {
     slug: "indigenous-education-omaha",
@@ -165,6 +201,42 @@ export const projects: Project[] = [
     ],
     outcome:
       "Program engagement up 30% and student retention up 20%. Funding secured to expand Indigenous education programming the following year.",
+    caseStudy: {
+      badges: ["K-12", "Community-centered", "Mixed methods"],
+      stats: [
+        { label: "Native students & families served", value: "90+" },
+        { label: "Program funding secured", value: "$35K+" },
+        { label: "Engagement lift", value: "+30%" },
+      ],
+      goals: [
+        "Build programming that genuinely serves Native and Indigenous community members — not just symbolically.",
+        "Center community voice in both curriculum and evaluation.",
+        "Generate evidence strong enough to secure ongoing funding.",
+      ],
+      process: [
+        {
+          title: "Community-rooted curriculum design",
+          body: "Designed weekly workshops and inclusive curriculum materials addressing the educational and cultural needs surfaced directly by Native students and families — not assumed from outside the community.",
+        },
+        {
+          title: "Mixed-methods evaluation framework",
+          body: "Built an evaluation framework combining surveys, interviews, and program evaluations so qualitative voice and quantitative outcomes could be read together when reporting back to the district and to funders.",
+        },
+        {
+          title: "Stakeholder partnerships & grant writing",
+          body: "Wrote grants and built partnerships with district stakeholders and community organizations to secure $35K+ in program funding — translating evaluation findings into a funding case.",
+        },
+        {
+          title: "Iterating on what worked",
+          body: "Used evaluation data to refine workshop design across the year, lifting program engagement 30% and student retention 20%.",
+        },
+      ],
+      decisions: [
+        "Treated community voice as the source of curriculum, not a layer on top of pre-made content.",
+        "Designed the evaluation alongside the program so 'what's working' could be answered, not just claimed.",
+        "Wrote grants from evaluation data rather than aspiration — strengthening both the funding case and the program itself.",
+      ],
+    },
   },
   {
     slug: "indigeneity-identity-ireland",
@@ -190,6 +262,42 @@ export const projects: Project[] = [
     ],
     outcome:
       "Findings presented to academic and community audiences, supporting cultural and linguistic revitalization initiatives on both sides of the partnership.",
+    caseStudy: {
+      badges: ["Ethnographic", "Multilingual", "Two-continent fieldwork"],
+      stats: [
+        { label: "Continents coordinated", value: "2" },
+        { label: "Institutional partners", value: "3" },
+        { label: "Languages in scope", value: "Gaeilge + Indigenous NA" },
+      ],
+      goals: [
+        "Connect Irish (Gaeilge) and Indigenous North American language-revitalization communities through shared research questions.",
+        "Hold logistics and IRB compliance to a standard that protects, rather than burdens, community partners.",
+        "Translate fieldwork into insights usable by both academic and community audiences.",
+      ],
+      process: [
+        {
+          title: "Partnership cultivation",
+          body: "Built research partnerships with Foras na Gaeilge and Údarás na Gaeltachta, treating relationship-building as the substrate that everything else depends on.",
+        },
+        {
+          title: "Logistics & IRB across two continents",
+          body: "Managed interview schedules, participant logistics, and IRB documentation across two continents — keeping the paperwork in service of trust rather than the other way around.",
+        },
+        {
+          title: "Fieldwork & interviewing",
+          body: "Conducted and coordinated multilingual interviews, holding methodological consistency across very different linguistic and cultural contexts.",
+        },
+        {
+          title: "Synthesis & dual-audience reporting",
+          body: "Synthesized qualitative interview and archival data into actionable insights, presented in formats appropriate for both academic and community audiences.",
+        },
+      ],
+      decisions: [
+        "Designed IRB and translation logistics around what supported community trust, not what was administratively convenient.",
+        "Held interview methodology consistent across both communities so findings could be compared honestly without flattening cultural difference.",
+        "Reported back to community audiences first, not as an afterthought to the academic write-up.",
+      ],
+    },
   },
   {
     slug: "nsf-reu-linguistics",
@@ -215,6 +323,42 @@ export const projects: Project[] = [
     ],
     outcome:
       "Database engagement up 40% across academic users. Trust maintained with Indigenous community partners through strict ethical compliance.",
+    caseStudy: {
+      badges: ["NSF-funded", "Archival", "IRB-compliant"],
+      stats: [
+        { label: "Pages transcribed (IPA + English)", value: "100+" },
+        { label: "Stakeholders presented to", value: "200+" },
+        { label: "Database engagement lift", value: "+40%" },
+      ],
+      goals: [
+        "Transcribe and digitize fragile 1800s-era Hanis, Coos, and Miluk manuscripts into a usable scholarly resource.",
+        "Build an interactive database that academic users would actually return to.",
+        "Maintain strict IRB and ethical compliance with Indigenous community partners throughout.",
+      ],
+      process: [
+        {
+          title: "Archival transcription into IPA",
+          body: "Transcribed 100+ pages of pre-1900 source material into IPA and English, working carefully through idiosyncratic and inconsistent original transcriptions.",
+        },
+        {
+          title: "Database design",
+          body: "Designed and maintained an interactive research database for academic users — structuring the data so future researchers could query, compare, and cite it.",
+        },
+        {
+          title: "Ongoing community accountability",
+          body: "Held strict IRB and ethical-compliance standards with Indigenous community partners at every step, treating compliance as relational rather than purely procedural.",
+        },
+        {
+          title: "Dissemination",
+          body: "Presented findings to 200+ stakeholders including tribal members, university faculty, and federal grant administrators — adjusting framing for each audience without losing fidelity.",
+        },
+      ],
+      decisions: [
+        "Standardized transcription into IPA so the digitized corpus could serve linguistic research, not just preservation.",
+        "Built the database for researcher workflows, not as a static archive — driving the 40% engagement lift.",
+        "Treated community trust as the project's success condition, not a compliance checkbox.",
+      ],
+    },
   },
   {
     slug: "myaamia-allophones",
@@ -240,6 +384,38 @@ export const projects: Project[] = [
     ],
     outcome:
       "Contributed acoustic evidence supporting Myaamia phonological description, and shared findings with community partners and the broader REU cohort.",
+    caseStudy: {
+      badges: ["Acoustic phonetics", "Praat", "Language revitalization"],
+      stats: [
+        { label: "Tool", value: "Praat" },
+        { label: "Audience", value: "Community + academic" },
+        { label: "Format", value: "Research poster" },
+      ],
+      goals: [
+        "Document allophonic variation in Myaamia with acoustic evidence.",
+        "Produce findings usable by both phonologists and the Myaamia Center's revitalization work.",
+        "Present results in a format accessible to non-specialist community audiences.",
+      ],
+      process: [
+        {
+          title: "Token selection from existing recordings",
+          body: "Segmented and measured target tokens in Praat from existing Myaamia recordings, choosing items that could reveal conditioning environments for allophonic variation.",
+        },
+        {
+          title: "Acoustic analysis",
+          body: "Analyzed formant and duration data to identify the phonological environments in which allophones surfaced, building a defensible quantitative picture from a modest dataset.",
+        },
+        {
+          title: "Translation into a community-readable artifact",
+          body: "Designed and presented a research poster summarizing findings — calibrated to be readable by academic and community audiences without diluting the technical content.",
+        },
+      ],
+      decisions: [
+        "Worked from existing recordings rather than requesting new ones — respecting community resources and timelines.",
+        "Held the analysis to a standard usable for phonological description, not just illustrative.",
+        "Designed the poster as a community deliverable, not only a conference artifact.",
+      ],
+    },
   },
   {
     slug: "ai-gender-romantic-fiction",
@@ -265,6 +441,42 @@ export const projects: Project[] = [
     ],
     outcome:
       "Demonstrated an adaptable UX research methodology in an NLP context — a throughline that still shapes how I design conversational-AI studies today.",
+    caseStudy: {
+      badges: ["NLP", "Python", "Mixed methods"],
+      stats: [
+        { label: "Stack", value: "NRCLex · NLTK · WordNet" },
+        { label: "Method", value: "Sentiment + cultural reading" },
+        { label: "Output", value: "Personas + analysis" },
+      ],
+      goals: [
+        "Surface emotional patterns and gender representation in romantic fiction text data.",
+        "Pair computational analysis with the kind of cultural reading anthropology trains for.",
+        "Connect computational insights to plausible stakeholder use cases via personas.",
+      ],
+      process: [
+        {
+          title: "Corpus cleaning & preparation",
+          body: "Cleaned and structured large text datasets so sentiment and lexical analyses would run against consistent inputs rather than noisy raw text.",
+        },
+        {
+          title: "Sentiment & lexical analysis",
+          body: "Used NRCLex, NLTK, and WordNet to surface emotional trends and gendered patterns in the corpus — running computational analysis as the first pass, not the final word.",
+        },
+        {
+          title: "Cultural reading & framing",
+          body: "Framed computational findings through cultural context, storytelling, and computational linguistics — letting each lens catch what the other missed.",
+        },
+        {
+          title: "Persona translation",
+          body: "Built research personas linking the computational insights to real stakeholder use cases, demonstrating how an NLP study could feed a product or design conversation.",
+        },
+      ],
+      decisions: [
+        "Treated sentiment scores as a starting point for interpretation, not as conclusions on their own.",
+        "Used personas to bridge an academic NLP study into a UX-research-shaped deliverable.",
+        "Held cultural and computational readings in tension on purpose, so neither would overwrite the other.",
+      ],
+    },
   },
 ];
 
