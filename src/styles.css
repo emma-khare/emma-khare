@@ -155,14 +155,21 @@
     color: var(--pink-ink);
   }
 
-  /* The signature: solid garnet highlight with a gold underline accent */
+  /* Gold rule accent before standalone section eyebrows (not pills, links, or fine-print) */
+  p.label-mono:not(.no-rule)::before {
+    content: "";
+    display: inline-block;
+    width: 1.7em;
+    height: 1.5px;
+    margin-right: 0.75em;
+    vertical-align: 0.22em;
+    background: var(--purple-ink);
+  }
+
+  /* The signature: solid garnet highlight, italic for emphasis */
   .gradient-ink {
-    color: var(--pink-ink);
-    text-decoration-line: underline;
-    text-decoration-color: var(--purple);
-    text-decoration-thickness: 0.055em;
-    text-underline-offset: 0.12em;
-    text-decoration-skip-ink: none;
+    color: var(--pink);
+    font-style: italic;
   }
 
   .hairline {
@@ -240,11 +247,6 @@
   font-style: italic;
   font-weight: 600;
   color: var(--gx-accent);
-  text-decoration-line: underline;
-  text-decoration-color: var(--gx-gold);
-  text-decoration-thickness: 0.05em;
-  text-underline-offset: 0.12em;
-  text-decoration-skip-ink: none;
 }
 .hero-archival .ha-orn span {
   display: block;
