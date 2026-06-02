@@ -240,7 +240,7 @@ function Now() {
         <FadeIn>
           <p className="label-mono mb-6">Why research</p>
           <blockquote className="font-display text-3xl md:text-5xl tracking-tight text-balance max-w-[24ch] leading-[1.15]">
-            I got into research because I believe the quietest voices in a room often hold the most important truths. My job is to create the conditions where those voices can be heard.
+            The quietest voices in a room hold the most important truths. Creating conditions where those voices are heard.
           </blockquote>
         </FadeIn>
       </section>
