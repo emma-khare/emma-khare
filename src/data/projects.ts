@@ -379,7 +379,7 @@ export const projects: Project[] = [
       "Myaamia and Ojibwe are reawakening Indigenous languages with small but growing bodies of acoustic documentation. The study examined allophones — the subtly different ways a single speech sound is pronounced depending on its phonetic environment, variations that don't change a word's meaning but reveal how the sound system works. Acoustic evidence of this patterning supports both pedagogy and the revitalization work led by community partners.",
     methods: [
       "Presented findings as a research poster to 200+ stakeholders — tribal members, university faculty, and federal grant administrators — translating technical results for non-specialist audiences.",
-      "Applied hard linguistics skills in Praat: segmenting and measuring tokens, then analyzing formant and duration data to identify the environments conditioning allophonic variation.",
+      "Parsed out allophonic similarities from existing open-source audio files alongside first-person Indigenous community members, then segmented tokens in Praat and analyzed formant and duration data to identify the environments conditioning the variation.",
       "Held the work to rigorous research methods, producing documentation usable for future phonological description.",
       "Built long-lasting relationships with Indigenous researchers and community members, leaving deliverables their revitalization work could build on.",
     ],
@@ -404,7 +404,7 @@ export const projects: Project[] = [
         },
         {
           title: "Acoustic analysis & hard linguistics skills",
-          body: "Segmented and measured target tokens in Praat, analyzing formant and duration data to identify the phonological environments in which allophones surfaced — a defensible quantitative picture built from a modest dataset.",
+          body: "Drew on existing open-source audio files and first-person Indigenous community members to parse out allophonic similarities, then segmented and measured tokens in Praat — analyzing formant and duration data to pin down the phonological environments in which allophones surfaced.",
         },
         {
           title: "Deliverables for future research",
@@ -412,13 +412,13 @@ export const projects: Project[] = [
         },
         {
           title: "Lasting community relationships",
-          body: "Worked from existing recordings and alongside community partners, building long-lasting relationships among Indigenous researchers and community members that future research can continue.",
+          body: "Worked from existing open-source audio files and directly with first-person community members, building long-lasting relationships among Indigenous researchers and community members that future research can continue.",
         },
       ],
       decisions: [
         "Led with the stakeholder presentation, treating accessibility for community audiences as a core deliverable, not an afterthought.",
         "Held the analysis to a standard usable for phonological description — demonstrating hard linguistics skills and rigorous method.",
-        "Invested in existing recordings and community partnerships, prioritizing long-term relationships over one-time output.",
+        "Invested in existing open-source audio files and direct work with community members, prioritizing long-term relationships over one-time output.",
       ],
     },
   },
