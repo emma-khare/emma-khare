@@ -315,7 +315,7 @@ export const projects: Project[] = [
     overview:
       "An NSF-funded fellowship transcribing and digitizing historical manuscripts in Hanis, Coos, and Miluk into IPA and English, alongside building an interactive research database for academic users.",
     context:
-      "The source documents were printed photocopies of handwritten manuscripts. Transcription meant deciphering which IPA characters had originally been written by hand, working out the phonetic sounds those characters were meant to represent, and recording every reading in a spreadsheet. Because the handwriting was ambiguous, peer review and collaboration were essential to verify accuracy — all under strict ethical compliance with Indigenous community partners.",
+      "The source documents were printed photocopies of handwritten manuscripts. Transcription meant deciphering which characters of the IPA had originally been written by hand, working out the phonetic sounds those characters were meant to represent, and recording every reading in a spreadsheet. IPA — the International Phonetic Alphabet — assigns every sound a human can produce its own written orthographic symbol; it is the standardized system linguists use across the field to document and decipher languages consistently. Because the handwriting was ambiguous, peer review and collaboration were essential to verify accuracy — all under strict ethical compliance with Indigenous community partners.",
     methods: [
       "Transcribed 100+ pages of 1800s-era source material into IPA and English.",
       "Designed and maintained an interactive research database used by academic users.",
