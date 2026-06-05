@@ -35,7 +35,7 @@ function ProjectsIndex() {
         <FadeIn>
           <p className="label-mono mb-6">Index · {projects.length} projects</p>
           <h1 className="font-display text-5xl md:text-7xl tracking-tight max-w-[18ch] text-balance">
-            Six years of research, <span className="gradient-ink">in their own words.</span>
+            Research across academia, community, <span className="gradient-ink">and industry.</span>
           </h1>
         </FadeIn>
       </section>

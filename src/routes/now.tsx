@@ -40,7 +40,7 @@ const TOOLS = [
 const FOCUS = [
   {
     label: "Work",
-    text: "Moderating Siri-related user research at Apple. Deep in the details of how people actually talk to AI — the pauses, the repairs, the trust signals.",
+    text: "Moderating conversational-AI and voice research at Apple. Deep in the details of how people actually talk to AI — the pauses, the repairs, the trust signals.",
   },
   {
     label: "Side project",

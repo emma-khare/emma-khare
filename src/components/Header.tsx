@@ -18,7 +18,7 @@ export function Header() {
       initial={{ opacity: 0, y: -8 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className="sticky top-0 z-50 backdrop-blur-md bg-background/75 border-b border-hairline"
+      className="sticky top-0 z-50 backdrop-blur-md bg-background/90 border-b border-hairline"
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-12">
         <Link to="/" className="group flex items-center gap-3">

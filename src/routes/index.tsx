@@ -44,10 +44,11 @@ function Hero() {
               between Tech CEO and Dan down the street
             </h1>
           </FadeIn>
-          <div className="ha-orn flex items-center justify-center gap-4 my-12 text-[oklch(0.7_0.1_75)]">
-            <span />
-            <span aria-hidden>✦</span>
-            <span />
+          <div className="my-12 flex justify-center" aria-hidden>
+            <span
+              className="block h-px w-28"
+              style={{ background: "linear-gradient(90deg, transparent, var(--gx-gold), transparent)" }}
+            />
           </div>
         </div>
 
