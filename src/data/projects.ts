@@ -27,6 +27,12 @@ export type Project = {
   accent: "coral" | "blue" | "pink" | "peach";
   cover: string;
   image?: string;
+  /** Optional secondary "action" photo shown within the case study (public/ path or imported asset). */
+  actionImage?: string;
+  actionCaption?: string;
+  /** Optional embedded video (YouTube/Vimeo *embed* URL). */
+  videoUrl?: string;
+  videoCaption?: string;
   overview: string;
   context: string;
   methods: string[];
@@ -241,6 +247,8 @@ export const projects: Project[] = [
   {
     slug: "indigeneity-identity-ireland",
     image: irelandImg,
+    actionImage: "/ireland-studio.jpg",
+    actionCaption: "On location during the Ireland language-revitalization fieldwork.",
     title: "Indigeneity, Identity & Ireland",
     tagline:
       "Multilingual fieldwork across Irish (Gaeilge) and Indigenous North American research communities.",
@@ -298,6 +306,33 @@ export const projects: Project[] = [
         "Reported back to community audiences first, not as an afterthought to the academic write-up.",
       ],
     },
+  },
+  {
+    slug: "indigenous-climate-documentary",
+    // TODO: add main image -> save to public/indigenous-climate-doc.jpg then set: image: "/indigenous-climate-doc.jpg"
+    videoUrl: "", // TODO: paste the YouTube/Vimeo *embed* URL here (e.g. https://www.youtube.com/embed/VIDEO_ID)
+    videoCaption: "Ethnographic Documentary — Indigenous Climate Change",
+    title: "Ethnographic Documentary — Indigenous Climate Change",
+    tagline:
+      "A short ethnographic documentary on how Indigenous communities experience and respond to climate change.",
+    year: "2024", // TODO: confirm year
+    role: "Researcher & Documentarian", // TODO: confirm role
+    client: "Independent", // TODO: confirm
+    tags: ["Ethnographic Research", "Documentary", "Climate"],
+    accent: "peach",
+    cover:
+      "from-[oklch(0.85_0.12_70)] via-[oklch(0.74_0.15_45)] to-[oklch(0.64_0.16_25)]",
+    overview:
+      "An ethnographic documentary exploring how Indigenous communities experience and respond to climate change — pairing first-person interviews with on-the-ground fieldwork. (Full write-up in progress.)",
+    context:
+      "Climate change is lived differently in communities whose knowledge systems and livelihoods are tied to the land. This project documents those perspectives in their own words. (More detail to come.)",
+    methods: [
+      "First-person interviews with Indigenous community members.",
+      "On-location ethnographic fieldwork and observation.",
+      "Video documentation, editing, and narrative structuring.",
+    ],
+    outcome:
+      "A short documentary film. (Details and impact to be added.)",
   },
   {
     slug: "nsf-reu-linguistics",

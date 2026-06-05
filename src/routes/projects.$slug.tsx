@@ -122,6 +122,26 @@ function ProjectPage() {
         </div>
       </section>
 
+      {/* VIDEO EMBED (optional) */}
+      {p.videoUrl ? (
+        <section className="mx-auto max-w-7xl px-6 lg:px-12 py-12">
+          <FadeIn>
+            <div className="relative aspect-video w-full overflow-hidden rounded-3xl border border-hairline bg-foreground/[0.03]">
+              <iframe
+                src={p.videoUrl}
+                title={p.title}
+                className="absolute inset-0 h-full w-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+            {p.videoCaption ? (
+              <p className="label-mono mt-4 text-center">{p.videoCaption}</p>
+            ) : null}
+          </FadeIn>
+        </section>
+      ) : null}
+
       {/* CONTEXT */}
       <section className="mx-auto max-w-7xl px-6 lg:px-12 py-12">
         <div className="grid gap-12 md:grid-cols-12">
@@ -135,6 +155,26 @@ function ProjectPage() {
           </FadeIn>
         </div>
       </section>
+
+      {/* ACTION PHOTO (optional) */}
+      {p.actionImage ? (
+        <section className="mx-auto max-w-7xl px-6 lg:px-12 py-12">
+          <FadeIn>
+            <figure className="space-y-4">
+              <div className="relative aspect-[16/9] w-full overflow-hidden rounded-3xl bg-foreground/[0.04] grain-overlay">
+                <img
+                  src={p.actionImage}
+                  alt={p.actionCaption ?? p.title}
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+              </div>
+              {p.actionCaption ? (
+                <figcaption className="label-mono text-center">{p.actionCaption}</figcaption>
+              ) : null}
+            </figure>
+          </FadeIn>
+        </section>
+      ) : null}
 
       {/* METHODS — hidden when a rich case study is present (rendered side-by-side with Goals below) */}
       {!p.caseStudy && (
