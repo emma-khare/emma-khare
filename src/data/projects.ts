@@ -363,57 +363,62 @@ export const projects: Project[] = [
   {
     slug: "myaamia-allophones",
     image: reuAllophonesImg,
-    title: "Myaamia Allophones Acoustic Study",
+    title: "Myaamia & Ojibwe Language Study + Stakeholder Presentation",
     tagline:
-      "An acoustic-phonetic analysis of allophonic variation in Myaamia, completed within the NSF REU fellowship.",
+      "Presenting Myaamia and Ojibwe language research to tribal, academic, and federal stakeholders — grounded in acoustic phonetics and rigorous method.",
     year: "2022",
     role: "NSF REU Fellow — Linguistics",
     client: "University of Oregon × Myaamia Center",
-    tags: ["Acoustic Phonetics", "Praat", "Language Revitalization"],
+    tags: ["Stakeholder Engagement", "Research Presentation", "Acoustic Phonetics"],
     accent: "blue",
     cover:
       "from-[oklch(0.82_0.12_210)] via-[oklch(0.72_0.16_245)] to-[oklch(0.64_0.19_275)]",
     overview:
-      "A sub-project of my NSF REU fellowship: an acoustic study of allophonic variation in Myaamia, presented as a research poster to faculty, tribal members, and federal grant administrators.",
+      "A sub-project of my National Science Foundation (NSF) Research Experiences for Undergraduates (REU) fellowship, presented as a research poster to tribal members, university faculty, and federal grant administrators. The work paired acoustic-phonetic analysis of Myaamia and Ojibwe language data with a stakeholder-facing presentation — translating technical linguistics into findings community partners and researchers could carry forward.",
     context:
-      "Myaamia is a reawakening language with a small but growing body of acoustic documentation. Acoustic evidence of allophonic patterning supports both pedagogy and ongoing revitalization work led by the Myaamia Center.",
+      "Myaamia and Ojibwe are reawakening Indigenous languages with small but growing bodies of acoustic documentation. The study examined allophones — the subtly different ways a single speech sound is pronounced depending on its phonetic environment, variations that don't change a word's meaning but reveal how the sound system works. Acoustic evidence of this patterning supports both pedagogy and the revitalization work led by community partners.",
     methods: [
-      "Segmented and measured target tokens in Praat from existing Myaamia recordings.",
-      "Analyzed formant and duration data to identify conditioning environments for allophonic variation.",
-      "Designed and presented a research poster summarizing findings for academic and community audiences.",
+      "Presented findings as a research poster to 200+ stakeholders — tribal members, university faculty, and federal grant administrators — translating technical results for non-specialist audiences.",
+      "Applied hard linguistics skills in Praat: segmenting and measuring tokens, then analyzing formant and duration data to identify the environments conditioning allophonic variation.",
+      "Held the work to rigorous research methods, producing documentation usable for future phonological description.",
+      "Built long-lasting relationships with Indigenous researchers and community members, leaving deliverables their revitalization work could build on.",
     ],
     outcome:
-      "Contributed acoustic evidence supporting Myaamia phonological description, and shared findings with community partners and the broader REU cohort.",
+      "Delivered acoustic evidence and a stakeholder presentation that fed directly into ongoing revitalization work — and, as much as the findings, established long-lasting relationships among Indigenous researchers and community members for future research to build on.",
     caseStudy: {
-      badges: ["Acoustic phonetics", "Praat", "Language revitalization"],
+      badges: ["Stakeholder presentation", "Acoustic phonetics", "Language revitalization"],
       stats: [
-        { label: "Tool", value: "Praat" },
-        { label: "Audience", value: "Community + academic" },
-        { label: "Format", value: "Research poster" },
+        { label: "Stakeholders presented to", value: "200+" },
+        { label: "Audience", value: "Tribal · academic · federal" },
+        { label: "Tools", value: "Praat" },
       ],
       goals: [
-        "Document allophonic variation in Myaamia with acoustic evidence.",
-        "Produce findings usable by both phonologists and the Myaamia Center's revitalization work.",
-        "Present results in a format accessible to non-specialist community audiences.",
+        "Present Myaamia and Ojibwe language findings in a format accessible to tribal, academic, and federal stakeholders.",
+        "Document allophonic variation with rigorous acoustic evidence and a strong linguistics foundation.",
+        "Leave deliverables and relationships that future revitalization research can build on.",
       ],
       process: [
         {
-          title: "Token selection from existing recordings",
-          body: "Segmented and measured target tokens in Praat from existing Myaamia recordings, choosing items that could reveal conditioning environments for allophonic variation.",
+          title: "Stakeholder presentation & engagement",
+          body: "Designed and presented a research poster to 200+ tribal members, university faculty, and federal grant administrators — calibrated to be readable by non-specialist community audiences without diluting the technical content.",
         },
         {
-          title: "Acoustic analysis",
-          body: "Analyzed formant and duration data to identify the phonological environments in which allophones surfaced, building a defensible quantitative picture from a modest dataset.",
+          title: "Acoustic analysis & hard linguistics skills",
+          body: "Segmented and measured target tokens in Praat, analyzing formant and duration data to identify the phonological environments in which allophones surfaced — a defensible quantitative picture built from a modest dataset.",
         },
         {
-          title: "Translation into a community-readable artifact",
-          body: "Designed and presented a research poster summarizing findings — calibrated to be readable by academic and community audiences without diluting the technical content.",
+          title: "Deliverables for future research",
+          body: "Produced documentation held to a standard usable for phonological description, so the work could serve ongoing pedagogy and revitalization rather than sit as a one-off study.",
+        },
+        {
+          title: "Lasting community relationships",
+          body: "Worked from existing recordings and alongside community partners, building long-lasting relationships among Indigenous researchers and community members that future research can continue.",
         },
       ],
       decisions: [
-        "Worked from existing recordings rather than requesting new ones — respecting community resources and timelines.",
-        "Held the analysis to a standard usable for phonological description, not just illustrative.",
-        "Designed the poster as a community deliverable, not only a conference artifact.",
+        "Led with the stakeholder presentation, treating accessibility for community audiences as a core deliverable, not an afterthought.",
+        "Held the analysis to a standard usable for phonological description — demonstrating hard linguistics skills and rigorous method.",
+        "Invested in existing recordings and community partnerships, prioritizing long-term relationships over one-time output.",
       ],
     },
   },
