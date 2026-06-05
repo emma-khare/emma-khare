@@ -112,10 +112,12 @@ function ProjectPage() {
           <FadeIn className="md:col-span-4">
             <p className="label-mono">Overview</p>
           </FadeIn>
-          <FadeIn delay={0.1} className="md:col-span-8">
-            <p className="font-display text-3xl md:text-4xl leading-tight text-balance">
-              {p.overview}
-            </p>
+          <FadeIn delay={0.1} className="md:col-span-8 space-y-6">
+            {p.overview.split("\n\n").map((para, i) => (
+              <p key={i} className="font-display text-3xl md:text-4xl leading-tight text-balance">
+                {para}
+              </p>
+            ))}
           </FadeIn>
         </div>
       </section>

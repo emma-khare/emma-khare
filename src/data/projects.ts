@@ -374,7 +374,7 @@ export const projects: Project[] = [
     cover:
       "from-[oklch(0.82_0.12_210)] via-[oklch(0.72_0.16_245)] to-[oklch(0.64_0.19_275)]",
     overview:
-      "A sub-project of my National Science Foundation (NSF) Research Experiences for Undergraduates (REU) fellowship, presented as a research poster to tribal members, university faculty, and federal grant administrators. The work paired acoustic-phonetic analysis of Myaamia and Ojibwe language data with a stakeholder-facing presentation — translating technical linguistics into findings community partners and researchers could carry forward.",
+      "Part of my National Science Foundation (NSF) REU fellowship — presented as a research poster to tribal members, faculty, and federal grant administrators.\n\nIt paired acoustic-phonetic analysis of Myaamia and Ojibwe with a stakeholder-facing presentation, turning technical linguistics into findings partners could carry forward.",
     context:
       "Myaamia and Ojibwe are reawakening Indigenous languages with small but growing bodies of acoustic documentation. The study examined allophones — the subtly different ways a single speech sound is pronounced depending on its phonetic environment, variations that don't change a word's meaning but reveal how the sound system works. Acoustic evidence of this patterning supports both pedagogy and the revitalization work led by community partners.",
     methods: [
