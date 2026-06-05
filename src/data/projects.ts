@@ -120,8 +120,8 @@ export const projects: Project[] = [
     image: woafmeowImg,
     title: "Cross-Cultural Smart Ring Research",
     tagline:
-      "Surfacing UX divergences between US and China cohorts for a consumer health wearable.",
-    year: "2024 — 2025",
+      "Shaping an early-stage consumer health smart ring through prototypes, surveys, and cross-cultural US–China research.",
+    year: "2025",
     role: "User Experience Researcher",
     client: "Woaf Meow",
     tags: ["Wearables", "Cross-Cultural", "Usability"],
@@ -129,51 +129,51 @@ export const projects: Project[] = [
     cover:
       "from-[oklch(0.78_0.13_200)] via-[oklch(0.7_0.16_240)] to-[oklch(0.66_0.19_270)]",
     overview:
-      "Moderated usability sessions for an Oura-style smart ring across US and China-based cohorts, identifying where onboarding and app navigation diverged between markets.",
+      "Worked mainly on the software side of an early-stage consumer health smart ring, supporting the first stages of hardware development. Drafted prototypes and ran surveys to learn what users wanted and where the product could go — with research spanning US and China cohorts.",
     context:
-      "The product team was iterating quickly but had blind spots between regional cohorts. Critical communication gaps between US and China product teams were slowing iteration, and roadmap priorities for global expansion needed grounded evidence.",
+      "The product was in its earliest stages: the software was taking shape while the hardware was still being prototyped. Before committing to a direction, the team needed grounded evidence about what users actually wanted — and where expectations diverged between the US and China markets.",
     methods: [
-      "Ran structured testing protocols across both markets, holding methodological consistency between cohorts.",
-      "Built personas, journey maps, and usability reports tied to roadmap priorities.",
-      "Translated participant feedback into iterative app updates with designers, engineers, and PMs.",
-      "Troubleshot device and connectivity issues mid-session and escalated per research SOPs.",
+      "Ran surveys to learn what users wanted from the product and where it could develop next.",
+      "Drafted and iterated early prototypes with the software team during the first stages of hardware development.",
+      "Built personas, journey maps, and usability reports to ground product direction.",
+      "Surfaced where onboarding and expectations diverged between US and China cohorts, and flagged the US–China team communication gaps slowing iteration.",
     ],
     outcome:
-      "Surfaced team-communication gaps that were blocking iteration speed, and turned cross-cultural findings into prioritized roadmap inputs for global expansion.",
+      "Turned early survey and prototype research into a grounded product direction, and surfaced cross-cultural differences and team-communication gaps that shaped which features to prioritize as the product took shape.",
     caseStudy: {
-      badges: ["Consumer wearable", "US ↔ China", "2024 — 2025"],
+      badges: ["Consumer wearable", "US ↔ China", "2025"],
       stats: [
         { label: "Markets studied", value: "2" },
         { label: "Cohorts compared", value: "US + CN" },
         { label: "Cross-functional partners", value: "PM · Eng · Design" },
       ],
       goals: [
-        "Identify where onboarding and app navigation diverged between US and China cohorts.",
-        "Translate cross-cultural participant feedback into prioritized roadmap inputs.",
-        "Close communication gaps between US and China product teams slowing iteration.",
+        "Define what the product could become through surveys and early prototype feedback.",
+        "Ground software and first-stage hardware direction in real user needs.",
+        "Identify where expectations diverged between US and China cohorts, and close the communication gaps slowing iteration.",
       ],
       process: [
         {
-          title: "Aligning a single protocol across two markets",
-          body: "Co-designed a testing protocol that held methodologically consistent across US and China cohorts, so divergences in the data reflected real user behavior — not differences in how sessions were run.",
+          title: "Surveys to define product direction",
+          body: "Ran surveys to understand what users wanted from an early-stage smart ring and where the product could develop — turning open questions about direction into grounded signal for the team.",
         },
         {
-          title: "Moderation & mid-session troubleshooting",
-          body: "Ran structured usability sessions across both markets, troubleshooting device and connectivity issues mid-session and escalating per research SOPs without breaking participant flow.",
+          title: "Drafting early prototypes",
+          body: "Worked mainly on the software side while the hardware was in its first stages, drafting and iterating prototypes with designers and engineers to test what the product could become.",
         },
         {
-          title: "Synthesis into roadmap-tied artifacts",
-          body: "Built personas, journey maps, and usability reports explicitly tied to roadmap priorities — not generic deliverables, but inputs PMs and designers could act on in the next sprint.",
+          title: "Synthesis into product-direction artifacts",
+          body: "Built personas, journey maps, and usability reports to ground decisions about features and direction — inputs the team could act on as the product took shape.",
         },
         {
           title: "Bridging US and China product teams",
-          body: "Translated participant feedback into iterative app updates alongside designers, engineers, and PMs across both regions — surfacing the team-communication gaps that were the real bottleneck.",
+          body: "Surfaced where onboarding and expectations diverged between US and China cohorts — and the team-communication gaps between regions that were the real bottleneck — so early product decisions accounted for both markets.",
         },
       ],
       decisions: [
-        "Held the protocol constant across markets so cohort differences were attributable to users, not to research design.",
-        "Tied every deliverable to a roadmap priority — refusing to ship insights without a clear next action for the product team.",
-        "Treated cross-team communication as a research finding in its own right, not a side observation.",
+        "Led with surveys and prototypes to define direction before the product locked into a shape.",
+        "Tied every deliverable to a concrete product decision rather than shipping generic insights.",
+        "Treated US–China differences and cross-team communication as first-class findings during early development, not later localization.",
       ],
     },
   },
