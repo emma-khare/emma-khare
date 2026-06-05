@@ -85,6 +85,10 @@ const ENGAGEMENT = [
     title: "Study 3 — Contributing researcher",
     body: "Contributed to a third study in a supporting research role across a concurrent research stream.",
   },
+  {
+    title: "Study 4 — Contributing researcher",
+    body: "Contributing in coordination with international teams around the world, spanning 5+ locales and languages. The protocols and materials I developed are subsequently adopted and used by these global teams.",
+  },
 ];
 
 function AppleCaseStudy() {
