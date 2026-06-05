@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { FadeIn, PageWrap, StaggerList, StaggerItem, staggerItemVariants } from "@/components/Motion";
+import appleAudioImg from "@/assets/project-apple-audio.png";
 
 export const Route = createFileRoute("/projects/apple-conversational-ai")({
   head: () => ({
@@ -78,8 +79,8 @@ const ENGAGEMENT = [
     body: "This case study. Protocol author, lead moderator, moderator trainer.",
   },
   {
-    title: "Study 2 — Lead moderator",
-    body: "Selected again as lead moderator on a subsequent study — reflecting trust built through prior execution.",
+    title: "Study 2 — Lead moderator (current)",
+    body: "The project I'm leading now — selected again as lead moderator on the strength of prior execution. Built around specialized audio equipment, with a planned scale of 1,000 participants.",
   },
   {
     title: "Study 3 — Contributing researcher",
@@ -114,6 +115,15 @@ function AppleCaseStudy() {
           <h1 className="font-display text-5xl md:text-7xl lg:text-[5.5rem] tracking-tight leading-[0.98] text-balance">
             Multi-Device AI Audio Capture Study
           </h1>
+          <FadeIn delay={0.1}>
+            <div className="mt-10 relative aspect-[16/9] w-full overflow-hidden rounded-3xl bg-foreground/[0.04] grain-overlay">
+              <img
+                src={appleAudioImg}
+                alt="Multi-Device AI Audio Capture Study"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+            </div>
+          </FadeIn>
         </div>
       </section>
 
