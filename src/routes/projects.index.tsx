@@ -37,6 +37,11 @@ function ProjectsIndex() {
           <h1 className="font-display text-5xl md:text-7xl tracking-tight max-w-[18ch] text-balance">
             Research across academia, community, <span className="gradient-ink">and industry.</span>
           </h1>
+          <p className="mt-7 text-lg md:text-xl text-foreground/75 leading-relaxed text-pretty max-w-[58ch]">
+            The through-line is language. I study how people actually communicate — from
+            endangered-language phonetics to how they talk to AI — and turn it into decisions
+            product teams can act on.
+          </p>
         </FadeIn>
       </section>
 

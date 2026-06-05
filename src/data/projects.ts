@@ -40,7 +40,7 @@ export type Project = {
   caseStudy?: CaseStudy;
 };
 
-export const projects: Project[] = [
+const projectsRaw: Project[] = [
   {
     slug: "apple-conversational-ai",
     image: appleAudioImg,
@@ -519,6 +519,24 @@ export const projects: Project[] = [
     },
   },
 ];
+
+// Display order: lead with product / conversational-AI work, then the
+// linguistics "edge" (why she understands how people talk to machines), then
+// the community / education / fieldwork projects.
+const PROJECT_ORDER = [
+  "apple-conversational-ai",
+  "woaf-meow-smart-ring",
+  "ai-gender-romantic-fiction",
+  "myaamia-allophones",
+  "nsf-reu-linguistics",
+  "indigeneity-identity-ireland",
+  "indigenous-education-omaha",
+  "indigenous-climate-documentary",
+];
+
+export const projects: Project[] = [...projectsRaw].sort(
+  (a, b) => PROJECT_ORDER.indexOf(a.slug) - PROJECT_ORDER.indexOf(b.slug),
+);
 
 export const getProject = (slug: string) =>
   projects.find((p) => p.slug === slug);
