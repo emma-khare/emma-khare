@@ -323,10 +323,10 @@ const projectsRaw: Project[] = [
     slug: "indigenous-climate-documentary",
     image: "https://img.youtube.com/vi/LV52sIJmjM8/maxresdefault.jpg",
     videoUrl: "https://www.youtube.com/embed/LV52sIJmjM8",
-    videoCaption: "Ethnographic Documentary — Indigenous Climate Change",
+    videoCaption: "Seven Generations Forward — an ethnographic documentary",
     title: "Ethnographic Documentary — Indigenous Climate Change",
     tagline:
-      "A short ethnographic documentary on how Indigenous communities experience and respond to climate change.",
+      "An ethnographic documentary bringing an Indigenous perspective to climate change, through interviews with Miami Tribe elders.",
     year: "2024", // TODO: confirm year
     role: "Researcher & Documentarian", // TODO: confirm role
     client: "Independent", // TODO: confirm
@@ -335,16 +335,16 @@ const projectsRaw: Project[] = [
     cover:
       "from-[oklch(0.85_0.12_70)] via-[oklch(0.74_0.15_45)] to-[oklch(0.64_0.16_25)]",
     overview:
-      "An ethnographic documentary exploring how Indigenous communities experience and respond to climate change — pairing first-person interviews with on-the-ground fieldwork. (Full write-up in progress.)",
+      "Seven Generations Forward is an ethnographic video documentary describing an Indigenous perspective on climate change.\n\nThrough interviews with Miami Tribe elders and original musical variation, it explores a journey of indigeneity through the lens of historical sovereignty and survivance.",
     context:
-      "Climate change is lived differently in communities whose knowledge systems and livelihoods are tied to the land. This project documents those perspectives in their own words. (More detail to come.)",
+      "As climate-protection practices continue to make headlines, an Indigenous perspective can both aid and add context in solution development. This documentary centers the voices of Miami Tribe elders to bring that perspective forward.",
     methods: [
-      "First-person interviews with Indigenous community members.",
-      "On-location ethnographic fieldwork and observation.",
-      "Video documentation, editing, and narrative structuring.",
+      "Conducted ethnographic interviews with Miami Tribe elders.",
+      "Wove original musical variation into the documentary's narrative.",
+      "Edited interviews and footage into a film exploring sovereignty and survivance.",
     ],
     outcome:
-      "A short documentary film. (Details and impact to be added.)",
+      "An ethnographic documentary that brings an Indigenous perspective into climate-change discourse — framing solution development through historical sovereignty and survivance.",
   },
   {
     slug: "nsf-reu-linguistics",
