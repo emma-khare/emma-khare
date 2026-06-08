@@ -37,6 +37,8 @@ export type Project = {
   context: string;
   methods: string[];
   outcome: string;
+  /** "What I'd carry forward" — strategic reflections shown at the end of the case study. */
+  lessons?: string[];
   caseStudy?: CaseStudy;
 };
 
@@ -123,6 +125,11 @@ const projectsRaw: Project[] = [
   },
   {
     slug: "woaf-meow-smart-ring",
+    lessons: [
+      "Early-stage research is about narrowing what to build, not validating a finished design — rough prototypes and surveys were enough to set direction.",
+      "Cross-cultural divergence shows up first in onboarding and language, so it's worth testing both markets before the product locks in.",
+      "The real blocker was often between teams, not in the product — naming the US–China communication gap moved the roadmap more than any single usability finding.",
+    ],
     image: woafmeowImg,
     title: "Cross-Cultural Smart Ring Research",
     tagline:
@@ -185,6 +192,11 @@ const projectsRaw: Project[] = [
   },
   {
     slug: "indigenous-education-omaha",
+    lessons: [
+      "Culturally responsive design isn't a nice-to-have — engagement rose once the program genuinely reflected the community it served.",
+      "A mixed-methods evaluation framework turned 'it feels like it's working' into a defensible retention gain.",
+      "Grant writing is a research skill: funding meant translating community needs into a funder's language.",
+    ],
     image: omahaImg,
     title: "Native & Indigenous-Centered Education",
     tagline:
@@ -246,6 +258,11 @@ const projectsRaw: Project[] = [
   },
   {
     slug: "indigeneity-identity-ireland",
+    lessons: [
+      "In language-revitalization work, logistics and IRB paperwork either protect community trust or erode it — there is no neutral option.",
+      "Reporting back to community audiences first, not as an afterthought to the academic write-up, changed how the work was received.",
+      "Holding interview methodology consistent across very different cultures let me compare findings without flattening the differences.",
+    ],
     image: irelandImg,
     actionImage: "/ireland-studio.jpg",
     actionCaption: "On location during the Ireland language-revitalization fieldwork.",
@@ -336,6 +353,11 @@ const projectsRaw: Project[] = [
   },
   {
     slug: "nsf-reu-linguistics",
+    lessons: [
+      "Ambiguous source data makes peer review essential — accuracy was a collaborative achievement, not a solo one.",
+      "Turning 100+ manuscript pages into a structured, searchable database created more lasting value than the transcription alone.",
+      "Presenting to tribal members, faculty, and grant administrators taught me to pitch the same findings three different ways for three audiences.",
+    ],
     image: reuImg,
     title: "Indigenous Language Preservation",
     tagline:
@@ -397,6 +419,11 @@ const projectsRaw: Project[] = [
   },
   {
     slug: "myaamia-allophones",
+    lessons: [
+      "Hard linguistics skills are only useful if you can translate them for a non-specialist audience — the presentation mattered as much as the analysis.",
+      "Working from open-source audio alongside first-person community members made the findings both rigorous and accountable to the people they came from.",
+      "Presenting to stakeholders is research, not an afterthought — it's where trust and future collaboration get built.",
+    ],
     image: reuAllophonesImg,
     title: "Myaamia & Ojibwe Language Study + Stakeholder Presentation",
     tagline:
@@ -459,6 +486,11 @@ const projectsRaw: Project[] = [
   },
   {
     slug: "ai-gender-romantic-fiction",
+    lessons: [
+      "Sentiment scores are a starting point for interpretation, not an answer — the cultural reading is what made the numbers mean something.",
+      "Translating a computational study into personas is what turned an academic NLP project into something a product team could use.",
+      "Holding the computational and cultural lenses in tension on purpose kept either one from overwriting the other.",
+    ],
     image: romanceNlpImg,
     title: "AI & Gender in Romantic Fiction",
     tagline:

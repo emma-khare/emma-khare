@@ -12,7 +12,7 @@ export const Route = createFileRoute("/projects/$slug")({
   },
   head: ({ loaderData }) => {
     const p = loaderData?.project;
-    if (!p) return { meta: [{ title: "Project — Emma Khare" }] };
+    if (!p) return { meta: [{ title: "Case study — Emma Khare" }] };
     return {
       meta: [
         { title: `${p.title} — Emma Khare` },
@@ -25,7 +25,7 @@ export const Route = createFileRoute("/projects/$slug")({
   notFoundComponent: () => (
     <div className="mx-auto max-w-3xl px-6 py-32 text-center">
       <p className="label-mono mb-4">404</p>
-      <h1 className="font-display text-5xl mb-6">Project not found</h1>
+      <h1 className="font-display text-5xl mb-6">Case study not found</h1>
       <Link to="/projects" className="link-underline">Back to all case studies</Link>
     </div>
   ),
@@ -106,8 +106,22 @@ function ProjectPage() {
         <Meta label="Focus" value={p.tags.join(", ")} />
       </section>
 
+      {p.caseStudy?.badges && p.caseStudy.badges.length > 0 && (
+        <section className="mx-auto max-w-7xl px-6 lg:px-12 pt-8">
+          <FadeIn>
+            <div className="flex flex-wrap gap-2">
+              {p.caseStudy.badges.map((b) => (
+                <span key={b} className="label-mono px-3 py-1 rounded-full border border-hairline">
+                  {b}
+                </span>
+              ))}
+            </div>
+          </FadeIn>
+        </section>
+      )}
+
       {/* OVERVIEW */}
-      <section className="mx-auto max-w-7xl px-6 lg:px-12 py-24">
+      <section className="mx-auto max-w-7xl px-6 lg:px-12 pt-16 pb-12">
         <div className="grid gap-12 md:grid-cols-12">
           <FadeIn className="md:col-span-4">
             <p className="label-mono">Overview</p>
@@ -124,25 +138,20 @@ function ProjectPage() {
 
       {/* VIDEO EMBED (optional) */}
       {p.videoUrl ? (
-        <section className="mx-auto max-w-7xl px-6 lg:px-12 py-12">
-          <FadeIn>
-            <div className="relative aspect-video w-full overflow-hidden rounded-3xl border border-hairline bg-foreground/[0.03]">
-              <iframe
-                src={p.videoUrl}
-                title={p.title}
-                className="absolute inset-0 h-full w-full"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            </div>
-            {p.videoCaption ? (
-              <p className="label-mono mt-4 text-center">{p.videoCaption}</p>
-            ) : null}
-          </FadeIn>
-        </section>
+        <Figure caption={p.videoCaption}>
+          <div className="relative aspect-video w-full overflow-hidden rounded-3xl border border-hairline bg-foreground/[0.03]">
+            <iframe
+              src={p.videoUrl}
+              title={p.title}
+              className="absolute inset-0 h-full w-full"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        </Figure>
       ) : null}
 
-      {/* CONTEXT */}
+      {/* 1 — CONTEXT */}
       <section className="mx-auto max-w-7xl px-6 lg:px-12 py-12">
         <div className="grid gap-12 md:grid-cols-12">
           <FadeIn className="md:col-span-4">
@@ -156,32 +165,30 @@ function ProjectPage() {
         </div>
       </section>
 
-      {/* ACTION PHOTO (optional) */}
+      {/* ACTION PHOTO (optional) — every visual carries an insight via its caption */}
       {p.actionImage ? (
-        <section className="mx-auto max-w-7xl px-6 lg:px-12 py-12">
-          <FadeIn>
-            <figure className="space-y-4">
-              <div className="relative aspect-[16/9] w-full overflow-hidden rounded-3xl bg-foreground/[0.04] grain-overlay">
-                <img
-                  src={p.actionImage}
-                  alt={p.actionCaption ?? p.title}
-                  className="absolute inset-0 h-full w-full object-cover"
-                />
-              </div>
-              {p.actionCaption ? (
-                <figcaption className="label-mono text-center">{p.actionCaption}</figcaption>
-              ) : null}
-            </figure>
-          </FadeIn>
-        </section>
+        <Figure caption={p.actionCaption}>
+          <div className="relative aspect-[16/9] w-full overflow-hidden rounded-3xl bg-foreground/[0.04] grain-overlay">
+            <img
+              src={p.actionImage}
+              alt={p.actionCaption ?? p.title}
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          </div>
+        </Figure>
       ) : null}
 
-      {/* METHODS — hidden when a rich case study is present (rendered side-by-side with Goals below) */}
-      {!p.caseStudy && (
+      {/* 2 — IMPACT (prominent; can't scroll past the results) */}
+      <Impact outcome={p.outcome} stats={p.caseStudy?.stats} />
+
+      {/* 3 — APPROACH (the how) */}
+      {p.caseStudy ? (
+        <Approach cs={p.caseStudy} methods={p.methods} />
+      ) : (
         <section className="mx-auto max-w-7xl px-6 lg:px-12 py-12">
           <div className="grid gap-12 md:grid-cols-12">
             <FadeIn className="md:col-span-4">
-              <p className="label-mono">What I did</p>
+              <p className="label-mono">Approach</p>
             </FadeIn>
             <StaggerList className="md:col-span-8 divide-y divide-hairline">
               {p.methods.map((m: string, i: number) => (
@@ -195,26 +202,13 @@ function ProjectPage() {
         </section>
       )}
 
-      {p.caseStudy && <CaseStudySections cs={p.caseStudy} methods={p.methods} />}
-
-      {/* OUTCOME */}
-      <section className="mx-auto max-w-7xl px-6 lg:px-12 py-12">
-        <div className="grid gap-12 md:grid-cols-12">
-          <FadeIn className="md:col-span-4">
-            <p className="label-mono">Outcome</p>
-          </FadeIn>
-          <FadeIn delay={0.1} className="md:col-span-8">
-            <p className="font-display text-3xl md:text-4xl leading-tight text-balance">
-              <span className="gradient-ink">{p.outcome}</span>
-            </p>
-          </FadeIn>
-        </div>
-      </section>
+      {/* 4 — LESSONS LEARNED */}
+      <Lessons items={p.lessons} />
 
       {/* NEXT */}
       <section className="mx-auto max-w-7xl px-6 lg:px-12 pt-24 pb-12 border-t border-hairline">
         <Link to="/projects/$slug" params={{ slug: next.slug }} className="group block">
-          <p className="label-mono mb-3">Next project ↘</p>
+          <p className="label-mono mb-3">Next case study ↘</p>
           <h2 className="font-display text-4xl md:text-6xl tracking-tight group-hover:gradient-ink transition-all">
             {next.title}
           </h2>
@@ -233,41 +227,87 @@ function Meta({ label, value }: { label: string; value: string }) {
   );
 }
 
-function CaseStudySections({ cs, methods }: { cs: CaseStudy; methods: string[] }) {
+/** A visual with a required-by-convention insight caption ("why it takes up space"). */
+function Figure({ caption, children }: { caption?: string; children: React.ReactNode }) {
   return (
-    <>
-      {cs.badges && cs.badges.length > 0 && (
-        <section className="mx-auto max-w-7xl px-6 lg:px-12 pt-4">
-          <FadeIn>
-            <div className="flex flex-wrap gap-2">
-              {cs.badges.map((b) => (
-                <span
-                  key={b}
-                  className="label-mono px-3 py-1 rounded-full border border-hairline"
-                >
-                  {b}
-                </span>
+    <section className="mx-auto max-w-7xl px-6 lg:px-12 py-12">
+      <FadeIn>
+        <figure className="space-y-4">
+          {children}
+          {caption ? (
+            <figcaption className="label-mono text-center max-w-[70ch] mx-auto">{caption}</figcaption>
+          ) : null}
+        </figure>
+      </FadeIn>
+    </section>
+  );
+}
+
+function Impact({
+  outcome,
+  stats,
+}: {
+  outcome: string;
+  stats?: { label: string; value: string }[];
+}) {
+  return (
+    <section className="mx-auto max-w-7xl px-6 lg:px-12 py-16">
+      <FadeIn>
+        <div className="rounded-3xl border border-hairline bg-foreground/[0.03] px-6 md:px-12 py-12 md:py-16">
+          <p className="label-mono mb-8">Impact</p>
+          <p className="font-display text-3xl md:text-5xl leading-[1.08] text-balance max-w-[24ch]">
+            <span className="gradient-ink">{outcome}</span>
+          </p>
+          {stats && stats.length > 0 && (
+            <div className="mt-12 grid gap-8 md:grid-cols-3 border-t border-hairline pt-10">
+              {stats.map((s) => (
+                <FadeIn key={s.label}>
+                  <p className="font-display text-6xl md:text-7xl gradient-ink leading-none not-italic">
+                    {s.value}
+                  </p>
+                  <p className="label-mono mt-3">{s.label}</p>
+                </FadeIn>
               ))}
             </div>
-          </FadeIn>
-        </section>
-      )}
+          )}
+        </div>
+      </FadeIn>
+    </section>
+  );
+}
 
-      {cs.stats && cs.stats.length > 0 && (
-        <section className="mx-auto max-w-7xl px-6 lg:px-12 py-12">
-          <div className="grid gap-8 md:grid-cols-3 border-y border-hairline py-10">
-            {cs.stats.map((s) => (
-              <FadeIn key={s.label}>
-                <p className="font-display text-5xl md:text-6xl gradient-ink leading-none">
-                  {s.value}
-                </p>
-                <p className="label-mono mt-3">{s.label}</p>
-              </FadeIn>
-            ))}
-          </div>
-        </section>
-      )}
+function Lessons({ items }: { items?: string[] }) {
+  if (!items || items.length === 0) return null;
+  return (
+    <section className="mx-auto max-w-7xl px-6 lg:px-12 py-12 border-t border-hairline">
+      <div className="grid gap-12 md:grid-cols-12">
+        <FadeIn className="md:col-span-4">
+          <p className="label-mono">Lessons learned</p>
+          <h2 className="mt-4 font-display text-3xl md:text-4xl">
+            What I'd <span className="gradient-ink">carry forward.</span>
+          </h2>
+        </FadeIn>
+        <StaggerList className="md:col-span-8 divide-y divide-hairline border-y border-hairline">
+          {items.map((l, i) => (
+            <StaggerItem
+              key={i}
+              variants={staggerItemVariants}
+              className="flex gap-6 items-start py-6"
+            >
+              <span className="font-mono text-sm text-pink-ink pt-1 shrink-0">0{i + 1}</span>
+              <p className="text-lg md:text-xl text-foreground/90 text-pretty leading-relaxed">{l}</p>
+            </StaggerItem>
+          ))}
+        </StaggerList>
+      </div>
+    </section>
+  );
+}
 
+/** The "how" — research goals, methods, process, decisions, engagement. */
+function Approach({ cs, methods }: { cs: CaseStudy; methods: string[] }) {
+  return (
+    <>
       {(cs.goals?.length || methods.length) ? (
         <section className="mx-auto max-w-7xl px-6 lg:px-12 py-12">
           <div className="grid gap-12 md:grid-cols-2">
@@ -276,10 +316,7 @@ function CaseStudySections({ cs, methods }: { cs: CaseStudy; methods: string[] }
                 <p className="label-mono mb-6">Research goals</p>
                 <ul className="divide-y divide-hairline border-y border-hairline">
                   {cs.goals.map((g, i) => (
-                    <li
-                      key={i}
-                      className="py-4 text-base md:text-lg text-foreground/90 text-pretty"
-                    >
+                    <li key={i} className="py-4 text-base md:text-lg text-foreground/90 text-pretty">
                       {g}
                     </li>
                   ))}
@@ -291,10 +328,7 @@ function CaseStudySections({ cs, methods }: { cs: CaseStudy; methods: string[] }
                 <p className="label-mono mb-6">Methods</p>
                 <ul className="divide-y divide-hairline border-y border-hairline">
                   {methods.map((m, i) => (
-                    <li
-                      key={i}
-                      className="py-4 text-base md:text-lg text-foreground/90 text-pretty"
-                    >
+                    <li key={i} className="py-4 text-base md:text-lg text-foreground/90 text-pretty">
                       {m}
                     </li>
                   ))}
@@ -313,14 +347,8 @@ function CaseStudySections({ cs, methods }: { cs: CaseStudy; methods: string[] }
             </FadeIn>
             <StaggerList className="md:col-span-8 space-y-10">
               {cs.process.map((step, i) => (
-                <StaggerItem
-                  key={i}
-                  variants={staggerItemVariants}
-                  className="flex gap-6 items-start"
-                >
-                  <span className="font-mono text-sm text-pink-ink pt-2 shrink-0">
-                    0{i + 1}
-                  </span>
+                <StaggerItem key={i} variants={staggerItemVariants} className="flex gap-6 items-start">
+                  <span className="font-mono text-sm text-pink-ink pt-2 shrink-0">0{i + 1}</span>
                   <div>
                     <h3 className="font-display text-2xl md:text-3xl tracking-tight mb-3 text-balance">
                       {step.title}
@@ -370,9 +398,7 @@ function CaseStudySections({ cs, methods }: { cs: CaseStudy; methods: string[] }
                   variants={staggerItemVariants}
                   className="border border-hairline rounded-2xl p-6"
                 >
-                  <h4 className="font-display text-xl md:text-2xl mb-2">
-                    {e.title}
-                  </h4>
+                  <h4 className="font-display text-xl md:text-2xl mb-2">{e.title}</h4>
                   <p className="text-foreground/80 text-pretty">{e.body}</p>
                 </StaggerItem>
               ))}
