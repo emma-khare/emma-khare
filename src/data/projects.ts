@@ -327,9 +327,9 @@ const projectsRaw: Project[] = [
     title: "Ethnographic Documentary — Indigenous Climate Change",
     tagline:
       "An ethnographic documentary bringing an Indigenous perspective to climate change, through interviews with Miami Tribe elders.",
-    year: "2024", // TODO: confirm year
-    role: "Researcher & Documentarian", // TODO: confirm role
-    client: "Independent", // TODO: confirm
+    year: "2021 — 2022",
+    role: "Researcher & Documentarian",
+    client: "Miami University",
     tags: ["Ethnographic Research", "Documentary", "Climate"],
     accent: "peach",
     cover:
@@ -337,7 +337,7 @@ const projectsRaw: Project[] = [
     overview:
       "Seven Generations Forward is an ethnographic video documentary describing an Indigenous perspective on climate change.\n\nThrough interviews with Miami Tribe elders and original musical variation, it explores a journey of indigeneity through the lens of historical sovereignty and survivance.",
     context:
-      "As climate-protection practices continue to make headlines, an Indigenous perspective can both aid and add context in solution development. This documentary centers the voices of Miami Tribe elders to bring that perspective forward.",
+      "Created in 2021–2022, the project set out to bring Indigenous voices to the forefront of climate-change discourse — a conversation that often excludes the very people with the most grounded data on how the climate has changed. This community has witnessed climate change over the last two hundred years and holds a relationship with the environment that goes well beyond the surface: they have preserved the names of each Indigenous plant species and their interconnected relationships with the community, with animals, and with one another. As the documentary details, when one part of that web is affected, the entire web of relationships is affected.",
     methods: [
       "Conducted ethnographic interviews with Miami Tribe elders.",
       "Wove original musical variation into the documentary's narrative.",
@@ -345,6 +345,12 @@ const projectsRaw: Project[] = [
     ],
     outcome:
       "An ethnographic documentary that brings an Indigenous perspective into climate-change discourse — framing solution development through historical sovereignty and survivance.",
+    lessons: [
+      "Minority voices belong in the discourse — they're potential goldmines for innovation and solution engineering.",
+      "Indigenous communities hold knowledge that isn't being used but could greatly help efforts that affect us all, like climate change.",
+      "Indigenous knowledge is multifaceted and goes beyond storytelling — it carries information-rich density through language, cultural knowledge, and the intergenerational transmission of that knowledge.",
+      "For UX: this taught me to look beyond surface-level qualitative research — to dig deeper and question not only the people I interviewed, but the definitions and biases I didn't know I was carrying.",
+    ],
   },
   {
     slug: "nsf-reu-linguistics",
