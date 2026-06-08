@@ -92,6 +92,12 @@ const ENGAGEMENT = [
   },
 ];
 
+const LESSONS = [
+  "A protocol that serves engineering, design, and research at once only works if you build it with all of them in the room from the start — not by bolting requirements on afterward.",
+  "At high session volume, consistency is the deliverable: standardized SOPs and trained moderators protect data integrity more than any single well-run session.",
+  "Designing the protocol for replication from day one — across phases, locales, and languages — turned a one-off study into infrastructure other teams now reuse.",
+];
+
 function AppleCaseStudy() {
   return (
     <PageWrap>
@@ -224,7 +230,7 @@ function AppleCaseStudy() {
       </section>
 
       {/* ENGAGEMENT */}
-      <section className="mx-auto max-w-7xl px-6 lg:px-12 py-12 pb-24">
+      <section className="mx-auto max-w-7xl px-6 lg:px-12 py-12">
         <div className="grid gap-12 md:grid-cols-12">
           <FadeIn className="md:col-span-4">
             <p className="label-mono">Broader engagement at Apple</p>
@@ -238,6 +244,30 @@ function AppleCaseStudy() {
               >
                 <h4 className="font-display text-xl md:text-2xl mb-2">{e.title}</h4>
                 <p className="text-foreground/80 text-pretty">{e.body}</p>
+              </StaggerItem>
+            ))}
+          </StaggerList>
+        </div>
+      </section>
+
+      {/* LESSONS LEARNED */}
+      <section className="mx-auto max-w-7xl px-6 lg:px-12 py-12 pb-24 border-t border-hairline">
+        <div className="grid gap-12 md:grid-cols-12">
+          <FadeIn className="md:col-span-4">
+            <p className="label-mono">Lessons learned</p>
+            <h2 className="mt-4 font-display text-3xl md:text-4xl">
+              What I'd <span className="gradient-ink">carry forward.</span>
+            </h2>
+          </FadeIn>
+          <StaggerList className="md:col-span-8 divide-y divide-hairline border-y border-hairline">
+            {LESSONS.map((l, i) => (
+              <StaggerItem
+                key={i}
+                variants={staggerItemVariants}
+                className="flex gap-6 items-start py-6"
+              >
+                <span className="font-mono text-sm text-pink-ink pt-1 shrink-0">0{i + 1}</span>
+                <p className="text-lg md:text-xl text-foreground/90 text-pretty leading-relaxed">{l}</p>
               </StaggerItem>
             ))}
           </StaggerList>
