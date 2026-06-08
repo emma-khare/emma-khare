@@ -322,7 +322,7 @@ const projectsRaw: Project[] = [
   {
     slug: "indigenous-climate-documentary",
     // TODO: add main image -> save to public/indigenous-climate-doc.jpg then set: image: "/indigenous-climate-doc.jpg"
-    videoUrl: "", // TODO: paste the YouTube/Vimeo *embed* URL here (e.g. https://www.youtube.com/embed/VIDEO_ID)
+    videoUrl: "https://www.youtube.com/embed/LV52sIJmjM8",
     videoCaption: "Ethnographic Documentary — Indigenous Climate Change",
     title: "Ethnographic Documentary — Indigenous Climate Change",
     tagline:

@@ -95,7 +95,6 @@ function Hero() {
                 "Conversational AI",
                 "Moderation & synthesis",
                 "Survey & interview design",
-                "IRB-compliant",
               ].map((k) => (
                 <span
                   key={k}
