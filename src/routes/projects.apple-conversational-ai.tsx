@@ -98,7 +98,7 @@ function AppleCaseStudy() {
       {/* HEADER */}
       <section className="mx-auto max-w-7xl px-6 lg:px-12 pt-12">
         <FadeIn>
-          <Link to="/projects" className="label-mono link-underline">← Back to projects</Link>
+          <Link to="/projects" className="label-mono link-underline">← Back to case studies</Link>
         </FadeIn>
 
         <div className="mt-10">

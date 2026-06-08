@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import { useReducedMotion } from "framer-motion";
 
 const NAV = [
-  { to: "/projects", label: "Projects" },
+  { to: "/projects", label: "Case Studies" },
   { to: "/now", label: "Now" },
   { to: "/resume", label: "Résumé" },
   { to: "/contact", label: "Contact" },

@@ -12,10 +12,10 @@ import {
 export const Route = createFileRoute("/projects/")({
   head: () => ({
     meta: [
-      { title: "Projects — Emma Khare" },
-      { name: "description", content: "An index of selected UX research projects by Emma Khare." },
-      { property: "og:title", content: "Projects — Emma Khare" },
-      { property: "og:description", content: "Selected UX research projects." },
+      { title: "Case Studies — Emma Khare" },
+      { name: "description", content: "Selected UX research case studies by Emma Khare." },
+      { property: "og:title", content: "Case Studies — Emma Khare" },
+      { property: "og:description", content: "Selected UX research case studies." },
     ],
   }),
   component: ProjectsIndex,
@@ -33,7 +33,7 @@ function ProjectsIndex() {
     <PageWrap>
       <section className="mx-auto max-w-7xl px-6 lg:px-12 pt-24 pb-12 lg:pt-32">
         <FadeIn>
-          <p className="label-mono mb-6">Index · {projects.length} projects</p>
+          <p className="label-mono mb-6">Index · {projects.length} case studies</p>
           <h1 className="font-display text-5xl md:text-7xl tracking-tight max-w-[18ch] text-balance">
             Research across academia, community, <span className="gradient-ink">and industry.</span>
           </h1>

@@ -88,6 +88,23 @@ function Hero() {
                 Get in touch
               </Link>
             </div>
+            <div className="flex flex-wrap gap-x-2.5 gap-y-2 pt-4">
+              {[
+                "Mixed-methods research",
+                "Usability testing",
+                "Conversational AI",
+                "Moderation & synthesis",
+                "Survey & interview design",
+                "IRB-compliant",
+              ].map((k) => (
+                <span
+                  key={k}
+                  className="label-mono px-3 py-1 rounded-full border border-hairline"
+                >
+                  {k}
+                </span>
+              ))}
+            </div>
           </FadeIn>
         </div>
       </div>

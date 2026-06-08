@@ -26,7 +26,7 @@ export const Route = createFileRoute("/projects/$slug")({
     <div className="mx-auto max-w-3xl px-6 py-32 text-center">
       <p className="label-mono mb-4">404</p>
       <h1 className="font-display text-5xl mb-6">Project not found</h1>
-      <Link to="/projects" className="link-underline">Back to all projects</Link>
+      <Link to="/projects" className="link-underline">Back to all case studies</Link>
     </div>
   ),
   errorComponent: ({ error }) => (
@@ -60,7 +60,7 @@ function ProjectPage() {
       {/* HERO */}
       <section className="mx-auto max-w-7xl px-6 lg:px-12 pt-12">
         <FadeIn>
-          <Link to="/projects" className="label-mono link-underline">← All projects</Link>
+          <Link to="/projects" className="label-mono link-underline">← All case studies</Link>
         </FadeIn>
 
         <div className="mt-10 grid gap-8 md:grid-cols-12 items-end">
