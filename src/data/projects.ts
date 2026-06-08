@@ -321,7 +321,7 @@ const projectsRaw: Project[] = [
   },
   {
     slug: "indigenous-climate-documentary",
-    // TODO: add main image -> save to public/indigenous-climate-doc.jpg then set: image: "/indigenous-climate-doc.jpg"
+    image: "https://img.youtube.com/vi/LV52sIJmjM8/maxresdefault.jpg",
     videoUrl: "https://www.youtube.com/embed/LV52sIJmjM8",
     videoCaption: "Ethnographic Documentary — Indigenous Climate Change",
     title: "Ethnographic Documentary — Indigenous Climate Change",
