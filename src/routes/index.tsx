@@ -7,14 +7,14 @@ import portrait from "@/assets/emma-headshot.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Emma Khare — UX Researcher" },
+      { title: "Emma Khare — UX Researcher | Conversational AI & Consumer Hardware" },
       {
         name: "description",
         content:
-          "Selected research from Emma Khare — UX research across conversational AI, consumer hardware, education, and language preservation.",
+          "Mixed-methods UX researcher specializing in conversational AI and consumer-hardware research — usability testing, survey and interview design, moderation, and synthesis. Currently at Apple. San Jose, CA.",
       },
-      { property: "og:title", content: "Emma Khare — UX Researcher" },
-      { property: "og:description", content: "Selected UX research across conversational AI, wearables, and community programs." },
+      { property: "og:title", content: "Emma Khare — UX Researcher | Conversational AI & Consumer Hardware" },
+      { property: "og:description", content: "Mixed-methods UX researcher: conversational AI, consumer hardware, usability testing, and research synthesis. Currently at Apple." },
     ],
   }),
   component: Home,
@@ -44,6 +44,12 @@ function Hero() {
               and the people who <em>live with it</em>.
             </h1>
           </FadeIn>
+          <FadeIn delay={0.15}>
+            <p className="mt-7 text-sm md:text-base text-foreground/70 tracking-wide text-balance max-w-[60ch] mx-auto">
+              UX Researcher · Conversational AI &amp; Consumer Hardware · Currently at Apple ·
+              San Jose, CA — open to roles
+            </p>
+          </FadeIn>
           <div className="my-12 flex justify-center" aria-hidden>
             <span
               className="block h-px w-28"
@@ -69,8 +75,9 @@ function Hero() {
               I'm Emma — a UX researcher trained in anthropology and linguistics.
             </p>
             <p className="text-lg md:text-xl leading-relaxed text-pretty">
-              I moderate conversational AI studies at Apple, run cross-cultural usability sessions
-              for wearables, design culturally responsive education programs, and{" "}
+              I moderate conversational-AI research at Apple, design surveys and synthesize
+              usability studies for consumer products, build culturally responsive education
+              programs, and{" "}
               <span className="ha-say">
                 help teams hear what their participants are actually saying.
               </span>
@@ -83,6 +90,9 @@ function Hero() {
             <div className="flex flex-wrap items-center gap-3.5 pt-3">
               <Link to="/projects" className="ha-btn ha-btn-primary">
                 See selected work →
+              </Link>
+              <Link to="/resume" className="ha-btn ha-btn-ghost">
+                Résumé
               </Link>
               <Link to="/contact" className="ha-btn ha-btn-ghost">
                 Get in touch

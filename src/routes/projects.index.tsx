@@ -29,6 +29,8 @@ const ACCENT_TINT: Record<string, string> = {
 };
 
 function ProjectsIndex() {
+  const featured = projects.slice(0, 4);
+  const more = projects.slice(4);
   return (
     <PageWrap>
       <section className="mx-auto max-w-7xl px-6 lg:px-12 pt-24 pb-12 lg:pt-32">
@@ -45,58 +47,84 @@ function ProjectsIndex() {
         </FadeIn>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 lg:px-12 pb-24">
+      {/* Featured — product / conversational-AI work first */}
+      <section className="mx-auto max-w-7xl px-6 lg:px-12 pb-16">
+        <FadeIn>
+          <p className="label-mono mb-8">Featured · conversational AI &amp; product research</p>
+        </FadeIn>
         <StaggerList className="grid gap-x-8 gap-y-16 md:grid-cols-2">
-          {projects.map((p, i) => (
+          {featured.map((p, i) => (
             <StaggerItem key={p.slug} variants={staggerItemVariants}>
-              <Link to="/projects/$slug" params={{ slug: p.slug }} className="group block">
-                <motion.div
-                  layoutId={`cover-${p.slug}`}
-                  className={`relative aspect-[16/11] w-full overflow-hidden rounded-2xl bg-gradient-to-br ${ACCENT_TINT[p.accent] ?? ACCENT_TINT.pink} grain-overlay`}
-                >
-                  {p.image && (
-                    <img
-                      src={p.image}
-                      alt={p.title}
-                      loading="lazy"
-                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                    />
-                  )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
-                  <div className="absolute inset-0 flex items-end p-7">
-                    <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/90">
-                      {String(i + 1).padStart(2, "0")} · {p.year}
-                    </span>
-                  </div>
-                </motion.div>
-                <div className="mt-5 flex items-start justify-between gap-6">
-                  <div>
-                    <motion.h3
-                      layoutId={`title-${p.slug}`}
-                      className="font-display text-2xl md:text-[1.75rem] tracking-tight text-balance"
-                    >
-                      {p.title}
-                    </motion.h3>
-                    <p className="mt-2 text-foreground/70 text-sm md:text-base max-w-[42ch] text-pretty">
-                      {p.tagline}
-                    </p>
-                  </div>
-                  <span className="mt-1 text-foreground/60 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">
-                    ↗
-                  </span>
-                </div>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {p.tags.map((t) => (
-                    <span key={t} className="label-mono px-2 py-1 rounded-full border border-hairline">
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              </Link>
+              <ProjectCard p={p} i={i} />
             </StaggerItem>
           ))}
         </StaggerList>
       </section>
+
+      {/* More research — community, language & fieldwork */}
+      {more.length > 0 && (
+        <section className="mx-auto max-w-7xl px-6 lg:px-12 pt-14 pb-24 border-t border-hairline">
+          <FadeIn>
+            <p className="label-mono mb-8">More research · community, language &amp; fieldwork</p>
+          </FadeIn>
+          <StaggerList className="grid gap-x-8 gap-y-16 md:grid-cols-2">
+            {more.map((p, i) => (
+              <StaggerItem key={p.slug} variants={staggerItemVariants}>
+                <ProjectCard p={p} i={i + featured.length} />
+              </StaggerItem>
+            ))}
+          </StaggerList>
+        </section>
+      )}
     </PageWrap>
+  );
+}
+
+function ProjectCard({ p, i }: { p: (typeof projects)[number]; i: number }) {
+  return (
+    <Link to="/projects/$slug" params={{ slug: p.slug }} className="group block">
+      <motion.div
+        layoutId={`cover-${p.slug}`}
+        className={`relative aspect-[16/11] w-full overflow-hidden rounded-2xl bg-gradient-to-br ${ACCENT_TINT[p.accent] ?? ACCENT_TINT.pink} grain-overlay`}
+      >
+        {p.image && (
+          <img
+            src={p.image}
+            alt={p.title}
+            loading="lazy"
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+          />
+        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
+        <div className="absolute inset-0 flex items-end p-7">
+          <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/90">
+            {String(i + 1).padStart(2, "0")} · {p.year}
+          </span>
+        </div>
+      </motion.div>
+      <div className="mt-5 flex items-start justify-between gap-6">
+        <div>
+          <motion.h3
+            layoutId={`title-${p.slug}`}
+            className="font-display text-2xl md:text-[1.75rem] tracking-tight text-balance"
+          >
+            {p.title}
+          </motion.h3>
+          <p className="mt-2 text-foreground/70 text-sm md:text-base max-w-[42ch] text-pretty">
+            {p.tagline}
+          </p>
+        </div>
+        <span className="mt-1 text-foreground/60 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">
+          ↗
+        </span>
+      </div>
+      <div className="mt-4 flex flex-wrap gap-2">
+        {p.tags.map((t) => (
+          <span key={t} className="label-mono px-2 py-1 rounded-full border border-hairline">
+            {t}
+          </span>
+        ))}
+      </div>
+    </Link>
   );
 }

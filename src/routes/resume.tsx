@@ -14,7 +14,7 @@ export const Route = createFileRoute("/resume")({
 });
 
 const SUMMARY =
-  "Mixed-methods UX researcher combining AI study design, Apple-scale consumer-hardware research, and cross-cultural expertise across US and China markets. I currently lead UX research moderation at Apple — with study protocols that incorporate AI prompt creation and conversation design — and bring a Summa Cum Laude background in anthropology, Python-based NLP, and active fluency in an endangered Indigenous language. I drive research operations end to end: from protocol authoring and stakeholder alignment to synthesis and actionable reporting.";
+  "Mixed-methods UX researcher combining conversational-AI study design, Apple consumer-hardware research, and a linguistics-grounded, cross-cultural research background. I currently moderate UX research at Apple — with study protocols that incorporate AI prompt creation and conversation design — and bring a Summa Cum Laude background in anthropology, Python-based NLP, and active fluency in an endangered Indigenous language. I drive research operations end to end: from protocol authoring and stakeholder alignment to synthesis and actionable reporting.";
 
 const SKILLS: { group: string; items: string }[] = [
   {
@@ -62,13 +62,13 @@ const EXPERIENCE: {
     ],
   },
   {
-    role: "UX Researcher",
+    role: "UX Research Intern",
     org: "Woaf Meow",
-    meta: "Part-time · Jan 2024 – Sept 2025",
+    meta: "Internship · 2025", // dates to confirm
     bullets: [
-      "Moderated usability sessions with participants across US and China-based cohorts, surfacing cross-cultural UX divergences in onboarding and app navigation.",
-      "Identified a critical communication breakdown between US and China product teams that was blocking iteration speed — surfaced through synthesis and reported to PMs, accelerating roadmap decisions.",
-      "Delivered personas, journey maps, and usability reports that shaped global market-expansion priorities for a cross-continental product team.",
+      "Designed and analyzed user surveys for a conversational-AI pet-care app to learn what owners wanted.",
+      "Reviewed and synthesized usability sessions into clear findings the team could act on.",
+      "Contributed to early ideation for a companion smart ring, and flagged a market-conflict risk for the team to weigh.",
     ],
   },
   {
