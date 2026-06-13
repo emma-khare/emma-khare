@@ -5,7 +5,7 @@ import appleAudioImg from "@/assets/project-apple-audio.png";
 export const Route = createFileRoute("/projects/apple-conversational-ai")({
   head: () => ({
     meta: [
-      { title: "Multi-Device AI Audio Capture Study — Emma Khare" },
+      { title: "Multi-Device AI Audio Capture Study, Emma Khare" },
       {
         name: "description",
         content:
@@ -13,7 +13,7 @@ export const Route = createFileRoute("/projects/apple-conversational-ai")({
       },
       {
         property: "og:title",
-        content: "Multi-Device AI Audio Capture Study — Emma Khare",
+        content: "Multi-Device AI Audio Capture Study, Emma Khare",
       },
       {
         property: "og:description",
@@ -47,7 +47,7 @@ const METHODS = [
 const PROCESS = [
   {
     title: "Scoping & stakeholder alignment",
-    body: "Engaged with multiple managers across teams with different priorities and technical requirements. Translated competing needs into a unified study design that could serve engineering, design, and research simultaneously — without letting any one team's requirements compromise data integrity.",
+    body: "Engaged with multiple managers across teams with different priorities and technical requirements. Translated competing needs into a unified study design that could serve engineering, design, and research simultaneously, without letting any one team's requirements compromise data integrity.",
   },
   {
     title: "Protocol design",
@@ -55,7 +55,7 @@ const PROCESS = [
   },
   {
     title: "Prompt design & participant management",
-    body: "Wrote diverse prompt sets spanning numerous domains to elicit natural language variation across participants. Built a tracking system for 100+ participants and managed outreach, scheduling, and rapport — establishing trust to reduce performance bias during sessions.",
+    body: "Wrote diverse prompt sets spanning numerous domains to elicit natural language variation across participants. Built a tracking system for 100+ participants and managed outreach, scheduling, and rapport, establishing trust to reduce performance bias during sessions.",
   },
   {
     title: "Moderation & execution",
@@ -68,34 +68,34 @@ const PROCESS = [
 ];
 
 const DECISIONS = [
-  "Chose structured prompt elicitation over free-form interaction to control for variability while still capturing natural speech patterns — critical for meaningful AI model comparison.",
-  "Built participant rapport intentionally before and after sessions to reduce performance anxiety — improving data naturalness at scale.",
-  "Designed the protocol for international replication from day one, rather than treating localization as a later problem — reducing rework for future study phases.",
+  "Chose structured prompt elicitation over free-form interaction to control for variability while still capturing natural speech patterns, critical for meaningful AI model comparison.",
+  "Built participant rapport intentionally before and after sessions to reduce performance anxiety, improving data naturalness at scale.",
+  "Designed the protocol for international replication from day one, rather than treating localization as a later problem, reducing rework for future study phases.",
 ];
 
 const ENGAGEMENT = [
   {
-    title: "Study 1 — Lead moderator",
+    title: "Study 1, Lead moderator",
     body: "This case study. Protocol author, lead moderator, moderator trainer.",
   },
   {
-    title: "Study 2 — Lead moderator (current)",
-    body: "The project I'm leading now — selected again as lead moderator on the strength of prior execution. Built around specialized audio equipment, with a planned scale of 1,000 participants.",
+    title: "Study 2, Lead moderator (current)",
+    body: "The project I'm leading now, selected again as lead moderator on the strength of prior execution. Built around specialized audio equipment, with a planned scale of 1,000 participants.",
   },
   {
-    title: "Study 3 — Contributing researcher",
+    title: "Study 3, Contributing researcher",
     body: "Contributed to a third study in a supporting research role across a concurrent research stream.",
   },
   {
-    title: "Study 4 — Contributing researcher",
+    title: "Study 4, Contributing researcher",
     body: "Contributing in coordination with international teams around the world, spanning 5+ locales and languages. The protocols and materials I developed are subsequently adopted and used by these global teams.",
   },
 ];
 
 const LESSONS = [
-  "A protocol that serves engineering, design, and research at once only works if you build it with all of them in the room from the start — not by bolting requirements on afterward.",
+  "A protocol that serves engineering, design, and research at once only works if you build it with all of them in the room from the start, not by bolting requirements on afterward.",
   "At high session volume, consistency is the deliverable: standardized SOPs and trained moderators protect data integrity more than any single well-run session.",
-  "Designing the protocol for replication from day one — across phases, locales, and languages — turned a one-off study into infrastructure other teams now reuse.",
+  "Designing the protocol for replication from day one, across phases, locales, and languages, turned a one-off study into infrastructure other teams now reuse.",
 ];
 
 function AppleCaseStudy() {

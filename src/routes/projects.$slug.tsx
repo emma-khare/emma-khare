@@ -12,12 +12,12 @@ export const Route = createFileRoute("/projects/$slug")({
   },
   head: ({ loaderData }) => {
     const p = loaderData?.project;
-    if (!p) return { meta: [{ title: "Case study — Emma Khare" }] };
+    if (!p) return { meta: [{ title: "Case study, Emma Khare" }] };
     return {
       meta: [
-        { title: `${p.title} — Emma Khare` },
+        { title: `${p.title}, Emma Khare` },
         { name: "description", content: p.overview },
-        { property: "og:title", content: `${p.title} — Emma Khare` },
+        { property: "og:title", content: `${p.title}, Emma Khare` },
         { property: "og:description", content: p.overview },
       ],
     };
@@ -151,7 +151,7 @@ function ProjectPage() {
         </Figure>
       ) : null}
 
-      {/* 1 — CONTEXT */}
+      {/* 1, CONTEXT */}
       <section className="mx-auto max-w-7xl px-6 lg:px-12 py-12">
         <div className="grid gap-12 md:grid-cols-12">
           <FadeIn className="md:col-span-4">
@@ -165,7 +165,7 @@ function ProjectPage() {
         </div>
       </section>
 
-      {/* ACTION PHOTO (optional) — every visual carries an insight via its caption */}
+      {/* ACTION PHOTO (optional), every visual carries an insight via its caption */}
       {p.actionImage ? (
         <Figure caption={p.actionCaption}>
           <div className="relative aspect-[16/9] w-full overflow-hidden rounded-3xl bg-foreground/[0.04] grain-overlay">
@@ -178,10 +178,10 @@ function ProjectPage() {
         </Figure>
       ) : null}
 
-      {/* 2 — IMPACT (prominent; can't scroll past the results) */}
+      {/* 2, IMPACT (prominent; can't scroll past the results) */}
       <Impact outcome={p.outcome} stats={p.caseStudy?.stats} />
 
-      {/* 3 — APPROACH (the how) */}
+      {/* 3, APPROACH (the how) */}
       {p.caseStudy ? (
         <Approach cs={p.caseStudy} methods={p.methods} />
       ) : (
@@ -202,7 +202,7 @@ function ProjectPage() {
         </section>
       )}
 
-      {/* 4 — LESSONS LEARNED */}
+      {/* 4, LESSONS LEARNED */}
       <Lessons items={p.lessons} />
 
       {/* NEXT */}
@@ -304,7 +304,7 @@ function Lessons({ items }: { items?: string[] }) {
   );
 }
 
-/** The "how" — research goals, methods, process, decisions, engagement. */
+/** The "how", research goals, methods, process, decisions, engagement. */
 function Approach({ cs, methods }: { cs: CaseStudy; methods: string[] }) {
   return (
     <>

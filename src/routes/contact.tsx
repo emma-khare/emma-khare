@@ -38,9 +38,9 @@ function EmailRow() {
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Emma Khare" },
-      { name: "description", content: "Get in touch with Emma Khare — UX researcher." },
-      { property: "og:title", content: "Contact — Emma Khare" },
+      { title: "Contact, Emma Khare" },
+      { name: "description", content: "Get in touch with Emma Khare, UX researcher." },
+      { property: "og:title", content: "Contact, Emma Khare" },
       { property: "og:description", content: "Get in touch with Emma Khare." },
     ],
   }),

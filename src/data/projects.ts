@@ -37,7 +37,7 @@ export type Project = {
   context: string;
   methods: string[];
   outcome: string;
-  /** "What I'd carry forward" — strategic reflections shown at the end of the case study. */
+  /** "What I'd carry forward", strategic reflections shown at the end of the case study. */
   lessons?: string[];
   caseStudy?: CaseStudy;
 };
@@ -59,7 +59,7 @@ const projectsRaw: Project[] = [
     overview:
       "End-to-end research operations for a large-scale, multi-team AI data collection study across consumer hardware platforms. Promoted to lead moderator over the course of this engagement, going on to lead or contribute to two additional studies.",
     context:
-      "Apple's research teams needed a unified protocol that could serve engineering, design, and research simultaneously across concurrent studies — without letting any one team's requirements compromise data integrity. The work pushed into newer territory: testing how participants produce naturalistic audio across multiple simultaneous device configurations.",
+      "Apple's research teams needed a unified protocol that could serve engineering, design, and research simultaneously across concurrent studies, without letting any one team's requirements compromise data integrity. The work pushed into newer territory: testing how participants produce naturalistic audio across multiple simultaneous device configurations.",
     methods: [
       "Structured prompt-based audio elicitation (60 min sessions).",
       "Multi-device simultaneous capture with parallel moderator setups.",
@@ -83,19 +83,19 @@ const projectsRaw: Project[] = [
       process: [
         {
           title: "Scoping & stakeholder alignment",
-          body: "Engaged with multiple managers across teams with different priorities and technical requirements. Translated competing needs into a unified study design that could serve engineering, design, and research simultaneously — without letting any one team's requirements compromise data integrity.",
+          body: "Engaged with multiple managers across teams with different priorities and technical requirements. Translated competing needs into a unified study design that could serve engineering, design, and research simultaneously, without letting any one team's requirements compromise data integrity.",
         },
         {
           title: "Protocol design",
-          body: "Authored the end-to-end study protocol from scratch: physical device setup with diagrams and specifications, in-house software recording configuration, parallel app workflows, step-by-step session instructions, troubleshooting guides, and QA/post-session upload procedures. Designed for replication — documented with enough precision that international teams could run the same protocol in future phases or additional locales.",
+          body: "Authored the end-to-end study protocol from scratch: physical device setup with diagrams and specifications, in-house software recording configuration, parallel app workflows, step-by-step session instructions, troubleshooting guides, and QA/post-session upload procedures. Designed for replication, documented with enough precision that international teams could run the same protocol in future phases or additional locales.",
         },
         {
           title: "Prompt design & participant management",
-          body: "Wrote diverse prompt sets spanning numerous domains to elicit natural language variation across participants. Built a tracking system for 100+ participants and their session outcomes. Managed outreach, scheduling coordination, and participant rapport — establishing trust to reduce performance bias during sessions.",
+          body: "Wrote diverse prompt sets spanning numerous domains to elicit natural language variation across participants. Built a tracking system for 100+ participants and their session outcomes. Managed outreach, scheduling coordination, and participant rapport, establishing trust to reduce performance bias during sessions.",
         },
         {
           title: "Moderation & execution",
-          body: "Served as lead moderator, personally running 50+ one-hour sessions while maintaining study consistency and data integrity across a high-volume collection period — including through two weeks of illness. Trained and oversaw a second moderator running a parallel setup simultaneously, doubling throughput without sacrificing protocol fidelity.",
+          body: "Served as lead moderator, personally running 50+ one-hour sessions while maintaining study consistency and data integrity across a high-volume collection period, including through two weeks of illness. Trained and oversaw a second moderator running a parallel setup simultaneously, doubling throughput without sacrificing protocol fidelity.",
         },
         {
           title: "Handoff & impact",
@@ -103,21 +103,21 @@ const projectsRaw: Project[] = [
         },
       ],
       decisions: [
-        "Chose structured prompt elicitation over free-form interaction to control for variability while still capturing natural speech patterns — critical for meaningful AI model comparison.",
-        "Built participant rapport intentionally before and after sessions to reduce performance anxiety — improving data naturalness at scale.",
-        "Designed the protocol for international replication from day one, rather than treating localization as a later problem — reducing rework for future study phases.",
+        "Chose structured prompt elicitation over free-form interaction to control for variability while still capturing natural speech patterns, critical for meaningful AI model comparison.",
+        "Built participant rapport intentionally before and after sessions to reduce performance anxiety, improving data naturalness at scale.",
+        "Designed the protocol for international replication from day one, rather than treating localization as a later problem, reducing rework for future study phases.",
       ],
       engagement: [
         {
-          title: "Study 1 — Lead moderator",
+          title: "Study 1, Lead moderator",
           body: "This case study. Protocol author, lead moderator, moderator trainer.",
         },
         {
-          title: "Study 2 — Lead moderator",
-          body: "Selected again as lead moderator on a subsequent study — reflecting trust built through prior execution.",
+          title: "Study 2, Lead moderator",
+          body: "Selected again as lead moderator on a subsequent study, reflecting trust built through prior execution.",
         },
         {
-          title: "Study 3 — Contributing researcher",
+          title: "Study 3, Contributing researcher",
           body: "Contributed to a third study in a supporting research role across a concurrent research stream.",
         },
       ],
@@ -126,14 +126,14 @@ const projectsRaw: Project[] = [
   {
     slug: "woaf-meow-smart-ring",
     lessons: [
-      "Early-stage research is about narrowing what to build, not validating a finished design — surveys and synthesis were enough to point to a direction.",
+      "Early-stage research is about narrowing what to build, not validating a finished design, surveys and synthesis were enough to point to a direction.",
       "The value is in synthesis: turning raw sessions into a few clear findings mattered more than the raw number of sessions.",
-      "Flagging an uncomfortable risk early — like a market conflict — is part of the job; research that only delivers good news isn't doing its job.",
+      "Flagging an uncomfortable risk early, like a market conflict, is part of the job; research that only delivers good news isn't doing its job.",
     ],
     image: woafmeowImg,
     title: "Conversational AI for a Pet-Care App",
     tagline:
-      "Survey design and session synthesis for a conversational-AI pet-care app — plus early ideation for a companion smart ring.",
+      "Survey design and session synthesis for a conversational-AI pet-care app, plus early ideation for a companion smart ring.",
     year: "2025",
     role: "UX Research Intern",
     client: "Woaf Meow",
@@ -144,7 +144,7 @@ const projectsRaw: Project[] = [
     overview:
       "As a UX research intern, I designed and analyzed surveys and reviewed and synthesized usability sessions for a conversational-AI pet-care app.\n\nI also contributed to early ideation for a companion smart ring, and flagged a market-conflict risk for the team to weigh.",
     context:
-      "The product was an early-stage conversational-AI app for pet care, with a companion smart ring still in ideation. Research ran with US participants. Before committing to a direction, the team needed survey insight and synthesized session findings to understand what users wanted — and an honest read on the risks.",
+      "The product was an early-stage conversational-AI app for pet care, with a companion smart ring still in ideation. Research ran with US participants. Before committing to a direction, the team needed survey insight and synthesized session findings to understand what users wanted, and an honest read on the risks.",
     methods: [
       "Designed and analyzed user surveys to learn what pet owners wanted from the app.",
       "Reviewed and synthesized usability sessions into findings the team could act on.",
@@ -158,7 +158,7 @@ const projectsRaw: Project[] = [
       goals: [
         "Understand what pet owners wanted from a conversational-AI app through survey research.",
         "Synthesize usability sessions into findings the team could use.",
-        "Surface risks early — including a market-conflict risk — before the product locked in.",
+        "Surface risks early, including a market-conflict risk, before the product locked in.",
       ],
       process: [
         {
@@ -167,7 +167,7 @@ const projectsRaw: Project[] = [
         },
         {
           title: "Session review & synthesis",
-          body: "Reviewed usability sessions and synthesized them into clear findings — separating what users did from what they said they wanted.",
+          body: "Reviewed usability sessions and synthesized them into clear findings, separating what users did from what they said they wanted.",
         },
         {
           title: "Early smart-ring ideation",
@@ -188,7 +188,7 @@ const projectsRaw: Project[] = [
   {
     slug: "indigenous-education-omaha",
     lessons: [
-      "Culturally responsive design isn't a nice-to-have — engagement rose once the program genuinely reflected the community it served.",
+      "Culturally responsive design isn't a nice-to-have, engagement rose once the program genuinely reflected the community it served.",
       "A mixed-methods evaluation framework turned 'it feels like it's working' into a defensible retention gain.",
       "Grant writing is a research skill: funding meant translating community needs into a funder's language.",
     ],
@@ -196,7 +196,7 @@ const projectsRaw: Project[] = [
     title: "Native & Indigenous-Centered Education",
     tagline:
       "Research-driven, culturally responsive programming for 90+ Native students and families.",
-    year: "2024 — 2025",
+    year: "2024, 2025",
     role: "Education Specialist",
     client: "Omaha Public Schools",
     tags: ["Community Research", "Program Evaluation", "K-12"],
@@ -206,7 +206,7 @@ const projectsRaw: Project[] = [
     overview:
       "Designed and delivered culturally responsive workshops for Native students and their families, paired with a mixed-methods evaluation framework to measure what was working.",
     context:
-      "The district needed programming that genuinely served Native and Indigenous community members — not just symbolically. That meant centering community voice in both the curriculum and the evaluation.",
+      "The district needed programming that genuinely served Native and Indigenous community members, not just symbolically. That meant centering community voice in both the curriculum and the evaluation.",
     methods: [
       "Designed weekly workshops and inclusive curriculum materials addressing educational and cultural needs.",
       "Built a mixed-methods evaluation framework using surveys, interviews, and program evaluations.",
@@ -222,14 +222,14 @@ const projectsRaw: Project[] = [
         { label: "Engagement lift", value: "+30%" },
       ],
       goals: [
-        "Build programming that genuinely serves Native and Indigenous community members — not just symbolically.",
+        "Build programming that genuinely serves Native and Indigenous community members, not just symbolically.",
         "Center community voice in both curriculum and evaluation.",
         "Generate evidence strong enough to secure ongoing funding.",
       ],
       process: [
         {
           title: "Community-rooted curriculum design",
-          body: "Designed weekly workshops and inclusive curriculum materials addressing the educational and cultural needs surfaced directly by Native students and families — not assumed from outside the community.",
+          body: "Designed weekly workshops and inclusive curriculum materials addressing the educational and cultural needs surfaced directly by Native students and families, not assumed from outside the community.",
         },
         {
           title: "Mixed-methods evaluation framework",
@@ -237,7 +237,7 @@ const projectsRaw: Project[] = [
         },
         {
           title: "Stakeholder partnerships & grant writing",
-          body: "Wrote grants and built partnerships with district stakeholders and community organizations to secure $35K+ in program funding — translating evaluation findings into a funding case.",
+          body: "Wrote grants and built partnerships with district stakeholders and community organizations to secure $35K+ in program funding, translating evaluation findings into a funding case.",
         },
         {
           title: "Iterating on what worked",
@@ -247,14 +247,14 @@ const projectsRaw: Project[] = [
       decisions: [
         "Treated community voice as the source of curriculum, not a layer on top of pre-made content.",
         "Designed the evaluation alongside the program so 'what's working' could be answered, not just claimed.",
-        "Wrote grants from evaluation data rather than aspiration — strengthening both the funding case and the program itself.",
+        "Wrote grants from evaluation data rather than aspiration, strengthening both the funding case and the program itself.",
       ],
     },
   },
   {
     slug: "indigeneity-identity-ireland",
     lessons: [
-      "In language-revitalization work, logistics and IRB paperwork either protect community trust or erode it — there is no neutral option.",
+      "In language-revitalization work, logistics and IRB paperwork either protect community trust or erode it, there is no neutral option.",
       "Reporting back to community audiences first, not as an afterthought to the academic write-up, changed how the work was received.",
       "Holding interview methodology consistent across very different cultures let me compare findings without flattening the differences.",
     ],
@@ -274,7 +274,7 @@ const projectsRaw: Project[] = [
     overview:
       "Coordinated cross-cultural fieldwork connecting Irish and Indigenous North American language-revitalization communities, then synthesized findings into insights for academic and community audiences.",
     context:
-      "Language revitalization work is relational — calendars, IRB paperwork, and translation logistics all have to support trust between communities, not get in its way.",
+      "Language revitalization work is relational, calendars, IRB paperwork, and translation logistics all have to support trust between communities, not get in its way.",
     methods: [
       "Managed interview schedules, participant logistics, and IRB documentation across two continents.",
       "Cultivated research partnerships with Foras na Gaeilge and Údarás na Gaeltachta.",
@@ -301,7 +301,7 @@ const projectsRaw: Project[] = [
         },
         {
           title: "Logistics & IRB across two continents",
-          body: "Managed interview schedules, participant logistics, and IRB documentation across two continents — keeping the paperwork in service of trust rather than the other way around.",
+          body: "Managed interview schedules, participant logistics, and IRB documentation across two continents, keeping the paperwork in service of trust rather than the other way around.",
         },
         {
           title: "Fieldwork & interviewing",
@@ -323,11 +323,11 @@ const projectsRaw: Project[] = [
     slug: "indigenous-climate-documentary",
     image: "https://img.youtube.com/vi/LV52sIJmjM8/maxresdefault.jpg",
     videoUrl: "https://www.youtube.com/embed/LV52sIJmjM8",
-    videoCaption: "Seven Generations Forward — an ethnographic documentary",
-    title: "Ethnographic Documentary — Indigenous Climate Change",
+    videoCaption: "Seven Generations Forward, an ethnographic documentary",
+    title: "Ethnographic Documentary, Indigenous Climate Change",
     tagline:
       "An ethnographic documentary bringing an Indigenous perspective to climate change, through interviews with Miami Tribe elders.",
-    year: "2021 — 2022",
+    year: "2021, 2022",
     role: "Researcher & Documentarian",
     client: "Miami University",
     tags: ["Ethnographic Research", "Documentary", "Climate"],
@@ -337,25 +337,25 @@ const projectsRaw: Project[] = [
     overview:
       "Seven Generations Forward is an ethnographic video documentary describing an Indigenous perspective on climate change.\n\nThrough interviews with Miami Tribe elders and original musical variation, it explores a journey of indigeneity through the lens of historical sovereignty and survivance.",
     context:
-      "Created in 2021–2022, the project set out to bring Indigenous voices to the forefront of climate-change discourse — a conversation that often excludes the very people with the most grounded data on how the climate has changed. This community has witnessed and documented environmental change over the last two hundred years — change rooted in colonialism, whose destructive efforts disrupted long-standing relationships with the land and set off the domino effect now termed \"climate change.\" Their relationship with the environment goes well beyond the surface: they have preserved the names of each Indigenous plant species and their interconnected relationships with the community, with animals, and with one another. As the documentary details, when one part of that web is affected, the entire web of relationships is affected. Even the trees and plants themselves are named in the credits — an act of agency and respect borne of that attention to relationality.",
+      "Created in 2021–2022, the project set out to bring Indigenous voices to the forefront of climate-change discourse, a conversation that often excludes the very people with the most grounded data on how the climate has changed. This community has witnessed and documented environmental change over the last two hundred years, change rooted in colonialism, whose destructive efforts disrupted long-standing relationships with the land and set off the domino effect now termed \"climate change.\" Their relationship with the environment goes well beyond the surface: they have preserved the names of each Indigenous plant species and their interconnected relationships with the community, with animals, and with one another. As the documentary details, when one part of that web is affected, the entire web of relationships is affected. Even the trees and plants themselves are named in the credits, an act of agency and respect borne of that attention to relationality.",
     methods: [
       "Conducted ethnographic interviews with Miami Tribe elders.",
       "Wove original musical variation into the documentary's narrative.",
       "Edited interviews and footage into a film exploring sovereignty and survivance.",
     ],
     outcome:
-      "An ethnographic documentary that brings an Indigenous perspective into climate-change discourse — framing solution development through historical sovereignty and survivance.",
+      "An ethnographic documentary that brings an Indigenous perspective into climate-change discourse, framing solution development through historical sovereignty and survivance.",
     lessons: [
-      "Minority voices belong in the discourse — they're potential goldmines for innovation and solution engineering.",
+      "Minority voices belong in the discourse, they're potential goldmines for innovation and solution engineering.",
       "Indigenous communities hold knowledge that isn't being used but could greatly help efforts that affect us all, like climate change.",
-      "Indigenous knowledge is multifaceted and goes beyond storytelling — it carries information-rich density through language, cultural knowledge, and the intergenerational transmission of that knowledge.",
-      "For UX: this taught me to look beyond surface-level qualitative research — to dig deeper and question not only the people I interviewed, but the definitions and biases I didn't know I was carrying.",
+      "Indigenous knowledge is multifaceted and goes beyond storytelling, it carries information-rich density through language, cultural knowledge, and the intergenerational transmission of that knowledge.",
+      "For UX: this taught me to look beyond surface-level qualitative research, to dig deeper and question not only the people I interviewed, but the definitions and biases I didn't know I was carrying.",
     ],
   },
   {
     slug: "nsf-reu-linguistics",
     lessons: [
-      "Ambiguous source data makes peer review essential — accuracy was a collaborative achievement, not a solo one.",
+      "Ambiguous source data makes peer review essential, accuracy was a collaborative achievement, not a solo one.",
       "Turning 100+ manuscript pages into a structured, searchable database created more lasting value than the transcription alone.",
       "Presenting to tribal members, faculty, and grant administrators taught me to pitch the same findings three different ways for three audiences.",
     ],
@@ -364,7 +364,7 @@ const projectsRaw: Project[] = [
     tagline:
       "Transcribing 100+ pages of 1800s-era Hanis, Coos, and Miluk manuscripts into IPA.",
     year: "2022",
-    role: "NSF REU Fellow — Linguistics",
+    role: "NSF REU Fellow, Linguistics",
     client: "University of Oregon",
     tags: ["Field Linguistics", "Archival Research", "Database Design"],
     accent: "blue",
@@ -373,7 +373,7 @@ const projectsRaw: Project[] = [
     overview:
       "An NSF-funded fellowship transcribing and digitizing historical manuscripts in Hanis, Coos, and Miluk into IPA and English, alongside building an interactive research database for academic users.",
     context:
-      "The source documents were printed photocopies of handwritten manuscripts written in IPA — the International Phonetic Alphabet, the standardized system that gives every human speech sound its own written symbol. Transcription meant deciphering which characters had been written by hand, working out the sounds they represented, and logging each reading in a spreadsheet — with peer review and collaboration essential to verify accuracy.",
+      "The source documents were printed photocopies of handwritten manuscripts written in IPA, the International Phonetic Alphabet, the standardized system that gives every human speech sound its own written symbol. Transcription meant deciphering which characters had been written by hand, working out the sounds they represented, and logging each reading in a spreadsheet, with peer review and collaboration essential to verify accuracy.",
     methods: [
       "Transcribed 100+ pages of 1800s-era source material into IPA and English.",
       "Designed and maintained an interactive research database used by academic users.",
@@ -400,7 +400,7 @@ const projectsRaw: Project[] = [
         },
         {
           title: "Database design",
-          body: "Designed and maintained an interactive research database for academic users — structuring the data so future researchers could query, compare, and cite it.",
+          body: "Designed and maintained an interactive research database for academic users, structuring the data so future researchers could query, compare, and cite it.",
         },
         {
           title: "Ongoing community accountability",
@@ -408,12 +408,12 @@ const projectsRaw: Project[] = [
         },
         {
           title: "Dissemination",
-          body: "Presented findings to 200+ stakeholders including tribal members, university faculty, and federal grant administrators — adjusting framing for each audience without losing fidelity.",
+          body: "Presented findings to 200+ stakeholders including tribal members, university faculty, and federal grant administrators, adjusting framing for each audience without losing fidelity.",
         },
       ],
       decisions: [
         "Standardized transcription into IPA so the digitized corpus could serve linguistic research, not just preservation.",
-        "Built the database for researcher workflows, not as a static archive — driving the 40% engagement lift.",
+        "Built the database for researcher workflows, not as a static archive, driving the 40% engagement lift.",
         "Treated community trust as the project's success condition, not a compliance checkbox.",
       ],
     },
@@ -421,33 +421,33 @@ const projectsRaw: Project[] = [
   {
     slug: "myaamia-allophones",
     lessons: [
-      "Hard linguistics skills are only useful if you can translate them for a non-specialist audience — the presentation mattered as much as the analysis.",
+      "Hard linguistics skills are only useful if you can translate them for a non-specialist audience, the presentation mattered as much as the analysis.",
       "Working from open-source audio alongside first-person community members made the findings both rigorous and accountable to the people they came from.",
-      "Presenting to stakeholders is research, not an afterthought — it's where trust and future collaboration get built.",
+      "Presenting to stakeholders is research, not an afterthought, it's where trust and future collaboration get built.",
     ],
     image: reuAllophonesImg,
     title: "Myaamia & Ojibwe Language Study + Stakeholder Presentation",
     tagline:
-      "Presenting Myaamia and Ojibwe language research to tribal, academic, and federal stakeholders — grounded in acoustic phonetics and rigorous method.",
+      "Presenting Myaamia and Ojibwe language research to tribal, academic, and federal stakeholders, grounded in acoustic phonetics and rigorous method.",
     year: "2022",
-    role: "NSF REU Fellow — Linguistics",
+    role: "NSF REU Fellow, Linguistics",
     client: "University of Oregon × Myaamia Center",
     tags: ["Stakeholder Engagement", "Research Presentation", "Acoustic Phonetics"],
     accent: "blue",
     cover:
       "from-[oklch(0.82_0.12_210)] via-[oklch(0.72_0.16_245)] to-[oklch(0.64_0.19_275)]",
     overview:
-      "Part of my National Science Foundation (NSF) REU fellowship — presented as a research poster to tribal members, faculty, and federal grant administrators.\n\nIt paired acoustic-phonetic analysis of Myaamia and Ojibwe with a stakeholder-facing presentation, turning technical linguistics into findings partners could carry forward.",
+      "Part of my National Science Foundation (NSF) REU fellowship, presented as a research poster to tribal members, faculty, and federal grant administrators.\n\nIt paired acoustic-phonetic analysis of Myaamia and Ojibwe with a stakeholder-facing presentation, turning technical linguistics into findings partners could carry forward.",
     context:
-      "Myaamiaataweenki (the language of the myaamia people) and Ojibwe are reawakening Indigenous languages with small but growing bodies of acoustic documentation. The study examined allophones — the subtly different ways a single speech sound is pronounced depending on its phonetic environment, variations that don't change a word's meaning but reveal how the sound system works. Acoustic evidence of this patterning supports both pedagogy and the revitalization work led by community partners.",
+      "Myaamiaataweenki (the language of the myaamia people) and Ojibwe are reawakening Indigenous languages with small but growing bodies of acoustic documentation. The study examined allophones, the subtly different ways a single speech sound is pronounced depending on its phonetic environment, variations that don't change a word's meaning but reveal how the sound system works. Acoustic evidence of this patterning supports both pedagogy and the revitalization work led by community partners.",
     methods: [
-      "Presented findings as a research poster to 200+ stakeholders — tribal members, university faculty, and federal grant administrators — translating technical results for non-specialist audiences.",
+      "Presented findings as a research poster to 200+ stakeholders, tribal members, university faculty, and federal grant administrators, translating technical results for non-specialist audiences.",
       "Parsed out allophonic similarities from existing open-source audio files alongside first-person Indigenous community members, then segmented tokens in Praat and analyzed formant and duration data to identify the environments conditioning the variation.",
       "Held the work to rigorous research methods, producing documentation usable for future phonological description.",
       "Built long-lasting relationships with Indigenous researchers and community members, leaving deliverables their revitalization work could build on.",
     ],
     outcome:
-      "Delivered acoustic evidence and a stakeholder presentation that fed directly into ongoing revitalization work — and, as much as the findings, established long-lasting relationships among Indigenous researchers and community members for future research to build on.",
+      "Delivered acoustic evidence and a stakeholder presentation that fed directly into ongoing revitalization work, and, as much as the findings, established long-lasting relationships among Indigenous researchers and community members for future research to build on.",
     caseStudy: {
       badges: ["Stakeholder presentation", "Acoustic phonetics", "Language revitalization"],
       stats: [
@@ -463,11 +463,11 @@ const projectsRaw: Project[] = [
       process: [
         {
           title: "Stakeholder presentation & engagement",
-          body: "Designed and presented a research poster to 200+ tribal members, university faculty, and federal grant administrators — calibrated to be readable by non-specialist community audiences without diluting the technical content.",
+          body: "Designed and presented a research poster to 200+ tribal members, university faculty, and federal grant administrators, calibrated to be readable by non-specialist community audiences without diluting the technical content.",
         },
         {
           title: "Acoustic analysis & hard linguistics skills",
-          body: "Drew on existing open-source audio files and first-person Indigenous community members to parse out allophonic similarities, then segmented and measured tokens in Praat — analyzing formant and duration data to pin down the phonological environments in which allophones surfaced.",
+          body: "Drew on existing open-source audio files and first-person Indigenous community members to parse out allophonic similarities, then segmented and measured tokens in Praat, analyzing formant and duration data to pin down the phonological environments in which allophones surfaced.",
         },
         {
           title: "Deliverables for future research",
@@ -480,7 +480,7 @@ const projectsRaw: Project[] = [
       ],
       decisions: [
         "Led with the stakeholder presentation, treating accessibility for community audiences as a core deliverable, not an afterthought.",
-        "Held the analysis to a standard usable for phonological description — demonstrating hard linguistics skills and rigorous method.",
+        "Held the analysis to a standard usable for phonological description, demonstrating hard linguistics skills and rigorous method.",
         "Invested in existing open-source audio files and direct work with community members, prioritizing long-term relationships over one-time output.",
       ],
     },
@@ -488,7 +488,7 @@ const projectsRaw: Project[] = [
   {
     slug: "ai-gender-romantic-fiction",
     lessons: [
-      "Sentiment scores are a starting point for interpretation, not an answer — the cultural reading is what made the numbers mean something.",
+      "Sentiment scores are a starting point for interpretation, not an answer, the cultural reading is what made the numbers mean something.",
       "Translating a computational study into personas is what turned an academic NLP project into something a product team could use.",
       "Holding the computational and cultural lenses in tension on purpose kept either one from overwriting the other.",
     ],
@@ -506,14 +506,14 @@ const projectsRaw: Project[] = [
     overview:
       "Built a Python sentiment-analysis tool using NRCLex, NLTK, and WordNet to surface emotional patterns and gender representation in romantic fiction text data.",
     context:
-      "An early experiment in pairing computational methods with the kind of cultural reading anthropology trains for — letting each catch what the other misses.",
+      "An early experiment in pairing computational methods with the kind of cultural reading anthropology trains for, letting each catch what the other misses.",
     methods: [
       "Cleaned and analyzed large text datasets for emotional trends.",
       "Framed findings through cultural context, storytelling, and computational linguistics.",
       "Built research personas linking computational insights to real stakeholder use cases.",
     ],
     outcome:
-      "Demonstrated an adaptable UX research methodology in an NLP context — a throughline that still shapes how I design conversational-AI studies today.",
+      "Demonstrated an adaptable UX research methodology in an NLP context, a throughline that still shapes how I design conversational-AI studies today.",
     caseStudy: {
       badges: ["NLP", "Python", "Mixed methods"],
       stats: [
@@ -533,11 +533,11 @@ const projectsRaw: Project[] = [
         },
         {
           title: "Sentiment & lexical analysis",
-          body: "Used NRCLex, NLTK, and WordNet to surface emotional trends and gendered patterns in the corpus — running computational analysis as the first pass, not the final word.",
+          body: "Used NRCLex, NLTK, and WordNet to surface emotional trends and gendered patterns in the corpus, running computational analysis as the first pass, not the final word.",
         },
         {
           title: "Cultural reading & framing",
-          body: "Framed computational findings through cultural context, storytelling, and computational linguistics — letting each lens catch what the other missed.",
+          body: "Framed computational findings through cultural context, storytelling, and computational linguistics, letting each lens catch what the other missed.",
         },
         {
           title: "Persona translation",

@@ -4,17 +4,17 @@ import { FadeIn, PageWrap } from "@/components/Motion";
 export const Route = createFileRoute("/resume")({
   head: () => ({
     meta: [
-      { title: "Résumé — Emma Khare" },
-      { name: "description", content: "Emma Khare — mixed-methods UX Researcher. Résumé: experience, skills, education." },
-      { property: "og:title", content: "Résumé — Emma Khare" },
-      { property: "og:description", content: "Emma Khare — mixed-methods UX Researcher. Résumé." },
+      { title: "Résumé, Emma Khare" },
+      { name: "description", content: "Emma Khare, mixed-methods UX Researcher. Résumé: experience, skills, education." },
+      { property: "og:title", content: "Résumé, Emma Khare" },
+      { property: "og:description", content: "Emma Khare, mixed-methods UX Researcher. Résumé." },
     ],
   }),
   component: Resume,
 });
 
 const SUMMARY =
-  "Mixed-methods UX researcher combining conversational-AI study design, Apple consumer-hardware research, and a linguistics-grounded, cross-cultural research background. I currently moderate UX research at Apple — with study protocols that incorporate AI prompt creation and conversation design — and bring a Summa Cum Laude background in anthropology, Python-based NLP, and active fluency in an endangered Indigenous language. I drive research operations end to end: from protocol authoring and stakeholder alignment to synthesis and actionable reporting.";
+  "Mixed-methods UX researcher combining conversational-AI study design, Apple consumer-hardware research, and a linguistics-grounded, cross-cultural research background. I currently moderate UX research at Apple, with study protocols that incorporate AI prompt creation and conversation design, and bring a Summa Cum Laude background in anthropology, Python-based NLP, and active fluency in an endangered Indigenous language. I drive research operations end to end: from protocol authoring and stakeholder alignment to synthesis and actionable reporting.";
 
 const SKILLS: { group: string; items: string }[] = [
   {
@@ -56,8 +56,8 @@ const EXPERIENCE: {
     bullets: [
       "Designed and led 4+ end-to-end UX research studies across Apple consumer hardware, with protocols incorporating AI prompt creation and conversation-design parameters.",
       "Moderated hundreds of participant sessions while holding SOP adherence, data integrity, and concurrent study flow across multiple active research streams.",
-      "Drove a cross-departmental moderation initiative aligning 5+ stakeholder teams across engineering, design, and research — defining the end-to-end process from the ground up.",
-      "Authored standardized moderation SOPs and trained 2 new moderators on procedures, escalation paths, and best practices — reducing onboarding friction and ensuring consistency.",
+      "Drove a cross-departmental moderation initiative aligning 5+ stakeholder teams across engineering, design, and research, defining the end-to-end process from the ground up.",
+      "Authored standardized moderation SOPs and trained 2 new moderators on procedures, escalation paths, and best practices, reducing onboarding friction and ensuring consistency.",
       "Synthesized session findings into stakeholder-facing reports that directly informed product and design decisions across multiple Apple research teams.",
     ],
   },
@@ -76,7 +76,7 @@ const EXPERIENCE: {
     org: "Omaha Public Schools",
     meta: "Part-time · Apr 2024 – Aug 2025",
     bullets: [
-      "Designed and delivered research-driven, culturally responsive workshops serving 90+ Native students and families — improving program engagement by 30%.",
+      "Designed and delivered research-driven, culturally responsive workshops serving 90+ Native students and families, improving program engagement by 30%.",
       "Secured $35K+ in program funding through grant writing and stakeholder partnerships to expand Indigenous education programming.",
       "Built and executed a mixed-methods evaluation framework (surveys, interviews, program evaluations) that measured learning outcomes and contributed to a 20% boost in student retention.",
     ],
@@ -91,7 +91,7 @@ const EXPERIENCE: {
     ],
   },
   {
-    role: "NSF REU Fellow — Linguistics",
+    role: "NSF REU Fellow, Linguistics",
     org: "University of Oregon",
     meta: "Eugene, OR · Jun – Aug 2022",
     bullets: [
@@ -105,7 +105,7 @@ const EXPERIENCE: {
     org: "#Native: Decolonizing Social Media · Miami University",
     meta: "2021 – 2022",
     bullets: [
-      "Analyzed multimedia engagement patterns of Indigenous creators across social platforms — evaluating representation trends, audience reach, and frameworks of digital agency.",
+      "Analyzed multimedia engagement patterns of Indigenous creators across social platforms, evaluating representation trends, audience reach, and frameworks of digital agency.",
       "Synthesized findings into advocacy-oriented reports presented at the Miami University Undergraduate Research Forum.",
     ],
   },
@@ -131,14 +131,14 @@ const PROJECTS: { title: string; meta: string; bullets: string[] }[] = [
 ];
 
 const CERTS = [
-  "Foundations of UX Design — Google via Coursera · Aug 2025",
-  "Coding for Beginners 1: Python — Udemy · Apr 2025",
-  "A to Z Grantwriting (2.4 CEU) — University of Nebraska Omaha · Apr 2024",
+  "Foundations of UX Design, Google via Coursera · Aug 2025",
+  "Coding for Beginners 1: Python, Udemy · Apr 2025",
+  "A to Z Grantwriting (2.4 CEU), University of Nebraska Omaha · Apr 2024",
 ];
 
 const LANGUAGES = [
-  "Myaamiaataweenki (Miami-Illinois) — active speaker",
-  "English — native",
+  "Myaamiaataweenki (Miami-Illinois), active speaker",
+  "English, native",
   "Research experience: Irish (Gaeilge), Hanis, Coos, Miluk",
 ];
 
@@ -160,7 +160,7 @@ function Bullets({ items }: { items: string[] }) {
     <ul className="mt-3 space-y-2">
       {items.map((b, i) => (
         <li key={i} className="flex gap-3 text-foreground/85 text-pretty leading-relaxed">
-          <span className="text-pink-ink select-none">—</span>
+          <span className="text-pink-ink select-none">, </span>
           <span>{b}</span>
         </li>
       ))}

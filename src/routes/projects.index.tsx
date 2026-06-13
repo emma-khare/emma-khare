@@ -12,9 +12,9 @@ import {
 export const Route = createFileRoute("/projects/")({
   head: () => ({
     meta: [
-      { title: "Case Studies — Emma Khare" },
+      { title: "Case Studies, Emma Khare" },
       { name: "description", content: "Selected UX research case studies by Emma Khare." },
-      { property: "og:title", content: "Case Studies — Emma Khare" },
+      { property: "og:title", content: "Case Studies, Emma Khare" },
       { property: "og:description", content: "Selected UX research case studies." },
     ],
   }),
@@ -40,14 +40,14 @@ function ProjectsIndex() {
             Research across academia, community, <span className="gradient-ink">and industry.</span>
           </h1>
           <p className="mt-7 text-lg md:text-xl text-foreground/75 leading-relaxed text-pretty max-w-[58ch]">
-            The through-line is language. I study how people actually communicate — from
-            endangered-language phonetics to how they talk to AI — and turn it into decisions
+            The through-line is language. I study how people actually communicate, from
+            endangered-language phonetics to how they talk to AI, and turn it into decisions
             product teams can act on.
           </p>
         </FadeIn>
       </section>
 
-      {/* Featured — product / conversational-AI work first */}
+      {/* Featured, product / conversational-AI work first */}
       <section className="mx-auto max-w-7xl px-6 lg:px-12 pb-16">
         <FadeIn>
           <p className="label-mono mb-8">Featured · conversational AI &amp; product research</p>
@@ -61,7 +61,7 @@ function ProjectsIndex() {
         </StaggerList>
       </section>
 
-      {/* More research — community, language & fieldwork */}
+      {/* More research, community, language & fieldwork */}
       {more.length > 0 && (
         <section className="mx-auto max-w-7xl px-6 lg:px-12 pt-14 pb-24 border-t border-hairline">
           <FadeIn>

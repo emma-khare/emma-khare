@@ -5,9 +5,9 @@ import { projects } from "@/data/projects";
 export const Route = createFileRoute("/now")({
   head: () => ({
     meta: [
-      { title: "Now — Emma Khare" },
+      { title: "Now, Emma Khare" },
       { name: "description", content: "What Emma Khare is working on, reading, learning, and thinking about right now." },
-      { property: "og:title", content: "Now — Emma Khare" },
+      { property: "og:title", content: "Now, Emma Khare" },
       { property: "og:description", content: "What Emma is working on, reading, and learning right now." },
     ],
   }),
@@ -18,8 +18,8 @@ const READING = [
   { title: "Just Research", author: "Erika Hall", note: "A quiet manifesto for research as a practice, not a phase." },
   { title: "Conversational Design", author: "Erika Hall", note: "Re-reading for how language shapes interface trust." },
   { title: "The Design of Everyday Things", author: "Don Norman", note: "Always on my desk. A reminder that affordances are ethical." },
-  { title: "Raciolinguistics", author: "H. Samy Alim et al.", note: "Connecting language, identity, and power — directly relevant to how I think about inclusive AI." },
-  { title: "A Woman Makes a Plan", author: "Maye Musk", note: "On building a career across decades and disciplines — a reminder that reinvention is a method." },
+  { title: "Raciolinguistics", author: "H. Samy Alim et al.", note: "Connecting language, identity, and power, directly relevant to how I think about inclusive AI." },
+  { title: "A Woman Makes a Plan", author: "Maye Musk", note: "On building a career across decades and disciplines, a reminder that reinvention is a method." },
 ];
 
 const LEARNING = [
@@ -40,11 +40,11 @@ const TOOLS = [
 const FOCUS = [
   {
     label: "Work",
-    text: "Moderating conversational-AI and voice research at Apple. Deep in the details of how people actually talk to AI — the pauses, the repairs, the trust signals.",
+    text: "Moderating conversational-AI and voice research at Apple. Deep in the details of how people actually talk to AI, the pauses, the repairs, the trust signals.",
   },
   {
     label: "Side project",
-    text: "Researching AI governance and the Indigenous Data Sovereignty movement — the frameworks that assert community ownership, consent, and control over how data is used. Thinking about what these models offer everyone navigating digital rights today.",
+    text: "Researching AI governance and the Indigenous Data Sovereignty movement, the frameworks that assert community ownership, consent, and control over how data is used. Thinking about what these models offer everyone navigating digital rights today.",
   },
 ];
 
@@ -65,7 +65,7 @@ function Now() {
           </h1>
           <FadeIn delay={0.4} className="mt-8 max-w-xl">
             <p className="text-lg text-foreground/80 leading-relaxed text-pretty">
-              A living page. I update this when something shifts — a new book,
+              A living page. I update this when something shifts, a new book,
               a new tool, a new obsession. If you're reading this in a few months,
               it might look different.
             </p>
@@ -102,12 +102,12 @@ function Now() {
           <div className="md:col-span-8 space-y-6">
             <FadeIn>
               <p className="text-lg text-foreground/85 leading-relaxed text-pretty">
-                As AI becomes the fastest-growing open-source technology, questions of who owns data — and who gets to decide how it is used — have never been more urgent. I am currently exploring the Indigenous Data Sovereignty movement and the frameworks that have emerged from it: principles that assert community ownership, consent, and control over both material and digital data.
+                As AI becomes the fastest-growing open-source technology, questions of who owns data, and who gets to decide how it is used, have never been more urgent. I am currently exploring the Indigenous Data Sovereignty movement and the frameworks that have emerged from it: principles that assert community ownership, consent, and control over both material and digital data.
               </p>
             </FadeIn>
             <FadeIn delay={0.1}>
               <p className="text-lg text-foreground/85 leading-relaxed text-pretty">
-                Researchers like Shoshana Zuboff have described the broader systemic problem as "surveillance capitalism" — the extraction of human experience as raw material for predictive products. Indigenous communities have been fighting versions of this problem for decades, and have developed sophisticated frameworks that acknowledge data sources as human, deserving not only co-ownership but the power to govern how their data is used.
+                Researchers like Shoshana Zuboff have described the broader systemic problem as "surveillance capitalism", the extraction of human experience as raw material for predictive products. Indigenous communities have been fighting versions of this problem for decades, and have developed sophisticated frameworks that acknowledge data sources as human, deserving not only co-ownership but the power to govern how their data is used.
               </p>
             </FadeIn>
             <FadeIn delay={0.2}>
@@ -241,7 +241,7 @@ function Now() {
           <p className="label-mono mb-6">Why research</p>
           <blockquote className="font-display text-3xl md:text-5xl tracking-tight text-balance max-w-[24ch] leading-[1.15]">
             Real innovation whispers from the margins.{" "}
-            <span className="font-sans font-light text-pink">So I build studies that surface what people actually mean — not just what they say.</span>
+            <span className="font-sans font-light text-pink">So I build studies that surface what people actually mean, not just what they say.</span>
           </blockquote>
         </FadeIn>
       </section>

@@ -7,13 +7,13 @@ import portrait from "@/assets/emma-headshot.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Emma Khare — UX Researcher | Conversational AI & Consumer Hardware" },
+      { title: "Emma Khare, UX Researcher | Conversational AI & Consumer Hardware" },
       {
         name: "description",
         content:
-          "Mixed-methods UX researcher specializing in conversational AI and consumer-hardware research — usability testing, survey and interview design, moderation, and synthesis. Currently at Apple. San Jose, CA.",
+          "Mixed-methods UX researcher specializing in conversational AI and consumer-hardware research, usability testing, survey and interview design, moderation, and synthesis. Currently at Apple. San Jose, CA.",
       },
-      { property: "og:title", content: "Emma Khare — UX Researcher | Conversational AI & Consumer Hardware" },
+      { property: "og:title", content: "Emma Khare, UX Researcher | Conversational AI & Consumer Hardware" },
       { property: "og:description", content: "Mixed-methods UX researcher: conversational AI, consumer hardware, usability testing, and research synthesis. Currently at Apple." },
     ],
   }),
@@ -37,7 +37,7 @@ function Hero() {
     <section className="hero-archival relative overflow-hidden">
       <div className="relative mx-auto max-w-6xl px-6 lg:px-12 pt-20 pb-24 lg:pt-28">
         <div className="text-center">
-          <p className="ha-label mb-7">Emma Khare — UX Researcher · 2026</p>
+          <p className="ha-label mb-7">Emma Khare, UX Researcher · 2026</p>
           <FadeIn>
             <h1 className="mx-auto max-w-5xl text-4xl md:text-5xl lg:text-[3.25rem] leading-[1.12] text-balance">
               Bridging the people who build AI
@@ -48,7 +48,7 @@ function Hero() {
           <FadeIn delay={0.15}>
             <p className="mt-7 text-sm md:text-base text-foreground/70 tracking-wide text-balance max-w-[60ch] mx-auto">
               UX Researcher · Conversational AI &amp; Consumer Hardware · Currently at Apple ·
-              San Jose, CA — open to roles
+              San Jose, CA, open to roles
             </p>
           </FadeIn>
           <div className="my-12 flex justify-center" aria-hidden>
@@ -73,7 +73,7 @@ function Hero() {
           </FadeIn>
           <FadeIn delay={0.1} className="md:col-span-7 space-y-5">
             <p className="ha-lead text-2xl md:text-[1.6rem] leading-snug text-balance">
-              I'm Emma — a UX researcher trained in anthropology and linguistics.
+              I'm Emma, a UX researcher trained in anthropology and linguistics.
             </p>
             <p className="text-lg md:text-xl leading-relaxed text-pretty">
               I moderate conversational-AI research at Apple, design surveys and synthesize
@@ -128,7 +128,7 @@ function FeaturedWork() {
     <section className="relative mx-auto max-w-7xl px-6 lg:px-12 py-24">
       <div className="flex items-end justify-between mb-12 gap-6">
         <FadeIn>
-          <p className="label-mono mb-4">Selected work · 2021 — 2026</p>
+          <p className="label-mono mb-4">Selected work · 2021, 2026</p>
           <h2 className="font-display text-4xl md:text-5xl tracking-tight">
             Research, end to end.
           </h2>
@@ -226,7 +226,7 @@ function StoryFeature() {
             Myaamiaataweenki was declared extinct. <span className="gradient-ink">Then it wasn't.</span>
           </h2>
           <p className="mt-5 text-lg text-foreground/80 leading-relaxed text-pretty max-w-[52ch]">
-            I'm a member of the myaamia people — the Miami Tribe of Oklahoma. The story of how our
+            I'm a member of the myaamia people, the Miami Tribe of Oklahoma. The story of how our
             language, myaamiaataweenki, came back, and what it means to preserve data in the age of AI.
           </p>
           <Link

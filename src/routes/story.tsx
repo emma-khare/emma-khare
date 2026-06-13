@@ -10,17 +10,17 @@ import {
 export const Route = createFileRoute("/story")({
   head: () => ({
     meta: [
-      { title: "Breathing New Life into Language — Emma Khare" },
+      { title: "Breathing New Life into Language, Emma Khare" },
       {
         name: "description",
         content:
           "A member of the myaamia people (Miami Tribe of Oklahoma) on the revitalization of myaamiaataweenki, comparative linguistics, fieldwork in Ireland, and what preservation means in the age of AI.",
       },
-      { property: "og:title", content: "Breathing New Life into Language — Emma Khare" },
+      { property: "og:title", content: "Breathing New Life into Language, Emma Khare" },
       {
         property: "og:description",
         content:
-          "Myaamiaataweenki — the language of the myaamia people — was declared extinct. Then it wasn't. A story about language, data, and what it means to preserve.",
+          "Myaamiaataweenki, the language of the myaamia people, was declared extinct. Then it wasn't. A story about language, data, and what it means to preserve.",
       },
     ],
   }),
@@ -46,10 +46,10 @@ function Story() {
         </FadeIn>
         <FadeIn delay={0.1}>
           <p className="mt-8 text-xl md:text-2xl leading-relaxed text-pretty max-w-[58ch]">
-            I'm a member of the <strong className="font-medium">myaamia</strong> people — the{" "}
+            I'm a member of the <strong className="font-medium">myaamia</strong> people, the{" "}
             <strong className="font-medium">Miami Tribe of Oklahoma</strong>. Right now, my community
             is revolutionizing the revitalization of our language,{" "}
-            <em className="gradient-ink not-italic">myaamiaataweenki</em> — and we have a phrase for
+            <em className="gradient-ink not-italic">myaamiaataweenki</em>, and we have a phrase for
             it: breathing new life into language.
           </p>
         </FadeIn>
@@ -63,8 +63,8 @@ function Story() {
         <div className="space-y-6 text-lg md:text-xl leading-relaxed text-foreground/85 text-pretty max-w-[62ch]">
           <FadeIn>
             <p>
-              In the 1970s, <strong className="font-medium text-foreground">myaamiaataweenki</strong> — the language
-              of the myaamia people — was classified as <strong className="font-medium text-foreground">extinct</strong>.
+              In the 1970s, <strong className="font-medium text-foreground">myaamiaataweenki</strong>, the language
+              of the myaamia people, was classified as <strong className="font-medium text-foreground">extinct</strong>.
               By the 1990s, every fluent speaker had passed away.
             </p>
           </FadeIn>
@@ -79,7 +79,7 @@ function Story() {
           </FadeIn>
           <FadeIn delay={0.1}>
             <p>
-              From those references — and through comparative study — they pieced together a working{" "}
+              From those references, and through comparative study, they pieced together a working{" "}
               <strong className="font-medium text-foreground">orthography, phonology, and grammar</strong>. A language
               that had been declared lost was, sound by sound, rebuilt.
             </p>
@@ -107,16 +107,16 @@ function Story() {
           </FadeIn>
           <FadeIn delay={0.1} className="md:col-span-8 space-y-6">
             <p className="text-lg md:text-xl leading-relaxed text-foreground/85 text-pretty">
-              The comparative method that rebuilt Myaamia is the same one I used in my own{" "}
+              The comparative method that rebuilt myaamiaataweenki is the same one I used in my own{" "}
               <Link to="/projects/$slug" params={{ slug: "myaamia-allophones" }} className="link-underline text-pink-ink">
                 Myaamia and Ojibwe allophone study
-              </Link>{" "}
-              — listening across related languages to reconstruct the sounds, and the systems beneath them, from
-              fragments.
+              </Link>,
+              listening across related languages to reconstruct the sounds, and the systems beneath
+              them, from fragments.
             </p>
             <p className="text-base md:text-lg leading-relaxed text-foreground/75 text-pretty">
               This isn't abstract heritage for me. It's a living practice of recovering meaning from incomplete
-              records — which, it turns out, is most of what research actually is.
+              records, which, it turns out, is most of what research actually is.
             </p>
           </FadeIn>
         </div>
@@ -133,13 +133,13 @@ function Story() {
               This is the story I carried with me across Ireland. During{" "}
               <Link to="/projects/$slug" params={{ slug: "indigeneity-identity-ireland" }} className="link-underline text-pink-ink">
                 field studies and surveys
-              </Link>, many of the people I met told me Gaelic was dying — too few speakers, too little motivation to
+              </Link>, many of the people I met told me Gaelic was dying, too few speakers, too little motivation to
               preserve it.
             </p>
             <p className="text-lg md:text-xl leading-relaxed text-foreground/85 text-pretty">
               But when I sat with the language institutes, there was still a{" "}
               <em className="gradient-ink not-italic">blazing flame</em> being kept alive. I can't tell you whether my
-              story produced quantifiable results — whether it deepened anyone's resolve to preserve their own
+              story produced quantifiable results, whether it deepened anyone's resolve to preserve their own
               language. But it felt significant, especially now, in an era when the meaning of data itself is being
               debated in the AI world.
             </p>
@@ -152,14 +152,14 @@ function Story() {
         <FadeIn>
           <p className="label-mono mb-6">What it means for the work I do now</p>
           <blockquote className="font-display text-3xl md:text-5xl tracking-tight text-balance leading-[1.12] max-w-[24ch]">
-            What is information? How should it be protected? What does it mean to preserve something —{" "}
+            What is information? How should it be protected? What does it mean to preserve something,{" "}
             <span className="gradient-ink">and is anything ever really lost?</span>
           </blockquote>
         </FadeIn>
         <FadeIn delay={0.1}>
           <p className="mt-8 text-lg md:text-xl leading-relaxed text-foreground/80 text-pretty max-w-[58ch]">
             A language was declared extinct, and then it wasn't. That fact reshapes how I think about data, memory,
-            and the systems we build to hold them — including the AI systems I research today.
+            and the systems we build to hold them, including the AI systems I research today.
           </p>
         </FadeIn>
 
