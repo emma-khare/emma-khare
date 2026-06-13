@@ -15,16 +15,16 @@ export const Route = createFileRoute("/now")({
 });
 
 const READING = [
-  { title: "Just Research", author: "Erika Hall", note: "A quiet manifesto for research as a practice, not a phase." },
-  { title: "Conversational Design", author: "Erika Hall", note: "Re-reading for how language shapes interface trust." },
-  { title: "The Design of Everyday Things", author: "Don Norman", note: "Always on my desk. A reminder that affordances are ethical." },
-  { title: "Raciolinguistics", author: "H. Samy Alim et al.", note: "Connecting language, identity, and power, directly relevant to how I think about inclusive AI." },
-  { title: "A Woman Makes a Plan", author: "Maye Musk", note: "On building a career across decades and disciplines, a reminder that reinvention is a method." },
+  { title: "Just Research", author: "Erika Hall", cover: "https://covers.openlibrary.org/b/id/7387007-M.jpg", note: "A quiet manifesto for research as a practice, not a phase." },
+  { title: "Conversational Design", author: "Erika Hall", cover: "https://covers.openlibrary.org/b/isbn/9781937557676-M.jpg", note: "Re-reading for how language shapes interface trust." },
+  { title: "The Design of Everyday Things", author: "Don Norman", cover: "https://covers.openlibrary.org/b/isbn/9780465050659-M.jpg", note: "Always on my desk. A reminder that affordances are ethical." },
+  { title: "Raciolinguistics", author: "H. Samy Alim et al.", cover: "", note: "Connecting language, identity, and power, directly relevant to how I think about inclusive AI." },
+  { title: "A Woman Makes a Plan", author: "Maye Musk", cover: "https://covers.openlibrary.org/b/isbn/9781984878502-M.jpg", note: "On building a career across decades and disciplines, a reminder that reinvention is a method." },
 ];
 
 const LEARNING = [
-  { skill: "Advanced qualitative coding in Dovetail", context: "Building thematic frameworks for conversational AI studies at scale." },
   { skill: "Voice UX research methods", context: "Expanding from screen-based moderation to ambient, multi-turn voice interactions." },
+  { skill: "Conversation design for AI", context: "Deepening prompt and dialogue design for human-AI interaction." },
 ];
 
 const TOOLS = [
@@ -33,7 +33,6 @@ const TOOLS = [
   "Qualitative coding",
   "Excel",
   "Google Sheets",
-  "SPSS",
   "Voice memos",
 ];
 
@@ -149,11 +148,31 @@ function Now() {
           <StaggerList className="md:col-span-8 divide-y divide-hairline">
             {READING.map((b) => (
               <StaggerItem key={b.title} variants={staggerItemVariants} className="py-6">
-                <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                  <p className="text-lg font-medium text-foreground">{b.title}</p>
-                  <p className="text-sm text-muted-foreground">by {b.author}</p>
+                <div className="flex gap-4 items-start">
+                  <div className="relative shrink-0 w-14 aspect-[2/3] overflow-hidden rounded-[3px] border border-hairline bg-foreground/[0.06] shadow-[0_6px_14px_-8px_rgba(58,28,37,0.5)]">
+                    <span className="absolute inset-0 flex items-center justify-center font-display text-xl text-foreground/35">
+                      {b.title.charAt(0)}
+                    </span>
+                    {b.cover ? (
+                      <img
+                        src={b.cover}
+                        alt={`${b.title} cover`}
+                        loading="lazy"
+                        className="absolute inset-0 h-full w-full object-cover"
+                        onError={(e) => {
+                          e.currentTarget.style.display = "none";
+                        }}
+                      />
+                    ) : null}
+                  </div>
+                  <div>
+                    <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                      <p className="text-lg font-medium text-foreground">{b.title}</p>
+                      <p className="text-sm text-muted-foreground">by {b.author}</p>
+                    </div>
+                    <p className="mt-2 text-foreground/70 text-pretty">{b.note}</p>
+                  </div>
                 </div>
-                <p className="mt-2 text-foreground/70 text-pretty">{b.note}</p>
               </StaggerItem>
             ))}
           </StaggerList>

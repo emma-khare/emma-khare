@@ -34,7 +34,7 @@ const SKILLS: { group: string; items: string }[] = [
   },
   {
     group: "Technical",
-    items: "Python (NLTK, NRCLex, WordNet) · Figma · Excel · Google Sheets · qualitative coding",
+    items: "Python (NLTK, NRCLex, WordNet) · Excel · Google Sheets · qualitative coding",
   },
   {
     group: "Domain strengths",

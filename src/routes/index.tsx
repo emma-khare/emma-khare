@@ -251,7 +251,7 @@ function Capabilities() {
     { k: "Methods", v: "Generative & evaluative research, ethnography, diary studies, usability testing, interviews, surveys, IRB compliance." },
     { k: "Synthesis", v: "Personas, journey maps, opportunity matrices, mixed-methods evaluation frameworks, stakeholder readouts." },
     { k: "Domains", v: "Conversational AI, consumer hardware, wearables & health, K-12 education, language preservation." },
-    { k: "Stack", v: "Figma, UserTesting, Dovetail, Notion, Python (NLTK, NRCLex, WordNet), R, SPSS." },
+    { k: "Stack", v: "UserTesting, Python (NLTK, NRCLex, WordNet), Qualitative coding, Excel, Google Sheets." },
   ];
   return (
     <section className="relative mx-auto max-w-7xl px-6 lg:px-12 py-24">
