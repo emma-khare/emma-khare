@@ -58,7 +58,7 @@ function Story() {
       {/* THE ARC */}
       <section className="mx-auto max-w-4xl px-6 lg:px-12 py-12 border-t border-hairline">
         <FadeIn className="mb-8">
-          <p className="label-mono">How a language came back</p>
+          <p className="label-mono">Reawakening what was asleep</p>
         </FadeIn>
         <div className="space-y-6 text-lg md:text-xl leading-relaxed text-foreground/85 text-pretty max-w-[62ch]">
           <FadeIn>
@@ -89,6 +89,13 @@ function Story() {
               Through careful transcription, translation, and linguistic analysis, they pieced together a working{" "}
               <strong className="font-medium text-foreground">orthography, phonology, and grammar</strong>. A language
               that had been declared lost was, sound by sound, rebuilt.
+            </p>
+          </FadeIn>
+          <FadeIn delay={0.12}>
+            <p>
+              It is tempting to call this reviving a dead language. It is closer to picking up forgotten strings, and{" "}
+              <em className="gradient-ink not-italic">reawakening something that was only ever asleep</em>. A language
+              is not dead while its community is still here to call it home.
             </p>
           </FadeIn>
           <FadeIn delay={0.15}>

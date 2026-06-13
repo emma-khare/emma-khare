@@ -223,11 +223,11 @@ function StoryFeature() {
         <FadeIn className="md:col-span-7">
           <p className="label-mono mb-4">Story · Language revitalization</p>
           <h2 className="font-display text-4xl md:text-5xl tracking-tight text-balance leading-[1.05]">
-            Myaamiaataweenki was declared extinct. <span className="gradient-ink">Then it wasn't.</span>
+            Myaamiaataweenki was never dead. <span className="gradient-ink">Only asleep.</span>
           </h2>
           <p className="mt-5 text-lg text-foreground/80 leading-relaxed text-pretty max-w-[52ch]">
             I'm a member of the myaamia people, the Miami Tribe of Oklahoma. The story of how our
-            language, myaamiaataweenki, came back, and what it means to preserve data in the age of AI.
+            language was reawakened, and what it means to preserve data in the age of AI.
           </p>
           <Link
             to="/story"
