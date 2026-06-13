@@ -70,11 +70,18 @@ function Story() {
           </FadeIn>
           <FadeIn delay={0.05}>
             <p>
-              Then one community member, <strong className="font-medium text-foreground">Daryl Baldwin</strong>, and a
-              PhD student, <strong className="font-medium text-foreground">David Costa</strong>, opened a discourse that
-              changed what it meant for a language to "go extinct." Working from documents preserved in archives and
-              libraries across the United States and Canada, records that span 250 years, many of them written in
-              French, they began to recover the written language.
+              Then two people opened a discourse that changed what it meant for a language to "go extinct."{" "}
+              <strong className="font-medium text-foreground">Daryl Baldwin</strong>, a tribe member who had just
+              earned a master's in linguistics, set out to learn his community's language.{" "}
+              <strong className="font-medium text-foreground">David Costa</strong>, an Algonquian linguist, had found a
+              vast archive of myaamiaataweenki documentation during his doctoral research at UC Berkeley, at a time
+              when no one else was looking for it.
+            </p>
+          </FadeIn>
+          <FadeIn delay={0.08}>
+            <p>
+              Working from records preserved in archives and libraries across the United States and Canada, spanning
+              250 years and many written in French, they began to recover the written language.
             </p>
           </FadeIn>
           <FadeIn delay={0.1}>
@@ -107,16 +114,26 @@ function Story() {
         </div>
 
         <FadeIn>
-          <p className="label-mono mt-10">
-            Source:{" "}
+          <p className="label-mono mt-10 leading-relaxed">
+            Sources:{" "}
             <a
               href="https://aacimotaatiiyankwi.org/2025/11/05/how-we-revitalize-the-myaamia-language/"
               target="_blank"
               rel="noreferrer"
               className="link-underline"
             >
-              Aacimotaatiiyankwi, the Myaamia Center community blog
+              How We Revitalize the Myaamia Language
+            </a>{" "}
+            and{" "}
+            <a
+              href="https://aacimotaatiiyankwi.org/2024/10/22/the-miami-awakening-a-linguists-perspective/"
+              target="_blank"
+              rel="noreferrer"
+              className="link-underline"
+            >
+              The Miami Awakening: A Linguist's Perspective
             </a>
+            , Aacimotaatiiyankwi (Myaamia Center).
           </p>
         </FadeIn>
       </section>
