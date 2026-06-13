@@ -73,20 +73,21 @@ function Hero() {
           </FadeIn>
           <FadeIn delay={0.1} className="md:col-span-7 space-y-5">
             <p className="ha-lead text-2xl md:text-[1.6rem] leading-snug text-balance">
-              I'm Emma, a UX researcher trained in anthropology and linguistics.
+              I'm Emma, a UX researcher trained in linguistics and anthropology.
             </p>
             <p className="text-lg md:text-xl leading-relaxed text-pretty">
-              I moderate conversational-AI research at Apple, design surveys and synthesize
-              usability studies for consumer products, build culturally responsive education
-              programs, and{" "}
-              <span className="ha-say">
-                help teams hear what their participants are actually saying.
-              </span>
+              My path started with{" "}
+              <Link to="/story" className="link-underline text-pink-ink">
+                reawakening myaamiaataweenki
+              </Link>
+              , my tribe's language, once declared extinct and rebuilt from archives. That work taught
+              me how much people carry in the words they use, and I bring the same ear to
+              conversational-AI research at Apple:{" "}
+              <span className="ha-say">hearing what people actually mean, not just what they say.</span>
             </p>
             <p className="ha-muted text-base md:text-lg leading-relaxed text-pretty">
-              My background blends ethnography, NLP, and IRB-compliant fieldwork. I care about the
-              small details that make research trustworthy: protocol design, moderation hygiene,
-              consent, and the quiet work of synthesis.
+              Survey design, moderation, and synthesis; ethnography, NLP, and IRB-compliant fieldwork,
+              with care for the details that make research trustworthy.
             </p>
             <div className="flex flex-wrap items-center gap-3.5 pt-3">
               <Link to="/projects" className="ha-btn ha-btn-primary">
