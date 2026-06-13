@@ -153,6 +153,20 @@ function Story() {
               listening across related languages to reconstruct the sounds, and the systems beneath
               them, from fragments.
             </p>
+            <p className="text-lg md:text-xl leading-relaxed text-foreground/85 text-pretty">
+              During my NSF research fellowship in Oregon, I became a seasoned user of the{" "}
+              <strong className="font-medium text-foreground">Indigenous Languages Digital Archive (ILDA)</strong> and
+              the online dictionary it powers, the same kind of system at the heart of myaamiaataweenki's
+              revitalization. The software was being extended and redesigned for the communities I worked with, and
+              the stakeholders cared deeply about one question: how could the technology itself protect the knowledge
+              and the security of their community? Every piece of work I did was treated as something to be
+              safeguarded.
+            </p>
+            <p className="text-lg md:text-xl leading-relaxed text-foreground/85 text-pretty">
+              It was the first time I encountered community-based data protection and technology security through the
+              lens of <em className="gradient-ink not-italic">preservation and survivance</em>. It is, directly, why I
+              think about data the way I do now, working in AI.
+            </p>
             <p className="text-base md:text-lg leading-relaxed text-foreground/75 text-pretty">
               This isn't abstract heritage for me. It's a living practice of recovering meaning from incomplete
               records, which, it turns out, is most of what research actually is.
