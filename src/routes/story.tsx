@@ -145,6 +145,43 @@ function Story() {
         </FadeIn>
       </section>
 
+      {/* HERITAGE / UX ORIGIN */}
+      <section className="mx-auto max-w-4xl px-6 lg:px-12 py-12 border-t border-hairline">
+        <div className="grid gap-8 md:grid-cols-12">
+          <FadeIn className="md:col-span-4">
+            <p className="label-mono">How I found UX</p>
+          </FadeIn>
+          <FadeIn delay={0.1} className="md:col-span-8 space-y-6">
+            <p className="text-lg md:text-xl leading-relaxed text-foreground/85 text-pretty">
+              I came to this as a student at Miami University, through the{" "}
+              <a
+                href="https://miamioh.edu/miami-tribe-relations/myaamia-students/myaamia-heritage-award-program.html"
+                target="_blank"
+                rel="noreferrer"
+                className="link-underline text-pink-ink"
+              >
+                Myaamia Heritage Award Program
+              </a>{" "}
+              for citizens of the Miami Tribe. I fell in love with an idea that has shaped everything since: that{" "}
+              <em className="gradient-ink not-italic">nothing ever really dies</em>, and that through conscious action,
+              holistic reflection, and community-based inclusion, real change isn't just aspired to, it's achieved, on
+              a global scale.
+            </p>
+            <p className="text-lg md:text-xl leading-relaxed text-foreground/85 text-pretty">
+              Soon after, I interned with the Miami Tribe, working through archival manuscripts and building the first{" "}
+              <strong className="font-medium text-foreground">storymaps</strong> of culturally and historically
+              significant sites. That data fed GIS mapping for the community, and the beginnings of an interactive
+              education site where members could learn their own history through both a storytelling frame and a
+              historical record.
+            </p>
+            <p className="text-base md:text-lg leading-relaxed text-foreground/75 text-pretty">
+              I didn't know it yet, but turning archives into something people could navigate and understand was the
+              groundwork for my UX career.
+            </p>
+          </FadeIn>
+        </div>
+      </section>
+
       {/* HER METHOD */}
       <section className="mx-auto max-w-4xl px-6 lg:px-12 py-12 border-t border-hairline">
         <div className="grid gap-8 md:grid-cols-12">
