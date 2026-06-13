@@ -25,6 +25,7 @@ function Home() {
     <PageWrap>
       <Hero />
       <FeaturedWork />
+      <StoryFeature />
       <Capabilities />
       <Closing />
     </PageWrap>
@@ -212,6 +213,36 @@ function ProjectCard({ project: p, index }: { project: typeof projects[number]; 
         ))}
       </div>
     </Link>
+  );
+}
+
+function StoryFeature() {
+  return (
+    <section className="relative mx-auto max-w-7xl px-6 lg:px-12 py-20 border-t border-hairline">
+      <div className="grid gap-10 md:grid-cols-12 items-center">
+        <FadeIn className="md:col-span-7">
+          <p className="label-mono mb-4">Story · Language revitalization</p>
+          <h2 className="font-display text-4xl md:text-5xl tracking-tight text-balance leading-[1.05]">
+            Myaamia was declared extinct. <span className="gradient-ink">Then it wasn't.</span>
+          </h2>
+          <p className="mt-5 text-lg text-foreground/80 leading-relaxed text-pretty max-w-[52ch]">
+            I'm a member of the Miami Tribe of Oklahoma. A story about language, comparative
+            linguistics, fieldwork across Ireland, and what it means to preserve data in the age of AI.
+          </p>
+          <Link
+            to="/story"
+            className="mt-7 inline-flex items-center gap-2 rounded-full bg-foreground text-background px-6 py-3 text-sm font-medium hover:scale-[1.02] transition-transform"
+          >
+            Read the story →
+          </Link>
+        </FadeIn>
+        <FadeIn delay={0.1} className="md:col-span-5">
+          <blockquote className="font-display text-2xl md:text-3xl leading-snug text-pretty border-l-2 border-pink-ink pl-6 text-foreground/85">
+            Breathing new life into language.
+          </blockquote>
+        </FadeIn>
+      </div>
+    </section>
   );
 }
 
