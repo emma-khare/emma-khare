@@ -72,16 +72,24 @@ function Story() {
             <p>
               Then one community member, <strong className="font-medium text-foreground">Daryl Baldwin</strong>, and a
               PhD student, <strong className="font-medium text-foreground">David Costa</strong>, opened a discourse that
-              changed what it meant for a language to "go extinct." Using documents found in random family attics,
-              hidden beneath floorboards, and tucked inside old books, they recovered written manuscripts of the
-              language.
+              changed what it meant for a language to "go extinct." Working from documents preserved in archives and
+              libraries across the United States and Canada, records that span 250 years, many of them written in
+              French, they began to recover the written language.
             </p>
           </FadeIn>
           <FadeIn delay={0.1}>
             <p>
-              From those references, and through comparative study, they pieced together a working{" "}
+              Through careful transcription, translation, and linguistic analysis, they pieced together a working{" "}
               <strong className="font-medium text-foreground">orthography, phonology, and grammar</strong>. A language
               that had been declared lost was, sound by sound, rebuilt.
+            </p>
+          </FadeIn>
+          <FadeIn delay={0.15}>
+            <p>
+              That work continues today at the <strong className="font-medium text-foreground">Myaamia Center</strong>.
+              Its digital archive now holds more than{" "}
+              <strong className="font-medium text-foreground">100,000 myaamiaataweenki words and phrases</strong>, the
+              result of over thirty years of revitalization.
             </p>
           </FadeIn>
         </div>
@@ -97,6 +105,20 @@ function Story() {
             </FadeIn>
           ))}
         </div>
+
+        <FadeIn>
+          <p className="label-mono mt-10">
+            Source:{" "}
+            <a
+              href="https://aacimotaatiiyankwi.org/2025/11/05/how-we-revitalize-the-myaamia-language/"
+              target="_blank"
+              rel="noreferrer"
+              className="link-underline"
+            >
+              Aacimotaatiiyankwi, the Myaamia Center community blog
+            </a>
+          </p>
+        </FadeIn>
       </section>
 
       {/* HER METHOD */}
