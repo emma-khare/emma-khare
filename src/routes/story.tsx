@@ -14,13 +14,13 @@ export const Route = createFileRoute("/story")({
       {
         name: "description",
         content:
-          "A member of the Miami Tribe of Oklahoma on Myaamia language revitalization, comparative linguistics, fieldwork in Ireland, and what preservation means in the age of AI.",
+          "A member of the myaamia people (Miami Tribe of Oklahoma) on the revitalization of myaamiaataweenki, comparative linguistics, fieldwork in Ireland, and what preservation means in the age of AI.",
       },
       { property: "og:title", content: "Breathing New Life into Language — Emma Khare" },
       {
         property: "og:description",
         content:
-          "Myaamia was declared extinct. Then it wasn't. A story about language, data, and what it means to preserve.",
+          "Myaamiaataweenki — the language of the myaamia people — was declared extinct. Then it wasn't. A story about language, data, and what it means to preserve.",
       },
     ],
   }),
@@ -46,9 +46,11 @@ function Story() {
         </FadeIn>
         <FadeIn delay={0.1}>
           <p className="mt-8 text-xl md:text-2xl leading-relaxed text-pretty max-w-[58ch]">
-            I'm a member of the <strong className="font-medium">Miami Tribe of Oklahoma</strong>.
-            Right now, my community is revolutionizing language revitalization — and we have a phrase
-            for it: <em className="gradient-ink not-italic">breathing new life into language</em>.
+            I'm a member of the <strong className="font-medium">myaamia</strong> people — the{" "}
+            <strong className="font-medium">Miami Tribe of Oklahoma</strong>. Right now, my community
+            is revolutionizing the revitalization of our language,{" "}
+            <em className="gradient-ink not-italic">myaamiaataweenki</em> — and we have a phrase for
+            it: breathing new life into language.
           </p>
         </FadeIn>
       </section>
@@ -61,7 +63,8 @@ function Story() {
         <div className="space-y-6 text-lg md:text-xl leading-relaxed text-foreground/85 text-pretty max-w-[62ch]">
           <FadeIn>
             <p>
-              In the 1970s, the Myaamia language was classified as <strong className="font-medium text-foreground">extinct</strong>.
+              In the 1970s, <strong className="font-medium text-foreground">myaamiaataweenki</strong> — the language
+              of the myaamia people — was classified as <strong className="font-medium text-foreground">extinct</strong>.
               By the 1990s, every fluent speaker had passed away.
             </p>
           </FadeIn>
