@@ -219,6 +219,39 @@ function Story() {
         </div>
       </section>
 
+      {/* DOCUMENTARY */}
+      <section className="mx-auto max-w-4xl px-6 lg:px-12 py-12 border-t border-hairline">
+        <div className="grid gap-8 md:grid-cols-12">
+          <FadeIn className="md:col-span-4">
+            <p className="label-mono">My own attempt</p>
+          </FadeIn>
+          <FadeIn delay={0.1} className="md:col-span-8 space-y-6">
+            <p className="text-lg md:text-xl leading-relaxed text-foreground/85 text-pretty">
+              I have tried my hand at this directly. The documentary I worked on,{" "}
+              <Link
+                to="/projects/$slug"
+                params={{ slug: "indigenous-climate-documentary" }}
+                className="link-underline text-pink-ink"
+              >
+                Seven Generations Forward
+              </Link>
+              , uses myaamiaataweenki in every facet, its music, its descriptions, its interviews, even its credits,
+              where the trees and plants are named too.
+            </p>
+            <p className="text-lg md:text-xl leading-relaxed text-foreground/85 text-pretty">
+              More than that, it carries an Indigenous perspective that language is not neutral. It is a living thing
+              that reflects the lives of the people who use it, the things it names, and the way the world is perceived
+              through a cultural lens.
+            </p>
+            <p className="text-lg md:text-xl leading-relaxed text-foreground/85 text-pretty">
+              The documentary was about climate change. But it was really an experiment in how to convey that
+              perspective to a Western audience,{" "}
+              <em className="gradient-ink not-italic">a concept I am still trying to communicate today</em>.
+            </p>
+          </FadeIn>
+        </div>
+      </section>
+
       {/* IRELAND */}
       <section className="mx-auto max-w-4xl px-6 lg:px-12 py-12 border-t border-hairline">
         <div className="grid gap-8 md:grid-cols-12">
