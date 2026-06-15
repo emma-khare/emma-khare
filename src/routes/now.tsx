@@ -43,7 +43,7 @@ const FOCUS = [
   },
   {
     label: "Side project",
-    text: "Researching AI governance and the Indigenous Data Sovereignty movement, the frameworks that assert community ownership, consent, and control over how data is used. Thinking about what these models offer everyone navigating digital rights today.",
+    text: "Researching AI governance and the Indigenous Data Sovereignty movement, the frameworks that assert community ownership, consent, and control over how data is used. Thinking about what these models offer everyone navigating digital rights today, and writing it up as an essay, coming soon.",
   },
 ];
 
@@ -115,6 +115,18 @@ function Now() {
               </p>
             </FadeIn>
 
+            <FadeIn delay={0.25}>
+              <div className="mt-4 border-l-2 border-pink-ink bg-foreground/[0.03] rounded-r-lg pl-6 pr-5 py-5">
+                <p className="label-mono mb-3">Coming soon · Essay</p>
+                <p className="text-foreground/85 leading-relaxed text-pretty">
+                  I am turning this research into an essay. It traces a quiet reversal: as much of the policy world
+                  steps back from AI guardrails, Indigenous communities have spent decades building the consent and
+                  governance frameworks the rest of us are only now reaching for. Written as a learner, offered as an
+                  invitation rather than a verdict.
+                </p>
+              </div>
+            </FadeIn>
+
             <FadeIn delay={0.3}>
               <div className="mt-4 rounded-2xl border border-hairline bg-foreground/[0.03] p-7">
                 <p className="label-mono mb-3">Why this matters to UX research</p>
@@ -128,7 +140,8 @@ function Now() {
               <div className="mt-6">
                 <p className="label-mono mb-3">References</p>
                 <p className="text-sm text-foreground/70 leading-relaxed text-pretty">
-                  Adams, M.M. (2024). Indigenous Fire Data Sovereignty: Applying Indigenous Data Sovereignty Principles to Fire Research. <em>Fire</em>, 7, 222.
+                  Adams, M. M. (2024). Indigenous fire data sovereignty: Applying Indigenous data sovereignty principles to fire research. <em>Fire</em>, 7(7), 222.{" "}
+                  <a href="https://doi.org/10.3390/fire7070222" target="_blank" rel="noreferrer" className="link-underline">https://doi.org/10.3390/fire7070222</a>
                 </p>
               </div>
             </FadeIn>
