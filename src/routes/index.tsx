@@ -89,6 +89,14 @@ function Hero() {
               Survey design, moderation, and synthesis; ethnography, NLP, and IRB-compliant fieldwork,
               with care for the details that make research trustworthy.
             </p>
+            <p className="text-base md:text-lg leading-relaxed text-pretty">
+              Lately that care has pulled into a through-line:{" "}
+              <Link to="/now" className="link-underline text-pink-ink">
+                a five-part research portfolio
+              </Link>{" "}
+              on whether we can trust our measures of AI and learning — evaluation, reliability,
+              instrument design, and experimentation for AI in education.
+            </p>
             <div className="flex flex-wrap items-center gap-3.5 pt-3">
               <Link to="/projects" className="ha-btn ha-btn-primary">
                 See selected work →
@@ -103,10 +111,11 @@ function Hero() {
             <div className="flex flex-wrap gap-x-2.5 gap-y-2 pt-4">
               {[
                 "Mixed-methods research",
-                "Usability testing",
+                "AI evaluation",
+                "Measurement & psychometrics",
+                "Experimentation (A/B)",
                 "Conversational AI",
-                "Moderation & synthesis",
-                "Survey & interview design",
+                "Usability testing",
               ].map((k) => (
                 <span
                   key={k}

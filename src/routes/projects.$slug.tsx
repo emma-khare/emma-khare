@@ -205,6 +205,9 @@ function ProjectPage() {
       {/* 4, LESSONS LEARNED */}
       <Lessons items={p.lessons} />
 
+      {/* 5, LIMITATIONS & HONEST SCOPE */}
+      <Limitations items={p.limitations} />
+
       {/* NEXT */}
       <section className="mx-auto max-w-7xl px-6 lg:px-12 pt-24 pb-12 border-t border-hairline">
         <Link to="/projects/$slug" params={{ slug: next.slug }} className="group block">
@@ -285,6 +288,34 @@ function Lessons({ items }: { items?: string[] }) {
           <p className="label-mono">Lessons learned</p>
           <h2 className="mt-4 font-display text-3xl md:text-4xl">
             What I'd <span className="gradient-ink">carry forward.</span>
+          </h2>
+        </FadeIn>
+        <StaggerList className="md:col-span-8 divide-y divide-hairline border-y border-hairline">
+          {items.map((l, i) => (
+            <StaggerItem
+              key={i}
+              variants={staggerItemVariants}
+              className="flex gap-6 items-start py-6"
+            >
+              <span className="font-mono text-sm text-pink-ink pt-1 shrink-0">0{i + 1}</span>
+              <p className="text-lg md:text-xl text-foreground/90 text-pretty leading-relaxed">{l}</p>
+            </StaggerItem>
+          ))}
+        </StaggerList>
+      </div>
+    </section>
+  );
+}
+
+function Limitations({ items }: { items?: string[] }) {
+  if (!items || items.length === 0) return null;
+  return (
+    <section className="mx-auto max-w-7xl px-6 lg:px-12 py-12 border-t border-hairline">
+      <div className="grid gap-12 md:grid-cols-12">
+        <FadeIn className="md:col-span-4">
+          <p className="label-mono">Limitations</p>
+          <h2 className="mt-4 font-display text-3xl md:text-4xl">
+            The <span className="gradient-ink">honest scope.</span>
           </h2>
         </FadeIn>
         <StaggerList className="md:col-span-8 divide-y divide-hairline border-y border-hairline">

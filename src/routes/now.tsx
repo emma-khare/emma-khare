@@ -2,6 +2,15 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { FadeIn, PageWrap, StaggerList, StaggerItem, staggerItemVariants, WordReveal } from "@/components/Motion";
 import { projects } from "@/data/projects";
 
+// The five-part research portfolio just completed — highlighted as a set on Now.
+const PORTFOLIO_SLUGS = [
+  "learning-signals-capability",
+  "ai-fluency-measure",
+  "llm-as-judge-reliability",
+  "socratic-vs-direct-tutoring",
+  "ai-gender-romantic-fiction",
+];
+
 export const Route = createFileRoute("/now")({
   head: () => ({
     meta: [
@@ -87,6 +96,47 @@ function Now() {
             ))}
           </StaggerList>
         </div>
+      </section>
+
+      {/* Just shipped — five-part research portfolio */}
+      <section className="mx-auto max-w-7xl px-6 lg:px-12 py-16 border-t border-hairline">
+        <FadeIn>
+          <p className="label-mono mb-4">Just shipped · New</p>
+          <h2 className="font-display text-3xl md:text-5xl tracking-tight max-w-[22ch] text-balance">
+            A five-part research portfolio on{" "}
+            <span className="gradient-ink">trusting our measures of AI &amp; learning.</span>
+          </h2>
+          <p className="mt-6 max-w-2xl text-lg text-foreground/80 leading-relaxed text-pretty">
+            Five self-directed studies I built recently, each asking a version of one
+            question: when we put a number on something — capability, reliability, fluency,
+            an experiment's result — can we actually trust it? Evaluation rigor, reliability,
+            instrument design, and experimental method, applied to AI in education.
+          </p>
+        </FadeIn>
+        <StaggerList className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {PORTFOLIO_SLUGS.map((slug) => projects.find((p) => p.slug === slug))
+            .filter((p): p is NonNullable<typeof p> => Boolean(p))
+            .map((p) => (
+              <StaggerItem key={p.slug} variants={staggerItemVariants}>
+                <Link
+                  to="/projects/$slug"
+                  params={{ slug: p.slug }}
+                  className="group block h-full rounded-2xl border border-hairline p-6 transition-colors hover:bg-foreground/[0.03]"
+                >
+                  <p className="label-mono mb-3">{p.tags[0]}</p>
+                  <h3 className="font-display text-xl tracking-tight text-balance">
+                    {p.title}
+                  </h3>
+                  <p className="mt-3 text-sm text-foreground/70 text-pretty">
+                    {p.tagline}
+                  </p>
+                  <span className="mt-5 inline-block text-foreground/60 transition-transform group-hover:translate-x-1">
+                    Read case study ↗
+                  </span>
+                </Link>
+              </StaggerItem>
+            ))}
+        </StaggerList>
       </section>
 
       {/* Current Research */}
@@ -244,7 +294,7 @@ function Now() {
           </h2>
         </FadeIn>
         <StaggerList className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {projects.map((p) => (
+          {projects.filter((p) => !PORTFOLIO_SLUGS.includes(p.slug)).map((p) => (
             <StaggerItem key={p.slug} variants={staggerItemVariants}>
               <Link
                 to="/projects/$slug"

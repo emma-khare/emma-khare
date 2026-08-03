@@ -5,6 +5,14 @@ import omahaImg from "@/assets/project-omaha.jpg";
 import woafmeowImg from "@/assets/project-woafmeow.jpg";
 import appleAudioImg from "@/assets/project-apple-audio.png";
 import romanceNlpImg from "@/assets/project-romance-nlp.png";
+import llmJudgeImg from "@/assets/project-llm-judge.png";
+import learningSignalsImg from "@/assets/project-learning-signals.png";
+import tutoringAbImg from "@/assets/project-tutoring-ab.png";
+import aiFluencyImg from "@/assets/project-ai-fluency.png";
+import llmJudgeChart from "@/assets/chart-llm-judge.png";
+import learningSignalsChart from "@/assets/chart-learning-signals.png";
+import tutoringAbChart from "@/assets/chart-tutoring-ab.png";
+import aiFluencyChart from "@/assets/chart-ai-fluency.png";
 
 export type CaseStudy = {
   badges?: string[];
@@ -39,6 +47,8 @@ export type Project = {
   outcome: string;
   /** "What I'd carry forward", strategic reflections shown at the end of the case study. */
   lessons?: string[];
+  /** "Limitations & honest scope" — what the work does NOT show; rendered as its own section. */
+  limitations?: string[];
   caseStudy?: CaseStudy;
 };
 
@@ -551,6 +561,221 @@ const projectsRaw: Project[] = [
       ],
     },
   },
+  {
+    slug: "learning-signals-capability",
+    image: learningSignalsImg,
+    actionImage: learningSignalsChart,
+    actionCaption:
+      "Two transcripts with nearly identical activity land at 0.88 vs. 0.03 on capability — activity can't tell them apart; the capability signals can.",
+    title: "Learning Signals: Capability vs. Engagement",
+    tagline:
+      "A shippable tool that reads a tutoring transcript and shows whether a learner is building real skill, or just staying active.",
+    year: "2026",
+    role: "Independent Researcher & Builder",
+    client: "Independent research portfolio",
+    tags: ["Measurement", "Learning Sciences", "Human-AI Interaction"],
+    accent: "peach",
+    cover:
+      "from-[oklch(0.82_0.13_70)] via-[oklch(0.78_0.15_45)] to-[oklch(0.72_0.16_25)]",
+    overview:
+      "Education tools tend to measure engagement (activity: messages, time, words) because it is easy. But engagement is not learning. This tool extracts transparent, rule-based signals of capability growth — deepening questions, self-correction, concept reuse, hint-dependence — and contrasts them with raw activity. No AI model, no API key: every score traces to an inspectable rule, so a teacher can see why.",
+    context:
+      "As an Education Specialist at Omaha Public Schools, I watched students treat the right answer as a flag of completion rather than a sign of understanding. This tool is a direct attempt at the distinction the whole ed-AI conversation turns on: measuring capability, not engagement.",
+    methods: [
+      "Transparent, rule-based signal extraction from learner turns (no LLM, no API key).",
+      "Four capability signals: question-depth level/trend, self-correction, concept reuse, hint-dependence.",
+      "A Gradio web app with an auditable per-turn breakdown of every score.",
+      "Validation against labeled sample transcripts; a caught validity flaw, fixed, then deliberately not over-tuned.",
+    ],
+    outcome:
+      "Two transcripts with nearly identical activity scored 0.88 vs. 0.03 on capability — activity could not tell them apart; the capability signals could. Framed as a transparent, shippable proof of concept, with limitations (rule-based, English-only, demonstration data) documented in full.",
+    lessons: [
+      "An auditable measure a teacher can contest beats an opaque 'the AI says 7/10.'",
+      "I caught my own measure penalizing a concise-but-deep learner (a validity flaw), fixed it, then stopped tuning rather than overfit four examples.",
+    ],
+    limitations: [
+      "Rule-based and English-only: the signals are transparent keyword/pattern rules, so they miss subtle phrasing. An LLM backend could refine them; the transparent version is the trustworthy default.",
+      "Demonstration transcripts, not real student data. Real deployment needs consented, real transcripts and validation against actual learning outcomes.",
+      "The capability score's weights encode one reasoned theory of skill growth, not ground truth.",
+    ],
+    caseStudy: {
+      badges: ["Independent research", "2026", "Live demo", "Transparent / no API key"],
+      stats: [
+        { label: "Capability signals", value: "4" },
+        { label: "Growth vs. stuck (same activity)", value: "0.88 / 0.03" },
+        { label: "API keys required", value: "0" },
+      ],
+      goals: [
+        "Separate real capability growth from mere activity in a learning conversation.",
+        "Keep every score transparent and auditable for a non-technical teacher.",
+        "Ship something a person can actually open and use.",
+      ],
+      decisions: [
+        "Built it rule-based on purpose: free, offline, instant, and auditable — an LLM backend is a documented optional upgrade, not the default.",
+        "Reported the honest borderline cases rather than tuning thresholds to force clean bins.",
+      ],
+    },
+  },
+  {
+    slug: "ai-fluency-measure",
+    image: aiFluencyImg,
+    actionImage: aiFluencyChart,
+    actionCaption:
+      "Criterion validity: the rubric's scores track independent human fluency labels at Spearman's rho = 0.96 (within one level 100% of the time).",
+    title: "Measuring AI Fluency: Building & Validating an Instrument",
+    tagline:
+      "What does it mean to use AI well — and can it be measured? A rubric, and the validation step most rubrics skip.",
+    year: "2026",
+    role: "Independent Researcher & Builder",
+    client: "Independent research portfolio",
+    tags: ["Instrument Design", "Psychometrics", "Construct Validity"],
+    accent: "pink",
+    cover:
+      "from-[oklch(0.80_0.12_350)] via-[oklch(0.74_0.15_355)] to-[oklch(0.70_0.16_10)]",
+    overview:
+      "An instrument-design study. I defined AI fluency as four dimensions — specificity, iteration, verification, task-awareness — built a transparent rubric to score them from a person's prompts, then validated it. The point most 'AI-fluency scores' skip is validating the instrument before trusting it.",
+    context:
+      "The literal subject of measuring AI fluency is a live question as AI becomes an everyday tool. This project treats it as a measurement problem: define the construct, build an auditable scorer, and check whether it holds up.",
+    methods: [
+      "A four-dimension rubric (specificity, iteration, verification, task-awareness), each scored 0–2.",
+      "Transparent, rule-based scoring from a person's prompts — no API key.",
+      "Criterion validity vs. human labels (Spearman's rho); internal consistency (Cronbach's alpha, item-total correlations).",
+    ],
+    outcome:
+      "On a demonstration set, the rubric agreed with human judgment at Spearman's rho = 0.96 (within one level 100% of the time) and showed internal consistency of alpha = 0.90. Framed as an illustrative validation; a field-ready instrument would need many real interactions and multiple raters.",
+    lessons: [
+      "A rubric you haven't validated is just an opinion in a table.",
+      "Validating an instrument — criterion validity plus internal consistency — is what separates a measure from a guess.",
+    ],
+    limitations: [
+      "Rule-based and English-only; 'AI fluency' is a contested construct, so this rubric is one reasoned theory of it, not the definition.",
+      "Small, hand-written sample scored by a single rater — the validation is illustrative, not definitive. A field-ready instrument needs many real interactions and multiple raters (inter-rater reliability).",
+      "The criterion is a human fluency label, not a real outcome; ideally you'd also validate that fluent-looking use produces better results.",
+    ],
+    caseStudy: {
+      badges: ["Independent research", "2026", "Psychometrics", "Transparent / no API key"],
+      stats: [
+        { label: "Criterion validity (Spearman rho)", value: "0.96" },
+        { label: "Internal consistency (alpha)", value: "0.90" },
+        { label: "Within one level", value: "100%" },
+      ],
+      goals: [
+        "Define 'AI fluency' as a measurable construct.",
+        "Build a transparent, auditable scorer for it.",
+        "Validate the instrument against human judgment and for internal consistency.",
+      ],
+    },
+  },
+  {
+    slug: "llm-as-judge-reliability",
+    image: llmJudgeImg,
+    actionImage: llmJudgeChart,
+    actionCaption:
+      "Self-consistency (ICC) is high on clear cases and collapses on ambiguous ones — a single automated score can't be trusted where judgment is hardest.",
+    title: "Can We Trust an AI That Judges?",
+    tagline:
+      "AI is increasingly used to evaluate AI. This project measures whether that judge is reliable — using real psychometrics.",
+    year: "2026",
+    role: "Independent Researcher & Builder",
+    client: "Independent research portfolio",
+    tags: ["AI Evaluation", "Reliability", "Psychometrics"],
+    accent: "blue",
+    cover:
+      "from-[oklch(0.78_0.13_240)] via-[oklch(0.72_0.15_255)] to-[oklch(0.68_0.15_275)]",
+    overview:
+      "AI labs increasingly use models to evaluate other models' outputs at scale ('LLM-as-judge'). It is fast and cheap — but is the judge itself reliable? This project builds a pipeline to measure that, using the same psychometrics used to validate any instrument: test-retest reliability and agreement with human ratings.",
+    context:
+      "Using a model to grade at scale only works if the grader is trustworthy. Measuring an AI evaluator's reliability is real, current work — and an extension of the same skepticism that runs through the rest of my portfolio.",
+    methods: [
+      "Test-retest reliability: grade each item repeatedly, measure self-consistency (ICC).",
+      "Human agreement: Cohen's kappa between the judge and human ratings.",
+      "Results disaggregated by input difficulty (clear vs. borderline cases).",
+      "A swappable-backend design: runs on the live API by changing one line.",
+    ],
+    outcome:
+      "On a simulated judge modeled on documented LLM-judge behavior, reliability was high on clear cases (ICC ~0.98) and collapsed on ambiguous ones (~0.15). The practical finding: never trust a single automated score on a hard case — repeat and vote, and keep a human in the loop. Results demonstrate the method; a real finding needs a live run.",
+    lessons: [
+      "A single LLM-judge score is unreliable exactly where judgment is hardest — the ambiguous cases.",
+      "The honest scope: this validates the measurement pipeline, not a claim about any specific model.",
+    ],
+    limitations: [
+      "Results use a simulated judge modeled on documented LLM-judge behavior — they demonstrate the method, not a specific real model's reliability. A live run (one-line client swap + API key) turns it into a real finding.",
+      "Small item set and a single human rater for ground truth; a robust study needs many items and multiple raters (the inter-human ceiling the judge is compared against).",
+      "One rubric, one prompt, one temperature, one snapshot in time — a model update can change the result.",
+    ],
+    caseStudy: {
+      badges: ["Independent research", "2026", "Method demonstration (simulated judge)"],
+      stats: [
+        { label: "Reliability, clear cases (ICC)", value: "0.98" },
+        { label: "Reliability, ambiguous cases (ICC)", value: "0.15" },
+        { label: "To go live", value: "1 line" },
+      ],
+      goals: [
+        "Measure whether an AI judge agrees with itself across repeated runs.",
+        "Measure whether it agrees with human ratings.",
+        "Find where reliability breaks down, and what to do about it.",
+      ],
+      decisions: [
+        "Developed against a realistic simulated judge so the whole pipeline was free and fast to build, with a one-line swap to the live API.",
+        "Never presented a simulated result as a real-model finding.",
+      ],
+    },
+  },
+  {
+    slug: "socratic-vs-direct-tutoring",
+    image: tutoringAbImg,
+    actionImage: tutoringAbChart,
+    actionCaption:
+      "Known-truth validation: the experiment detects a real effect (d = 0.59, p < 0.001) and correctly returns null when none exists — no false positive.",
+    title: "Socratic vs. Direct Tutoring: An A/B Experiment",
+    tagline:
+      "Does withholding the answer build more capability than giving it? A validated experimental pipeline for the question.",
+    year: "2026",
+    role: "Independent Researcher & Builder",
+    client: "Independent research portfolio",
+    tags: ["A/B Testing", "Experimental Design", "Statistical Power"],
+    accent: "coral",
+    cover:
+      "from-[oklch(0.80_0.15_35)] via-[oklch(0.72_0.17_20)] to-[oklch(0.66_0.17_5)]",
+    overview:
+      "A controlled experiment testing whether an AI tutor that withholds the answer and prompts reasoning (Socratic) builds more transferable capability than one that gives the answer (Direct). It builds the full A/B apparatus: random assignment, a transfer-test outcome, effect size, significance, and a power analysis.",
+    context:
+      "Real learning experiments need real participants, so this runs on simulated learners — which makes it a rigorous demonstration of the experimental method, not a claim about real tutoring. Because the ground truth is set, the experiment can be validated: it detects a real effect when present and returns null when absent.",
+    methods: [
+      "Random assignment with a baseline balance check to confirm comparable groups.",
+      "Outcome measured as transfer to new, untutored problems (capability, not completion).",
+      "Effect size (Cohen's d), Welch's t-test, and a permutation test.",
+      "A power analysis showing how detection depends on sample size.",
+    ],
+    outcome:
+      "The known-truth validation passed both ways: with an effect present the test detected it (d ~0.59, p < 0.001); with no effect it correctly returned null (p ~0.91) — no false positive. The power curve showed a real effect being missed 70% of the time at small samples. Swapping simulated learners for real, consented participants turns the same pipeline into a real study.",
+    lessons: [
+      "The value is a validated experimental method, not a finding about tutoring — the honest distinction.",
+      "The real-world version needs IRB, recruitment, and adequate statistical power — all things I have done in prior UX research.",
+    ],
+    limitations: [
+      "Learners are simulated, so the 'result' reflects the tunable assumption built into the model — it validates the experimental method, not a claim about real tutoring. Real, consented participants are required for a real conclusion.",
+      "Starting ability is a known parameter here; in reality it must be estimated with a validated pre-test, a noisy proxy with its own measurement error.",
+      "Only modeled confounds exist; real learners bring motivation, fatigue, and prior knowledge that randomization would have to handle at adequate sample size. Experimenting on real students also requires consent and IRB review.",
+    ],
+    caseStudy: {
+      badges: ["Independent research", "2026", "Method demonstration (simulated learners)"],
+      stats: [
+        { label: "Effect detected (Cohen's d)", value: "0.59" },
+        { label: "No-effect check (p)", value: "0.91" },
+        { label: "Power at n=10 vs n=200", value: "30% / 100%" },
+      ],
+      goals: [
+        "Test whether withholding answers builds more transferable capability.",
+        "Validate that the experiment detects real effects and refuses false ones.",
+        "Show how statistical power depends on sample size.",
+      ],
+      decisions: [
+        "Made the tutoring effect an explicit, tunable parameter so the method could be validated against known ground truth.",
+        "Measured transfer to new problems, not lesson completion, so the outcome is capability rather than activity.",
+      ],
+    },
+  },
 ];
 
 // Display order: lead with product / conversational-AI work, then the
@@ -559,6 +784,10 @@ const projectsRaw: Project[] = [
 const PROJECT_ORDER = [
   "apple-conversational-ai",
   "woaf-meow-smart-ring",
+  "learning-signals-capability",
+  "ai-fluency-measure",
+  "llm-as-judge-reliability",
+  "socratic-vs-direct-tutoring",
   "ai-gender-romantic-fiction",
   "myaamia-allophones",
   "nsf-reu-linguistics",
