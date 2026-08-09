@@ -176,7 +176,7 @@ function ProjectCard({ project: p, index }: { project: typeof projects[number]; 
     >
       <motion.div
         layoutId={`cover-${p.slug}`}
-        className={`relative aspect-[16/11] w-full overflow-hidden rounded-2xl bg-gradient-to-br ${tint} grain-overlay`}
+        className={`relative aspect-video w-full overflow-hidden rounded-2xl bg-gradient-to-br ${tint} grain-overlay`}
       >
         {p.image && (
           <img

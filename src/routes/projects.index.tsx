@@ -85,7 +85,7 @@ function ProjectCard({ p, i }: { p: (typeof projects)[number]; i: number }) {
     <Link to="/projects/$slug" params={{ slug: p.slug }} className="group block">
       <motion.div
         layoutId={`cover-${p.slug}`}
-        className={`relative aspect-[16/11] w-full overflow-hidden rounded-2xl bg-gradient-to-br ${ACCENT_TINT[p.accent] ?? ACCENT_TINT.pink} grain-overlay`}
+        className={`relative aspect-video w-full overflow-hidden rounded-2xl bg-gradient-to-br ${ACCENT_TINT[p.accent] ?? ACCENT_TINT.pink} grain-overlay`}
       >
         {p.image && (
           <img
