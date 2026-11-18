@@ -38,7 +38,8 @@ const LEARNING = [
 
 const TOOLS = [
   "UserTesting",
-  "Python (NLTK, NRCLex, WordNet)",
+  "Python (stdlib, NLTK)",
+  "Cohen's kappa · bootstrap CIs",
   "Qualitative coding",
   "Excel",
   "Google Sheets",

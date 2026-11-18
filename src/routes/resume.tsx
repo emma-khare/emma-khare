@@ -14,7 +14,7 @@ export const Route = createFileRoute("/resume")({
 });
 
 const SUMMARY =
-  "Mixed-methods UX researcher and data-collection moderator specializing in conversational AI and consumer hardware. Currently a Study Coordinator at Apple, running end-to-end research on undisclosed devices in high-confidentiality projects, following a year of study design, protocol development, moderation, and stakeholder reporting across iPhone, iPad, Mac, Vision Pro, and AirPods.";
+  "Evaluation and measurement researcher specializing in the validity of AI measurement: whether the instruments we use to evaluate language models — rubrics, benchmarks, and LLM judges — measure what they claim. Currently a Study Coordinator at Apple, running end-to-end research on undisclosed devices in high-confidentiality projects, following a year of study design, protocol development, moderation, and stakeholder reporting across iPhone, iPad, Mac, Vision Pro, and AirPods.";
 
 const SKILLS: { group: string; items: string }[] = [
   {
@@ -34,7 +34,7 @@ const SKILLS: { group: string; items: string }[] = [
   },
   {
     group: "Technical",
-    items: "Python (NLTK, NRCLex, WordNet) · Excel · Google Sheets · qualitative coding",
+    items: "Python (NLTK, NRCLex, WordNet) · Cohen's kappa · bootstrap confidence intervals · qualitative coding",
   },
   {
     group: "Domain strengths",
@@ -192,14 +192,18 @@ function Resume() {
               The <span className="gradient-ink">long form</span>.
             </h1>
             <p className="mt-5 text-lg text-foreground/80">
-              UX Researcher · Mixed-Methods · Conversational AI &amp; Consumer Hardware
+              AI Evaluation &amp; Measurement · Computational Linguistics · Conversational AI
             </p>
             <p className="mt-2 label-mono">
               San Jose, CA ·{" "}
               <a href="mailto:emmakhare24@gmail.com" className="link-underline">emmakhare24@gmail.com</a>{" "}
               ·{" "}
-              <a href="https://www.linkedin.com/in/emma-k-576903122/" target="_blank" rel="noreferrer" className="link-underline">
+              <a href="https://www.linkedin.com/in/emmakhare/" target="_blank" rel="noreferrer" className="link-underline">
                 LinkedIn ↗
+              </a>{" "}
+              ·{" "}
+              <a href="https://github.com/emma-khare" target="_blank" rel="noreferrer" className="link-underline">
+                GitHub ↗
               </a>
             </p>
           </FadeIn>

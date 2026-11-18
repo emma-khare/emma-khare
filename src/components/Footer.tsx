@@ -8,7 +8,7 @@ export function Footer() {
         <div className="md:col-span-5">
           <p className="label-mono mb-3">Currently</p>
           <p className="font-display text-3xl leading-tight text-balance">
-            Open to UX research roles in conversational AI, consumer hardware, and health.
+            Open to research roles in NLP evaluation, language data, and AI & education.
           </p>
         </div>
 
@@ -29,7 +29,10 @@ export function Footer() {
               <a href="mailto:emmakhare24@gmail.com" className="link-underline">emmakhare24@gmail.com</a>
             </li>
             <li>
-              <a href="https://www.linkedin.com/in/emma-k-576903122/" target="_blank" rel="noreferrer" className="link-underline">LinkedIn ↗</a>
+              <a href="https://www.linkedin.com/in/emmakhare/" target="_blank" rel="noreferrer" className="link-underline">LinkedIn ↗</a>
+            </li>
+            <li>
+              <a href="https://github.com/emma-khare" target="_blank" rel="noreferrer" className="link-underline">GitHub ↗</a>
             </li>
           </ul>
         </div>

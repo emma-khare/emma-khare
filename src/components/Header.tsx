@@ -27,7 +27,7 @@ export function Header() {
             <span className="absolute inset-0 rounded-full bg-pink animate-ping opacity-50" />
           </span>
           <span className="font-display text-lg leading-none">Emma Khare</span>
-          <span className="label-mono hidden sm:inline">UX Researcher</span>
+          <span className="label-mono hidden sm:inline">AI Evaluation</span>
         </Link>
 
         <nav className="flex items-center gap-1 sm:gap-2">

@@ -7,14 +7,14 @@ import portrait from "@/assets/emma-headshot.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Emma Khare, UX Researcher | Conversational AI & Consumer Hardware" },
+      { title: "Emma Khare | AI Evaluation & Measurement · Computational Linguistics" },
       {
         name: "description",
         content:
-          "Mixed-methods UX researcher specializing in conversational AI and consumer-hardware research, usability testing, survey and interview design, moderation, and synthesis. Currently at Apple. San Jose, CA.",
+          "Evaluation and measurement researcher specializing in the validity of AI measurement: LLM evaluation, inter-rater reliability, psychometrics, and language data. Currently at Apple. San Jose, CA.",
       },
-      { property: "og:title", content: "Emma Khare, UX Researcher | Conversational AI & Consumer Hardware" },
-      { property: "og:description", content: "Mixed-methods UX researcher: conversational AI, consumer hardware, usability testing, and research synthesis. Currently at Apple." },
+      { property: "og:title", content: "Emma Khare | AI Evaluation & Measurement · Computational Linguistics" },
+      { property: "og:description", content: "Evaluation researcher: AI measurement validity, LLM judges, inter-rater reliability, and computational linguistics. Currently at Apple." },
     ],
   }),
   component: Home,
@@ -37,18 +37,18 @@ function Hero() {
     <section className="hero-archival relative overflow-hidden">
       <div className="relative mx-auto max-w-6xl px-6 lg:px-12 pt-20 pb-24 lg:pt-28">
         <div className="text-center">
-          <p className="ha-label mb-7">Emma Khare, UX Researcher · 2026</p>
+          <p className="ha-label mb-7">Emma Khare, AI Evaluation & Measurement · 2026</p>
           <FadeIn>
             <h1 className="mx-auto max-w-5xl text-4xl md:text-5xl lg:text-[3.25rem] leading-[1.12] text-balance">
-              Bridging the people who build AI
+              Measuring whether AI works,
               <br />
-              and the people who <em>live with it</em>.
+              for the people who <em>live with it</em>.
             </h1>
           </FadeIn>
           <FadeIn delay={0.15}>
             <p className="mt-7 text-sm md:text-base text-foreground/70 tracking-wide text-balance max-w-[60ch] mx-auto">
-              UX Researcher · Conversational AI &amp; Consumer Hardware · Currently at Apple ·
-              San Jose, CA, open to roles
+              AI Evaluation &amp; Measurement · Computational Linguistics · Currently at Apple ·
+              San Jose, CA
             </p>
           </FadeIn>
           <div className="my-12 flex justify-center" aria-hidden>
@@ -73,7 +73,7 @@ function Hero() {
           </FadeIn>
           <FadeIn delay={0.1} className="md:col-span-7 space-y-5">
             <p className="ha-lead text-2xl md:text-[1.6rem] leading-snug text-balance">
-              I'm Emma, a UX researcher trained in linguistics and anthropology.
+              I'm Emma, a researcher trained in linguistics and anthropology, working on whether our measurements of AI mean what they claim.
             </p>
             <p className="text-lg md:text-xl leading-relaxed text-pretty">
               My path started with{" "}
@@ -110,9 +110,9 @@ function Hero() {
             </div>
             <div className="flex flex-wrap gap-x-2.5 gap-y-2 pt-4">
               {[
-                "Mixed-methods research",
+                "Measurement validity",
                 "AI evaluation",
-                "Measurement & psychometrics",
+                "Psychometrics & inter-rater reliability",
                 "Experimentation (A/B)",
                 "Conversational AI",
                 "Usability testing",
@@ -261,7 +261,7 @@ function Capabilities() {
     { k: "Methods", v: "Generative & evaluative research, ethnography, diary studies, usability testing, interviews, surveys, IRB compliance." },
     { k: "Synthesis", v: "Personas, journey maps, opportunity matrices, mixed-methods evaluation frameworks, stakeholder readouts." },
     { k: "Domains", v: "Conversational AI, consumer hardware, wearables & health, K-12 education, language preservation." },
-    { k: "Stack", v: "UserTesting, Python (NLTK, NRCLex, WordNet), Qualitative coding, Excel, Google Sheets." },
+    { k: "Stack", v: "Python (NLTK, NRCLex, WordNet), Cohen's kappa, bootstrap confidence intervals, qualitative coding, UserTesting." },
   ];
   return (
     <section className="relative mx-auto max-w-7xl px-6 lg:px-12 py-24">
