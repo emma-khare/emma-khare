@@ -709,6 +709,7 @@ const projectsRaw: Project[] = [
       "One rubric, one prompt, one temperature, one snapshot in time — a model update can change the result.",
       "Majority voting repairs variance, not bias: the error that survived repetition here was a systematic leniency, which needs a rubric or threshold change rather than more API calls.",
       "The simulated judge's noise and leniency rates are design assumptions written into the code, not estimates from a real model — the numbers follow from them, which is why this is a method demonstration.",
+      "Human agreement on real items is the ceiling, and it is low: on 4,645 ChaosNLI items, two real annotators reach only kappa 0.29 to 0.65 depending on how ambiguous the set is. The judge's 0.67 against a single annotator sits above that ceiling, which is a warning about the comparison rather than evidence for the judge.",
     ],
     caseStudy: {
       badges: ["Independent research", "2026", "Method demonstration (simulated judge)"],
