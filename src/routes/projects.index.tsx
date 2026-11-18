@@ -61,6 +61,31 @@ function ProjectsIndex() {
         </StaggerList>
       </section>
 
+      {/* Code, public repositories */}
+      <section className="mx-auto max-w-7xl px-6 lg:px-12 pb-4">
+        <FadeIn>
+          <p className="label-mono mb-8">Code · public repositories</p>
+          <a
+            href="https://github.com/emma-khare/llm-judge-agreement"
+            target="_blank"
+            rel="noreferrer"
+            className="group block border-t border-hairline pt-8"
+          >
+            <h3 className="font-display text-2xl md:text-[1.75rem] tracking-tight text-balance">
+              Can you trust an LLM judge?
+              <span className="ml-2 inline-block text-foreground/50 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">
+                ↗
+              </span>
+            </h3>
+            <p className="mt-2 text-foreground/70 text-sm md:text-base max-w-[52ch] text-pretty">
+              Cohen&rsquo;s kappa and a bootstrap confidence interval on a human-versus-LLM
+              annotation set. Python, standard library only, with the limitations written down.
+            </p>
+            <p className="mt-3 label-mono text-foreground/60">github.com/emma-khare/llm-judge-agreement</p>
+          </a>
+        </FadeIn>
+      </section>
+
       {/* More research, community, language & fieldwork */}
       {more.length > 0 && (
         <section className="mx-auto max-w-7xl px-6 lg:px-12 pt-14 pb-24 border-t border-hairline">
