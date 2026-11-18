@@ -48,7 +48,7 @@ export const Route = createFileRoute("/contact")({
 });
 
 const LINKS = [
-  { label: "LinkedIn", value: "linkedin.com/in/emmakhare", href: "https://www.linkedin.com/in/emmakhare/" },
+  { label: "LinkedIn", value: "linkedin.com/in/emma-k-576903122", href: "https://www.linkedin.com/in/emma-k-576903122/" },
   { label: "Résumé", value: "Download PDF", href: "/emma-khare-resume.pdf" },
 ];
 

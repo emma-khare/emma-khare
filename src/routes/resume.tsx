@@ -14,7 +14,7 @@ export const Route = createFileRoute("/resume")({
 });
 
 const SUMMARY =
-  "Mixed-methods UX researcher combining conversational-AI study design, Apple consumer-hardware research, and a linguistics-grounded, cross-cultural research background. I currently moderate UX research at Apple, with study protocols that incorporate AI prompt creation and conversation design, and bring a Summa Cum Laude background in anthropology, Python-based NLP, and active fluency in an endangered Indigenous language. I drive research operations end to end: from protocol authoring and stakeholder alignment to synthesis and actionable reporting.";
+  "Mixed-methods UX researcher and data-collection moderator specializing in conversational AI and consumer hardware. Currently a Study Coordinator at Apple, running end-to-end research on undisclosed devices in high-confidentiality projects, following a year of study design, protocol development, moderation, and stakeholder reporting across iPhone, iPad, Mac, Vision Pro, and AirPods.";
 
 const SKILLS: { group: string; items: string }[] = [
   {
@@ -50,44 +50,56 @@ const EXPERIENCE: {
   bullets: string[];
 }[] = [
   {
-    role: "UX Research Moderator",
-    org: "Apple (via INSPYR Solutions)",
-    meta: "Cupertino, CA · Jan 2026 – Present",
+    role: "Study Coordinator",
+    org: "Apple (via Akkodis)",
+    meta: "Cupertino, CA · Oct 2026 – Present",
     bullets: [
-      "Designed and led 4+ end-to-end UX research studies across Apple consumer hardware, with protocols incorporating AI prompt creation and conversation-design parameters.",
-      "Moderated hundreds of participant sessions while holding SOP adherence, data integrity, and concurrent study flow across multiple active research streams.",
-      "Drove a cross-departmental moderation initiative aligning 5+ stakeholder teams across engineering, design, and research, defining the end-to-end process from the ground up.",
-      "Authored standardized moderation SOPs and trained 2 new moderators on procedures, escalation paths, and best practices, reducing onboarding friction and ensuring consistency.",
-      "Synthesized session findings into stakeholder-facing reports that directly informed product and design decisions across multiple Apple research teams.",
+      "Independently plan, execute, and synthesize qualitative and mixed-methods studies on undisclosed devices across multiple product areas, including high-confidentiality projects with enhanced security requirements.",
+      "Develop research protocols, manage participant recruitment and screening, and lead end-to-end research sessions under strict confidentiality, disclosure-handling, and project-specific security protocols.",
+      "Analyze complex qualitative findings and survey data, translating research into actionable insights and stakeholder share-outs that inform product and design decisions.",
+      "Partner with product managers, designers, and engineers to align research objectives with user needs and business goals, adapting terminology for technical and non-technical audiences.",
+      "Author standardized SOPs and contribute to research operations, documentation, and knowledge-management practices.",
+    ],
+  },
+  {
+    role: "UX Researcher / Research Moderator",
+    org: "Apple (via INSPYR Solutions)",
+    meta: "Cupertino, CA · Jan 2026 – Oct 2026",
+    bullets: [
+      "Designed and led 4+ end-to-end mixed-methods UX research studies across Apple consumer hardware, translating research questions into repeatable data-collection protocols.",
+      "Authored the full protocol for a large-scale, multi-team conversational-AI data-collection study, including procedures designed for international replication.",
+      "Moderated hundreds of participant sessions across iPhone, iPad, Mac, Vision Pro, and AirPods while maintaining data integrity, procedural consistency, and high-quality participant interaction.",
+      "Coordinated with 5+ stakeholder teams across engineering, design, and research to define study requirements and operationalize the end-to-end collection and moderation process.",
+      "Created standardized SOPs and trained 2 new moderators; tracked study progress and synthesized usability findings into stakeholder-facing reports.",
     ],
   },
   {
     role: "UX Research Intern",
     org: "Woaf Meow",
-    meta: "Internship · 2025", // dates to confirm
+    meta: "Remote / Cross-market · Jan 2024 – Sept 2025",
     bullets: [
-      "Designed and analyzed user surveys for a conversational-AI pet-care app to learn what owners wanted.",
-      "Reviewed and synthesized usability sessions into clear findings the team could act on.",
-      "Contributed to early ideation for a companion smart ring, and flagged a market-conflict risk for the team to weigh.",
+      "Moderated usability sessions for a conversational-AI pet-care app and companion health wearable across U.S. and China cohorts, surfacing cross-cultural differences in onboarding and navigation.",
+      "Synthesized mixed-methods findings to identify a critical U.S./China product-team communication breakdown and communicated the issue to PMs to support roadmap decisions.",
+      "Delivered personas, journey maps, and usability reports that informed global market-expansion priorities.",
     ],
   },
   {
     role: "Education Specialist, Native & Indigenous-Centered Education",
     org: "Omaha Public Schools",
-    meta: "Part-time · Apr 2024 – Aug 2025",
+    meta: "Omaha, NE · Apr 2024 – Aug 2025",
     bullets: [
-      "Designed and delivered research-driven, culturally responsive workshops serving 90+ Native students and families, improving program engagement by 30%.",
-      "Secured $35K+ in program funding through grant writing and stakeholder partnerships to expand Indigenous education programming.",
-      "Built and executed a mixed-methods evaluation framework (surveys, interviews, program evaluations) that measured learning outcomes and contributed to a 20% boost in student retention.",
+      "Built and ran an applied mixed-methods evaluation framework using surveys, interviews, and program evaluations to measure learning outcomes, contributing to a 20% retention boost.",
+      "Designed and delivered culturally responsive workshops for 90+ students and families, using structured feedback and evaluation to improve engagement by 30%.",
+      "Secured $35K+ in program funding through grant writing and stakeholder partnerships.",
     ],
   },
   {
     role: "Project Coordinator, Indigeneity, Identity & Ireland",
     org: "Miami University · Foras na Gaeilge & Údarás na Gaeltachta",
-    meta: "Aug – Dec 2022",
+    meta: "Oxford, OH / Ireland · Aug 2022 – Dec 2022",
     bullets: [
-      "Coordinated multilingual fieldwork across Irish (Gaeilge) and Indigenous North American research communities, managing interview schedules, participant logistics, and IRB documentation.",
-      "Built cross-cultural research partnerships with global language-revitalization organizations; synthesized qualitative and archival data into insights presented to academic and community audiences.",
+      "Coordinated multilingual applied field research across two continents, managing interviews, scheduling, logistics, and IRB documentation.",
+      "Synthesized qualitative and archival data into clear findings for academic and community stakeholders.",
     ],
   },
   {
@@ -96,7 +108,7 @@ const EXPERIENCE: {
     meta: "Eugene, OR · Jun – Aug 2022",
     bullets: [
       "Conducted Indigenous language-preservation research on Hanis, Coos, and Miluk, transcribing and converting 100+ pages of 1800s-era manuscripts into IPA and English.",
-      "Built and maintained an interactive research database that increased user engagement by 40% across academic users.",
+      "Built and maintained an interactive research database used by academic and community researchers.",
       "Presented findings to 200+ academic and community stakeholders, including tribal members, university faculty, and federal grant administrators.",
     ],
   },
@@ -160,7 +172,7 @@ function Bullets({ items }: { items: string[] }) {
     <ul className="mt-3 space-y-2">
       {items.map((b, i) => (
         <li key={i} className="flex gap-3 text-foreground/85 text-pretty leading-relaxed">
-          <span className="text-pink-ink select-none">, </span>
+          <span className="text-pink-ink select-none" aria-hidden="true">—</span>
           <span>{b}</span>
         </li>
       ))}
@@ -186,7 +198,7 @@ function Resume() {
               San Jose, CA ·{" "}
               <a href="mailto:emmakhare24@gmail.com" className="link-underline">emmakhare24@gmail.com</a>{" "}
               ·{" "}
-              <a href="https://www.linkedin.com/in/emmakhare/" target="_blank" rel="noreferrer" className="link-underline">
+              <a href="https://www.linkedin.com/in/emma-k-576903122/" target="_blank" rel="noreferrer" className="link-underline">
                 LinkedIn ↗
               </a>
             </p>
