@@ -198,7 +198,7 @@ function Resume() {
               San Jose, CA ·{" "}
               <a href="mailto:emmakhare24@gmail.com" className="link-underline">emmakhare24@gmail.com</a>{" "}
               ·{" "}
-              <a href="https://www.linkedin.com/in/emmakhare/" target="_blank" rel="noreferrer" className="link-underline">
+              <a href="https://www.linkedin.com/in/emma-khare/" target="_blank" rel="noreferrer" className="link-underline">
                 LinkedIn ↗
               </a>{" "}
               ·{" "}
