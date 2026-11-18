@@ -673,7 +673,7 @@ const projectsRaw: Project[] = [
     image: llmJudgeImg,
     actionImage: llmJudgeChart,
     actionCaption:
-      "Self-consistency (ICC) is high on clear cases and collapses on ambiguous ones — a single automated score can't be trusted where judgment is hardest.",
+      "ICC 0.85 on clear cases, 0.10 on ambiguous ones — and not one ambiguous item got the same score across eight runs.",
     title: "Can We Trust an AI That Judges?",
     tagline:
       "AI is increasingly used to evaluate AI. This project measures whether that judge is reliable — using real psychometrics.",
@@ -690,37 +690,42 @@ const projectsRaw: Project[] = [
     context:
       "Using a model to grade at scale only works if the grader is trustworthy. Measuring an AI evaluator's reliability is real, current work — and an extension of the same skepticism that runs through the rest of my portfolio.",
     methods: [
-      "Test-retest reliability: grade each item repeatedly, measure self-consistency (ICC).",
-      "Human agreement: Cohen's kappa between the judge and human ratings.",
-      "Results disaggregated by input difficulty (clear vs. borderline cases).",
+      "Test-retest reliability: each item graded eight times, scored with ICC(2,1), unanimity, and within-item spread.",
+      "Human agreement: Cohen's kappa on the binary gate and quadratic-weighted kappa on the 1–5 scores, each with a bootstrap interval.",
+      "Results disaggregated by input difficulty (clear vs. borderline cases), because an average hides the collapse.",
+      "Error decomposition: single-call errors the majority vote repairs (noise) versus errors that survive it (bias).",
       "A swappable-backend design: runs on the live API by changing one line.",
     ],
     outcome:
-      "On a simulated judge modeled on documented LLM-judge behavior, reliability was high on clear cases (ICC ~0.98) and collapsed on ambiguous ones (~0.15). The practical finding: never trust a single automated score on a hard case — repeat and vote, and keep a human in the loop. Results demonstrate the method; a real finding needs a live run.",
+      "On a simulated judge modeled on documented LLM-judge behavior, test-retest reliability was 0.85 on clear cases and 0.10 on ambiguous ones — no ambiguous item received the same score eight times in a row. Against the human annotator a single call reached kappa 0.67; the majority of eight runs reached 0.89. But repetition repaired only 5 of the 6 disagreements: the one that survived was bias, not noise. Find out which kind of error your judge makes before prescribing repeat-and-vote. Results demonstrate the method; a real finding needs a live run.",
     lessons: [
       "A single LLM-judge score is unreliable exactly where judgment is hardest — the ambiguous cases.",
+      "A reliable judge is not an accurate one: at temperature 0 it repeats itself perfectly (ICC 1.00) and still only reaches kappa 0.94. Consistency and correctness are separate measurements.",
       "The honest scope: this validates the measurement pipeline, not a claim about any specific model.",
     ],
     limitations: [
       "Results use a simulated judge modeled on documented LLM-judge behavior — they demonstrate the method, not a specific real model's reliability. A live run (one-line client swap + API key) turns it into a real finding.",
-      "Small item set and a single human rater for ground truth; a robust study needs many items and multiple raters (the inter-human ceiling the judge is compared against).",
+      "40 items and a single human rater for ground truth; a robust study needs hundreds of items and multiple raters (the inter-human ceiling the judge is compared against).",
       "One rubric, one prompt, one temperature, one snapshot in time — a model update can change the result.",
-      "The code in the public repository is a separate, dependency-free implementation of the kappa check, run on synthetic data: it reports kappa = 0.341, 95% CI [0.00, 0.63]. Those numbers describe that demo, not the ICC figures on this page.",
+      "Majority voting repairs variance, not bias: the error that survived repetition here was a systematic leniency, which needs a rubric or threshold change rather than more API calls.",
+      "The simulated judge's noise and leniency rates are design assumptions written into the code, not estimates from a real model — the numbers follow from them, which is why this is a method demonstration.",
     ],
     caseStudy: {
       badges: ["Independent research", "2026", "Method demonstration (simulated judge)"],
       stats: [
-        { label: "Reliability, clear cases (ICC)", value: "0.98" },
-        { label: "Reliability, ambiguous cases (ICC)", value: "0.15" },
-        { label: "To go live", value: "1 line" },
+        { label: "Reliability, clear cases (ICC)", value: "0.85" },
+        { label: "Reliability, ambiguous cases (ICC)", value: "0.10" },
+        { label: "Single-call errors repetition repaired", value: "5 of 6" },
       ],
       goals: [
         "Measure whether an AI judge agrees with itself across repeated runs.",
         "Measure whether it agrees with human ratings.",
         "Find where reliability breaks down, and what to do about it.",
+        "Separate the judge's noise from its bias, and show which one repetition can fix.",
       ],
       decisions: [
         "Developed against a realistic simulated judge so the whole pipeline was free and fast to build, with a one-line swap to the live API.",
+        "Reconciled two earlier versions that reported kappa 0.34 and 0.98: the difference was the error model, not the judge, so both are now measured on one dataset.",
         "Never presented a simulated result as a real-model finding.",
       ],
     },
