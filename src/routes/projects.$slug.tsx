@@ -120,6 +120,21 @@ function ProjectPage() {
         </section>
       )}
 
+      {p.repoUrl && (
+        <section className="mx-auto max-w-7xl px-6 lg:px-12 pt-2">
+          <FadeIn>
+            <a
+              href={p.repoUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="label-mono link-underline"
+            >
+              Read the code on GitHub ↗
+            </a>
+          </FadeIn>
+        </section>
+      )}
+
       {/* OVERVIEW */}
       <section className="mx-auto max-w-7xl px-6 lg:px-12 pt-16 pb-12">
         <div className="grid gap-12 md:grid-cols-12">

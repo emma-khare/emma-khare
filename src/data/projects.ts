@@ -41,6 +41,8 @@ export type Project = {
   /** Optional embedded video (YouTube/Vimeo *embed* URL). */
   videoUrl?: string;
   videoCaption?: string;
+  /** Optional public repository URL, rendered as a "read the code" link. */
+  repoUrl?: string;
   overview: string;
   context: string;
   methods: string[];
@@ -680,6 +682,7 @@ const projectsRaw: Project[] = [
     client: "Independent research portfolio",
     tags: ["AI Evaluation", "Reliability", "Psychometrics"],
     accent: "blue",
+    repoUrl: "https://github.com/emma-khare/llm-judge-agreement",
     cover:
       "from-[oklch(0.78_0.13_240)] via-[oklch(0.72_0.15_255)] to-[oklch(0.68_0.15_275)]",
     overview:
