@@ -705,6 +705,7 @@ const projectsRaw: Project[] = [
       "Results use a simulated judge modeled on documented LLM-judge behavior — they demonstrate the method, not a specific real model's reliability. A live run (one-line client swap + API key) turns it into a real finding.",
       "Small item set and a single human rater for ground truth; a robust study needs many items and multiple raters (the inter-human ceiling the judge is compared against).",
       "One rubric, one prompt, one temperature, one snapshot in time — a model update can change the result.",
+      "The code in the public repository is a separate, dependency-free implementation of the kappa check, run on synthetic data: it reports kappa = 0.341, 95% CI [0.00, 0.63]. Those numbers describe that demo, not the ICC figures on this page.",
     ],
     caseStudy: {
       badges: ["Independent research", "2026", "Method demonstration (simulated judge)"],
