@@ -1,14 +1,17 @@
 import irelandImg from "@/assets/project-ireland.jpg";
+import irelandFieldnotesImg from "@/assets/fieldnotes-ireland.jpg";
 import reuImg from "@/assets/project-reu.jpg";
 import reuAllophonesImg from "@/assets/project-reu-allophones.jpg";
 import omahaImg from "@/assets/project-omaha.jpg";
 import woafmeowImg from "@/assets/project-woafmeow.jpg";
 import appleAudioImg from "@/assets/project-apple-audio.png";
 import romanceNlpImg from "@/assets/project-romance-nlp.png";
-import llmJudgeImg from "@/assets/project-llm-judge.png";
-import learningSignalsImg from "@/assets/project-learning-signals.png";
-import tutoringAbImg from "@/assets/project-tutoring-ab.png";
-import aiFluencyImg from "@/assets/project-ai-fluency.png";
+import romanceCollageImg from "@/assets/project-sentiment-collage.jpg";
+import manuscriptCollageImg from "@/assets/project-manuscript-collage.jpg";
+import llmJudgeImg from "@/assets/cover-llm-judge.webp";
+import learningSignalsImg from "@/assets/cover-learning-signals.webp";
+import tutoringAbImg from "@/assets/cover-socratic-vs-direct.webp";
+import aiFluencyImg from "@/assets/cover-ai-fluency.webp";
 import llmJudgeChart from "@/assets/chart-llm-judge.png";
 import learningSignalsChart from "@/assets/chart-learning-signals.png";
 import tutoringAbChart from "@/assets/chart-tutoring-ab.png";
@@ -38,6 +41,10 @@ export type Project = {
   /** Optional secondary "action" photo shown within the case study (public/ path or imported asset). */
   actionImage?: string;
   actionCaption?: string;
+  /** Photographs and illustrations run full-bleed; charts stay framed so their axes survive. */
+  actionImageBleed?: boolean;
+  /** Archival cover art prints into the page as a full-bleed ground instead of a framed card. */
+  coverGround?: boolean;
   /** Optional embedded video (YouTube/Vimeo *embed* URL). */
   videoUrl?: string;
   videoCaption?: string;
@@ -46,10 +53,11 @@ export type Project = {
   overview: string;
   context: string;
   methods: string[];
+  /** Wrap values and key terms in ** to render them bold. */
   outcome: string;
   /** "What I'd carry forward", strategic reflections shown at the end of the case study. */
   lessons?: string[];
-  /** "Limitations & honest scope" — what the work does NOT show; rendered as its own section. */
+  /** Limitations: what the work does not show, rendered as its own section. */
   limitations?: string[];
   caseStudy?: CaseStudy;
 };
@@ -59,8 +67,7 @@ const projectsRaw: Project[] = [
     slug: "apple-conversational-ai",
     image: appleAudioImg,
     title: "Multi-Device AI Audio Capture Study",
-    tagline:
-      "Lead moderator on a large-scale, multi-team AI data collection study across Apple consumer hardware platforms.",
+    tagline: "Lead moderator on a multi-team Apple study capturing naturalistic AI audio across consumer devices.",
     year: "2026",
     role: "Lead Moderator",
     client: "Apple (via INSPYR Solutions)",
@@ -69,17 +76,17 @@ const projectsRaw: Project[] = [
     cover:
       "from-[oklch(0.78_0.17_300)] via-[oklch(0.72_0.18_320)] to-[oklch(0.72_0.16_358)]",
     overview:
-      "End-to-end research operations for a large-scale, multi-team AI data collection study across consumer hardware platforms. Promoted to lead moderator over the course of this engagement, going on to lead or contribute to two additional studies.",
+      "Research operations for a large-scale AI data collection study across Apple hardware. Promoted to lead moderator, then trusted with two further studies.",
     context:
-      "Apple's research teams needed a unified protocol that could serve engineering, design, and research simultaneously across concurrent studies, without letting any one team's requirements compromise data integrity. The work pushed into newer territory: testing how participants produce naturalistic audio across multiple simultaneous device configurations.",
+      "Engineering, design, and research needed one protocol that served concurrent studies without compromising data integrity, including a first look at naturalistic audio captured across simultaneous device setups.",
     methods: [
-      "Structured prompt-based audio elicitation (60 min sessions).",
-      "Multi-device simultaneous capture with parallel moderator setups.",
+      "Structured prompt-based audio elicitation (60-minute sessions).",
+      "Simultaneous multi-device capture with parallel moderator setups.",
       "Diverse prompt domains to capture natural language variation.",
-      "QA review and post-session data upload protocols.",
+      "QA review and post-session upload protocols.",
     ],
     outcome:
-      "Data delivered to engineering teams to inform AI model decisions. Protocol built to serve as the foundational template for future study phases and potential expansion to international markets and additional languages.",
+      "**Data delivered to engineering** to inform model decisions, and a protocol that became the **foundational template** for later phases and international expansion.",
     caseStudy: {
       badges: ["NDA-safe", "Apple via INSPYR Solutions", "2026", "Lead moderator"],
       stats: [
@@ -88,49 +95,48 @@ const projectsRaw: Project[] = [
         { label: "Teams aligned", value: "5+" },
       ],
       goals: [
-        "Capture naturalistic user audio across multiple simultaneous device configurations.",
-        "Compare model and software performance against real user behavior.",
-        "Evaluate AI audio recognition accuracy across diverse user populations.",
+        "Capture naturalistic audio across simultaneous device configurations.",
+        "Compare model performance against real user behavior.",
+        "Evaluate recognition accuracy across diverse user populations.",
       ],
       process: [
         {
-          title: "Scoping & stakeholder alignment",
-          body: "Engaged with multiple managers across teams with different priorities and technical requirements. Translated competing needs into a unified study design that could serve engineering, design, and research simultaneously, without letting any one team's requirements compromise data integrity.",
+          title: "Scoping & alignment",
+          body: "Turned managers with competing priorities into one study design that served engineering, design, and research at once.",
         },
         {
           title: "Protocol design",
-          body: "Authored the end-to-end study protocol from scratch: physical device setup with diagrams and specifications, in-house software recording configuration, parallel app workflows, step-by-step session instructions, troubleshooting guides, and QA/post-session upload procedures. Designed for replication, documented with enough precision that international teams could run the same protocol in future phases or additional locales.",
+          body: "Wrote the protocol end to end (device setup, recording configuration, session scripts, troubleshooting, QA), precise enough for international teams to replicate.",
         },
         {
-          title: "Prompt design & participant management",
-          body: "Wrote diverse prompt sets spanning numerous domains to elicit natural language variation across participants. Built a tracking system for 100+ participants and their session outcomes. Managed outreach, scheduling coordination, and participant rapport, establishing trust to reduce performance bias during sessions.",
+          title: "Prompts & participants",
+          body: "Wrote prompt sets across many domains and tracked **100+ participants**, building rapport to reduce performance bias.",
         },
         {
-          title: "Moderation & execution",
-          body: "Served as lead moderator, personally running 50+ one-hour sessions while maintaining study consistency and data integrity across a high-volume collection period, including through two weeks of illness. Trained and oversaw a second moderator running a parallel setup simultaneously, doubling throughput without sacrificing protocol fidelity.",
+          title: "Moderation at volume",
+          body: "Ran **50+ one-hour sessions** while training a second moderator on a parallel setup, doubling throughput without losing fidelity.",
         },
         {
           title: "Handoff & impact",
-          body: "Data delivered to engineering teams to inform AI model decisions. Protocol built to serve as the foundational template for future study phases and potential expansion to international markets and additional languages. Trust established in this study directly led to being tapped as lead moderator on a subsequent study, and as a contributing researcher on a third.",
+          body: "Data informed model decisions and the protocol became the template for later phases; the trust built here led to lead-moderator and researcher roles on **two further studies**.",
         },
       ],
       decisions: [
-        "Chose structured prompt elicitation over free-form interaction to control for variability while still capturing natural speech patterns, critical for meaningful AI model comparison.",
-        "Built participant rapport intentionally before and after sessions to reduce performance anxiety, improving data naturalness at scale.",
-        "Designed the protocol for international replication from day one, rather than treating localization as a later problem, reducing rework for future study phases.",
+        "Structured prompts over free-form chat: controls variability while keeping speech natural.",
+        "Built for international replication from day one, avoiding later rework.",
       ],
       engagement: [
         {
           title: "Study 1, Lead moderator",
-          body: "This case study. Protocol author, lead moderator, moderator trainer.",
+          body: "Protocol author, lead moderator, moderator trainer.",
         },
         {
           title: "Study 2, Lead moderator",
-          body: "Selected again as lead moderator on a subsequent study, reflecting trust built through prior execution.",
+          body: "Selected again on a subsequent study.",
         },
         {
           title: "Study 3, Contributing researcher",
-          body: "Contributed to a third study in a supporting research role across a concurrent research stream.",
+          body: "Supported a concurrent research stream.",
         },
       ],
     },
@@ -138,14 +144,12 @@ const projectsRaw: Project[] = [
   {
     slug: "woaf-meow-smart-ring",
     lessons: [
-      "Early-stage research is about narrowing what to build, not validating a finished design, surveys and synthesis were enough to point to a direction.",
-      "The value is in synthesis: turning raw sessions into a few clear findings mattered more than the raw number of sessions.",
-      "Flagging an uncomfortable risk early, like a market conflict, is part of the job; research that only delivers good news isn't doing its job.",
+      "Early-stage research narrows what to build; it doesn't validate a finished design.",
+      "Flagging an uncomfortable risk early, such as a market conflict, is part of the job.",
     ],
     image: woafmeowImg,
     title: "Conversational AI for a Pet-Care App",
-    tagline:
-      "Survey design and session synthesis for a conversational-AI pet-care app, plus early ideation for a companion smart ring.",
+    tagline: "Survey design and session synthesis for a conversational-AI pet-care app, plus early ideation for a companion smart ring.",
     year: "2025",
     role: "UX Research Intern",
     client: "Woaf Meow",
@@ -154,60 +158,57 @@ const projectsRaw: Project[] = [
     cover:
       "from-[oklch(0.78_0.13_200)] via-[oklch(0.7_0.16_240)] to-[oklch(0.66_0.19_270)]",
     overview:
-      "As a UX research intern, I designed and analyzed surveys and reviewed and synthesized usability sessions for a conversational-AI pet-care app.\n\nI also contributed to early ideation for a companion smart ring, and flagged a market-conflict risk for the team to weigh.",
+      "Designed and analyzed surveys and synthesized usability sessions for an early-stage conversational-AI pet-care app, plus early ideation for a companion smart ring.",
     context:
-      "The product was an early-stage conversational-AI app for pet care, with a companion smart ring still in ideation. Research ran with US participants. Before committing to a direction, the team needed survey insight and synthesized session findings to understand what users wanted, and an honest read on the risks.",
+      "The app was early and the smart ring still an idea. The team needed to know what pet owners wanted before committing to a direction.",
     methods: [
-      "Designed and analyzed user surveys to learn what pet owners wanted from the app.",
-      "Reviewed and synthesized usability sessions into findings the team could act on.",
+      "Designed and analyzed surveys on what pet owners wanted from the app.",
+      "Synthesized usability sessions into findings the team could act on.",
       "Contributed to early ideation for a companion smart ring.",
-      "Flagged a market-conflict risk and raised it with the team.",
+      "Flagged a market-conflict risk for the team to weigh.",
     ],
     outcome:
-      "Delivered survey analysis and synthesized session findings that informed early product direction, and surfaced a market-conflict risk for the team to weigh.",
+      "Survey analysis and synthesized findings informed **early product direction**, and surfaced a **market-conflict risk** before it was locked in.",
     caseStudy: {
       badges: ["Conversational AI", "Pet-care app", "2025"],
       goals: [
-        "Understand what pet owners wanted from a conversational-AI app through survey research.",
-        "Synthesize usability sessions into findings the team could use.",
-        "Surface risks early, including a market-conflict risk, before the product locked in.",
+        "Understand what pet owners wanted from the app.",
+        "Turn usability sessions into findings the team could use.",
+        "Surface risks before the product locked in a direction.",
       ],
       process: [
         {
           title: "Survey design & analysis",
-          body: "Designed and analyzed surveys to learn what pet owners actually wanted from the app, turning open questions into signal the team could use.",
+          body: "Turned open questions into signal the team could act on.",
         },
         {
-          title: "Session review & synthesis",
-          body: "Reviewed usability sessions and synthesized them into clear findings, separating what users did from what they said they wanted.",
+          title: "Session synthesis",
+          body: "Separated what users did from what they said they wanted.",
         },
         {
-          title: "Early smart-ring ideation",
-          body: "Contributed to early ideation for a companion smart ring, helping shape what the hardware could become.",
+          title: "Smart-ring ideation",
+          body: "Helped shape what the companion hardware could become.",
         },
         {
-          title: "Flagging a market-conflict risk",
-          body: "Surfaced a market-conflict risk and raised it with the team so it could be weighed before the product committed to a direction.",
+          title: "Flagging a market conflict",
+          body: "Raised the risk early so it could be weighed, not discovered.",
         },
       ],
       decisions: [
-        "Led with surveys and session synthesis to define direction, rather than over-claiming from a small, early-stage study.",
-        "Raised a market-conflict risk early instead of letting it surface later.",
-        "Kept every finding scoped to what the research could actually support.",
+        "Led with surveys and synthesis rather than over-claiming from a small study.",
+        "Kept every finding scoped to what the data could support.",
       ],
     },
   },
   {
     slug: "indigenous-education-omaha",
     lessons: [
-      "Culturally responsive design isn't a nice-to-have, engagement rose once the program genuinely reflected the community it served.",
-      "A mixed-methods evaluation framework turned 'it feels like it's working' into a defensible retention gain.",
-      "Grant writing is a research skill: funding meant translating community needs into a funder's language.",
+      "Culturally responsive design changed the numbers: engagement rose once the program reflected its community.",
+      "Grant writing is a research skill: it translates community needs into a funder's language.",
     ],
     image: omahaImg,
     title: "Native & Indigenous-Centered Education",
-    tagline:
-      "Research-driven, culturally responsive programming for 90+ Native students and families.",
+    tagline: "Research-driven, culturally responsive programming for 90+ Native students and families.",
     year: "2024, 2025",
     role: "Education Specialist",
     client: "Omaha Public Schools",
@@ -216,16 +217,16 @@ const projectsRaw: Project[] = [
     cover:
       "from-[oklch(0.82_0.15_358)] via-[oklch(0.78_0.17_10)] to-[oklch(0.74_0.18_340)]",
     overview:
-      "Designed and delivered culturally responsive workshops for Native students and their families, paired with a mixed-methods evaluation framework to measure what was working.",
+      "Designed culturally responsive workshops for Native students and families, paired with a mixed-methods evaluation to measure what was working.",
     context:
-      "The district needed programming that genuinely served Native and Indigenous community members, not just symbolically. That meant centering community voice in both the curriculum and the evaluation.",
+      "The district needed programming that served Native and Indigenous community members in practice, which meant centering community voice in the curriculum and the evaluation.",
     methods: [
-      "Designed weekly workshops and inclusive curriculum materials addressing educational and cultural needs.",
-      "Built a mixed-methods evaluation framework using surveys, interviews, and program evaluations.",
-      "Wrote grants and built stakeholder partnerships to secure $35K+ in program funding.",
+      "Weekly workshops and inclusive curriculum materials built with community input.",
+      "A mixed-methods evaluation: surveys, interviews, and program evaluations.",
+      "Grants and stakeholder partnerships to fund the work.",
     ],
     outcome:
-      "Program engagement up 30% and student retention up 20%. Funding secured to expand Indigenous education programming the following year.",
+      "Program engagement up **30%** and student retention up **20%**, with **$35K+** secured to expand Indigenous education programming the following year.",
     caseStudy: {
       badges: ["K-12", "Community-centered", "Mixed methods"],
       stats: [
@@ -234,48 +235,47 @@ const projectsRaw: Project[] = [
         { label: "Engagement lift", value: "+30%" },
       ],
       goals: [
-        "Build programming that genuinely serves Native and Indigenous community members, not just symbolically.",
-        "Center community voice in both curriculum and evaluation.",
+        "Build programming that serves Native and Indigenous community members, not symbolically.",
+        "Center community voice in curriculum and evaluation.",
         "Generate evidence strong enough to secure ongoing funding.",
       ],
       process: [
         {
-          title: "Community-rooted curriculum design",
-          body: "Designed weekly workshops and inclusive curriculum materials addressing the educational and cultural needs surfaced directly by Native students and families, not assumed from outside the community.",
+          title: "Community-rooted curriculum",
+          body: "Workshops and materials shaped by what Native students and families surfaced, not assumed from outside.",
         },
         {
-          title: "Mixed-methods evaluation framework",
-          body: "Built an evaluation framework combining surveys, interviews, and program evaluations so qualitative voice and quantitative outcomes could be read together when reporting back to the district and to funders.",
+          title: "Mixed-methods evaluation",
+          body: "Survey, interview, and program data read together when reporting to the district and funders.",
         },
         {
-          title: "Stakeholder partnerships & grant writing",
-          body: "Wrote grants and built partnerships with district stakeholders and community organizations to secure $35K+ in program funding, translating evaluation findings into a funding case.",
+          title: "Partnerships & grants",
+          body: "Built district and community partnerships and wrote the grants that secured **$35K+**.",
         },
         {
           title: "Iterating on what worked",
-          body: "Used evaluation data to refine workshop design across the year, lifting program engagement 30% and student retention 20%.",
+          body: "Used evaluation data to refine workshops across the year: engagement **+30%**, retention **+20%**.",
         },
       ],
       decisions: [
-        "Treated community voice as the source of curriculum, not a layer on top of pre-made content.",
-        "Designed the evaluation alongside the program so 'what's working' could be answered, not just claimed.",
-        "Wrote grants from evaluation data rather than aspiration, strengthening both the funding case and the program itself.",
+        "Treated community voice as the source of curriculum, not a layer on top of it.",
+        "Designed the evaluation alongside the program so 'what's working' could be answered, not claimed.",
       ],
     },
   },
   {
     slug: "indigeneity-identity-ireland",
     lessons: [
-      "In language-revitalization work, logistics and IRB paperwork either protect community trust or erode it, there is no neutral option.",
-      "Reporting back to community audiences first, not as an afterthought to the academic write-up, changed how the work was received.",
-      "Holding interview methodology consistent across very different cultures let me compare findings without flattening the differences.",
+      "In language-revitalization work, logistics and IRB either protect community trust or erode it.",
+      "Reporting to community audiences first, not after the academic write-up, changed how the work landed.",
     ],
     image: irelandImg,
-    actionImage: "/ireland-studio.jpg",
-    actionCaption: "On location during the Ireland language-revitalization fieldwork.",
+    actionImage: irelandFieldnotesImg,
+    actionImageBleed: true,
+    actionCaption:
+      "Illustration · archival field materials: maps, notes, pressed specimens, and the thread that ties the two traditions together.",
     title: "Indigeneity, Identity & Ireland",
-    tagline:
-      "Multilingual fieldwork across Irish (Gaeilge) and Indigenous North American research communities.",
+    tagline: "Multilingual fieldwork across Irish (Gaeilge) and Indigenous North American research communities.",
     year: "2022",
     role: "Project Coordinator",
     client: "Miami University × Foras na Gaeilge × Údarás na Gaeltachta",
@@ -284,16 +284,16 @@ const projectsRaw: Project[] = [
     cover:
       "from-[oklch(0.78_0.16_290)] via-[oklch(0.7_0.19_310)] to-[oklch(0.66_0.2_330)]",
     overview:
-      "Coordinated cross-cultural fieldwork connecting Irish and Indigenous North American language-revitalization communities, then synthesized findings into insights for academic and community audiences.",
+      "Coordinated cross-cultural fieldwork connecting Irish and Indigenous North American language-revitalization communities, then synthesized findings for academic and community audiences.",
     context:
-      "Language revitalization work is relational, calendars, IRB paperwork, and translation logistics all have to support trust between communities, not get in its way.",
+      "Language revitalization is relational. Calendars, IRB paperwork, and translation logistics all have to support trust between communities rather than get in its way.",
     methods: [
-      "Managed interview schedules, participant logistics, and IRB documentation across two continents.",
-      "Cultivated research partnerships with Foras na Gaeilge and Údarás na Gaeltachta.",
-      "Synthesized qualitative interview and archival data into actionable insights.",
+      "Managed interviews, participant logistics, and IRB across two continents.",
+      "Cultivated partnerships with Foras na Gaeilge and Údarás na Gaeltachta.",
+      "Synthesized qualitative interview and archival data into insights.",
     ],
     outcome:
-      "Findings presented to academic and community audiences, supporting cultural and linguistic revitalization initiatives on both sides of the partnership.",
+      "Findings presented to **academic and community audiences**, supporting revitalization initiatives on both sides of the partnership.",
     caseStudy: {
       badges: ["Ethnographic", "Multilingual", "Two-continent fieldwork"],
       stats: [
@@ -302,32 +302,31 @@ const projectsRaw: Project[] = [
         { label: "Languages in scope", value: "Gaeilge + Indigenous NA" },
       ],
       goals: [
-        "Connect Irish (Gaeilge) and Indigenous North American language-revitalization communities through shared research questions.",
-        "Hold logistics and IRB compliance to a standard that protects, rather than burdens, community partners.",
-        "Translate fieldwork into insights usable by both academic and community audiences.",
+        "Connect Irish and Indigenous North American revitalization communities through shared questions.",
+        "Hold logistics and IRB to a standard that protects community partners.",
+        "Translate fieldwork into insights both audiences could use.",
       ],
       process: [
         {
           title: "Partnership cultivation",
-          body: "Built research partnerships with Foras na Gaeilge and Údarás na Gaeltachta, treating relationship-building as the substrate that everything else depends on.",
+          body: "Built relationships with Foras na Gaeilge and Údarás na Gaeltachta as the substrate everything else depended on.",
         },
         {
-          title: "Logistics & IRB across two continents",
-          body: "Managed interview schedules, participant logistics, and IRB documentation across two continents, keeping the paperwork in service of trust rather than the other way around.",
+          title: "Logistics & IRB",
+          body: "Managed interviews and documentation across two continents, keeping paperwork in service of trust.",
         },
         {
-          title: "Fieldwork & interviewing",
-          body: "Conducted and coordinated multilingual interviews, holding methodological consistency across very different linguistic and cultural contexts.",
+          title: "Fieldwork",
+          body: "Held one methodology across very different linguistic and cultural contexts.",
         },
         {
-          title: "Synthesis & dual-audience reporting",
-          body: "Synthesized qualitative interview and archival data into actionable insights, presented in formats appropriate for both academic and community audiences.",
+          title: "Synthesis & reporting",
+          body: "Turned interview and archival data into insights for both academic and community readers.",
         },
       ],
       decisions: [
-        "Designed IRB and translation logistics around what supported community trust, not what was administratively convenient.",
-        "Held interview methodology consistent across both communities so findings could be compared honestly without flattening cultural difference.",
-        "Reported back to community audiences first, not as an afterthought to the academic write-up.",
+        "Designed IRB and translation logistics around community trust, not administrative convenience.",
+        "Reported to community audiences first, not as an afterthought.",
       ],
     },
   },
@@ -337,8 +336,7 @@ const projectsRaw: Project[] = [
     videoUrl: "https://www.youtube.com/embed/LV52sIJmjM8",
     videoCaption: "Seven Generations Forward, an ethnographic documentary",
     title: "Ethnographic Documentary, Indigenous Climate Change",
-    tagline:
-      "An ethnographic documentary bringing an Indigenous perspective to climate change, through interviews with Miami Tribe elders.",
+    tagline: "An ethnographic documentary bringing an Indigenous perspective to climate change, through interviews with Miami Tribe elders.",
     year: "2021, 2022",
     role: "Researcher & Documentarian",
     client: "Miami University",
@@ -347,34 +345,34 @@ const projectsRaw: Project[] = [
     cover:
       "from-[oklch(0.85_0.12_70)] via-[oklch(0.74_0.15_45)] to-[oklch(0.64_0.16_25)]",
     overview:
-      "Seven Generations Forward is an ethnographic video documentary describing an Indigenous perspective on climate change.\n\nThrough interviews with Miami Tribe elders and original musical variation, it explores a journey of indigeneity through the lens of historical sovereignty and survivance.",
+      "Seven Generations Forward is an ethnographic documentary describing an Indigenous perspective on climate change, through interviews with Miami Tribe elders and original musical variation.",
     context:
-      "Created in 2021–2022, the project set out to bring Indigenous voices to the forefront of climate-change discourse, a conversation that often excludes the very people with the most grounded data on how the climate has changed. This community has witnessed and documented environmental change over the last two hundred years, change rooted in colonialism, whose destructive efforts disrupted long-standing relationships with the land and set off the domino effect now termed \"climate change.\" Their relationship with the environment goes well beyond the surface: they have preserved the names of each Indigenous plant species and their interconnected relationships with the community, with animals, and with one another. As the documentary details, when one part of that web is affected, the entire web of relationships is affected. Even the trees and plants themselves are named in the credits, an act of agency and respect borne of that attention to relationality.",
+      "Climate discourse often excludes the people with the most grounded data on how the climate has changed. This community has documented that change over two centuries, with a relationship to the land recorded down to the names of each plant species and how they relate to one another. When one part of that web is affected, the whole web is.",
     methods: [
       "Conducted ethnographic interviews with Miami Tribe elders.",
-      "Wove original musical variation into the documentary's narrative.",
-      "Edited interviews and footage into a film exploring sovereignty and survivance.",
+      "Wove original musical variation into the narrative.",
+      "Edited interviews and footage into a film on sovereignty and survivance.",
     ],
     outcome:
-      "An ethnographic documentary that brings an Indigenous perspective into climate-change discourse, framing solution development through historical sovereignty and survivance.",
+      "A documentary that brings an **Indigenous perspective** into climate discourse, framing solutions through historical sovereignty and survivance.",
     lessons: [
-      "Minority voices belong in the discourse, they're potential goldmines for innovation and solution engineering.",
-      "Indigenous communities hold knowledge that isn't being used but could greatly help efforts that affect us all, like climate change.",
-      "Indigenous knowledge is multifaceted and goes beyond storytelling, it carries information-rich density through language, cultural knowledge, and the intergenerational transmission of that knowledge.",
-      "For UX: this taught me to look beyond surface-level qualitative research, to dig deeper and question not only the people I interviewed, but the definitions and biases I didn't know I was carrying.",
+      "Minority voices belong in the discourse; they are often where innovation starts.",
+      "Indigenous knowledge is information-dense: language, culture, and intergenerational transmission, not storytelling alone.",
     ],
   },
   {
     slug: "nsf-reu-linguistics",
     lessons: [
-      "Ambiguous source data makes peer review essential, accuracy was a collaborative achievement, not a solo one.",
-      "Turning 100+ manuscript pages into a structured, searchable database created more lasting value than the transcription alone.",
-      "Presenting to tribal members, faculty, and grant administrators taught me to pitch the same findings three different ways for three audiences.",
+      "Ambiguous source data made peer review essential; accuracy was collaborative.",
+      "A structured, searchable database created more lasting value than transcription alone.",
     ],
     image: reuImg,
+    actionImage: manuscriptCollageImg,
+    actionImageBleed: true,
+    actionCaption:
+      "Illustration · manuscript transcription: 1800s-era pages converted to IPA and a working database.",
     title: "Indigenous Language Preservation",
-    tagline:
-      "Transcribing 100+ pages of 1800s-era Hanis, Coos, and Miluk manuscripts into IPA.",
+    tagline: "Transcribing 100+ pages of 1800s-era Hanis, Coos, and Miluk manuscripts into IPA.",
     year: "2022",
     role: "NSF REU Fellow, Linguistics",
     client: "University of Oregon",
@@ -383,16 +381,16 @@ const projectsRaw: Project[] = [
     cover:
       "from-[oklch(0.85_0.13_220)] via-[oklch(0.76_0.16_250)] to-[oklch(0.7_0.18_280)]",
     overview:
-      "An NSF-funded fellowship transcribing and digitizing historical manuscripts in Hanis, Coos, and Miluk into IPA and English, alongside building an interactive research database for academic users.",
+      "An NSF-funded fellowship transcribing 1800s-era Hanis, Coos, and Miluk manuscripts into IPA and English, plus an interactive database for academic users.",
     context:
-      "The source documents were printed photocopies of handwritten manuscripts written in IPA, the International Phonetic Alphabet, the standardized system that gives every human speech sound its own written symbol. Transcription meant deciphering which characters had been written by hand, working out the sounds they represented, and logging each reading in a spreadsheet, with peer review and collaboration essential to verify accuracy.",
+      "The sources were photocopies of handwritten IPA, the notation that gives every speech sound its own symbol. Transcription meant deciphering each character, working out the sound it represented, and logging the reading; peer review kept it accurate.",
     methods: [
-      "Transcribed 100+ pages of 1800s-era source material into IPA and English.",
-      "Designed and maintained an interactive research database used by academic users.",
-      "Presented findings to 200+ stakeholders including tribal members, faculty, and federal grant administrators.",
+      "Transcribed 100+ pages of pre-1900 material into IPA and English.",
+      "Designed and maintained an interactive research database.",
+      "Presented findings to 200+ stakeholders.",
     ],
     outcome:
-      "Database engagement up 40% across academic users. Trust maintained with Indigenous community partners through strict ethical compliance.",
+      "Database engagement up **40%** across academic users, with community trust maintained through strict ethical compliance.",
     caseStudy: {
       badges: ["NSF-funded", "Archival", "IRB-compliant"],
       stats: [
@@ -401,46 +399,43 @@ const projectsRaw: Project[] = [
         { label: "Database engagement lift", value: "+40%" },
       ],
       goals: [
-        "Transcribe and digitize fragile 1800s-era Hanis, Coos, and Miluk manuscripts into a usable scholarly resource.",
-        "Build an interactive database that academic users would actually return to.",
-        "Maintain strict IRB and ethical compliance with Indigenous community partners throughout.",
+        "Digitize fragile 1800s manuscripts into a usable scholarly resource.",
+        "Build a database researchers would return to.",
+        "Hold strict IRB and ethical compliance with community partners.",
       ],
       process: [
         {
-          title: "Archival transcription into IPA",
-          body: "Transcribed 100+ pages of pre-1900 source material into IPA and English, working carefully through idiosyncratic and inconsistent original transcriptions.",
+          title: "Archival transcription",
+          body: "Worked through **100+ pages** of inconsistent original transcriptions into IPA and English.",
         },
         {
           title: "Database design",
-          body: "Designed and maintained an interactive research database for academic users, structuring the data so future researchers could query, compare, and cite it.",
+          body: "Structured the data so future researchers could query, compare, and cite it.",
         },
         {
-          title: "Ongoing community accountability",
-          body: "Held strict IRB and ethical-compliance standards with Indigenous community partners at every step, treating compliance as relational rather than purely procedural.",
+          title: "Community accountability",
+          body: "Treated compliance as relational, not procedural.",
         },
         {
           title: "Dissemination",
-          body: "Presented findings to 200+ stakeholders including tribal members, university faculty, and federal grant administrators, adjusting framing for each audience without losing fidelity.",
+          body: "Presented to **200+ stakeholders**, adjusting framing per audience without losing fidelity.",
         },
       ],
       decisions: [
-        "Standardized transcription into IPA so the digitized corpus could serve linguistic research, not just preservation.",
-        "Built the database for researcher workflows, not as a static archive, driving the 40% engagement lift.",
-        "Treated community trust as the project's success condition, not a compliance checkbox.",
+        "Standardized on IPA so the corpus could serve research as well as preservation.",
+        "Built for researcher workflows rather than as a static archive, which produced the **40%** lift.",
       ],
     },
   },
   {
     slug: "myaamia-allophones",
     lessons: [
-      "Hard linguistics skills are only useful if you can translate them for a non-specialist audience, the presentation mattered as much as the analysis.",
-      "Working from open-source audio alongside first-person community members made the findings both rigorous and accountable to the people they came from.",
-      "Presenting to stakeholders is research, not an afterthought, it's where trust and future collaboration get built.",
+      "Hard linguistics is only useful if you can translate it for a non-specialist audience.",
+      "Presenting to stakeholders is part of the research; trust and future collaboration get built there.",
     ],
     image: reuAllophonesImg,
     title: "Myaamia & Ojibwe Language Study + Stakeholder Presentation",
-    tagline:
-      "Presenting Myaamia and Ojibwe language research to tribal, academic, and federal stakeholders, grounded in acoustic phonetics and rigorous method.",
+    tagline: "Presenting Myaamia and Ojibwe language research to tribal, academic, and federal stakeholders.",
     year: "2022",
     role: "NSF REU Fellow, Linguistics",
     client: "University of Oregon × Myaamia Center",
@@ -449,17 +444,16 @@ const projectsRaw: Project[] = [
     cover:
       "from-[oklch(0.82_0.12_210)] via-[oklch(0.72_0.16_245)] to-[oklch(0.64_0.19_275)]",
     overview:
-      "Part of my National Science Foundation (NSF) REU fellowship, presented as a research poster to tribal members, faculty, and federal grant administrators.\n\nIt paired acoustic-phonetic analysis of Myaamia and Ojibwe with a stakeholder-facing presentation, turning technical linguistics into findings partners could carry forward.",
+      "An NSF REU research poster pairing acoustic-phonetic analysis of Myaamia and Ojibwe with a stakeholder presentation, turning technical linguistics into findings partners could carry forward.",
     context:
-      "Myaamiaataweenki (the language of the myaamia people) and Ojibwe are reawakening Indigenous languages with small but growing bodies of acoustic documentation. The study examined allophones, the subtly different ways a single speech sound is pronounced depending on its phonetic environment, variations that don't change a word's meaning but reveal how the sound system works. Acoustic evidence of this patterning supports both pedagogy and the revitalization work led by community partners.",
+      "Myaamiaataweenki and Ojibwe are reawakening languages with small acoustic documentation. The study examined allophones, how one sound shifts with its phonetic environment, evidence that supports both pedagogy and revitalization.",
     methods: [
-      "Presented findings as a research poster to 200+ stakeholders, tribal members, university faculty, and federal grant administrators, translating technical results for non-specialist audiences.",
-      "Parsed out allophonic similarities from existing open-source audio files alongside first-person Indigenous community members, then segmented tokens in Praat and analyzed formant and duration data to identify the environments conditioning the variation.",
-      "Held the work to rigorous research methods, producing documentation usable for future phonological description.",
-      "Built long-lasting relationships with Indigenous researchers and community members, leaving deliverables their revitalization work could build on.",
+      "Presented a research poster to 200+ tribal, academic, and federal stakeholders.",
+      "Segmented and measured tokens in Praat with community members, using open-source audio.",
+      "Held the analysis to a standard usable for future phonological description.",
     ],
     outcome:
-      "Delivered acoustic evidence and a stakeholder presentation that fed directly into ongoing revitalization work, and, as much as the findings, established long-lasting relationships among Indigenous researchers and community members for future research to build on.",
+      "Acoustic evidence and a **stakeholder presentation** that fed directly into ongoing revitalization work, plus relationships future research can build on.",
     caseStudy: {
       badges: ["Stakeholder presentation", "Acoustic phonetics", "Language revitalization"],
       stats: [
@@ -468,46 +462,47 @@ const projectsRaw: Project[] = [
         { label: "Tools", value: "Praat" },
       ],
       goals: [
-        "Present Myaamia and Ojibwe language findings in a format accessible to tribal, academic, and federal stakeholders.",
-        "Document allophonic variation with rigorous acoustic evidence and a strong linguistics foundation.",
-        "Leave deliverables and relationships that future revitalization research can build on.",
+        "Present findings in a format accessible to tribal, academic, and federal audiences.",
+        "Document allophonic variation with rigorous acoustic evidence.",
+        "Leave deliverables and relationships future research can build on.",
       ],
       process: [
         {
-          title: "Stakeholder presentation & engagement",
-          body: "Designed and presented a research poster to 200+ tribal members, university faculty, and federal grant administrators, calibrated to be readable by non-specialist community audiences without diluting the technical content.",
+          title: "Stakeholder presentation",
+          body: "A poster for **200+** tribal members, faculty, and federal administrators, readable without diluting the linguistics.",
         },
         {
-          title: "Acoustic analysis & hard linguistics skills",
-          body: "Drew on existing open-source audio files and first-person Indigenous community members to parse out allophonic similarities, then segmented and measured tokens in Praat, analyzing formant and duration data to pin down the phonological environments in which allophones surfaced.",
+          title: "Acoustic analysis",
+          body: "Segmented and measured tokens in Praat to pin down the environments where allophones surface.",
         },
         {
-          title: "Deliverables for future research",
-          body: "Produced documentation held to a standard usable for phonological description, so the work could serve ongoing pedagogy and revitalization rather than sit as a one-off study.",
+          title: "Deliverables",
+          body: "Documentation held to a standard usable for phonological description and pedagogy.",
         },
         {
-          title: "Lasting community relationships",
-          body: "Worked from existing open-source audio files and directly with first-person community members, building long-lasting relationships among Indigenous researchers and community members that future research can continue.",
+          title: "Relationships",
+          body: "Worked directly with community members, prioritizing long-term collaboration over one-time output.",
         },
       ],
       decisions: [
-        "Led with the stakeholder presentation, treating accessibility for community audiences as a core deliverable, not an afterthought.",
-        "Held the analysis to a standard usable for phonological description, demonstrating hard linguistics skills and rigorous method.",
-        "Invested in existing open-source audio files and direct work with community members, prioritizing long-term relationships over one-time output.",
+        "Led with the stakeholder presentation, treating community access as a core deliverable.",
+        "Prioritized relationships and reusable deliverables over a one-off study.",
       ],
     },
   },
   {
     slug: "ai-gender-romantic-fiction",
     lessons: [
-      "Sentiment scores are a starting point for interpretation, not an answer, the cultural reading is what made the numbers mean something.",
-      "Translating a computational study into personas is what turned an academic NLP project into something a product team could use.",
-      "Holding the computational and cultural lenses in tension on purpose kept either one from overwriting the other.",
+      "Sentiment scores are a starting point; the cultural reading is what made the numbers mean something.",
+      "Translating a computational study into personas made it usable by a product team.",
     ],
     image: romanceNlpImg,
+    actionImage: romanceCollageImg,
+    actionImageBleed: true,
+    actionCaption:
+      "Illustration · the lexicon at work: emotion categories mapped across the corpus.",
     title: "AI & Gender in Romantic Fiction",
-    tagline:
-      "A Python sentiment-analysis study of emotion and gender representation in romance text data.",
+    tagline: "A Python sentiment-analysis study of emotion and gender representation in romance text data.",
     year: "2021",
     role: "Researcher",
     client: "Miami University",
@@ -516,16 +511,16 @@ const projectsRaw: Project[] = [
     cover:
       "from-[oklch(0.85_0.13_340)] via-[oklch(0.78_0.17_358)] to-[oklch(0.74_0.18_20)]",
     overview:
-      "Built a Python sentiment-analysis tool using NRCLex, NLTK, and WordNet to surface emotional patterns and gender representation in romantic fiction text data.",
+      "Built a Python sentiment-analysis tool with NRCLex, NLTK, and WordNet to surface emotional patterns and gender representation in romantic fiction.",
     context:
-      "An early experiment in pairing computational methods with the kind of cultural reading anthropology trains for, letting each catch what the other misses.",
+      "An early experiment in pairing computational methods with cultural reading, letting each catch what the other misses.",
     methods: [
       "Cleaned and analyzed large text datasets for emotional trends.",
-      "Framed findings through cultural context, storytelling, and computational linguistics.",
-      "Built research personas linking computational insights to real stakeholder use cases.",
+      "Framed findings through cultural context and computational linguistics.",
+      "Built research personas linking insights to stakeholder use cases.",
     ],
     outcome:
-      "Demonstrated an adaptable UX research methodology in an NLP context, a throughline that still shapes how I design conversational-AI studies today.",
+      "An adaptable UX research methodology applied in an NLP context, and it still shapes how I design **conversational-AI studies** today.",
     caseStudy: {
       badges: ["NLP", "Python", "Mixed methods"],
       stats: [
@@ -534,44 +529,43 @@ const projectsRaw: Project[] = [
         { label: "Output", value: "Personas + analysis" },
       ],
       goals: [
-        "Surface emotional patterns and gender representation in romantic fiction text data.",
-        "Pair computational analysis with the kind of cultural reading anthropology trains for.",
-        "Connect computational insights to plausible stakeholder use cases via personas.",
+        "Surface emotional patterns and gender representation in the corpus.",
+        "Pair computational analysis with cultural reading.",
+        "Connect the findings to plausible stakeholder use cases.",
       ],
       process: [
         {
-          title: "Corpus cleaning & preparation",
-          body: "Cleaned and structured large text datasets so sentiment and lexical analyses would run against consistent inputs rather than noisy raw text.",
+          title: "Corpus preparation",
+          body: "Cleaned and structured the text so analyses ran against consistent inputs.",
         },
         {
           title: "Sentiment & lexical analysis",
-          body: "Used NRCLex, NLTK, and WordNet to surface emotional trends and gendered patterns in the corpus, running computational analysis as the first pass, not the final word.",
+          body: "NRCLex, NLTK, and WordNet as a first pass, not the final word.",
         },
         {
-          title: "Cultural reading & framing",
-          body: "Framed computational findings through cultural context, storytelling, and computational linguistics, letting each lens catch what the other missed.",
+          title: "Cultural reading",
+          body: "Framed results through storytelling and linguistics so neither lens overwrote the other.",
         },
         {
           title: "Persona translation",
-          body: "Built research personas linking the computational insights to real stakeholder use cases, demonstrating how an NLP study could feed a product or design conversation.",
+          body: "Turned the analysis into personas a product team could act on.",
         },
       ],
       decisions: [
-        "Treated sentiment scores as a starting point for interpretation, not as conclusions on their own.",
-        "Used personas to bridge an academic NLP study into a UX-research-shaped deliverable.",
-        "Held cultural and computational readings in tension on purpose, so neither would overwrite the other.",
+        "Treated sentiment scores as interpretation fuel, not conclusions.",
+        "Held the cultural and computational readings in tension on purpose.",
       ],
     },
   },
   {
     slug: "learning-signals-capability",
     image: learningSignalsImg,
+    coverGround: true,
     actionImage: learningSignalsChart,
     actionCaption:
-      "Two transcripts with nearly identical activity land at 0.88 vs. 0.03 on capability — activity can't tell them apart; the capability signals can.",
+      "Two transcripts with nearly identical activity land at 0.88 vs. 0.03 on capability. Activity can't tell them apart; the capability signals can.",
     title: "Learning Signals: Capability vs. Engagement",
-    tagline:
-      "A shippable tool that reads a tutoring transcript and shows whether a learner is building real skill, or just staying active.",
+    tagline: "A shippable tool that reads a tutoring transcript and shows whether a learner is building real skill, or just staying active.",
     year: "2026",
     role: "Independent Researcher & Builder",
     client: "Independent research portfolio",
@@ -580,25 +574,25 @@ const projectsRaw: Project[] = [
     cover:
       "from-[oklch(0.82_0.13_70)] via-[oklch(0.78_0.15_45)] to-[oklch(0.72_0.16_25)]",
     overview:
-      "Education tools tend to measure engagement (activity: messages, time, words) because it is easy. But engagement is not learning. This tool extracts transparent, rule-based signals of capability growth — deepening questions, self-correction, concept reuse, hint-dependence — and contrasts them with raw activity. No AI model, no API key: every score traces to an inspectable rule, so a teacher can see why.",
+      "Education tools measure engagement because it's easy. This tool extracts transparent, rule-based signals of capability growth (question depth, self-correction, concept reuse, hint-dependence) and contrasts them with raw activity.",
     context:
-      "As an Education Specialist at Omaha Public Schools, I watched students treat the right answer as a flag of completion rather than a sign of understanding. This tool is a direct attempt at the distinction the whole ed-AI conversation turns on: measuring capability, not engagement.",
+      "As an Education Specialist I watched students treat the right answer as a flag of completion. This tool tries to measure the difference the ed-AI conversation turns on: capability, not engagement.",
     methods: [
-      "Transparent, rule-based signal extraction from learner turns (no LLM, no API key).",
-      "Four capability signals: question-depth level/trend, self-correction, concept reuse, hint-dependence.",
-      "A Gradio web app with an auditable per-turn breakdown of every score.",
-      "Validation against labeled sample transcripts; a caught validity flaw, fixed, then deliberately not over-tuned.",
+      "Rule-based signal extraction from learner turns, with no LLM or API key.",
+      "Four capability signals: question depth, self-correction, concept reuse, hint-dependence.",
+      "A Gradio app with an auditable per-turn breakdown.",
+      "Validation against labeled transcripts; one validity flaw caught and fixed.",
     ],
     outcome:
-      "Two transcripts with nearly identical activity scored 0.88 vs. 0.03 on capability — activity could not tell them apart; the capability signals could. Framed as a transparent, shippable proof of concept, with limitations (rule-based, English-only, demonstration data) documented in full.",
+      "Two transcripts with nearly identical activity scored **0.88** vs. **0.03** on capability. Activity couldn't tell them apart; the signals could. Shipped as a transparent proof of concept with limitations documented.",
     lessons: [
       "An auditable measure a teacher can contest beats an opaque 'the AI says 7/10.'",
-      "I caught my own measure penalizing a concise-but-deep learner (a validity flaw), fixed it, then stopped tuning rather than overfit four examples.",
+      "I caught my own measure penalizing a concise-but-deep learner, fixed it, then stopped tuning.",
     ],
     limitations: [
-      "Rule-based and English-only: the signals are transparent keyword/pattern rules, so they miss subtle phrasing. An LLM backend could refine them; the transparent version is the trustworthy default.",
-      "Demonstration transcripts, not real student data. Real deployment needs consented, real transcripts and validation against actual learning outcomes.",
-      "The capability score's weights encode one reasoned theory of skill growth, not ground truth.",
+      "Rule-based and English-only, so it misses subtle phrasing. An LLM backend is a documented optional upgrade.",
+      "Demonstration transcripts, not real student data; real deployment needs consented data and outcome validation.",
+      "The score's weights encode one reasoned theory of skill growth, not ground truth.",
     ],
     caseStudy: {
       badges: ["Independent research", "2026", "Live demo", "Transparent / no API key"],
@@ -608,25 +602,25 @@ const projectsRaw: Project[] = [
         { label: "API keys required", value: "0" },
       ],
       goals: [
-        "Separate real capability growth from mere activity in a learning conversation.",
-        "Keep every score transparent and auditable for a non-technical teacher.",
-        "Ship something a person can actually open and use.",
+        "Separate capability growth from mere activity.",
+        "Keep every score auditable for a non-technical teacher.",
+        "Ship something a person can open and use.",
       ],
       decisions: [
-        "Built it rule-based on purpose: free, offline, instant, and auditable — an LLM backend is a documented optional upgrade, not the default.",
-        "Reported the honest borderline cases rather than tuning thresholds to force clean bins.",
+        "Rule-based on purpose: free, offline, instant, and auditable.",
+        "Reported borderline cases rather than tuning thresholds to force clean bins.",
       ],
     },
   },
   {
     slug: "ai-fluency-measure",
     image: aiFluencyImg,
+    coverGround: true,
     actionImage: aiFluencyChart,
     actionCaption:
       "Criterion validity: the rubric's scores track independent human fluency labels at Spearman's rho = 0.96 (within one level 100% of the time).",
     title: "Measuring AI Fluency: Building & Validating an Instrument",
-    tagline:
-      "What does it mean to use AI well — and can it be measured? A rubric, and the validation step most rubrics skip.",
+    tagline: "What does it mean to use AI well, and can it be measured? A rubric, plus the validation step most rubrics skip.",
     year: "2026",
     role: "Independent Researcher & Builder",
     client: "Independent research portfolio",
@@ -635,24 +629,24 @@ const projectsRaw: Project[] = [
     cover:
       "from-[oklch(0.80_0.12_350)] via-[oklch(0.74_0.15_355)] to-[oklch(0.70_0.16_10)]",
     overview:
-      "An instrument-design study. I defined AI fluency as four dimensions — specificity, iteration, verification, task-awareness — built a transparent rubric to score them from a person's prompts, then validated it. The point most 'AI-fluency scores' skip is validating the instrument before trusting it.",
+      "I defined AI fluency as four dimensions (specificity, iteration, verification, task-awareness), built a transparent rubric to score them from a person's prompts, then validated it.",
     context:
-      "The literal subject of measuring AI fluency is a live question as AI becomes an everyday tool. This project treats it as a measurement problem: define the construct, build an auditable scorer, and check whether it holds up.",
+      "Measuring AI fluency is a live question as AI becomes an everyday tool. This treats it as a measurement problem: define the construct, build an auditable scorer, check whether it holds up.",
     methods: [
-      "A four-dimension rubric (specificity, iteration, verification, task-awareness), each scored 0–2.",
-      "Transparent, rule-based scoring from a person's prompts — no API key.",
-      "Criterion validity vs. human labels (Spearman's rho); internal consistency (Cronbach's alpha, item-total correlations).",
+      "A four-dimension rubric, each dimension scored 0–2.",
+      "Transparent, rule-based scoring from prompts, with no API key.",
+      "Criterion validity vs. human labels; internal consistency (Cronbach's alpha).",
     ],
     outcome:
-      "On a demonstration set, the rubric agreed with human judgment at Spearman's rho = 0.96 (within one level 100% of the time) and showed internal consistency of alpha = 0.90. Framed as an illustrative validation; a field-ready instrument would need many real interactions and multiple raters.",
+      "On a demonstration set the rubric agreed with human judgment at Spearman's rho = **0.96** (within one level **100%** of the time) with alpha = **0.90**. An illustrative validation, not a field-ready instrument.",
     lessons: [
       "A rubric you haven't validated is just an opinion in a table.",
-      "Validating an instrument — criterion validity plus internal consistency — is what separates a measure from a guess.",
+      "Criterion validity plus internal consistency is what separates a measure from a guess.",
     ],
     limitations: [
-      "Rule-based and English-only; 'AI fluency' is a contested construct, so this rubric is one reasoned theory of it, not the definition.",
-      "Small, hand-written sample scored by a single rater — the validation is illustrative, not definitive. A field-ready instrument needs many real interactions and multiple raters (inter-rater reliability).",
-      "The criterion is a human fluency label, not a real outcome; ideally you'd also validate that fluent-looking use produces better results.",
+      "Rule-based and English-only; 'AI fluency' is contested, so this rubric is one reasoned theory of it.",
+      "Small, hand-written sample with a single rater. A field-ready instrument needs real interactions and multiple raters.",
+      "The criterion is a human fluency label, not a real outcome.",
     ],
     caseStudy: {
       badges: ["Independent research", "2026", "Psychometrics", "Transparent / no API key"],
@@ -663,20 +657,20 @@ const projectsRaw: Project[] = [
       ],
       goals: [
         "Define 'AI fluency' as a measurable construct.",
-        "Build a transparent, auditable scorer for it.",
-        "Validate the instrument against human judgment and for internal consistency.",
+        "Build a transparent, auditable scorer.",
+        "Validate it against human judgment and for internal consistency.",
       ],
     },
   },
   {
     slug: "llm-as-judge-reliability",
     image: llmJudgeImg,
+    coverGround: true,
     actionImage: llmJudgeChart,
     actionCaption:
-      "ICC 0.85 on clear cases, 0.10 on ambiguous ones — and not one ambiguous item got the same score across eight runs.",
-    title: "Can We Trust an AI That Judges?",
-    tagline:
-      "AI is increasingly used to evaluate AI. This project measures whether that judge is reliable — using real psychometrics.",
+      "ICC 0.85 on clear cases, 0.10 on ambiguous ones, and not one ambiguous item got the same score across eight runs.",
+    title: "Can We Trust an LLM Judge?",
+        tagline: "Cohen's kappa, bootstrap intervals, and Python, testing whether an AI judge agrees with itself and with humans.",
     year: "2026",
     role: "Independent Researcher & Builder",
     client: "Independent research portfolio",
@@ -686,29 +680,25 @@ const projectsRaw: Project[] = [
     cover:
       "from-[oklch(0.78_0.13_240)] via-[oklch(0.72_0.15_255)] to-[oklch(0.68_0.15_275)]",
     overview:
-      "AI labs increasingly use models to evaluate other models' outputs at scale ('LLM-as-judge'). It is fast and cheap — but is the judge itself reliable? This project builds a pipeline to measure that, using the same psychometrics used to validate any instrument: test-retest reliability and agreement with human ratings.",
+      "AI labs increasingly use models to grade other models at scale. This project asks whether that judge is reliable, using the psychometrics used to validate any instrument: test-retest reliability and agreement with human ratings.",
     context:
-      "Using a model to grade at scale only works if the grader is trustworthy. Measuring an AI evaluator's reliability is real, current work — and an extension of the same skepticism that runs through the rest of my portfolio.",
+      "Grading at scale only works if the grader can be trusted. Measuring an AI evaluator's reliability is a current problem, and it extends the doubt that runs through the rest of this portfolio.",
     methods: [
-      "Test-retest reliability: each item graded eight times, scored with ICC(2,1), unanimity, and within-item spread.",
-      "Human agreement: Cohen's kappa on the binary gate and quadratic-weighted kappa on the 1–5 scores, each with a bootstrap interval.",
-      "Results disaggregated by input difficulty (clear vs. borderline cases), because an average hides the collapse.",
-      "Error decomposition: single-call errors the majority vote repairs (noise) versus errors that survive it (bias).",
-      "A swappable-backend design: runs on the live API by changing one line.",
+      "Test-retest: each item graded eight times, scored with ICC(2,1) and unanimity.",
+      "Human agreement: Cohen's kappa on the binary gate, weighted kappa on the 1–5 scores, each with a bootstrap interval.",
+      "Results split by difficulty (clear vs. borderline), because an average hides the collapse.",
+      "Error decomposition: errors the majority vote repairs (noise) vs. errors that survive it (bias).",
     ],
     outcome:
-      "On a simulated judge modeled on documented LLM-judge behavior, test-retest reliability was 0.85 on clear cases and 0.10 on ambiguous ones — no ambiguous item received the same score eight times in a row. Against the human annotator a single call reached kappa 0.67; the majority of eight runs reached 0.89. But repetition repaired only 5 of the 6 disagreements: the one that survived was bias, not noise. Find out which kind of error your judge makes before prescribing repeat-and-vote. Results demonstrate the method; a real finding needs a live run.",
+      "On a simulated judge, reliability was **0.85** on clear cases and **0.10** on ambiguous ones; **none** of the ambiguous items got the same score eight times. A single call reached kappa **0.67** against the human annotator; the majority of eight reached **0.89**. Repetition repaired **5 of 6** disagreements; the one that survived was bias, not noise.",
     lessons: [
-      "A single LLM-judge score is unreliable exactly where judgment is hardest — the ambiguous cases.",
-      "A reliable judge is not an accurate one: at temperature 0 it repeats itself perfectly (ICC 1.00) and still only reaches kappa 0.94. Consistency and correctness are separate measurements.",
-      "The honest scope: this validates the measurement pipeline, not a claim about any specific model.",
+      "A single judge score is unreliable exactly where judgment is hardest.",
+      "A reliable judge is not an accurate one: consistency and correctness are separate measurements.",
     ],
     limitations: [
-      "Results use a simulated judge modeled on documented LLM-judge behavior — they demonstrate the method, not a specific real model's reliability. A live run (one-line client swap + API key) turns it into a real finding.",
-      "40 items and a single human rater for ground truth; a robust study needs hundreds of items and multiple raters (the inter-human ceiling the judge is compared against).",
-      "One rubric, one prompt, one temperature, one snapshot in time — a model update can change the result.",
-      "Majority voting repairs variance, not bias: the error that survived repetition here was a systematic leniency, which needs a rubric or threshold change rather than more API calls.",
-      "The simulated judge's noise and leniency rates are design assumptions written into the code, not estimates from a real model — the numbers follow from them, which is why this is a method demonstration.",
+      "A simulated judge modeled on documented behavior demonstrates the method, not a real model's reliability; a live run is a one-line client swap away.",
+      "40 items and one human rater; a defensible study needs hundreds of items and multiple raters.",
+      "Majority voting repairs variance, not bias: the surviving error needs a rubric change, not more calls.",
       "Human agreement on real items is the ceiling, and it is low: on 4,645 ChaosNLI items, two real annotators reach only kappa 0.29 to 0.65 depending on how ambiguous the set is. The judge's 0.67 against a single annotator sits above that ceiling, which is a warning about the comparison rather than evidence for the judge.",
     ],
     caseStudy: {
@@ -719,14 +709,12 @@ const projectsRaw: Project[] = [
         { label: "Single-call errors repetition repaired", value: "5 of 6" },
       ],
       goals: [
-        "Measure whether an AI judge agrees with itself across repeated runs.",
+        "Measure whether an LLM judge agrees with itself across runs.",
         "Measure whether it agrees with human ratings.",
-        "Find where reliability breaks down, and what to do about it.",
-        "Separate the judge's noise from its bias, and show which one repetition can fix.",
+        "Separate the judge's noise from its bias.",
       ],
       decisions: [
-        "Developed against a realistic simulated judge so the whole pipeline was free and fast to build, with a one-line swap to the live API.",
-        "Reconciled two earlier versions that reported kappa 0.34 and 0.98: the difference was the error model, not the judge, so both are now measured on one dataset.",
+        "Built against a realistic simulated judge so the pipeline was free and fast, with a one-line swap to the live API.",
         "Never presented a simulated result as a real-model finding.",
       ],
     },
@@ -734,12 +722,12 @@ const projectsRaw: Project[] = [
   {
     slug: "socratic-vs-direct-tutoring",
     image: tutoringAbImg,
+    coverGround: true,
     actionImage: tutoringAbChart,
     actionCaption:
-      "Known-truth validation: the experiment detects a real effect (d = 0.59, p < 0.001) and correctly returns null when none exists — no false positive.",
+      "Known-truth validation: the experiment detects a real effect (d = 0.59, p < 0.001) and correctly returns null when none exists, with no false positive.",
     title: "Socratic vs. Direct Tutoring: An A/B Experiment",
-    tagline:
-      "Does withholding the answer build more capability than giving it? A validated experimental pipeline for the question.",
+    tagline: "Does withholding the answer build more capability than giving it? A validated experimental pipeline for the question.",
     year: "2026",
     role: "Independent Researcher & Builder",
     client: "Independent research portfolio",
@@ -748,25 +736,25 @@ const projectsRaw: Project[] = [
     cover:
       "from-[oklch(0.80_0.15_35)] via-[oklch(0.72_0.17_20)] to-[oklch(0.66_0.17_5)]",
     overview:
-      "A controlled experiment testing whether an AI tutor that withholds the answer and prompts reasoning (Socratic) builds more transferable capability than one that gives the answer (Direct). It builds the full A/B apparatus: random assignment, a transfer-test outcome, effect size, significance, and a power analysis.",
+      "A controlled experiment testing whether a Socratic AI tutor builds more transferable capability than a direct-answer one, with the full A/B apparatus: random assignment, transfer-test outcome, effect size, significance, and power analysis.",
     context:
-      "Real learning experiments need real participants, so this runs on simulated learners — which makes it a rigorous demonstration of the experimental method, not a claim about real tutoring. Because the ground truth is set, the experiment can be validated: it detects a real effect when present and returns null when absent.",
+      "Real learning experiments need real participants, so this runs on simulated learners: a demonstration of the method, not a claim about real tutoring. Because ground truth is set, the pipeline itself can be validated.",
     methods: [
-      "Random assignment with a baseline balance check to confirm comparable groups.",
-      "Outcome measured as transfer to new, untutored problems (capability, not completion).",
+      "Random assignment with a baseline balance check.",
+      "Outcome measured as transfer to new, untutored problems.",
       "Effect size (Cohen's d), Welch's t-test, and a permutation test.",
       "A power analysis showing how detection depends on sample size.",
     ],
     outcome:
-      "The known-truth validation passed both ways: with an effect present the test detected it (d ~0.59, p < 0.001); with no effect it correctly returned null (p ~0.91) — no false positive. The power curve showed a real effect being missed 70% of the time at small samples. Swapping simulated learners for real, consented participants turns the same pipeline into a real study.",
+      "The known-truth validation passed both ways: with an effect present the test detected it (**d = 0.59**, **p < 0.001**); with none it returned null (**p = 0.91**), with no false positive. The power curve showed a real effect missed **70%** of the time at small samples.",
     lessons: [
-      "The value is a validated experimental method, not a finding about tutoring — the honest distinction.",
-      "The real-world version needs IRB, recruitment, and adequate statistical power — all things I have done in prior UX research.",
+      "The value is a validated method, not a finding about tutoring.",
+      "The real-world version needs IRB, recruitment, and adequate power, all work I've done before.",
     ],
     limitations: [
-      "Learners are simulated, so the 'result' reflects the tunable assumption built into the model — it validates the experimental method, not a claim about real tutoring. Real, consented participants are required for a real conclusion.",
-      "Starting ability is a known parameter here; in reality it must be estimated with a validated pre-test, a noisy proxy with its own measurement error.",
-      "Only modeled confounds exist; real learners bring motivation, fatigue, and prior knowledge that randomization would have to handle at adequate sample size. Experimenting on real students also requires consent and IRB review.",
+      "Learners are simulated, so the result validates the experimental method, not real tutoring.",
+      "Starting ability is a known parameter here; in reality it must be estimated with a noisy pre-test.",
+      "Real learners bring motivation, fatigue, and prior knowledge that randomization must handle at adequate sample size.",
     ],
     caseStudy: {
       badges: ["Independent research", "2026", "Method demonstration (simulated learners)"],
@@ -781,8 +769,8 @@ const projectsRaw: Project[] = [
         "Show how statistical power depends on sample size.",
       ],
       decisions: [
-        "Made the tutoring effect an explicit, tunable parameter so the method could be validated against known ground truth.",
-        "Measured transfer to new problems, not lesson completion, so the outcome is capability rather than activity.",
+        "Made the tutoring effect an explicit parameter so the method could be validated against known ground truth.",
+        "Measured transfer to new problems, not lesson completion.",
       ],
     },
   },
@@ -791,18 +779,23 @@ const projectsRaw: Project[] = [
 // Display order: lead with product / conversational-AI work, then the
 // linguistics "edge" (why she understands how people talk to machines), then
 // the community / education / fieldwork projects.
+/**
+ * Presentation order, not chronology. AI measurement & evaluation leads (four
+ * featured), then applied AI product research, quantitative text analysis,
+ * program evaluation, and language fieldwork.
+ */
 const PROJECT_ORDER = [
-  "apple-conversational-ai",
-  "woaf-meow-smart-ring",
+  "llm-as-judge-reliability",
   "learning-signals-capability",
   "ai-fluency-measure",
-  "llm-as-judge-reliability",
   "socratic-vs-direct-tutoring",
+  "apple-conversational-ai",
+  "woaf-meow-smart-ring",
   "ai-gender-romantic-fiction",
-  "myaamia-allophones",
-  "nsf-reu-linguistics",
-  "indigeneity-identity-ireland",
   "indigenous-education-omaha",
+  "indigeneity-identity-ireland",
+  "nsf-reu-linguistics",
+  "myaamia-allophones",
   "indigenous-climate-documentary",
 ];
 

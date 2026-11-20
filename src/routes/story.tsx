@@ -6,6 +6,8 @@ import {
   StaggerItem,
   staggerItemVariants,
 } from "@/components/Motion";
+import { CountUp } from "@/components/Interaction";
+import archiveBand from "@/assets/archive-thread.webp";
 
 export const Route = createFileRoute("/story")({
   head: () => ({
@@ -20,7 +22,7 @@ export const Route = createFileRoute("/story")({
       {
         property: "og:description",
         content:
-          "Myaamiaataweenki, the language of the myaamia people, was declared extinct. Then it wasn't. A story about language, data, and what it means to preserve.",
+          "Myaamiaataweenki, the language of the myaamia people, was declared extinct in the 1970s. Today more than a hundred people speak it. A story about language, data, and what preservation means.",
       },
     ],
   }),
@@ -30,14 +32,126 @@ export const Route = createFileRoute("/story")({
 const STATS = [
   { value: "0", label: "Fluent speakers by the 1990s" },
   { value: "100+", label: "Myaamiaki speakers today" },
+  { value: "100,000+", label: "Archived words and phrases" },
   { value: "5,000+", label: "Tribal members reached daily" },
 ];
+
+type TimelineItem = {
+  when: string;
+  what: string;
+  slug?: string;
+  href?: "/resume" | "/projects";
+};
+
+const TIMELINE: TimelineItem[] = [
+  { when: "Oct 2026 – Present", what: "Study Coordinator · Apple", href: "/resume" },
+  {
+    when: "Jan – Oct 2026",
+    what: "Research Moderator · Apple",
+    slug: "apple-conversational-ai",
+  },
+  {
+    when: "Jan 2024 – Sept 2025",
+    what: "UX Researcher · Woaf Meow / Luv Health",
+    slug: "woaf-meow-smart-ring",
+  },
+  {
+    when: "Apr 2024 – Aug 2025",
+    what: "Education Specialist · NICE",
+    slug: "indigenous-education-omaha",
+  },
+  {
+    when: "Aug – Dec 2022",
+    what: "Project Coordinator · Ireland",
+    slug: "indigeneity-identity-ireland",
+  },
+  {
+    when: "Jun – Aug 2022",
+    what: "NSF REU · Language",
+    slug: "nsf-reu-linguistics",
+  },
+  {
+    when: "2021 – 2022",
+    what: "Myaamia language work",
+    slug: "myaamia-allophones",
+  },
+];
+
+/** One node on the axis: dot on the line, dotted stem, date and title on alternating sides. */
+function TimelineNode({ t, above }: { t: TimelineItem; above: boolean }) {
+  const body = (
+    <>
+      <span
+        aria-hidden
+        className="absolute left-1/2 top-1/2 z-10 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-pink-ink bg-background transition-colors duration-300 group-hover:bg-[var(--gx-gold)]"
+      />
+      <span
+        aria-hidden
+        className={`absolute left-1/2 h-10 border-l border-dotted border-foreground/30 ${
+          above ? "bottom-1/2" : "top-1/2"
+        }`}
+      />
+      <span
+        className={`absolute inset-x-1 text-center ${
+          above ? "bottom-[calc(50%+48px)]" : "top-[calc(50%+48px)]"
+        }`}
+      >
+        <span className="block font-mono text-[10px] uppercase tracking-[0.16em] text-pink-ink">
+          {t.when}
+        </span>
+        <span className="mt-1.5 block font-display text-sm md:text-base leading-tight text-foreground text-balance transition-colors group-hover:text-pink-ink">
+          {t.what}
+        </span>
+      </span>
+    </>
+  );
+  const cls = "group absolute inset-0 block rounded-[2px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-pink-ink";
+
+  return t.slug ? (
+    <Link to="/projects/$slug" params={{ slug: t.slug }} className={cls}>
+      {body}
+    </Link>
+  ) : t.href === "/resume" ? (
+    <Link to="/resume" className={cls}>
+      {body}
+    </Link>
+  ) : (
+    <Link to="/projects" className={cls}>
+      {body}
+    </Link>
+  );
+}
 
 function Story() {
   return (
     <PageWrap>
+      {/* TIMELINE */}
+      <section className="mx-auto max-w-6xl px-6 lg:px-12 pt-24 pb-14 lg:pt-32">
+        <FadeIn className="mb-8">
+          <p className="label-mono">Timeline</p>
+          <h2 className="mt-4 font-display text-3xl md:text-5xl tracking-tight text-balance max-w-[24ch]">
+            From language work <span className="gradient-ink">to measurement.</span>
+          </h2>
+        </FadeIn>
+        <div className="overflow-x-auto">
+          <div className="relative min-w-[980px]">
+            <span
+              aria-hidden
+              className="pointer-events-none absolute inset-x-0 top-1/2 border-t border-dotted border-foreground/30"
+            />
+            <ol className="relative grid grid-cols-7">
+              {TIMELINE.map((t, i) => (
+                <li key={t.what} className="relative h-[260px]">
+                  <TimelineNode t={t} above={i % 2 === 0} />
+                </li>
+              ))}
+            </ol>
+          </div>
+        </div>
+      </section>
+
       {/* HERO */}
-      <section className="mx-auto max-w-4xl px-6 lg:px-12 pt-24 pb-10 lg:pt-32">
+      <section className="mx-auto max-w-4xl px-6 lg:px-12 pt-14 pb-10 border-t border-hairline">
         <FadeIn>
           <p className="label-mono mb-6">Story · Language revitalization</p>
           <h1 className="font-display text-5xl md:text-7xl tracking-tight text-balance leading-[1.02]">
@@ -47,13 +161,23 @@ function Story() {
         <FadeIn delay={0.1}>
           <p className="mt-8 text-xl md:text-2xl leading-relaxed text-pretty max-w-[58ch]">
             I'm a member of the <strong className="font-medium">myaamia</strong> people, the{" "}
-            <strong className="font-medium">Miami Tribe of Oklahoma</strong>. Right now, my community
-            is revolutionizing the revitalization of our language,{" "}
-            <em className="gradient-ink not-italic">myaamiaataweenki</em>, and we have a phrase for
-            it: breathing new life into language.
+            <strong className="font-medium">Miami Tribe of Oklahoma</strong>. Our language,{" "}
+            <em className="gradient-ink not-italic">myaamiaataweenki</em>, is being brought back
+            into daily use, and we have a phrase for that work: breathing new life into language.
           </p>
         </FadeIn>
       </section>
+
+      {/* ARCHIVE BAND — full-bleed texture that fades into the page */}
+      <div aria-hidden className="relative my-8 h-52 w-full overflow-clip md:h-72">
+        <img
+          src={archiveBand}
+          alt=""
+          loading="lazy"
+          style={{ objectPosition: "center 64%" }}
+          className="band-blend h-full w-full object-cover"
+        />
+      </div>
 
       {/* THE ARC */}
       <section className="mx-auto max-w-4xl px-6 lg:px-12 py-12 border-t border-hairline">
@@ -63,58 +187,30 @@ function Story() {
         <div className="space-y-6 text-lg md:text-xl leading-relaxed text-foreground/85 text-pretty max-w-[62ch]">
           <FadeIn>
             <p>
-              In the 1970s, <strong className="font-medium text-foreground">myaamiaataweenki</strong>, the language
-              of the myaamia people, was classified as <strong className="font-medium text-foreground">extinct</strong>.
-              By the 1990s, every fluent speaker had passed away.
-            </p>
-          </FadeIn>
-          <FadeIn delay={0.05}>
-            <p>
-              Then two people opened a discourse that changed what it meant for a language to "go extinct."{" "}
-              <strong className="font-medium text-foreground">Daryl Baldwin</strong>, a tribe member who had just
-              earned a master's in linguistics, set out to learn his community's language.{" "}
-              <strong className="font-medium text-foreground">David Costa</strong>, an Algonquian linguist, had found a
-              vast archive of myaamiaataweenki documentation during his doctoral research at UC Berkeley, at a time
-              when no one else was looking for it.
-            </p>
-          </FadeIn>
-          <FadeIn delay={0.08}>
-            <p>
-              Working from records preserved in archives and libraries across the United States and Canada, spanning
-              250 years and many written in French, they began to recover the written language.
+              In the 1970s, myaamiaataweenki was classified{" "}
+              <strong className="font-medium text-foreground">extinct</strong>. By the 1990s, every
+              fluent speaker had passed away. Daryl Baldwin and David Costa rebuilt it from 250 years
+              of archival records, and the{" "}
+              <strong className="font-medium text-foreground">Myaamia Center</strong> has carried the
+              work since.
             </p>
           </FadeIn>
           <FadeIn delay={0.1}>
             <p>
-              Through careful transcription, translation, and linguistic analysis, they pieced together a working{" "}
-              <strong className="font-medium text-foreground">orthography, phonology, and grammar</strong>. A language
-              that had been declared lost was, sound by sound, rebuilt.
-            </p>
-          </FadeIn>
-          <FadeIn delay={0.12}>
-            <p>
-              It is tempting to call this reviving a dead language. It is closer to picking up forgotten strings, and{" "}
-              <em className="gradient-ink not-italic">reawakening something that was only ever asleep</em>. A language
-              is not dead while its community is still here to call it home.
-            </p>
-          </FadeIn>
-          <FadeIn delay={0.15}>
-            <p>
-              That work continues today at the <strong className="font-medium text-foreground">Myaamia Center</strong>.
-              Its digital archive now holds more than{" "}
-              <strong className="font-medium text-foreground">100,000 myaamiaataweenki words and phrases</strong>, the
-              result of over thirty years of revitalization.
+              I'm standing on that.{" "}
+              <em className="gradient-ink not-italic">This part is mine.</em>
             </p>
           </FadeIn>
         </div>
 
         {/* STATS */}
-        <div className="mt-14 grid gap-8 md:grid-cols-3 border-y border-hairline py-10">
+        <div className="mt-14 grid grid-cols-2 gap-8 md:grid-cols-4 border-y border-hairline py-10">
           {STATS.map((s) => (
             <FadeIn key={s.label}>
-              <p className="font-display text-5xl md:text-6xl gradient-ink leading-none not-italic">
-                {s.value}
-              </p>
+              <CountUp
+                value={s.value}
+                className="block font-display text-4xl md:text-5xl gradient-ink leading-none not-italic tabular-nums"
+              />
               <p className="label-mono mt-3">{s.label}</p>
             </FadeIn>
           ))}
@@ -145,15 +241,15 @@ function Story() {
         </FadeIn>
       </section>
 
-      {/* HERITAGE / UX ORIGIN */}
+      {/* ORIGIN: HERITAGE, LANGUAGE WORK, AND THE MOVE INTO RESEARCH */}
       <section className="mx-auto max-w-4xl px-6 lg:px-12 py-12 border-t border-hairline">
         <div className="grid gap-8 md:grid-cols-12">
           <FadeIn className="md:col-span-4">
-            <p className="label-mono">How I found UX</p>
+            <p className="label-mono">Coding my own story</p>
           </FadeIn>
           <FadeIn delay={0.1} className="md:col-span-8 space-y-6">
             <p className="text-lg md:text-xl leading-relaxed text-foreground/85 text-pretty">
-              I came to this as a student at Miami University, through the{" "}
+              I chose the archive. Through the{" "}
               <a
                 href="https://miamioh.edu/miami-tribe-relations/myaamia-students/myaamia-heritage-award-program.html"
                 target="_blank"
@@ -162,72 +258,8 @@ function Story() {
               >
                 Myaamia Heritage Award Program
               </a>{" "}
-              for citizens of the Miami Tribe. I fell in love with an idea that has shaped everything since: that{" "}
-              <em className="gradient-ink not-italic">nothing ever really dies</em>, and that through conscious action,
-              holistic reflection, and community-based inclusion, real change isn't just aspired to, it's achieved, on
-              a global scale.
-            </p>
-            <p className="text-lg md:text-xl leading-relaxed text-foreground/85 text-pretty">
-              Soon after, I interned with the Miami Tribe, working through archival manuscripts and building the first{" "}
-              <strong className="font-medium text-foreground">storymaps</strong> of culturally and historically
-              significant sites. That data fed GIS mapping for the community, and the beginnings of an interactive
-              education site where members could learn their own history through both a storytelling frame and a
-              historical record.
-            </p>
-            <p className="text-base md:text-lg leading-relaxed text-foreground/75 text-pretty">
-              I didn't know it yet, but turning archives into something people could navigate and understand was the
-              groundwork for my UX career.
-            </p>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* HER METHOD */}
-      <section className="mx-auto max-w-4xl px-6 lg:px-12 py-12 border-t border-hairline">
-        <div className="grid gap-8 md:grid-cols-12">
-          <FadeIn className="md:col-span-4">
-            <p className="label-mono">Where I come in</p>
-          </FadeIn>
-          <FadeIn delay={0.1} className="md:col-span-8 space-y-6">
-            <p className="text-lg md:text-xl leading-relaxed text-foreground/85 text-pretty">
-              The comparative method that rebuilt myaamiaataweenki is the same one I used in my own{" "}
-              <Link to="/projects/$slug" params={{ slug: "myaamia-allophones" }} className="link-underline text-pink-ink">
-                Myaamia and Ojibwe allophone study
-              </Link>,
-              listening across related languages to reconstruct the sounds, and the systems beneath
-              them, from fragments.
-            </p>
-            <p className="text-lg md:text-xl leading-relaxed text-foreground/85 text-pretty">
-              During my NSF research fellowship in Oregon, I became a seasoned user of the{" "}
-              <strong className="font-medium text-foreground">Indigenous Languages Digital Archive (ILDA)</strong> and
-              the online dictionary it powers, the same kind of system at the heart of myaamiaataweenki's
-              revitalization. The software was being extended and redesigned for the communities I worked with, and
-              the stakeholders cared deeply about one question: how could the technology itself protect the knowledge
-              and the security of their community? Every piece of work I did was treated as something to be
-              safeguarded.
-            </p>
-            <p className="text-lg md:text-xl leading-relaxed text-foreground/85 text-pretty">
-              It was the first time I encountered community-based data protection and technology security through the
-              lens of <em className="gradient-ink not-italic">preservation and survivance</em>. It is, directly, why I
-              think about data the way I do now, working in AI.
-            </p>
-            <p className="text-base md:text-lg leading-relaxed text-foreground/75 text-pretty">
-              This isn't abstract heritage for me. It's a living practice of recovering meaning from incomplete
-              records, which, it turns out, is most of what research actually is.
-            </p>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* DOCUMENTARY */}
-      <section className="mx-auto max-w-4xl px-6 lg:px-12 py-12 border-t border-hairline">
-        <div className="grid gap-8 md:grid-cols-12">
-          <FadeIn className="md:col-span-4">
-            <p className="label-mono">My own attempt</p>
-          </FadeIn>
-          <FadeIn delay={0.1} className="md:col-span-8 space-y-6">
-            <p className="text-lg md:text-xl leading-relaxed text-foreground/85 text-pretty">
-              I have tried my hand at this directly. The documentary I worked on,{" "}
+              at Miami University, I interned with the Tribe building its first storymaps of
+              culturally significant sites, and later made{" "}
               <Link
                 to="/projects/$slug"
                 params={{ slug: "indigenous-climate-documentary" }}
@@ -235,85 +267,130 @@ function Story() {
               >
                 Seven Generations Forward
               </Link>
-              , uses myaamiaataweenki in every facet, its music, its descriptions, its interviews, even its credits,
-              where the trees and plants are named too.
+              , a documentary in myaamiaataweenki. That work gave me the habit of checking a source
+              before trusting it.
             </p>
             <p className="text-lg md:text-xl leading-relaxed text-foreground/85 text-pretty">
-              More than that, it carries an Indigenous perspective that language is not neutral. It is a living thing
-              that reflects the lives of the people who use it, the things it names, and the way the world is perceived
-              through a cultural lens.
-            </p>
-            <p className="text-lg md:text-xl leading-relaxed text-foreground/85 text-pretty">
-              The documentary was about climate change. But it was really an experiment in how to convey that
-              perspective to a Western audience,{" "}
-              <em className="gradient-ink not-italic">a concept I am still trying to communicate today</em>.
-            </p>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* IRELAND */}
-      <section className="mx-auto max-w-4xl px-6 lg:px-12 py-12 border-t border-hairline">
-        <div className="grid gap-8 md:grid-cols-12">
-          <FadeIn className="md:col-span-4">
-            <p className="label-mono">Carrying it to Ireland</p>
-          </FadeIn>
-          <FadeIn delay={0.1} className="md:col-span-8 space-y-6">
-            <p className="text-lg md:text-xl leading-relaxed text-foreground/85 text-pretty">
-              This is the story I carried with me across Ireland. During{" "}
-              <Link to="/projects/$slug" params={{ slug: "indigeneity-identity-ireland" }} className="link-underline text-pink-ink">
-                field studies and surveys
-              </Link>, many of the people I met told me Gaelic was dying, too few speakers, too little motivation to
-              preserve it.
-            </p>
-            <p className="text-lg md:text-xl leading-relaxed text-foreground/85 text-pretty">
-              But when I sat with the language institutes, there was still a{" "}
-              <em className="gradient-ink not-italic">blazing flame</em> being kept alive. I can't tell you whether my
-              story produced quantifiable results, whether it deepened anyone's resolve to preserve their own
-              language. But it felt significant, especially now, in an era when the meaning of data itself is being
-              debated in the AI world.
-            </p>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* REFLECTION */}
-      <section className="mx-auto max-w-4xl px-6 lg:px-12 py-20 border-t border-hairline">
-        <FadeIn>
-          <p className="label-mono mb-6">What it means for the work I do now</p>
-          <blockquote className="font-display text-3xl md:text-5xl tracking-tight text-balance leading-[1.12] max-w-[24ch]">
-            What is information? How should it be protected? What does it mean to preserve something,{" "}
-            <span className="gradient-ink">and is anything ever really lost?</span>
-          </blockquote>
-        </FadeIn>
-        <FadeIn delay={0.1}>
-          <p className="mt-8 text-lg md:text-xl leading-relaxed text-foreground/80 text-pretty max-w-[58ch]">
-            A language was declared extinct, and then it wasn't. That fact reshapes how I think about data, memory,
-            and the systems we build to hold them, including the AI systems I research today.
-          </p>
-        </FadeIn>
-
-        <FadeIn delay={0.2}>
-          <StaggerList className="mt-12 flex flex-wrap gap-4">
-            <StaggerItem variants={staggerItemVariants}>
+              I chose to test the method myself: my{" "}
+              <Link to="/projects/$slug" params={{ slug: "myaamia-allophones" }} className="link-underline text-pink-ink">
+                allophone study
+              </Link>{" "}
+              applies the same comparative work to Myaamia and Ojibwe. At my NSF fellowship in Oregon
+              I worked inside the{" "}
+              <a
+                href="https://endangeredlanguages.com/resource/indigenous-languages-digital-archive-ilda"
+                target="_blank"
+                rel="noreferrer"
+                className="link-underline text-pink-ink"
+              >
+                Indigenous Languages Digital Archive
+              </a>{" "}
+              while communities decided how their own material would be protected, and in Ireland I
+              interviewed people about Gaelic. Both left me asking who a dataset belongs to. I ask it
+              now of every evaluation set, including the{" "}
               <Link
                 to="/projects/$slug"
-                params={{ slug: "indigenous-climate-documentary" }}
-                className="inline-flex items-center gap-2 rounded-full bg-foreground text-background px-6 py-3 text-sm font-medium hover:scale-[1.02] transition-transform"
+                params={{ slug: "llm-as-judge-reliability" }}
+                className="link-underline text-pink-ink"
               >
-                Watch the documentary →
-              </Link>
-            </StaggerItem>
-            <StaggerItem variants={staggerItemVariants}>
+                LLM judge
+              </Link>{" "}
+              and{" "}
               <Link
-                to="/projects"
-                className="inline-flex items-center gap-2 rounded-full border border-foreground/80 px-6 py-3 text-sm font-medium hover:bg-foreground hover:text-background transition-colors"
+                to="/projects/$slug"
+                params={{ slug: "learning-signals-capability" }}
+                className="link-underline text-pink-ink"
               >
-                See the research
+                learning signals
+              </Link>{" "}
+              studies.
+            </p>
+            <p className="text-lg md:text-xl leading-relaxed text-foreground/85 text-pretty">
+              I chose the technical side. In school I built a{" "}
+              <Link
+                to="/projects/$slug"
+                params={{ slug: "ai-gender-romantic-fiction" }}
+                className="link-underline text-pink-ink"
+              >
+                Python sentiment analysis of romance fiction
               </Link>
-            </StaggerItem>
-          </StaggerList>
+              , my first encounter with machine learning, and it is why I want to hold the
+              sociocultural and the technical together.
+            </p>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* THESIS: the language work applied to technology */}
+      <section className="mx-auto max-w-4xl px-6 lg:px-12 py-16 border-t border-hairline">
+        <FadeIn>
+          <p className="label-mono mb-6">Breathing new life into technology</p>
+          <p className="font-display text-2xl md:text-3xl tracking-tight text-balance leading-[1.18] text-foreground/85 max-w-[42ch]">
+            The language was declared extinct. Dead. It is spoken{" "}
+            <span className="gradient-ink">again</span>.
+          </p>
+          <p className="mt-5 max-w-[58ch] text-base md:text-lg leading-relaxed text-foreground/70 text-pretty">
+            I don't treat that as a miracle. I treat it as a cornerstone: if it happened once, it can
+            happen again. Nothing is truly lost.
+          </p>
         </FadeIn>
+        <FadeIn delay={0.1} className="mt-12">
+          <p className="font-display text-4xl md:text-6xl tracking-tight text-balance leading-[1.05] max-w-[24ch]">
+            AI that is more human, not as our replacement, but as a{" "}
+            <span className="gradient-ink">record of the best of who we are.</span>
+          </p>
+        </FadeIn>
+        <div className="mt-10 max-w-[62ch] space-y-6">
+          <FadeIn>
+            <p className="text-lg md:text-xl leading-relaxed text-foreground/85 text-pretty">
+              I want to do the same with technology: breathe life into it. How we use it matters as
+              much as why.
+            </p>
+          </FadeIn>
+          <FadeIn delay={0.1}>
+            <p className="text-lg md:text-xl leading-relaxed text-foreground/85 text-pretty">
+              In practice that means{" "}
+              <Link
+                to="/projects/$slug"
+                params={{ slug: "llm-as-judge-reliability" }}
+                className="link-underline text-pink-ink"
+              >
+                LLM judge
+              </Link>{" "}
+              reliability, a validated{" "}
+              <Link
+                to="/projects/$slug"
+                params={{ slug: "ai-fluency-measure" }}
+                className="link-underline text-pink-ink"
+              >
+                AI fluency
+              </Link>{" "}
+              rubric, auditing a course an AI wrote, and bringing this perspective to my work at
+              Apple.
+            </p>
+          </FadeIn>
+          <FadeIn delay={0.15}>
+            <StaggerList className="flex flex-wrap gap-4 pt-2">
+              <StaggerItem variants={staggerItemVariants}>
+                <Link
+                  to="/projects/$slug"
+                  params={{ slug: "indigenous-climate-documentary" }}
+                  className="inline-flex items-center gap-2 rounded-full bg-foreground text-background px-6 py-3 text-sm font-medium hover:scale-[1.02] transition-transform"
+                >
+                  Watch the documentary →
+                </Link>
+              </StaggerItem>
+              <StaggerItem variants={staggerItemVariants}>
+                <Link
+                  to="/projects"
+                  className="inline-flex items-center gap-2 rounded-full border border-foreground/80 px-6 py-3 text-sm font-medium hover:bg-foreground hover:text-background transition-colors"
+                >
+                  See the evaluation work
+                </Link>
+              </StaggerItem>
+            </StaggerList>
+          </FadeIn>
+        </div>
       </section>
     </PageWrap>
   );

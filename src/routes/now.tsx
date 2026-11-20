@@ -1,6 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { FadeIn, PageWrap, StaggerList, StaggerItem, staggerItemVariants, WordReveal } from "@/components/Motion";
 import { projects } from "@/data/projects";
+import { BleedPhoto } from "@/components/Interaction";
+import evalAuditImg from "@/assets/eval-audit.webp";
+import governanceImg from "@/assets/governance-seal.webp";
 
 // The five-part research portfolio just completed — highlighted as a set on Now.
 const PORTFOLIO_SLUGS = [
@@ -24,36 +27,66 @@ export const Route = createFileRoute("/now")({
 });
 
 const READING = [
-  { title: "Just Research", author: "Erika Hall", cover: "https://covers.openlibrary.org/b/id/7387007-M.jpg", note: "A quiet manifesto for research as a practice, not a phase." },
+  { title: "Just Research", author: "Erika Hall", cover: "https://covers.openlibrary.org/b/id/7387007-M.jpg", note: "A short argument for treating research as an ongoing practice." },
   { title: "Conversational Design", author: "Erika Hall", cover: "https://covers.openlibrary.org/b/isbn/9781937557676-M.jpg", note: "Re-reading for how language shapes interface trust." },
-  { title: "The Design of Everyday Things", author: "Don Norman", cover: "https://covers.openlibrary.org/b/isbn/9780465050659-M.jpg", note: "Always on my desk. A reminder that affordances are ethical." },
-  { title: "Raciolinguistics", author: "H. Samy Alim et al.", cover: "", note: "Connecting language, identity, and power, directly relevant to how I think about inclusive AI." },
-  { title: "A Woman Makes a Plan", author: "Maye Musk", cover: "https://covers.openlibrary.org/b/isbn/9781984878502-M.jpg", note: "On building a career across decades and disciplines, a reminder that reinvention is a method." },
+  { title: "The Design of Everyday Things", author: "Don Norman", cover: "https://covers.openlibrary.org/b/isbn/9780465050659-M.jpg", note: "A reminder that affordances carry ethics." },
+  { title: "Raciolinguistics", author: "H. Samy Alim et al.", cover: "", note: "On language, identity, and power, and how they shape inclusive AI." },
+  { title: "A Woman Makes a Plan", author: "Maye Musk", cover: "https://covers.openlibrary.org/b/isbn/9781984878502-M.jpg", note: "On building a career across disciplines, decade after decade." },
 ];
 
 const LEARNING = [
-  { skill: "Voice UX research methods", context: "Expanding from screen-based moderation to ambient, multi-turn voice interactions." },
-  { skill: "Conversation design for AI", context: "Deepening prompt and dialogue design for human-AI interaction." },
+  {
+    skill: "Evaluation rubric design",
+    context:
+      "Writing criteria precise enough that a second rater could apply them without me in the room.",
+  },
+  {
+    skill: "Reliability on live data",
+    context: "Running ICC and kappa on real audit scores rather than a simulated judge.",
+  },
+  {
+    skill: "Auditing AI-generated artifacts",
+    context:
+      "Courses, lesson plans, and assessment items, and what a rubric can and cannot see.",
+  },
+  {
+    skill: "AI governance frameworks",
+    context:
+      "Indigenous data sovereignty, consent, and where evaluation work sits inside a wider governance story.",
+  },
 ];
 
 const TOOLS = [
-  "UserTesting",
   "Python (stdlib, NLTK)",
-  "Cohen's kappa · bootstrap CIs",
+  "ICC · Cohen's kappa · bootstrap CIs",
+  "Evaluation rubrics & scorecards",
+  "LLM-as-judge pipelines",
+  "Claude (API-based scoring)",
   "Qualitative coding",
-  "Excel",
-  "Google Sheets",
-  "Voice memos",
+  "Audit tracking in spreadsheets",
+  "UserTesting",
+];
+
+// How the audit was run — the method, not the findings.
+const AUDIT = [
+  "I wrote the rubric from what the course claims to teach before reading the material, so the material could fail it.",
+  "I drew a defensible sample of lessons, exercises, and assessment items instead of skimming every page.",
+  "I tracked what the course got wrong separately from what the rubric could not see.",
+  "I checked agreement between raters before quoting any percentage.",
 ];
 
 const FOCUS = [
   {
+    label: "Evaluations audit",
+    text: "Auditing a course Claude built: write the rubric, sample the lessons, exercises, and assessment items, check agreement between raters, then summarise. The method comes from the LLM-judge study, applied here to a live artifact.",
+  },
+  {
     label: "Work",
-    text: "Moderating conversational-AI and voice research at Apple. Deep in the details of how people actually talk to AI, the pauses, the repairs, the trust signals.",
+    text: "Coordinating studies at Apple, after a year moderating conversational-AI and voice research. I study how people talk to AI in practice: pauses, repairs, and the moments trust breaks.",
   },
   {
     label: "Side project",
-    text: "Researching AI governance and the Indigenous Data Sovereignty movement, the frameworks that assert community ownership, consent, and control over how data is used. Thinking about what these models offer everyone navigating digital rights today, and writing it up as an essay, coming soon.",
+    text: "Studying AI governance and the Indigenous Data Sovereignty movement, and writing an essay on what those frameworks offer anyone navigating digital rights.",
   },
 ];
 
@@ -68,15 +101,14 @@ function Now() {
           <p className="label-mono mb-6">Now</p>
           <h1 className="font-display text-5xl md:text-7xl lg:text-8xl tracking-tight max-w-[18ch] text-balance">
             <WordReveal
-              text="What I'm doing at this exact moment in time."
-              highlight="exact"
+              text="What I'm working on right now."
+              highlight="now"
             />
           </h1>
           <FadeIn delay={0.4} className="mt-8 max-w-xl">
             <p className="text-lg text-foreground/80 leading-relaxed text-pretty">
-              A living page. I update this when something shifts, a new book,
-              a new tool, a new obsession. If you're reading this in a few months,
-              it might look different.
+              I update this page when something changes: a new book, a new tool, a new question. If
+              you come back in a few months, it may look different.
             </p>
           </FadeIn>
         </div>
@@ -108,10 +140,10 @@ function Now() {
             <span className="gradient-ink">trusting our measures of AI &amp; learning.</span>
           </h2>
           <p className="mt-6 max-w-2xl text-lg text-foreground/80 leading-relaxed text-pretty">
-            Five self-directed studies I built recently, each asking a version of one
-            question: when we put a number on something — capability, reliability, fluency,
-            an experiment's result — can we actually trust it? Evaluation rigor, reliability,
-            instrument design, and experimental method, applied to AI in education.
+            Five self-directed studies I built recently, each asking whether a number can be
+            trusted: capability, reliability, fluency, or an experiment's result. The methods are
+            evaluation rigor, reliability, instrument design, and experimental design, applied to AI
+            in education.
           </p>
         </FadeIn>
         <StaggerList className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -140,6 +172,86 @@ function Now() {
         </StaggerList>
       </section>
 
+      {/* Most recent — AI evaluations audit */}
+      <section className="mx-auto max-w-7xl px-6 lg:px-12 pt-16 pb-10 border-t border-hairline">
+        <div className="grid gap-12 md:grid-cols-12">
+          <FadeIn className="md:col-span-4">
+            <p className="label-mono">Most recent · AI evaluations audit</p>
+            <h2 className="mt-4 font-display text-3xl md:text-4xl text-balance">
+              Auditing a course <span className="gradient-ink">Claude built.</span>
+            </h2>
+            <div className="mt-6 flex flex-wrap gap-2">
+              {["Independent research", "2026", "Rubric-based audit"].map((b) => (
+                <span
+                  key={b}
+                  className="label-mono px-3 py-1 rounded-full border border-hairline"
+                >
+                  {b}
+                </span>
+              ))}
+            </div>
+          </FadeIn>
+          <div className="md:col-span-8 space-y-6">
+            <FadeIn>
+              <p className="text-lg text-foreground/85 leading-relaxed text-pretty">
+                A course can read fluently and still be wrong about what it teaches. I audited one
+                that Claude built end to end, checking each lesson, exercise, and assessment item
+                against the course's own claims.
+              </p>
+            </FadeIn>
+            <FadeIn delay={0.08}>
+              <p className="text-lg text-foreground/85 leading-relaxed text-pretty">
+                The method follows the LLM-judge study, moved from a simulated dataset to a live
+                artifact: write criteria, sample, score, then check the instrument before trusting
+                the summary.
+              </p>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* The audit itself, edge to edge */}
+      <FadeIn>
+        <BleedPhoto
+          src={evalAuditImg}
+          alt="Illustration: a stack of scored grid sheets under a brass magnifying glass, paper scraps in the air"
+          caption="Illustration · the audit's shape: criteria, sample, scores, agreement."
+          className="h-[44vh] min-h-[240px] md:h-[58vh]"
+          focus="62% 48%"
+        />
+      </FadeIn>
+
+      <section className="mx-auto max-w-7xl px-6 lg:px-12 pt-14 pb-16">
+        <div className="grid gap-12 md:grid-cols-12">
+          <FadeIn className="md:col-span-4">
+            <p className="label-mono">The method</p>
+          </FadeIn>
+          <div className="md:col-span-8 space-y-6">
+            <FadeIn delay={0.16}>
+              <ul className="divide-y divide-hairline border-y border-hairline">
+                {AUDIT.map((a, i) => (
+                  <li key={i} className="flex gap-6 items-start py-5">
+                    <span className="font-mono text-sm text-pink-ink pt-1 shrink-0">
+                      0{i + 1}
+                    </span>
+                    <p className="text-base md:text-lg text-foreground/85 leading-relaxed text-pretty">
+                      {a}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </FadeIn>
+            <FadeIn delay={0.2}>
+              <p className="text-base md:text-lg text-foreground/75 leading-relaxed text-pretty">
+                The audit also became a governance question. An AI-generated course is a claim about
+                a curriculum, and the audit is where that claim gets tested. That is why the
+                evaluation work and the data-sovereignty reading keep meeting.
+              </p>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
       {/* Current Research */}
       <section className="mx-auto max-w-7xl px-6 lg:px-12 py-16 border-t border-hairline">
         <div className="grid gap-12 md:grid-cols-12">
@@ -152,28 +264,46 @@ function Now() {
           <div className="md:col-span-8 space-y-6">
             <FadeIn>
               <p className="text-lg text-foreground/85 leading-relaxed text-pretty">
-                As AI becomes the fastest-growing open-source technology, questions of who owns data, and who gets to decide how it is used, have never been more urgent. I am currently exploring the Indigenous Data Sovereignty movement and the frameworks that have emerged from it: principles that assert community ownership, consent, and control over both material and digital data.
+                AI is spreading faster than the rules around it. I'm studying the Indigenous Data Sovereignty movement and the frameworks it has produced, which assert community ownership, consent, and control over material and digital data.
               </p>
             </FadeIn>
             <FadeIn delay={0.1}>
               <p className="text-lg text-foreground/85 leading-relaxed text-pretty">
-                Researchers like Shoshana Zuboff have described the broader systemic problem as "surveillance capitalism", the extraction of human experience as raw material for predictive products. Indigenous communities have been fighting versions of this problem for decades, and have developed sophisticated frameworks that acknowledge data sources as human, deserving not only co-ownership but the power to govern how their data is used.
+                Shoshana Zuboff calls the wider problem "surveillance capitalism": human experience extracted as raw material for predictive products. Indigenous communities have dealt with versions of it for decades and have built frameworks that treat data sources as human, with a right to govern how their data is used.
               </p>
             </FadeIn>
             <FadeIn delay={0.2}>
               <p className="text-lg text-foreground/85 leading-relaxed text-pretty">
-                These frameworks are not only relevant to Indigenous peoples. They are case studies for everyone whose family photos, genetic data, and personal identity are now entering the discourse of digital rights and personal security.
+                They matter beyond Indigenous communities. Anyone whose photos, genetic data, and identity now sit inside digital products has something to learn from them.
               </p>
             </FadeIn>
+          </div>
+        </div>
+      </section>
 
+      {/* Governance, edge to edge */}
+      <FadeIn>
+        <BleedPhoto
+          src={governanceImg}
+          alt="Illustration: a garnet wax seal at the centre of concentric gold rings, laid over layered parchment"
+          className="h-[40vh] min-h-[220px] md:h-[52vh]"
+          focus="52% 50%"
+        />
+      </FadeIn>
+
+      <section className="mx-auto max-w-7xl px-6 lg:px-12 pt-10 pb-16">
+        <div className="grid gap-12 md:grid-cols-12">
+          <FadeIn className="md:col-span-4">
+            <p className="label-mono">The essay</p>
+          </FadeIn>
+          <div className="md:col-span-8 space-y-6">
             <FadeIn delay={0.25}>
               <div className="mt-4 border-l-2 border-pink-ink bg-foreground/[0.03] rounded-r-lg pl-6 pr-5 py-5">
                 <p className="label-mono mb-3">Coming soon · Essay</p>
                 <p className="text-foreground/85 leading-relaxed text-pretty">
-                  I am turning this research into an essay. It traces a quiet reversal: as much of the policy world
+                  I'm turning this research into an essay. It follows a reversal: while much of the policy world
                   steps back from AI guardrails, Indigenous communities have spent decades building the consent and
-                  governance frameworks the rest of us are only now reaching for. Written as a learner, offered as an
-                  invitation rather than a verdict.
+                  governance frameworks the rest of us are only now reaching for.
                 </p>
               </div>
             </FadeIn>
@@ -182,7 +312,7 @@ function Now() {
               <div className="mt-4 rounded-2xl border border-hairline bg-foreground/[0.03] p-7">
                 <p className="label-mono mb-3">Why this matters to UX research</p>
                 <p className="text-foreground/85 leading-relaxed text-pretty">
-                  Researchers who understand data governance frameworks bring something most UX practitioners don't: a structural lens on who research serves, who it extracts from, and how consent is designed. This shapes how I think about participant ethics, study design, and the communities I research with.
+                  Data governance frameworks give me a structural view of who research serves, who it extracts from, and how consent gets designed. That shapes participant ethics, study design, and how I work with communities.
                 </p>
               </div>
             </FadeIn>
@@ -323,8 +453,8 @@ function Now() {
         <FadeIn>
           <p className="label-mono mb-6">Why research</p>
           <blockquote className="font-display text-3xl md:text-5xl tracking-tight text-balance max-w-[24ch] leading-[1.15]">
-            Real innovation whispers from the margins.{" "}
-            <span className="font-sans font-light text-pink">So I build studies that surface what people actually mean, not just what they say.</span>
+            New products usually start at the margins.{" "}
+            <span className="font-sans font-light text-pink">I design studies to hear what people mean, in their own words.</span>
           </blockquote>
         </FadeIn>
       </section>

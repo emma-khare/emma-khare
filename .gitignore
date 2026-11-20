@@ -16,6 +16,10 @@ dist-ssr
 .nitro
 *.local
 
+# Image polishing: originals backup + before/after comparisons
+src/assets/.originals/
+.preview/
+
 # Wrangler / Cloudflare
 .wrangler/
 .dev.vars

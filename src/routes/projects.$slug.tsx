@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { getProject, projects, type CaseStudy } from "@/data/projects";
 import { FadeIn, PageWrap, StaggerList, StaggerItem, staggerItemVariants } from "@/components/Motion";
+import { BleedPhoto, CountUp, ZoomImage } from "@/components/Interaction";
 
 export const Route = createFileRoute("/projects/$slug")({
   loader: ({ params }) => {
@@ -75,27 +76,51 @@ function ProjectPage() {
           </div>
           <FadeIn delay={0.15} className="md:col-span-4">
             <p className="text-lg text-foreground/80 text-pretty">{p.tagline}</p>
+            {p.repoUrl && (
+              <a
+                href={p.repoUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="label-mono link-underline mt-5 inline-block"
+              >
+                Read the code on GitHub ↗
+              </a>
+            )}
           </FadeIn>
         </div>
       </section>
 
-      <section ref={heroRef} className="relative mt-16 overflow-hidden">
-        <div className="mx-auto max-w-7xl px-6 lg:px-12">
+      <section ref={heroRef} className="relative mt-12 overflow-clip md:mt-16">
+        {p.coverGround && p.image ? (
           <motion.div
             layoutId={`cover-${p.slug}`}
-            className={`relative aspect-[16/8] w-full overflow-hidden rounded-3xl bg-gradient-to-br ${ACCENT_TINT[p.accent] ?? ACCENT_TINT.pink} grain-overlay`}
+            className="relative h-[34vh] min-h-[220px] w-full md:h-[46vh]"
           >
-            {p.image && (
-              <motion.img
-                src={p.image}
-                alt={p.title}
-                style={{ y }}
-                className="absolute inset-0 h-full w-full object-cover"
-              />
-            )}
-            <motion.div style={{ opacity }} className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+            <motion.div style={{ y, top: "-14%", bottom: "-14%" }} className="absolute inset-x-0">
+              <img src={p.image} alt="" aria-hidden className="cover-ground-img" />
+            </motion.div>
           </motion.div>
-        </div>
+        ) : (
+          <div className="mx-auto max-w-7xl px-6 lg:px-12">
+            <motion.div
+              layoutId={`cover-${p.slug}`}
+              className={`relative aspect-[16/8] w-full overflow-hidden rounded-3xl bg-gradient-to-br ${ACCENT_TINT[p.accent] ?? ACCENT_TINT.pink} grain-overlay`}
+            >
+              {p.image && (
+                <motion.img
+                  src={p.image}
+                  alt={p.title}
+                  style={{ y }}
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+              )}
+              <motion.div
+                style={{ opacity }}
+                className="absolute inset-0 bg-gradient-to-t from-[#3a1c25]/45 via-[#3a1c25]/10 to-transparent"
+              />
+            </motion.div>
+          </div>
+        )}
       </section>
 
       {/* META STRIP */}
@@ -116,21 +141,6 @@ function ProjectPage() {
                 </span>
               ))}
             </div>
-          </FadeIn>
-        </section>
-      )}
-
-      {p.repoUrl && (
-        <section className="mx-auto max-w-7xl px-6 lg:px-12 pt-2">
-          <FadeIn>
-            <a
-              href={p.repoUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="label-mono link-underline"
-            >
-              Read the code on GitHub ↗
-            </a>
           </FadeIn>
         </section>
       )}
@@ -182,15 +192,24 @@ function ProjectPage() {
 
       {/* ACTION PHOTO (optional), every visual carries an insight via its caption */}
       {p.actionImage ? (
-        <Figure caption={p.actionCaption}>
-          <div className="relative aspect-[16/9] w-full overflow-hidden rounded-3xl bg-foreground/[0.04] grain-overlay">
-            <img
+        p.actionImageBleed ? (
+          <div className="my-6">
+            <BleedPhoto
               src={p.actionImage}
               alt={p.actionCaption ?? p.title}
-              className="absolute inset-0 h-full w-full object-cover"
+              caption={p.actionCaption}
+              className="h-[44vh] min-h-[240px] md:h-[58vh]"
             />
           </div>
-        </Figure>
+        ) : (
+          <Figure caption={p.actionCaption}>
+            <ZoomImage
+              src={p.actionImage}
+              alt={p.actionCaption ?? p.title}
+              className="aspect-[16/9]"
+            />
+          </Figure>
+        )
       ) : null}
 
       {/* 2, IMPACT (prominent; can't scroll past the results) */}
@@ -227,9 +246,17 @@ function ProjectPage() {
       <section className="mx-auto max-w-7xl px-6 lg:px-12 pt-24 pb-12 border-t border-hairline">
         <Link to="/projects/$slug" params={{ slug: next.slug }} className="group block">
           <p className="label-mono mb-3">Next case study ↘</p>
-          <h2 className="font-display text-4xl md:text-6xl tracking-tight group-hover:gradient-ink transition-all">
-            {next.title}
-          </h2>
+          <div className="flex items-end justify-between gap-6">
+            <h2 className="font-display text-4xl md:text-6xl tracking-tight group-hover:gradient-ink transition-all">
+              {next.title}
+            </h2>
+            <span
+              aria-hidden
+              className="mb-2 hidden h-12 w-12 shrink-0 items-center justify-center rounded-full border border-foreground/25 text-xl transition-all duration-500 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:border-foreground group-hover:bg-foreground group-hover:text-background md:flex"
+            >
+              ↗
+            </span>
+          </div>
         </Link>
       </section>
     </PageWrap>
@@ -261,6 +288,23 @@ function Figure({ caption, children }: { caption?: string; children: React.React
   );
 }
 
+/** Renders **…** spans from the data as bold, so key values carry the impact line. */
+function Highlight({ text }: { text: string }) {
+  return (
+    <>
+      {text.split("**").map((chunk, i) =>
+        i % 2 === 1 ? (
+          <strong key={i} className="font-bold not-italic text-foreground">
+            {chunk}
+          </strong>
+        ) : (
+          <span key={i}>{chunk}</span>
+        ),
+      )}
+    </>
+  );
+}
+
 function Impact({
   outcome,
   stats,
@@ -274,15 +318,18 @@ function Impact({
         <div className="rounded-3xl border border-hairline bg-foreground/[0.03] px-6 md:px-12 py-12 md:py-16">
           <p className="label-mono mb-8">Impact</p>
           <p className="font-display text-3xl md:text-5xl leading-[1.08] text-balance max-w-[24ch]">
-            <span className="gradient-ink">{outcome}</span>
+            <span className="gradient-ink">
+              <Highlight text={outcome} />
+            </span>
           </p>
           {stats && stats.length > 0 && (
             <div className="mt-12 grid gap-8 md:grid-cols-3 border-t border-hairline pt-10">
               {stats.map((s) => (
                 <FadeIn key={s.label}>
-                  <p className="font-display text-6xl md:text-7xl gradient-ink leading-none not-italic">
-                    {s.value}
-                  </p>
+                  <CountUp
+                    value={s.value}
+                    className="block font-display text-6xl md:text-7xl gradient-ink leading-none not-italic tabular-nums"
+                  />
                   <p className="label-mono mt-3">{s.label}</p>
                 </FadeIn>
               ))}
@@ -330,7 +377,7 @@ function Limitations({ items }: { items?: string[] }) {
         <FadeIn className="md:col-span-4">
           <p className="label-mono">Limitations</p>
           <h2 className="mt-4 font-display text-3xl md:text-4xl">
-            The <span className="gradient-ink">honest scope.</span>
+            What this <span className="gradient-ink">does not show.</span>
           </h2>
         </FadeIn>
         <StaggerList className="md:col-span-8 divide-y divide-hairline border-y border-hairline">

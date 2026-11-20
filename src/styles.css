@@ -75,7 +75,7 @@
   --pink-ink: oklch(0.41 0.16 14);
   --blue: oklch(0.47 0.16 16);
   --blue-ink: oklch(0.41 0.16 14);
-  --purple: oklch(0.70 0.11 85);
+  --purple: oklch(0.7 0.11 85);
   --purple-ink: oklch(0.61 0.11 80);
 
   --chart-1: var(--pink);
@@ -90,8 +90,8 @@
   --sidebar-primary-foreground: oklch(0.985 0.003 90);
   --sidebar-accent: oklch(0.96 0.005 85);
   --sidebar-accent-foreground: oklch(0.16 0.01 285);
-  --sidebar-border: oklch(0.90 0.008 90);
-  --sidebar-ring: oklch(0.60 0.18 355);
+  --sidebar-border: oklch(0.9 0.008 90);
+  --sidebar-ring: oklch(0.6 0.18 355);
 }
 
 @layer base {
@@ -112,7 +112,10 @@
     text-rendering: optimizeLegibility;
   }
 
-  h1, h2, h3, h4 {
+  h1,
+  h2,
+  h3,
+  h4 {
     font-family: var(--font-display);
     font-weight: 600;
     letter-spacing: -0.02em;
@@ -125,7 +128,9 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       animation-duration: 0.001ms !important;
       transition-duration: 0.001ms !important;
     }
@@ -305,7 +310,10 @@
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+  transition:
+    background-color 0.2s,
+    color 0.2s,
+    border-color 0.2s;
 }
 .hero-archival .ha-btn-primary {
   color: var(--gx-accent);
@@ -323,4 +331,309 @@
 .hero-archival .ha-btn-ghost:hover {
   background: var(--gx-gold);
   color: #fff;
+}
+
+/* ───────────────────────── Motion & interaction layer ───────────────────────── */
+
+@keyframes marquee-scroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes float-frame {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1.4deg);
+  }
+  50% {
+    transform: translateY(-9px) rotate(-0.8deg);
+  }
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes wash-drift {
+  from {
+    transform: scale(1.02) translate3d(-0.6%, 0, 0);
+  }
+  to {
+    transform: scale(1.07) translate3d(0.8%, -1%, 0);
+  }
+}
+
+/* Infinite keyword ticker — pauses on hover / focus */
+.marquee {
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+}
+.marquee-track {
+  animation: marquee-scroll 44s linear infinite;
+  will-change: transform;
+}
+.marquee:hover .marquee-track,
+.marquee:focus-within .marquee-track {
+  animation-play-state: paused;
+}
+
+/* Hero portrait: gentle float, orbit ring, pointer parallax lives in React */
+.hero-archival .ha-float {
+  animation: float-frame 7s ease-in-out infinite;
+}
+.hero-archival .ha-orbit {
+  position: absolute;
+  top: -22px;
+  right: -16px;
+  height: 92px;
+  width: 92px;
+  border-radius: 9999px;
+  border: 1px dashed rgba(195, 154, 60, 0.75);
+  animation: spin-slow 28s linear infinite;
+  z-index: 2;
+  pointer-events: none;
+}
+.hero-archival .ha-orbit::after {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: calc(50% - 3px);
+  height: 6px;
+  width: 6px;
+  border-radius: 9999px;
+  background: var(--gx-gold);
+}
+
+/* Painted wash behind the hero — drifts almost imperceptibly */
+.hero-archival .hero-wash {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.hero-archival .hero-wash-img {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  opacity: 0.55;
+  animation: wash-drift 26s ease-in-out infinite alternate;
+}
+/* On phones the hero is very tall, so keep the wash to its upper half rather
+   than stretching the band across a 1900px column */
+@media (max-width: 767px) {
+  .hero-archival .hero-wash {
+    inset: 0 0 auto 0;
+    height: 460px;
+  }
+}
+
+/* Fades the wash into the paper at the top and bottom edges only */
+.hero-archival .hero-wash-fade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(251, 245, 239, 0.96) 0%,
+    rgba(251, 245, 239, 0) 24%,
+    rgba(251, 245, 239, 0) 72%,
+    rgba(244, 233, 225, 0.97) 100%
+  );
+}
+
+/* Pointer-follow spotlight over project covers */
+.cover-spot {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 420ms ease;
+  background: radial-gradient(
+    240px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(255, 255, 255, 0.32),
+    rgba(255, 255, 255, 0) 62%
+  );
+  pointer-events: none;
+}
+.group:hover .cover-spot {
+  opacity: 1;
+}
+
+.tilt-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* Accent blobs referenced by Decor.tsx / page heroes */
+.blob-coral {
+  background: radial-gradient(closest-side, #e2624f 0%, transparent 70%);
+}
+.blob-peach {
+  background: radial-gradient(closest-side, #f0b49a 0%, transparent 70%);
+}
+
+/* Figures open full-screen */
+.zoom-frame {
+  position: relative;
+  cursor: zoom-in;
+}
+
+/* Interactive rows (contact, footer) lift toward the reader */
+.lift-row {
+  transition:
+    transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
+    color 320ms ease;
+}
+.lift-row:hover {
+  transform: translateX(6px);
+}
+
+/* Garnet hairline that draws itself in when a block scrolls into view */
+.rule-draw {
+  transform-origin: left center;
+  animation: rule-in 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes rule-in {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* A quiet, expensive scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 9999px;
+  border: 3px solid var(--background);
+  background: color-mix(in oklch, var(--pink) 55%, transparent);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--pink);
+}
+
+/* ── Seamless section grounds ─────────────────────────────────────────────
+   The artwork sits BEHIND a section and multiplies into the cream paper, so
+   its own edges dissolve rather than ending in a visible box. */
+.section-ground {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.section-ground > img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  mix-blend-mode: multiply;
+}
+
+/* Paper sheet behind the closing invitation — texture, not an object */
+.ground-paper {
+  inset: -16% -6%;
+  -webkit-mask-image: radial-gradient(ellipse at 50% 48%, #000 0%, #000 46%, transparent 78%);
+  mask-image: radial-gradient(ellipse at 50% 48%, #000 0%, #000 46%, transparent 78%);
+}
+.ground-paper > img {
+  transform: scale(1.35);
+  opacity: 0.42;
+}
+
+/* Ink bloom behind the contact hero — sits up and right of the headline,
+   so the words stay clear and the ring reads as light on the paper */
+.ground-ink {
+  inset: -34% -22% auto auto;
+  height: 132%;
+  width: 76%;
+  max-width: 880px;
+  -webkit-mask-image: radial-gradient(ellipse at 60% 44%, #000 0%, #000 22%, transparent 58%);
+  mask-image: radial-gradient(ellipse at 60% 44%, #000 0%, #000 22%, transparent 58%);
+}
+.ground-ink > img {
+  opacity: 0.72;
+  animation: ink-drift 30s ease-in-out infinite alternate;
+}
+
+@keyframes ink-drift {
+  from {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+  to {
+    transform: scale(1.05) translate3d(-1.2%, 1%, 0);
+  }
+}
+
+/* Gold-rule band: no hard top or bottom edge, it just fades into the page */
+.band-blend {
+  mix-blend-mode: multiply;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 20%, #000 80%, transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0%, #000 20%, #000 80%, transparent 100%);
+}
+
+/* ── Full-bleed artwork grounds ───────────────────────────────────────────
+   The archival cover illustrations are printed onto the page rather than
+   framed: multiplied into the cream, no border or radius, and dissolved at
+   the top and bottom edges so only the drawing reads. */
+.cover-ground-img {
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  mix-blend-mode: multiply;
+  opacity: 1;
+  /* both edges dissolve: the sheet has no border anywhere */
+  -webkit-mask-image: linear-gradient(
+      180deg,
+      transparent 0%,
+      #000 11%,
+      #000 88%,
+      transparent 100%
+    ),
+    linear-gradient(90deg, transparent 0%, #000 5%, #000 95%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(180deg, transparent 0%, #000 11%, #000 88%, transparent 100%),
+    linear-gradient(90deg, transparent 0%, #000 5%, #000 95%, transparent 100%);
+  mask-composite: intersect;
+}
+
+/* ── Full-bleed photos ────────────────────────────────────────────────────
+   Edge to edge across the viewport, dissolved into the page top and bottom
+   so the photograph never reads as a card sitting on the layout. */
+.bleed-photo {
+  position: relative;
+  width: 100%;
+  overflow: clip;
+}
+.bleed-photo > img {
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track,
+  .ground-ink > img,
+  .hero-archival .ha-float,
+  .hero-archival .ha-orbit,
+  .hero-archival .hero-wash-img,
+  .cover-ground-img,
+  .rule-draw {
+    animation: none !important;
+  }
 }

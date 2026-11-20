@@ -5,16 +5,20 @@ export const Route = createFileRoute("/resume")({
   head: () => ({
     meta: [
       { title: "Résumé, Emma Khare" },
-      { name: "description", content: "Emma Khare, mixed-methods UX Researcher. Résumé: experience, skills, education." },
+      {
+        name: "description",
+        content:
+          "Emma Khare, AI evaluation and measurement researcher. Résumé: experience, skills, education.",
+      },
       { property: "og:title", content: "Résumé, Emma Khare" },
-      { property: "og:description", content: "Emma Khare, mixed-methods UX Researcher. Résumé." },
+      { property: "og:description", content: "Emma Khare, AI evaluation and measurement researcher. Résumé." },
     ],
   }),
   component: Resume,
 });
 
 const SUMMARY =
-  "Evaluation and measurement researcher specializing in the validity of AI measurement: whether the instruments we use to evaluate language models — rubrics, benchmarks, and LLM judges — measure what they claim. Currently a Study Coordinator at Apple, running end-to-end research on undisclosed devices in high-confidentiality projects, following a year of study design, protocol development, moderation, and stakeholder reporting across iPhone, iPad, Mac, Vision Pro, and AirPods.";
+  "Evaluation and measurement researcher focused on whether the instruments we use to evaluate language models, including rubrics, benchmarks, and LLM judges, measure what they claim. Currently a Study Coordinator at Apple, running end-to-end research in high-confidentiality programs, after a year of study design, protocol development, moderation, and stakeholder reporting across iPhone, iPad, Mac, Vision Pro, and AirPods.";
 
 const SKILLS: { group: string; items: string }[] = [
   {

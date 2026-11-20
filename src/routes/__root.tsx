@@ -11,6 +11,7 @@ import {
 import appCss from "../styles.css?url";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { BackToTop, ScrollProgress } from "@/components/Interaction";
 
 function NotFoundComponent() {
   return (
@@ -129,11 +130,13 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <div className="flex min-h-screen flex-col">
+        <ScrollProgress />
         <Header />
         <main className="flex-1">
           <Outlet />
         </main>
         <Footer />
+        <BackToTop />
       </div>
     </QueryClientProvider>
   );

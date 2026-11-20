@@ -8,7 +8,8 @@ export function Footer() {
         <div className="md:col-span-5">
           <p className="label-mono mb-3">Currently</p>
           <p className="font-display text-3xl leading-tight text-balance">
-            Open to research roles in NLP evaluation, language data, and AI & education.
+            Open to research roles in AI evaluation &amp; measurement, conversational AI, and
+            language data.
           </p>
         </div>
 

@@ -8,14 +8,22 @@ import {
   StaggerItem,
   staggerItemVariants,
 } from "@/components/Motion";
+import { TiltCard } from "@/components/Interaction";
 
 export const Route = createFileRoute("/projects/")({
   head: () => ({
     meta: [
       { title: "Case Studies, Emma Khare" },
-      { name: "description", content: "Selected UX research case studies by Emma Khare." },
+      {
+        name: "description",
+        content:
+          "AI measurement and evaluation case studies by Emma Khare: instrument design, statistical validation, and human-AI product research.",
+      },
       { property: "og:title", content: "Case Studies, Emma Khare" },
-      { property: "og:description", content: "Selected UX research case studies." },
+      {
+        property: "og:description",
+        content: "AI measurement and evaluation case studies by Emma Khare.",
+      },
     ],
   }),
   component: ProjectsIndex,
@@ -36,21 +44,23 @@ function ProjectsIndex() {
       <section className="mx-auto max-w-7xl px-6 lg:px-12 pt-24 pb-12 lg:pt-32">
         <FadeIn>
           <p className="label-mono mb-6">Index · {projects.length} case studies</p>
-          <h1 className="font-display text-5xl md:text-7xl tracking-tight max-w-[18ch] text-balance">
-            Research across academia, community, <span className="gradient-ink">and industry.</span>
+          <h1 className="font-display text-5xl md:text-7xl tracking-tight max-w-[16ch] text-balance">
+            Evaluating AI is a <span className="gradient-ink">measurement problem.</span>
           </h1>
           <p className="mt-7 text-lg md:text-xl text-foreground/75 leading-relaxed text-pretty max-w-[58ch]">
-            The through-line is language — and whether our instruments for studying it are
-            trustworthy. From archival phonetics to LLM judges, I ask one question: does this
-            measurement mean what it claims?
+            I design rubrics, run experiments, and check the statistics behind them, then talk to
+            the people the numbers describe. Linguistics and anthropology taught me to question an
+            instrument; product research taught me to ship one. LLM judges, tutoring transcripts,
+            fluency scales: in each case the question is whether the number measures the thing it
+            names.
           </p>
         </FadeIn>
       </section>
 
-      {/* Featured, product / conversational-AI work first */}
+      {/* Featured: AI measurement & evaluation gave the brand */}
       <section className="mx-auto max-w-7xl px-6 lg:px-12 pb-16">
         <FadeIn>
-          <p className="label-mono mb-8">Featured · conversational AI &amp; product research</p>
+          <p className="label-mono mb-8">Featured · AI measurement &amp; evaluation</p>
         </FadeIn>
         <StaggerList className="grid gap-x-8 gap-y-16 md:grid-cols-2">
           {featured.map((p, i) => (
@@ -61,36 +71,11 @@ function ProjectsIndex() {
         </StaggerList>
       </section>
 
-      {/* Code, public repositories */}
-      <section className="mx-auto max-w-7xl px-6 lg:px-12 pb-4">
-        <FadeIn>
-          <p className="label-mono mb-8">Code · public repositories</p>
-          <a
-            href="https://github.com/emma-khare/llm-judge-agreement"
-            target="_blank"
-            rel="noreferrer"
-            className="group block border-t border-hairline pt-8"
-          >
-            <h3 className="font-display text-2xl md:text-[1.75rem] tracking-tight text-balance">
-              Can you trust an LLM judge?
-              <span className="ml-2 inline-block text-foreground/50 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">
-                ↗
-              </span>
-            </h3>
-            <p className="mt-2 text-foreground/70 text-sm md:text-base max-w-[52ch] text-pretty">
-              Cohen&rsquo;s kappa and a bootstrap confidence interval on a human-versus-LLM
-              annotation set. Python, standard library only, with the limitations written down.
-            </p>
-            <p className="mt-3 label-mono text-foreground/60">github.com/emma-khare/llm-judge-agreement</p>
-          </a>
-        </FadeIn>
-      </section>
-
-      {/* More research, community, language & fieldwork */}
+      {/* More: applied AI product research, then language & fieldwork */}
       {more.length > 0 && (
         <section className="mx-auto max-w-7xl px-6 lg:px-12 pt-14 pb-24 border-t border-hairline">
           <FadeIn>
-            <p className="label-mono mb-8">More research · community, language &amp; fieldwork</p>
+            <p className="label-mono mb-8">More research · applied AI, language &amp; fieldwork</p>
           </FadeIn>
           <StaggerList className="grid gap-x-8 gap-y-16 md:grid-cols-2">
             {more.map((p, i) => (
@@ -107,49 +92,58 @@ function ProjectsIndex() {
 
 function ProjectCard({ p, i }: { p: (typeof projects)[number]; i: number }) {
   return (
-    <Link to="/projects/$slug" params={{ slug: p.slug }} className="group block">
-      <motion.div
-        layoutId={`cover-${p.slug}`}
-        className={`relative aspect-video w-full overflow-hidden rounded-2xl bg-gradient-to-br ${ACCENT_TINT[p.accent] ?? ACCENT_TINT.pink} grain-overlay`}
-      >
-        {p.image && (
-          <img
-            src={p.image}
-            alt={p.title}
-            loading="lazy"
-            className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-          />
-        )}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
-        <div className="absolute inset-0 flex items-end p-7">
-          <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/90">
-            {String(i + 1).padStart(2, "0")} · {p.year}
+    <TiltCard className="h-full rounded-3xl">
+      <Link to="/projects/$slug" params={{ slug: p.slug }} className="group block">
+        <motion.div
+          layoutId={`cover-${p.slug}`}
+          className={`relative aspect-video w-full overflow-hidden rounded-2xl bg-gradient-to-br ${ACCENT_TINT[p.accent] ?? ACCENT_TINT.pink} grain-overlay`}
+        >
+          {p.image && (
+            <img
+              src={p.image}
+              alt={p.title}
+              loading="lazy"
+              className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+            />
+          )}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#3a1c25]/60 via-[#3a1c25]/12 to-transparent" />
+          <span aria-hidden className="cover-spot" />
+          <div className="absolute inset-0 flex items-end p-7">
+            <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/90">
+              {String(i + 1).padStart(2, "0")} · {p.year}
+            </span>
+          </div>
+          <span className="pointer-events-none absolute bottom-5 right-5 inline-flex translate-y-2 items-center gap-1.5 rounded-full bg-background/95 px-3.5 py-2 text-[10px] uppercase tracking-[0.14em] text-foreground opacity-0 shadow-sm transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+            View study <span aria-hidden>↗</span>
+          </span>
+        </motion.div>
+        <div className="mt-5 flex items-start justify-between gap-6">
+          <div>
+            <motion.h3
+              layoutId={`title-${p.slug}`}
+              className="font-display text-2xl md:text-[1.75rem] tracking-tight text-balance"
+            >
+              {p.title}
+            </motion.h3>
+            <p className="mt-2 text-foreground/70 text-sm md:text-base max-w-[42ch] text-pretty">
+              {p.tagline}
+            </p>
+          </div>
+          <span className="mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-foreground/20 text-foreground/60 transition-all duration-500 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:border-foreground group-hover:bg-foreground group-hover:text-background">
+            ↗
           </span>
         </div>
-      </motion.div>
-      <div className="mt-5 flex items-start justify-between gap-6">
-        <div>
-          <motion.h3
-            layoutId={`title-${p.slug}`}
-            className="font-display text-2xl md:text-[1.75rem] tracking-tight text-balance"
-          >
-            {p.title}
-          </motion.h3>
-          <p className="mt-2 text-foreground/70 text-sm md:text-base max-w-[42ch] text-pretty">
-            {p.tagline}
-          </p>
+        <div className="mt-4 flex flex-wrap gap-2">
+          {p.tags.map((t) => (
+            <span
+              key={t}
+              className="label-mono px-2 py-1 rounded-full border border-hairline transition-colors group-hover:border-pink-ink/30"
+            >
+              {t}
+            </span>
+          ))}
         </div>
-        <span className="mt-1 text-foreground/60 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">
-          ↗
-        </span>
-      </div>
-      <div className="mt-4 flex flex-wrap gap-2">
-        {p.tags.map((t) => (
-          <span key={t} className="label-mono px-2 py-1 rounded-full border border-hairline">
-            {t}
-          </span>
-        ))}
-      </div>
-    </Link>
+      </Link>
+    </TiltCard>
   );
 }
