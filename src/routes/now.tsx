@@ -5,21 +5,20 @@ import { BleedPhoto } from "@/components/Interaction";
 import evalAuditImg from "@/assets/eval-audit.webp";
 import governanceImg from "@/assets/governance-seal.webp";
 
-// The five-part research portfolio just completed — highlighted as a set on Now.
-const PORTFOLIO_SLUGS = [
+// The evaluation studies, highlighted as a set on Now.
+const RECENT_SLUGS = [
+  "llm-as-judge-reliability",
   "learning-signals-capability",
   "ai-fluency-measure",
-  "llm-as-judge-reliability",
   "socratic-vs-direct-tutoring",
-  "ai-gender-romantic-fiction",
 ];
 
 export const Route = createFileRoute("/now")({
   head: () => ({
     meta: [
-      { title: "Now, Emma Khare" },
+      { title: "Now | Emma Khare" },
       { name: "description", content: "What Emma Khare is working on, reading, learning, and thinking about right now." },
-      { property: "og:title", content: "Now, Emma Khare" },
+      { property: "og:title", content: "Now | Emma Khare" },
       { property: "og:description", content: "What Emma is working on, reading, and learning right now." },
     ],
   }),
@@ -108,7 +107,11 @@ function Now() {
           <FadeIn delay={0.4} className="mt-8 max-w-xl">
             <p className="text-lg text-foreground/80 leading-relaxed text-pretty">
               I update this page when something changes: a new book, a new tool, a new question. If
-              you come back in a few months, it may look different.
+              any of it overlaps with a problem your team is stuck on,{" "}
+              <Link to="/contact" className="link-underline text-pink-ink">
+                tell me about it
+              </Link>
+              .
             </p>
           </FadeIn>
         </div>
@@ -131,23 +134,23 @@ function Now() {
         </div>
       </section>
 
-      {/* Just shipped — five-part research portfolio */}
+      {/* Recent work — the evaluation studies */}
       <section className="mx-auto max-w-7xl px-6 lg:px-12 py-16 border-t border-hairline">
         <FadeIn>
-          <p className="label-mono mb-4">Just shipped · New</p>
+          <p className="label-mono mb-4">Recent work · Evaluation</p>
           <h2 className="font-display text-3xl md:text-5xl tracking-tight max-w-[22ch] text-balance">
-            A five-part research portfolio on{" "}
-            <span className="gradient-ink">trusting our measures of AI &amp; learning.</span>
+            Four studies on whether{" "}
+            <span className="gradient-ink">a number can be trusted.</span>
           </h2>
           <p className="mt-6 max-w-2xl text-lg text-foreground/80 leading-relaxed text-pretty">
-            Five self-directed studies I built recently, each asking whether a number can be
-            trusted: capability, reliability, fluency, or an experiment's result. The methods are
-            evaluation rigor, reliability, instrument design, and experimental design, applied to AI
-            in education.
+            Self-directed work on measurement: a judge that scores AI output, a rubric for AI
+            fluency, a capability score read from a tutoring transcript, and an experiment tested
+            against known ground truth. Each one asks the same question about a different
+            instrument.
           </p>
         </FadeIn>
-        <StaggerList className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {PORTFOLIO_SLUGS.map((slug) => projects.find((p) => p.slug === slug))
+        <StaggerList className="mt-10 grid gap-6 md:grid-cols-2">
+          {RECENT_SLUGS.map((slug) => projects.find((p) => p.slug === slug))
             .filter((p): p is NonNullable<typeof p> => Boolean(p))
             .map((p) => (
               <StaggerItem key={p.slug} variants={staggerItemVariants}>
@@ -425,7 +428,7 @@ function Now() {
           </h2>
         </FadeIn>
         <StaggerList className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {projects.filter((p) => !PORTFOLIO_SLUGS.includes(p.slug)).map((p) => (
+          {projects.filter((p) => !RECENT_SLUGS.includes(p.slug)).map((p) => (
             <StaggerItem key={p.slug} variants={staggerItemVariants}>
               <Link
                 to="/projects/$slug"
@@ -457,6 +460,18 @@ function Now() {
             <span className="font-sans font-light text-pink">I design studies to hear what people mean, in their own words.</span>
           </blockquote>
         </FadeIn>
+      </section>
+
+      {/* CTA */}
+      <section className="mx-auto max-w-7xl px-6 lg:px-12 pb-24 border-t border-hairline pt-14">
+        <div className="flex flex-wrap items-center justify-between gap-6">
+          <p className="font-display text-3xl md:text-4xl tracking-tight text-balance max-w-[26ch]">
+            Bring me the question your survey <span className="gradient-ink">can't answer.</span>
+          </p>
+          <Link to="/contact" className="inline-flex items-center gap-2 rounded-full bg-foreground text-background px-6 py-3 text-sm font-medium hover:scale-[1.02] transition-transform">
+            Tell me about it →
+          </Link>
+        </div>
       </section>
     </PageWrap>
   );

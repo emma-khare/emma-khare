@@ -16,7 +16,6 @@ import { Route as ResumeRouteImport } from './routes/resume'
 import { Route as StoryRouteImport } from './routes/story'
 import { Route as ProjectsIndexRouteImport } from './routes/projects.index'
 import { Route as ProjectsSlugRouteImport } from './routes/projects.$slug'
-import { Route as ProjectsAppleConversationalAiRouteImport } from './routes/projects.apple-conversational-ai'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -53,12 +52,6 @@ const ProjectsSlugRoute = ProjectsSlugRouteImport.update({
   path: '/projects/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ProjectsAppleConversationalAiRoute =
-  ProjectsAppleConversationalAiRouteImport.update({
-    id: '/projects/apple-conversational-ai',
-    path: '/projects/apple-conversational-ai',
-    getParentRoute: () => rootRouteImport,
-  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -67,7 +60,6 @@ export interface FileRoutesByFullPath {
   '/resume': typeof ResumeRoute
   '/story': typeof StoryRoute
   '/projects/$slug': typeof ProjectsSlugRoute
-  '/projects/apple-conversational-ai': typeof ProjectsAppleConversationalAiRoute
   '/projects/': typeof ProjectsIndexRoute
 }
 export interface FileRoutesByTo {
@@ -77,7 +69,6 @@ export interface FileRoutesByTo {
   '/resume': typeof ResumeRoute
   '/story': typeof StoryRoute
   '/projects/$slug': typeof ProjectsSlugRoute
-  '/projects/apple-conversational-ai': typeof ProjectsAppleConversationalAiRoute
   '/projects': typeof ProjectsIndexRoute
 }
 export interface FileRoutesById {
@@ -88,7 +79,6 @@ export interface FileRoutesById {
   '/resume': typeof ResumeRoute
   '/story': typeof StoryRoute
   '/projects/$slug': typeof ProjectsSlugRoute
-  '/projects/apple-conversational-ai': typeof ProjectsAppleConversationalAiRoute
   '/projects/': typeof ProjectsIndexRoute
 }
 export interface FileRouteTypes {
@@ -100,7 +90,6 @@ export interface FileRouteTypes {
     | '/resume'
     | '/story'
     | '/projects/$slug'
-    | '/projects/apple-conversational-ai'
     | '/projects/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -110,7 +99,6 @@ export interface FileRouteTypes {
     | '/resume'
     | '/story'
     | '/projects/$slug'
-    | '/projects/apple-conversational-ai'
     | '/projects'
   id:
     | '__root__'
@@ -120,7 +108,6 @@ export interface FileRouteTypes {
     | '/resume'
     | '/story'
     | '/projects/$slug'
-    | '/projects/apple-conversational-ai'
     | '/projects/'
   fileRoutesById: FileRoutesById
 }
@@ -131,7 +118,6 @@ export interface RootRouteChildren {
   ResumeRoute: typeof ResumeRoute
   StoryRoute: typeof StoryRoute
   ProjectsSlugRoute: typeof ProjectsSlugRoute
-  ProjectsAppleConversationalAiRoute: typeof ProjectsAppleConversationalAiRoute
   ProjectsIndexRoute: typeof ProjectsIndexRoute
 }
 
@@ -186,13 +172,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProjectsSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/projects/apple-conversational-ai': {
-      id: '/projects/apple-conversational-ai'
-      path: '/projects/apple-conversational-ai'
-      fullPath: '/projects/apple-conversational-ai'
-      preLoaderRoute: typeof ProjectsAppleConversationalAiRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
@@ -203,7 +182,6 @@ const rootRouteChildren: RootRouteChildren = {
   ResumeRoute: ResumeRoute,
   StoryRoute: StoryRoute,
   ProjectsSlugRoute: ProjectsSlugRoute,
-  ProjectsAppleConversationalAiRoute: ProjectsAppleConversationalAiRoute,
   ProjectsIndexRoute: ProjectsIndexRoute,
 }
 export const routeTree = rootRouteImport

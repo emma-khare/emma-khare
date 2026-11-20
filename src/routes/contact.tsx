@@ -22,13 +22,13 @@ function EmailRow() {
         type="button"
         onClick={copy}
         aria-label={`Copy email address ${EMAIL}`}
-        className="group flex w-full flex-wrap items-baseline justify-between gap-x-8 gap-y-2 py-8 md:py-10 text-left"
+        className="group flex w-full flex-col items-start gap-2 py-8 text-left sm:flex-row sm:flex-wrap sm:items-baseline sm:justify-between sm:gap-x-8 md:py-10"
       >
-        <span className="label-mono shrink-0 w-28">Email</span>
-        <span className="flex-1 font-display text-3xl md:text-5xl tracking-tight group-hover:gradient-ink transition-all text-balance">
+        <span className="label-mono sm:w-28 sm:shrink-0">Email</span>
+        <span className="w-full min-w-0 break-words font-display text-2xl sm:flex-1 sm:text-3xl md:text-5xl tracking-tight group-hover:gradient-ink transition-all">
           {EMAIL}
         </span>
-        <span className="label-mono shrink-0 whitespace-nowrap text-pink-ink">
+        <span className="label-mono whitespace-nowrap text-pink-ink sm:shrink-0">
           {copied ? "Copied ✓" : "Click to copy"}
         </span>
       </button>
@@ -39,12 +39,12 @@ function EmailRow() {
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact, Emma Khare" },
+      { title: "Contact | Emma Khare" },
       {
         name: "description",
         content: "Get in touch with Emma Khare, AI evaluation and measurement researcher.",
       },
-      { property: "og:title", content: "Contact, Emma Khare" },
+      { property: "og:title", content: "Contact | Emma Khare" },
       { property: "og:description", content: "Get in touch with Emma Khare." },
     ],
   }),
@@ -75,8 +75,8 @@ function Contact() {
           </h1>
           <FadeIn delay={0.4} className="mt-8 max-w-xl">
             <p className="text-lg text-foreground/80 leading-relaxed text-pretty">
-              Best for project inquiries, research collaborations, and roles in AI evaluation and
-              measurement, conversational AI, or language and culture work.
+              Bring me a study that needs designing, a benchmark nobody trusts yet, or a team that
+              needs measurement owned end to end. I answer every message.
             </p>
           </FadeIn>
         </div>
@@ -91,13 +91,15 @@ function Contact() {
                 href={l.href}
                 target={l.href.startsWith("http") ? "_blank" : undefined}
                 rel="noreferrer"
-                className="group flex items-baseline justify-between gap-8 py-8 md:py-10"
+                className="group flex flex-col items-start gap-2 py-8 sm:flex-row sm:flex-wrap sm:items-baseline sm:justify-between sm:gap-x-8 md:py-10"
               >
-                <span className="label-mono shrink-0 w-28">{l.label}</span>
-                <span className="flex-1 font-display text-3xl md:text-5xl tracking-tight group-hover:gradient-ink transition-all text-balance">
+                <span className="label-mono sm:w-28 sm:shrink-0">{l.label}</span>
+                <span className="w-full min-w-0 break-words font-display text-2xl sm:flex-1 sm:text-3xl md:text-5xl tracking-tight group-hover:gradient-ink transition-all">
                   {l.value}
                 </span>
-                <span className="text-foreground/60 transition-transform group-hover:translate-x-2">→</span>
+                <span className="hidden text-foreground/60 transition-transform group-hover:translate-x-2 sm:inline">
+                  →
+                </span>
               </a>
             </li>
           ))}

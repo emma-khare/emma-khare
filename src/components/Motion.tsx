@@ -64,7 +64,8 @@ export function WordReveal({
     <motion.span variants={container} initial="hidden" animate="show" className={className}>
       {lines.flatMap((line, li) => {
         const out: ReactNode[] = li > 0 ? [<br key={`br-${li}`} />] : [];
-        line.split(" ").forEach((w, i) => {
+        const words = line.split(" ");
+        words.forEach((w, i) => {
           const clean = w.replace(/[.,!?]/g, "").toLowerCase();
           const isHl = highlight && highlight.toLowerCase().split(" ").includes(clean);
           out.push(
@@ -72,11 +73,13 @@ export function WordReveal({
               key={`${li}-${i}`}
               variants={word}
               className={isHl ? "gradient-ink" : undefined}
-              style={{ display: "inline-block", marginRight: "0.28em" }}
+              style={{ display: "inline-block" }}
             >
               {w}
             </motion.span>
           );
+          // A real space keeps the headline readable to screen readers and crawlers.
+          if (i < words.length - 1) out.push(" ");
         });
         return out;
       })}

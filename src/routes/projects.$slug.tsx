@@ -13,12 +13,12 @@ export const Route = createFileRoute("/projects/$slug")({
   },
   head: ({ loaderData }) => {
     const p = loaderData?.project;
-    if (!p) return { meta: [{ title: "Case study, Emma Khare" }] };
+    if (!p) return { meta: [{ title: "Case Study | Emma Khare" }] };
     return {
       meta: [
-        { title: `${p.title}, Emma Khare` },
+        { title: `${p.title} | Emma Khare` },
         { name: "description", content: p.overview },
-        { property: "og:title", content: `${p.title}, Emma Khare` },
+        { property: "og:title", content: `${p.title} | Emma Khare` },
         { property: "og:description", content: p.overview },
       ],
     };
@@ -39,11 +39,12 @@ export const Route = createFileRoute("/projects/$slug")({
   component: ProjectPage,
 });
 
+// Cover fallbacks stay inside the garnet-and-gold palette while images load.
 const ACCENT_TINT: Record<string, string> = {
-  pink: "from-[oklch(0.78_0.16_355)] via-[oklch(0.7_0.18_320)] to-[oklch(0.62_0.22_293)]",
-  blue: "from-[oklch(0.78_0.13_220)] via-[oklch(0.68_0.18_258)] to-[oklch(0.55_0.22_280)]",
-  coral: "from-[oklch(0.78_0.17_355)] via-[oklch(0.65_0.22_320)] to-[oklch(0.58_0.22_293)]",
-  peach: "from-[oklch(0.85_0.14_60)] via-[oklch(0.75_0.18_30)] to-[oklch(0.62_0.22_355)]",
+  pink: "from-[oklch(0.84_0.05_18)] via-[oklch(0.7_0.09_14)] to-[oklch(0.45_0.17_14)]",
+  blue: "from-[oklch(0.92_0.05_85)] via-[oklch(0.8_0.08_80)] to-[oklch(0.61_0.11_80)]",
+  coral: "from-[oklch(0.78_0.09_22)] via-[oklch(0.58_0.15_12)] to-[oklch(0.41_0.16_14)]",
+  peach: "from-[oklch(0.93_0.04_72)] via-[oklch(0.84_0.06_60)] to-[oklch(0.66_0.1_45)]",
 };
 
 function ProjectPage() {
@@ -241,6 +242,21 @@ function ProjectPage() {
 
       {/* 5, LIMITATIONS & HONEST SCOPE */}
       <Limitations items={p.limitations} />
+
+      {/* CTA */}
+      <section className="mx-auto max-w-7xl px-6 lg:px-12 pt-12 pb-4">
+        <div className="flex flex-wrap items-center justify-between gap-6 rounded-3xl border border-hairline bg-foreground/[0.03] px-6 md:px-10 py-10">
+          <p className="font-display text-2xl md:text-4xl tracking-tight text-balance max-w-[24ch]">
+            Your study could be <span className="gradient-ink">next.</span>
+          </p>
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-2 rounded-full bg-foreground text-background px-6 py-3 text-sm font-medium hover:scale-[1.02] transition-transform"
+          >
+            Talk to me about it →
+          </Link>
+        </div>
+      </section>
 
       {/* NEXT */}
       <section className="mx-auto max-w-7xl px-6 lg:px-12 pt-24 pb-12 border-t border-hairline">

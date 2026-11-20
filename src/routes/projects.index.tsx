@@ -13,13 +13,13 @@ import { TiltCard } from "@/components/Interaction";
 export const Route = createFileRoute("/projects/")({
   head: () => ({
     meta: [
-      { title: "Case Studies, Emma Khare" },
+      { title: "Case Studies | Emma Khare" },
       {
         name: "description",
         content:
           "AI measurement and evaluation case studies by Emma Khare: instrument design, statistical validation, and human-AI product research.",
       },
-      { property: "og:title", content: "Case Studies, Emma Khare" },
+      { property: "og:title", content: "Case Studies | Emma Khare" },
       {
         property: "og:description",
         content: "AI measurement and evaluation case studies by Emma Khare.",
@@ -29,11 +29,12 @@ export const Route = createFileRoute("/projects/")({
   component: ProjectsIndex,
 });
 
+// Cover fallbacks stay inside the garnet-and-gold palette while images load.
 const ACCENT_TINT: Record<string, string> = {
-  pink: "from-[oklch(0.78_0.16_355)] via-[oklch(0.7_0.18_320)] to-[oklch(0.62_0.22_293)]",
-  blue: "from-[oklch(0.78_0.13_220)] via-[oklch(0.68_0.18_258)] to-[oklch(0.55_0.22_280)]",
-  coral: "from-[oklch(0.78_0.17_355)] via-[oklch(0.65_0.22_320)] to-[oklch(0.58_0.22_293)]",
-  peach: "from-[oklch(0.85_0.14_60)] via-[oklch(0.75_0.18_30)] to-[oklch(0.62_0.22_355)]",
+  pink: "from-[oklch(0.84_0.05_18)] via-[oklch(0.7_0.09_14)] to-[oklch(0.45_0.17_14)]",
+  blue: "from-[oklch(0.92_0.05_85)] via-[oklch(0.8_0.08_80)] to-[oklch(0.61_0.11_80)]",
+  coral: "from-[oklch(0.78_0.09_22)] via-[oklch(0.58_0.15_12)] to-[oklch(0.41_0.16_14)]",
+  peach: "from-[oklch(0.93_0.04_72)] via-[oklch(0.84_0.06_60)] to-[oklch(0.66_0.1_45)]",
 };
 
 function ProjectsIndex() {
@@ -86,6 +87,19 @@ function ProjectsIndex() {
           </StaggerList>
         </section>
       )}
+
+      {/* CTA */}
+      <section className="mx-auto max-w-7xl px-6 lg:px-12 pb-24 border-t border-hairline pt-14">
+        <div className="flex flex-wrap items-center justify-between gap-6">
+          <p className="font-display text-3xl md:text-4xl tracking-tight text-balance max-w-[26ch]">
+            Have a study that belongs on this page?{" "}
+            <span className="gradient-ink">Tell me about it.</span>
+          </p>
+          <Link to="/contact" className="inline-flex items-center gap-2 rounded-full bg-foreground text-background px-6 py-3 text-sm font-medium hover:scale-[1.02] transition-transform">
+            Start an email →
+          </Link>
+        </div>
+      </section>
     </PageWrap>
   );
 }

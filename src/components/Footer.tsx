@@ -42,7 +42,7 @@ export function Footer() {
       <div className="border-t border-hairline">
         <div className="mx-auto max-w-7xl px-6 lg:px-12 py-6 flex flex-wrap items-center justify-between gap-4">
           <p className="label-mono no-rule">© {year} Emma Khare</p>
-          <p className="label-mono no-rule">Designed & built with care</p>
+          <p className="label-mono no-rule">Available for research roles</p>
         </div>
       </div>
     </footer>

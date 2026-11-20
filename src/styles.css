@@ -144,6 +144,13 @@
   .font-mono {
     font-family: var(--font-mono);
   }
+  /* Flowing closing line in the story page */
+  .font-flow {
+    font-family: "Playfair Display", Georgia, serif;
+    font-style: italic;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
   .text-balance {
     text-wrap: balance;
   }

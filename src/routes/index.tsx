@@ -45,12 +45,12 @@ function Home() {
 }
 
 const HERO_KEYWORDS = [
-  "Psychometrics",
+  "Measurement validity",
   "LLM evaluation",
   "Inter-rater reliability",
-  "Language revitalization",
-  "Ethnographic fieldwork",
   "Experiment design",
+  "Ethnographic fieldwork",
+  "Language data",
 ];
 
 /** Portrait that leans with the pointer, floating gently on its own. */
@@ -84,6 +84,9 @@ function HeroPortrait() {
             className="absolute inset-0 h-full w-full object-cover"
           />
         </div>
+        <p className="relative z-[1] mt-7 text-center font-display text-2xl font-semibold md:text-3xl tracking-tight gradient-ink">
+          Emma Khare
+        </p>
       </motion.div>
     </div>
   );
@@ -101,8 +104,8 @@ function Hero() {
           <p className="ha-label mb-7">Emma Khare, AI Evaluation & Measurement · 2026</p>
           <h1 className="mx-auto max-w-5xl text-4xl md:text-5xl lg:text-[3.25rem] leading-[1.12] text-balance">
             <WordReveal
-              text={"Measuring whether AI works,\nfor the people who live with it."}
-              highlight="live with it"
+              text={"An AI can be accurate and still not right.\nI measure the difference."}
+              highlight="measure the difference"
             />
           </h1>
           <FadeIn delay={0.15}>
@@ -125,41 +128,39 @@ function Hero() {
           </FadeIn>
           <FadeIn delay={0.1} className="md:col-span-7 space-y-5">
             <p className="ha-lead text-2xl md:text-[1.6rem] leading-snug text-balance">
-              I'm Emma, a researcher trained in linguistics and anthropology. I test whether the
-              instruments we use to judge AI hold up.
+              Test the instrument. Find the missing data. Give the data a{" "}
+              <span className="ha-say">voice</span>.
             </p>
             <p className="text-lg md:text-xl leading-relaxed text-pretty">
-              At Apple I just wrapped a multi-team study of naturalistic AI audio across devices,
-              where I led moderation, and I now coordinate studies at Apple. That work grew out of
-              my tribe's language,{" "}
+              At Apple I led moderation on a multi-team study of naturalistic AI audio across
+              devices, and I now coordinate studies there. Before that I studied my tribe's
+              language,{" "}
               <Link to="/story" className="link-underline text-pink-ink">
                 myaamiaataweenki
               </Link>
-              , which was declared extinct and rebuilt from archival recordings and elders' speech.
-              It taught me how much people carry in their words, and how easily a{" "}
+              , declared extinct and rebuilt from archival recordings and elders' speech. It taught
+              me how much people carry in their words, and how easily a{" "}
               <span className="ha-say">measurement misses it.</span>
             </p>
             <p className="ha-muted text-base md:text-lg leading-relaxed text-pretty">
-              I've also been building measurement and evaluation skills through{" "}
+              I've also built evaluation skills through{" "}
               <Link to="/now" className="link-underline text-pink-ink">
-                a five-part research portfolio
+                a self-directed research portfolio
               </Link>{" "}
-              on whether we can trust our measures of AI and learning: LLM judge reliability,
-              instrument validation, and experiments in AI tutoring.
+              on LLM judge reliability, instrument validation, and AI tutoring experiments.
             </p>
             <p className="text-base md:text-lg leading-relaxed text-pretty">
-              I'm exploring roles where language, culture, and ethnographic fieldwork shape how AI
-              gets built and evaluated. The buttons below lead to my résumé and the full case
-              studies, and you can{" "}
+              I'm looking for a team where language, culture, and fieldwork shape how AI gets built
+              and evaluated. Start with the case studies, then{" "}
               <Link to="/contact" className="link-underline text-pink-ink">
-                get in touch
-              </Link>{" "}
-              for a coffee chat.
+                tell me what your team is working on
+              </Link>
+              .
             </p>
             <div className="flex flex-wrap items-center gap-3.5 pt-3">
               <Magnetic strength={0.15}>
                 <Link to="/projects" className="ha-btn ha-btn-primary">
-                  See selected work →
+                  See the work →
                 </Link>
               </Magnetic>
               <Magnetic strength={0.15}>
@@ -169,26 +170,9 @@ function Hero() {
               </Magnetic>
               <Magnetic strength={0.15}>
                 <Link to="/contact" className="ha-btn ha-btn-ghost">
-                  Get in touch
+                  Work with me
                 </Link>
               </Magnetic>
-            </div>
-            <div className="flex flex-wrap gap-x-2.5 gap-y-2 pt-4">
-              {[
-                "Measurement validity",
-                "AI evaluation",
-                "Psychometrics & inter-rater reliability",
-                "Experimentation (A/B)",
-                "Conversational AI",
-                "Usability testing",
-              ].map((k) => (
-                <span
-                  key={k}
-                  className="label-mono px-3 py-1 rounded-full border border-hairline"
-                >
-                  {k}
-                </span>
-              ))}
             </div>
           </FadeIn>
         </div>
@@ -223,11 +207,11 @@ function FeaturedWork() {
         <FadeIn>
           <p className="label-mono mb-4">Selected work · 2021, 2026</p>
           <h2 className="font-display text-4xl md:text-5xl tracking-tight">
-            Research, end to end.
+            Start with the <span className="gradient-ink">proof.</span>
           </h2>
         </FadeIn>
         <Link to="/projects" className="hidden sm:inline-flex shrink-0 label-mono link-underline">
-          View all →
+          All {projects.length} case studies →
         </Link>
       </div>
 
@@ -242,11 +226,12 @@ function FeaturedWork() {
   );
 }
 
+// Cover fallbacks stay inside the garnet-and-gold palette while images load.
 const ACCENT_TINT: Record<string, string> = {
-  pink: "from-[oklch(0.78_0.16_355)] via-[oklch(0.7_0.18_320)] to-[oklch(0.62_0.22_293)]",
-  blue: "from-[oklch(0.78_0.13_220)] via-[oklch(0.68_0.18_258)] to-[oklch(0.55_0.22_280)]",
-  coral: "from-[oklch(0.78_0.17_355)] via-[oklch(0.65_0.22_320)] to-[oklch(0.58_0.22_293)]",
-  peach: "from-[oklch(0.85_0.14_60)] via-[oklch(0.75_0.18_30)] to-[oklch(0.62_0.22_355)]",
+  pink: "from-[oklch(0.84_0.05_18)] via-[oklch(0.7_0.09_14)] to-[oklch(0.45_0.17_14)]",
+  blue: "from-[oklch(0.92_0.05_85)] via-[oklch(0.8_0.08_80)] to-[oklch(0.61_0.11_80)]",
+  coral: "from-[oklch(0.78_0.09_22)] via-[oklch(0.58_0.15_12)] to-[oklch(0.41_0.16_14)]",
+  peach: "from-[oklch(0.93_0.04_72)] via-[oklch(0.84_0.06_60)] to-[oklch(0.66_0.1_45)]",
 };
 
 function ProjectCard({ project: p, index }: { project: typeof projects[number]; index: number }) {
@@ -315,13 +300,13 @@ function StoryFeature() {
     <section className="relative mx-auto max-w-7xl px-6 lg:px-12 py-20">
       <div className="grid gap-10 md:grid-cols-12 items-center">
         <FadeIn className="md:col-span-7">
-          <p className="label-mono mb-4">Story · Language revitalization</p>
+          <p className="label-mono mb-4">Story · Why I measure</p>
           <h2 className="font-display text-4xl md:text-5xl tracking-tight text-balance leading-[1.05]">
-            The language went from no fluent speakers <span className="gradient-ink">to more than a hundred.</span>
+            An extinct language taught me <span className="gradient-ink">to question the instrument.</span>
           </h2>
-          <p className="mt-5 text-lg text-foreground/80 leading-relaxed text-pretty max-w-[52ch]">
-            I'm a member of the myaamia people, the Miami Tribe of Oklahoma. The story of how our
-            language was reawakened, and what it means to preserve data in the age of AI.
+          <p className="mt-5 text-lg md:text-xl text-foreground/80 leading-relaxed text-pretty max-w-[52ch]">
+            Rebuilding myaamiaataweenki from archives is where I learned to check a source before
+            trusting it. That habit is the job now.
           </p>
           <Link
             to="/story"
@@ -377,9 +362,12 @@ function Closing() {
       </div>
       <FadeIn className="relative">
         <p className="label-mono mb-6">Let's talk</p>
-        <h2 className="font-display text-5xl md:text-7xl tracking-tight text-balance max-w-[16ch]">
-          The next study is <span className="gradient-ink">probably yours.</span>
+        <h2 className="font-display text-5xl md:text-7xl tracking-tight text-balance max-w-[18ch]">
+          Hire the person who <span className="gradient-ink">checks the number.</span>
         </h2>
+        <p className="mt-7 text-lg md:text-xl leading-relaxed text-pretty max-w-[46ch]">
+          Evaluation, measurement, and conversational AI research. Your data, my method, one team.
+        </p>
         <div className="mt-10 flex flex-wrap gap-4">
           <Link
             to="/contact"

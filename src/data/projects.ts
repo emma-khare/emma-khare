@@ -4,8 +4,8 @@ import reuImg from "@/assets/project-reu.jpg";
 import reuAllophonesImg from "@/assets/project-reu-allophones.jpg";
 import omahaImg from "@/assets/project-omaha.jpg";
 import woafmeowImg from "@/assets/project-woafmeow.jpg";
-import appleAudioImg from "@/assets/project-apple-audio.png";
-import romanceNlpImg from "@/assets/project-romance-nlp.png";
+import appleAudioImg from "@/assets/project-apple-audio.webp";
+import romanceNlpImg from "@/assets/project-romance-nlp.webp";
 import romanceCollageImg from "@/assets/project-sentiment-collage.jpg";
 import manuscriptCollageImg from "@/assets/project-manuscript-collage.jpg";
 import llmJudgeImg from "@/assets/cover-llm-judge.webp";
@@ -65,6 +65,11 @@ export type Project = {
 const projectsRaw: Project[] = [
   {
     slug: "apple-conversational-ai",
+    lessons: [
+      "One protocol can serve engineering, design, and research if all three are in the room at the start.",
+      "At volume, consistency is the deliverable: SOPs and trained moderators protect data more than any single session.",
+      "Designing for replication from day one turned a one-off study into infrastructure other teams reuse.",
+    ],
     image: appleAudioImg,
     title: "Multi-Device AI Audio Capture Study",
     tagline: "Lead moderator on a multi-team Apple study capturing naturalistic AI audio across consumer devices.",
@@ -128,15 +133,19 @@ const projectsRaw: Project[] = [
       engagement: [
         {
           title: "Study 1, Lead moderator",
-          body: "Protocol author, lead moderator, moderator trainer.",
+          body: "This case study: protocol author, lead moderator, moderator trainer.",
         },
         {
           title: "Study 2, Lead moderator",
-          body: "Selected again on a subsequent study.",
+          body: "Selected again on the strength of the first, on specialized audio equipment with a planned scale of 1,000 participants.",
         },
         {
           title: "Study 3, Contributing researcher",
           body: "Supported a concurrent research stream.",
+        },
+        {
+          title: "Study 4, Contributing researcher",
+          body: "Coordinating with international teams across 5+ locales and languages, which went on to adopt the protocols and materials I developed.",
         },
       ],
     },

@@ -1,6 +1,6 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useReducedMotion } from "framer-motion";
 
 const NAV = [
@@ -13,6 +13,21 @@ const NAV = [
 
 export function Header() {
   const { location } = useRouterState();
+  const [open, setOpen] = useState(false);
+  const isActive = (to: string) => location.pathname.startsWith(to);
+
+  useEffect(() => {
+    setOpen(false);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
 
   return (
     <motion.header
@@ -21,22 +36,75 @@ export function Header() {
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       className="sticky top-0 z-50 backdrop-blur-md bg-background/90 border-b border-hairline"
     >
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-12">
-        <Link to="/" className="group flex items-center gap-3">
-          <span className="relative inline-block h-2.5 w-2.5 rounded-full bg-pink">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-6 lg:px-12">
+        <Link to="/" className="group flex min-w-0 items-center gap-3">
+          <span className="relative inline-block h-2.5 w-2.5 shrink-0 rounded-full bg-pink">
             <span className="absolute inset-0 rounded-full bg-pink animate-ping opacity-50" />
           </span>
-          <span className="font-display text-lg leading-none">Emma Khare</span>
-          <span className="label-mono hidden sm:inline">AI Evaluation</span>
+          <span className="font-display text-lg leading-none whitespace-nowrap">Emma Khare</span>
+          <span className="label-mono hidden lg:inline">AI Evaluation</span>
         </Link>
 
-        <nav className="flex items-center gap-1 sm:gap-2">
-          {NAV.map((item) => {
-            const active = location.pathname.startsWith(item.to);
-            return <MagneticNavLink key={item.to} to={item.to} label={item.label} active={active} />;
-          })}
+        <nav className="hidden items-center gap-1 md:flex sm:gap-2">
+          {NAV.map((item) => (
+            <MagneticNavLink
+              key={item.to}
+              to={item.to}
+              label={item.label}
+              active={isActive(item.to)}
+            />
+          ))}
         </nav>
+
+        <button
+          type="button"
+          onClick={() => setOpen((value) => !value)}
+          aria-expanded={open}
+          aria-controls="mobile-nav"
+          aria-label={open ? "Close menu" : "Open menu"}
+          className="-mr-2 flex h-10 w-10 items-center justify-center md:hidden"
+        >
+          <span aria-hidden className="flex w-5 flex-col gap-[5px]">
+            <span
+              className={`h-px w-full bg-foreground transition-transform duration-300 ${
+                open ? "translate-y-[6px] rotate-45" : ""
+              }`}
+            />
+            <span
+              className={`h-px w-full bg-foreground transition-opacity duration-200 ${
+                open ? "opacity-0" : ""
+              }`}
+            />
+            <span
+              className={`h-px w-full bg-foreground transition-transform duration-300 ${
+                open ? "-translate-y-[6px] -rotate-45" : ""
+              }`}
+            />
+          </span>
+        </button>
       </div>
+
+      {open ? (
+        <div id="mobile-nav" className="border-t border-hairline bg-background md:hidden">
+          <nav className="mx-auto flex max-w-7xl flex-col px-5 sm:px-6">
+            {NAV.map((item) => (
+              <Link
+                key={item.to}
+                to={item.to}
+                onClick={() => setOpen(false)}
+                className={`flex items-center justify-between border-b border-hairline/60 py-3.5 text-base tracking-tight last:border-b-0 ${
+                  isActive(item.to) ? "text-pink-ink" : "text-foreground/80"
+                }`}
+              >
+                {item.label}
+                <span aria-hidden className="label-mono">
+                  {isActive(item.to) ? "●" : "→"}
+                </span>
+              </Link>
+            ))}
+          </nav>
+        </div>
+      ) : null}
     </motion.header>
   );
 }

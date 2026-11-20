@@ -1,10 +1,10 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { FadeIn, PageWrap } from "@/components/Motion";
 
 export const Route = createFileRoute("/resume")({
   head: () => ({
     meta: [
-      { title: "Résumé, Emma Khare" },
+      { title: "Résumé | Emma Khare" },
       {
         name: "description",
         content:
@@ -58,7 +58,7 @@ const EXPERIENCE: {
     org: "Apple (via Akkodis)",
     meta: "Cupertino, CA · Oct 2026 – Present",
     bullets: [
-      "Independently plan, execute, and synthesize qualitative and mixed-methods studies on undisclosed devices across multiple product areas, including high-confidentiality projects with enhanced security requirements.",
+      "Independently plan, execute, and synthesize qualitative and mixed-methods studies across multiple product areas, including high-confidentiality projects with enhanced security requirements.",
       "Develop research protocols, manage participant recruitment and screening, and lead end-to-end research sessions under strict confidentiality, disclosure-handling, and project-specific security protocols.",
       "Analyze complex qualitative findings and survey data, translating research into actionable insights and stakeholder share-outs that inform product and design decisions.",
       "Partner with product managers, designers, and engineers to align research objectives with user needs and business goals, adapting terminology for technical and non-technical audiences.",
@@ -129,19 +129,35 @@ const EXPERIENCE: {
 
 const PROJECTS: { title: string; meta: string; bullets: string[] }[] = [
   {
-    title: "AI and Gender in Romantic Fiction",
-    meta: "Python sentiment analysis · Miami University · 2021",
+    title: "Can We Trust an LLM Judge?",
+    meta: "LLM judge reliability · Independent · 2026",
     bullets: [
-      "Built a Python sentiment-analysis tool using NRCLex, NLTK, and WordNet to analyze emotional patterns and gender representation in large text datasets.",
-      "Created research personas linking computational insights to real stakeholder use cases, demonstrating adaptable UX methodology in an NLP context.",
+      "Repeated an LLM judge eight times per item and measured reliability with Cohen's kappa and bootstrap confidence intervals.",
+      "Found reliability of 0.85 on clear cases and 0.10 on ambiguous ones; a single call agreed with a human annotator at kappa 0.67, a majority of eight at 0.89.",
     ],
   },
   {
-    title: "Seven Generations Forward",
-    meta: "Community-based research & design · Miami University",
+    title: "Measuring AI Fluency: Building & Validating an Instrument",
+    meta: "Instrument design · construct validity · Independent · 2026",
     bullets: [
-      "Collaborated with Indigenous community leaders on participatory design sessions exploring intergenerational education models grounded in sustainability and identity.",
-      "Developed culturally responsive design frameworks and visual prototypes communicating community-defined educational futures.",
+      "Wrote an AI fluency rubric, then validated it against human judgment: Spearman's rho 0.96, within one level 100% of the time, Krippendorff's alpha 0.90.",
+      "Reported the validation evidence alongside the scale so the rubric's limits travel with it.",
+    ],
+  },
+  {
+    title: "Learning Signals: Capability vs. Engagement",
+    meta: "Measurement · learning sciences · Independent · 2026",
+    bullets: [
+      "Built a tool that reads a tutoring transcript and scores evidence of skill building rather than session activity.",
+      "Separated capability from engagement so an active session cannot pass as learning.",
+    ],
+  },
+  {
+    title: "Socratic vs. Direct Tutoring: An A/B Experiment",
+    meta: "Experimental design · statistical power · Independent · 2026",
+    bullets: [
+      "Ran a known-truth A/B validation that detected a real effect (d = 0.59, p < 0.001) and returned null when there was none (p = 0.91).",
+      "Showed a real effect being missed 70% of the time at small samples, and reported the power needed to detect it.",
     ],
   },
 ];
@@ -198,7 +214,7 @@ function Resume() {
             <p className="mt-5 text-lg text-foreground/80">
               AI Evaluation &amp; Measurement · Computational Linguistics · Conversational AI
             </p>
-            <p className="mt-2 label-mono">
+            <p className="mt-2 label-mono max-w-full break-words">
               San Jose, CA ·{" "}
               <a href="mailto:emmakhare24@gmail.com" className="link-underline">emmakhare24@gmail.com</a>{" "}
               ·{" "}
@@ -235,6 +251,14 @@ function Resume() {
             {SUMMARY}
           </p>
         </FadeIn>
+        <FadeIn delay={0.15} className="mt-8">
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-2 rounded-full bg-foreground text-background px-5 py-2.5 text-sm font-medium hover:scale-[1.02] transition-transform"
+          >
+            Hiring for this? Start an email →
+          </Link>
+        </FadeIn>
       </section>
 
       {/* Experience */}
@@ -247,7 +271,7 @@ function Resume() {
                   {job.role}{" "}
                   <span className="text-foreground/55">· {job.org}</span>
                 </h3>
-                <p className="label-mono shrink-0">{job.meta}</p>
+                <p className="label-mono min-w-0">{job.meta}</p>
               </div>
               <Bullets items={job.bullets} />
             </FadeIn>
@@ -262,7 +286,7 @@ function Resume() {
             <FadeIn key={p.title}>
               <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                 <h3 className="font-display text-xl md:text-2xl tracking-tight">{p.title}</h3>
-                <p className="label-mono shrink-0">{p.meta}</p>
+                <p className="label-mono min-w-0">{p.meta}</p>
               </div>
               <Bullets items={p.bullets} />
             </FadeIn>

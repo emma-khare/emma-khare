@@ -11,18 +11,17 @@ import archiveBand from "@/assets/archive-thread.webp";
 
 export const Route = createFileRoute("/story")({
   head: () => ({
-    meta: [
-      { title: "Breathing New Life into Language, Emma Khare" },
+          meta: [
+      { title: "Story: From Language to Measurement | Emma Khare" },
       {
         name: "description",
         content:
-          "A member of the myaamia people (Miami Tribe of Oklahoma) on the revitalization of myaamiaataweenki, comparative linguistics, fieldwork in Ireland, and what preservation means in the age of AI.",
+          "A member of the myaamia people (Miami Tribe of Oklahoma) on rebuilding myaamiaataweenki, and how that work taught her to read data holistically and notice what a measurement leaves out.",
       },
-      { property: "og:title", content: "Breathing New Life into Language, Emma Khare" },
+      { property: "og:title", content: "Story: From Language to Measurement | Emma Khare" },
       {
         property: "og:description",
-        content:
-          "Myaamiaataweenki, the language of the myaamia people, was declared extinct in the 1970s. Today more than a hundred people speak it. A story about language, data, and what preservation means.",
+        content: "Myaamiaataweenki, the language of the myaamia people, was declared extinct in the 1970s. Today more than a hundred people speak it. A story about language, data, and what preservation means.",
       },
     ],
   }),
@@ -153,9 +152,9 @@ function Story() {
       {/* HERO */}
       <section className="mx-auto max-w-4xl px-6 lg:px-12 pt-14 pb-10 border-t border-hairline">
         <FadeIn>
-          <p className="label-mono mb-6">Story · Language revitalization</p>
+          <p className="label-mono mb-6">Story · From language to measurement</p>
           <h1 className="font-display text-5xl md:text-7xl tracking-tight text-balance leading-[1.02]">
-            Breathing new life <span className="gradient-ink">into language.</span>
+            Language taught me to see data <span className="gradient-ink">holistically.</span>
           </h1>
         </FadeIn>
         <FadeIn delay={0.1}>
@@ -164,6 +163,8 @@ function Story() {
             <strong className="font-medium">Miami Tribe of Oklahoma</strong>. Our language,{" "}
             <em className="gradient-ink not-italic">myaamiaataweenki</em>, is being brought back
             into daily use, and we have a phrase for that work: breathing new life into language.
+            Rebuilding it from archives taught me to read data the same way, and to notice how much
+            a measurement leaves out.
           </p>
         </FadeIn>
       </section>
@@ -195,23 +196,28 @@ function Story() {
               work since.
             </p>
           </FadeIn>
-          <FadeIn delay={0.1}>
-            <p>
-              I'm standing on that.{" "}
-              <em className="gradient-ink not-italic">This part is mine.</em>
+          <FadeIn delay={0.1} className="space-y-3 pt-2">
+            <p className="font-flow text-[1.6rem] md:text-[2.1rem] leading-[1.25] text-pink text-pretty">
+              What we think is dead can wake. What comes next follows a legacy built{" "}
+              <span className="not-italic font-bold">holistically</span>.
+            </p>
+            <p className="font-flow text-lg md:text-xl leading-[1.4] text-foreground/60 text-pretty">
+              Rebuilding a language took decades of{" "}
+              <span className="not-italic font-bold text-foreground/85">checking sources</span>{" "}
+              against each other. Measurement deserves the same patience.
             </p>
           </FadeIn>
         </div>
 
         {/* STATS */}
-        <div className="mt-14 grid grid-cols-2 gap-8 md:grid-cols-4 border-y border-hairline py-10">
+        <div className="mt-14 grid grid-cols-2 gap-x-5 gap-y-10 md:grid-cols-4 border-y border-hairline py-10">
           {STATS.map((s) => (
-            <FadeIn key={s.label}>
+            <FadeIn key={s.label} className="min-w-0">
               <CountUp
                 value={s.value}
-                className="block font-display text-4xl md:text-5xl gradient-ink leading-none not-italic tabular-nums"
+                className="block whitespace-nowrap font-display text-[1.9rem] md:text-[2.05rem] lg:text-[2.3rem] gradient-ink leading-none not-italic tabular-nums"
               />
-              <p className="label-mono mt-3">{s.label}</p>
+              <p className="label-mono mt-3 max-w-[16ch]">{s.label}</p>
             </FadeIn>
           ))}
         </div>
@@ -249,7 +255,10 @@ function Story() {
           </FadeIn>
           <FadeIn delay={0.1} className="md:col-span-8 space-y-6">
             <p className="text-lg md:text-xl leading-relaxed text-foreground/85 text-pretty">
-              I chose the archive. Through the{" "}
+              <span className="mb-1 block font-display text-3xl md:text-4xl gradient-ink leading-none">
+                Archive.
+              </span>
+              Through the{" "}
               <a
                 href="https://miamioh.edu/miami-tribe-relations/myaamia-students/myaamia-heritage-award-program.html"
                 target="_blank"
@@ -258,8 +267,7 @@ function Story() {
               >
                 Myaamia Heritage Award Program
               </a>{" "}
-              at Miami University, I interned with the Tribe building its first storymaps of
-              culturally significant sites, and later made{" "}
+              I built the Tribe's first storymaps of culturally significant sites, then made{" "}
               <Link
                 to="/projects/$slug"
                 params={{ slug: "indigenous-climate-documentary" }}
@@ -271,12 +279,14 @@ function Story() {
               before trusting it.
             </p>
             <p className="text-lg md:text-xl leading-relaxed text-foreground/85 text-pretty">
-              I chose to test the method myself: my{" "}
+              <span className="mb-1 block font-display text-3xl md:text-4xl gradient-ink leading-none">
+                Method.
+              </span>
+              My{" "}
               <Link to="/projects/$slug" params={{ slug: "myaamia-allophones" }} className="link-underline text-pink-ink">
                 allophone study
               </Link>{" "}
-              applies the same comparative work to Myaamia and Ojibwe. At my NSF fellowship in Oregon
-              I worked inside the{" "}
+              applies comparative linguistics to Myaamia and Ojibwe. In Oregon I worked inside the{" "}
               <a
                 href="https://endangeredlanguages.com/resource/indigenous-languages-digital-archive-ilda"
                 target="_blank"
@@ -285,9 +295,8 @@ function Story() {
               >
                 Indigenous Languages Digital Archive
               </a>{" "}
-              while communities decided how their own material would be protected, and in Ireland I
-              interviewed people about Gaelic. Both left me asking who a dataset belongs to. I ask it
-              now of every evaluation set, including the{" "}
+              while communities decided how their own material would be protected. Who owns a dataset
+              is now a question I ask of every evaluation set, including the{" "}
               <Link
                 to="/projects/$slug"
                 params={{ slug: "llm-as-judge-reliability" }}
@@ -306,7 +315,10 @@ function Story() {
               studies.
             </p>
             <p className="text-lg md:text-xl leading-relaxed text-foreground/85 text-pretty">
-              I chose the technical side. In school I built a{" "}
+              <span className="mb-1 block font-display text-3xl md:text-4xl gradient-ink leading-none">
+                Technical.
+              </span>
+              In school I built a{" "}
               <Link
                 to="/projects/$slug"
                 params={{ slug: "ai-gender-romantic-fiction" }}
@@ -314,9 +326,20 @@ function Story() {
               >
                 Python sentiment analysis of romance fiction
               </Link>
-              , my first encounter with machine learning, and it is why I want to hold the
-              sociocultural and the technical together.
+              , my first encounter with machine learning. It is why I keep the sociocultural and the
+              technical together.
             </p>
+            <div className="border-l-2 border-pink-ink pl-5 pt-2 md:pl-6">
+              <p className="font-display text-[1.75rem] md:text-[2.5rem] leading-[1.14] text-balance text-pink">
+                Your team already has the data. I'm the one who makes it measurable.
+              </p>
+              <Link
+                to="/contact"
+                className="mt-5 inline-flex items-center gap-2 label-mono link-underline"
+              >
+                Tell me what your team is sitting on →
+              </Link>
+            </div>
           </FadeIn>
         </div>
       </section>
@@ -324,20 +347,9 @@ function Story() {
       {/* THESIS: the language work applied to technology */}
       <section className="mx-auto max-w-4xl px-6 lg:px-12 py-16 border-t border-hairline">
         <FadeIn>
-          <p className="label-mono mb-6">Breathing new life into technology</p>
-          <p className="font-display text-2xl md:text-3xl tracking-tight text-balance leading-[1.18] text-foreground/85 max-w-[42ch]">
-            The language was declared extinct. Dead. It is spoken{" "}
-            <span className="gradient-ink">again</span>.
-          </p>
-          <p className="mt-5 max-w-[58ch] text-base md:text-lg leading-relaxed text-foreground/70 text-pretty">
-            I don't treat that as a miracle. I treat it as a cornerstone: if it happened once, it can
-            happen again. Nothing is truly lost.
-          </p>
-        </FadeIn>
-        <FadeIn delay={0.1} className="mt-12">
+          <p className="label-mono mb-6">The same habit, applied to AI</p>
           <p className="font-display text-4xl md:text-6xl tracking-tight text-balance leading-[1.05] max-w-[24ch]">
-            AI that is more human, not as our replacement, but as a{" "}
-            <span className="gradient-ink">record of the best of who we are.</span>
+            I don't hand over a number I <span className="gradient-ink">can't defend.</span>
           </p>
         </FadeIn>
         <div className="mt-10 max-w-[62ch] space-y-6">
