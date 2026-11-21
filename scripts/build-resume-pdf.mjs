@@ -186,6 +186,22 @@ const LANGUAGES = [
   "Research experience: Irish (Gaeilge), Hanis, Coos, Miluk",
 ];
 
+const projects = (list) =>
+  list
+    .map(
+      (p) => `
+      <div class="job">
+        <div class="job-head">
+          <p class="job-title">${p.title}</p>
+          <p class="job-meta">${p.meta}</p>
+        </div>
+        <ul class="bullets">
+          ${p.bullets.map((b) => `<li>${b}</li>`).join("\n")}
+        </ul>
+      </div>`,
+    )
+    .join("\n");
+
 const jobs = (list) =>
   list
     .map(
@@ -208,15 +224,24 @@ const html = `<!doctype html>
     <meta charset="utf-8" />
     <title>${NAME}, Résumé</title>
     <style>
-      @page { size: Letter; margin: 0.6in 0.68in 0.55in; }
+      @page { size: Letter; margin: 0.42in 0.56in 0.36in; }
       * { box-sizing: border-box; }
       html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
       body {
         margin: 0;
         font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-        font-size: 9.6pt;
-        line-height: 1.4;
+        font-size: 9.1pt;
+        line-height: 1.25;
         color: #3a1c25;
+      }
+      .eyebrow {
+        margin: 0 0 5pt;
+        font-family: "SF Mono", "Menlo", monospace;
+        font-size: 7.4pt;
+        font-weight: 600;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: #98203f;
       }
       h1 {
         margin: 0;
@@ -240,13 +265,19 @@ const html = `<!doctype html>
         background: #c39a3c;
         margin: 11pt 0 0;
       }
+      .hiring {
+        margin: 7pt 0 0;
+        font-size: 9.1pt;
+        color: #98203f;
+      }
+      .hiring strong { font-weight: 600; }
       .summary {
-        margin: 10pt 0 0;
-        font-size: 10.2pt;
-        line-height: 1.45;
+        margin: 7pt 0 0;
+        font-size: 9.7pt;
+        line-height: 1.4;
       }
       h2 {
-        margin: 15pt 0 7pt;
+        margin: 8pt 0 4pt;
         padding-bottom: 3pt;
         border-bottom: 1px solid #e2d3c6;
         font-family: "SF Mono", "Menlo", monospace;
@@ -256,7 +287,7 @@ const html = `<!doctype html>
         text-transform: uppercase;
         color: #98203f;
       }
-      .job { margin: 0 0 9pt; break-inside: avoid; }
+      .job { margin: 0 0 4pt; break-inside: avoid; }
       .job-head {
         display: flex;
         align-items: baseline;
@@ -281,7 +312,7 @@ const html = `<!doctype html>
       .bullets { margin: 3pt 0 0; padding: 0; list-style: none; }
       .bullets li {
         position: relative;
-        margin: 0 0 2.5pt;
+        margin: 0 0 0.8pt;
         padding-left: 11pt;
       }
       .bullets li::before {
@@ -297,7 +328,7 @@ const html = `<!doctype html>
       table.skills { width: 100%; border-collapse: collapse; }
       table.skills th {
         width: 30%;
-        padding: 3pt 10pt 3pt 0;
+        padding: 2.2pt 10pt 2.2pt 0;
         vertical-align: top;
         text-align: left;
         font-family: "SF Mono", Menlo, monospace;
@@ -308,7 +339,7 @@ const html = `<!doctype html>
         color: #6b4550;
       }
       table.skills td {
-        padding: 3pt 0;
+        padding: 2.2pt 0;
         vertical-align: top;
         border-bottom: 1px solid #eee1d6;
       }
@@ -319,21 +350,23 @@ const html = `<!doctype html>
       .two-col > div { flex: 1; }
       .edu-title { margin: 0; font-size: 10.4pt; font-weight: 600; }
       .edu-meta {
-        margin: 2pt 0 0;
+        margin: 1pt 0 0;
         font-family: "SF Mono", Menlo, monospace;
         font-size: 7.4pt;
         letter-spacing: 0.04em;
         color: #8a616c;
       }
-      .edu-body { margin: 4pt 0 0; }
+      .edu-body { margin: 2pt 0 0; }
     </style>
   </head>
   <body>
     <header>
+      <p class="eyebrow">Résumé</p>
       <h1>${NAME}</h1>
       <p class="discipline">${DISCIPLINE}</p>
       <p class="contact">${CONTACT.join(" · ")}</p>
       <div class="rule"></div>
+      <p class="hiring"><strong>Hiring for this?</strong> Start an email: emmakhare24@gmail.com</p>
     </header>
 
     <p class="summary">${SUMMARY}</p>
@@ -342,7 +375,7 @@ const html = `<!doctype html>
     ${jobs(EXPERIENCE)}
 
     <h2>Selected research projects</h2>
-    ${jobs(PROJECTS)}
+    ${projects(PROJECTS)}
 
     <h2>Core skills</h2>
     <table class="skills">
@@ -357,7 +390,7 @@ const html = `<!doctype html>
       Computational Linguistics, Linguistic Anthropology, Research Methods.
     </p>
 
-    <div class="two-col" style="margin-top: 15pt">
+    <div class="two-col" style="margin-top: 6pt">
       <div>
         <h2 style="margin-top: 0">Certifications</h2>
         <ul class="plain">${CERTS.map((c) => `<li>${c}</li>`).join("")}</ul>

@@ -308,12 +308,21 @@ function StoryFeature() {
             Rebuilding myaamiaataweenki from archives is where I learned to check a source before
             trusting it. That habit is the job now.
           </p>
-          <Link
-            to="/story"
-            className="mt-7 inline-flex items-center gap-2 rounded-full bg-foreground text-background px-6 py-3 text-sm font-medium hover:scale-[1.02] transition-transform"
-          >
-            Read the story →
-          </Link>
+          <div className="mt-7 flex flex-wrap items-center gap-3">
+            <Link
+              to="/story"
+              className="inline-flex items-center gap-2 rounded-full bg-foreground text-background px-6 py-3 text-sm font-medium hover:scale-[1.02] transition-transform"
+            >
+              Read the story →
+            </Link>
+            <Link
+              to="/projects/$slug"
+              params={{ slug: "indigenous-climate-documentary" }}
+              className="inline-flex items-center gap-2 rounded-full border border-[#c39a3c] px-6 py-3 text-sm font-medium text-foreground hover:bg-[#c39a3c] hover:text-white transition-colors"
+            >
+              Watch the documentary
+            </Link>
+          </div>
         </FadeIn>
         <FadeIn delay={0.1} className="md:col-span-5">
           <blockquote className="font-display text-2xl md:text-3xl leading-snug text-pretty border-l-2 border-pink-ink pl-6 text-foreground/85">

@@ -121,7 +121,9 @@ function Now() {
       <section className="mx-auto max-w-7xl px-6 lg:px-12 py-16 border-t border-hairline">
         <div className="grid gap-12 md:grid-cols-12">
           <FadeIn className="md:col-span-4">
-            <p className="label-mono">Current focus</p>
+            <h2 className="font-display text-2xl md:text-3xl font-bold tracking-tight">
+              Current focus
+            </h2>
           </FadeIn>
           <StaggerList className="md:col-span-8 divide-y divide-hairline">
             {FOCUS.map((f) => (

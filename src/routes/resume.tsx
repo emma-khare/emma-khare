@@ -174,12 +174,25 @@ const LANGUAGES = [
   "Research experience: Irish (Gaeilge), Hanis, Coos, Miluk",
 ];
 
-function Row({ label, children }: { label: string; children: React.ReactNode }) {
+function Row({
+  label,
+  children,
+  prominent = false,
+}: {
+  label: string;
+  children: React.ReactNode;
+  /** Renders the label as a section heading instead of an eyebrow. */
+  prominent?: boolean;
+}) {
   return (
     <section className="mx-auto max-w-5xl px-6 lg:px-12 py-12 border-t border-hairline">
       <div className="grid gap-8 md:grid-cols-12">
         <FadeIn className="md:col-span-4">
-          <p className="label-mono">{label}</p>
+          {prominent ? (
+            <h2 className="font-display text-2xl md:text-3xl font-bold tracking-tight">{label}</h2>
+          ) : (
+            <p className="label-mono">{label}</p>
+          )}
         </FadeIn>
         <div className="md:col-span-8">{children}</div>
       </div>
@@ -295,7 +308,7 @@ function Resume() {
       </Row>
 
       {/* Skills */}
-      <Row label="Core skills">
+      <Row label="Core skills" prominent>
         <div className="divide-y divide-hairline">
           {SKILLS.map((s) => (
             <div key={s.group} className="grid md:grid-cols-12 gap-2 md:gap-4 py-4">

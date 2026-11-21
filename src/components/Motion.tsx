@@ -33,6 +33,35 @@ export function FadeIn({
   );
 }
 
+/** Display lead-in whose gold rule draws itself in once the reader reaches it. */
+export function RuleHeading({
+  children,
+  delay = 0,
+  className,
+}: {
+  children: ReactNode;
+  delay?: number;
+  className?: string;
+}) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-80px" });
+  const reduce = useReducedMotion();
+  return (
+    <span ref={ref} className={`block ${className ?? ""}`}>
+      <span className="block font-display text-3xl md:text-4xl gradient-ink leading-none">
+        {children}
+      </span>
+      <motion.span
+        aria-hidden="true"
+        className="mt-2 block h-px w-24 origin-left bg-gradient-to-r from-[#c39a3c] to-transparent"
+        initial={{ scaleX: reduce ? 1 : 0 }}
+        animate={inView ? { scaleX: 1 } : undefined}
+        transition={{ duration: 0.9, ease: EASE, delay }}
+      />
+    </span>
+  );
+}
+
 export function WordReveal({
   text,
   className,

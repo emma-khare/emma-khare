@@ -2,12 +2,13 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   FadeIn,
   PageWrap,
+  RuleHeading,
   StaggerList,
   StaggerItem,
   staggerItemVariants,
 } from "@/components/Motion";
-import { CountUp } from "@/components/Interaction";
 import archiveBand from "@/assets/archive-thread.webp";
+import fieldNotes from "@/assets/fieldnotes-ireland.jpg";
 
 export const Route = createFileRoute("/story")({
   head: () => ({
@@ -28,13 +29,6 @@ export const Route = createFileRoute("/story")({
   component: Story,
 });
 
-const STATS = [
-  { value: "0", label: "Fluent speakers by the 1990s" },
-  { value: "100+", label: "Myaamiaki speakers today" },
-  { value: "100,000+", label: "Archived words and phrases" },
-  { value: "5,000+", label: "Tribal members reached daily" },
-];
-
 type TimelineItem = {
   when: string;
   what: string;
@@ -51,7 +45,7 @@ const TIMELINE: TimelineItem[] = [
   },
   {
     when: "Jan 2024 – Sept 2025",
-    what: "UX Researcher · Woaf Meow / Luv Health",
+    what: "UXR · CA startups",
     slug: "woaf-meow-smart-ring",
   },
   {
@@ -95,7 +89,7 @@ function TimelineNode({ t, above }: { t: TimelineItem; above: boolean }) {
           above ? "bottom-[calc(50%+48px)]" : "top-[calc(50%+48px)]"
         }`}
       >
-        <span className="block font-mono text-[10px] uppercase tracking-[0.16em] text-pink-ink">
+        <span className="block text-balance font-mono text-[10px] uppercase tracking-[0.16em] text-pink-ink">
           {t.when}
         </span>
         <span className="mt-1.5 block font-display text-sm md:text-base leading-tight text-foreground text-balance transition-colors group-hover:text-pink-ink">
@@ -140,7 +134,7 @@ function Story() {
             />
             <ol className="relative grid grid-cols-7">
               {TIMELINE.map((t, i) => (
-                <li key={t.what} className="relative h-[260px]">
+                <li key={t.what} className="relative h-[300px]">
                   <TimelineNode t={t} above={i % 2 === 0} />
                 </li>
               ))}
@@ -204,22 +198,9 @@ function Story() {
             <p className="font-flow text-lg md:text-xl leading-[1.4] text-foreground/60 text-pretty">
               Rebuilding a language took decades of{" "}
               <span className="not-italic font-bold text-foreground/85">checking sources</span>{" "}
-              against each other. Measurement deserves the same patience.
+              against each other. Measurement deserves the same practice.
             </p>
           </FadeIn>
-        </div>
-
-        {/* STATS */}
-        <div className="mt-14 grid grid-cols-2 gap-x-5 gap-y-10 md:grid-cols-4 border-y border-hairline py-10">
-          {STATS.map((s) => (
-            <FadeIn key={s.label} className="min-w-0">
-              <CountUp
-                value={s.value}
-                className="block whitespace-nowrap font-display text-[1.9rem] md:text-[2.05rem] lg:text-[2.3rem] gradient-ink leading-none not-italic tabular-nums"
-              />
-              <p className="label-mono mt-3 max-w-[16ch]">{s.label}</p>
-            </FadeIn>
-          ))}
         </div>
 
         <FadeIn>
@@ -255,9 +236,7 @@ function Story() {
           </FadeIn>
           <FadeIn delay={0.1} className="md:col-span-8 space-y-6">
             <p className="text-lg md:text-xl leading-relaxed text-foreground/85 text-pretty">
-              <span className="mb-1 block font-display text-3xl md:text-4xl gradient-ink leading-none">
-                Archive.
-              </span>
+              <RuleHeading>Archive.</RuleHeading>
               Through the{" "}
               <a
                 href="https://miamioh.edu/miami-tribe-relations/myaamia-students/myaamia-heritage-award-program.html"
@@ -279,9 +258,7 @@ function Story() {
               before trusting it.
             </p>
             <p className="text-lg md:text-xl leading-relaxed text-foreground/85 text-pretty">
-              <span className="mb-1 block font-display text-3xl md:text-4xl gradient-ink leading-none">
-                Method.
-              </span>
+              <RuleHeading delay={0.05}>Method.</RuleHeading>
               My{" "}
               <Link to="/projects/$slug" params={{ slug: "myaamia-allophones" }} className="link-underline text-pink-ink">
                 allophone study
@@ -315,9 +292,7 @@ function Story() {
               studies.
             </p>
             <p className="text-lg md:text-xl leading-relaxed text-foreground/85 text-pretty">
-              <span className="mb-1 block font-display text-3xl md:text-4xl gradient-ink leading-none">
-                Technical.
-              </span>
+              <RuleHeading delay={0.05}>Technical.</RuleHeading>
               In school I built a{" "}
               <Link
                 to="/projects/$slug"
@@ -343,6 +318,11 @@ function Story() {
           </FadeIn>
         </div>
       </section>
+
+      {/* MEASUREMENT PLATE — the same page, now under a ruler */}
+      <div aria-hidden className="mx-auto my-10 w-full max-w-4xl px-6 lg:px-12">
+        <img src={fieldNotes} alt="" loading="lazy" className="band-blend w-full" />
+      </div>
 
       {/* THESIS: the language work applied to technology */}
       <section className="mx-auto max-w-4xl px-6 lg:px-12 py-16 border-t border-hairline">
@@ -385,11 +365,10 @@ function Story() {
             <StaggerList className="flex flex-wrap gap-4 pt-2">
               <StaggerItem variants={staggerItemVariants}>
                 <Link
-                  to="/projects/$slug"
-                  params={{ slug: "indigenous-climate-documentary" }}
+                  to="/contact"
                   className="inline-flex items-center gap-2 rounded-full bg-foreground text-background px-6 py-3 text-sm font-medium hover:scale-[1.02] transition-transform"
                 >
-                  Watch the documentary →
+                  Test me →
                 </Link>
               </StaggerItem>
               <StaggerItem variants={staggerItemVariants}>
